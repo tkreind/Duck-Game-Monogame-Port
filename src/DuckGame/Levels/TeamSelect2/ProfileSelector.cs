@@ -601,7 +601,7 @@ namespace DuckGame
           }
         }
         this._font.alpha = this._fade;
-        this._font.depth = (Depth) 0.96f;
+        this._font.depth = new Depth(0.96f);
         this._font.scale = new Vec2(1f, 1f);
         if (this._mode == PSMode.EditControls)
         {
@@ -616,46 +616,46 @@ namespace DuckGame
             text = text.Substring(0, 15) + "...";
           if (this._controlPosition == 0)
             text = "< " + text + " >";
-          this._smallFont.Draw(text, Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) this._smallFont.GetWidth(text) / 2.0), this.y + num1)), Colors.MenuOption * (this._controlPosition == 0 ? 1f : 0.6f), (Depth) 0.95f);
+          this._smallFont.Draw(text, Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) this._smallFont.GetWidth(text) / 2.0), this.y + num1)), Colors.MenuOption * (this._controlPosition == 0 ? 1f : 0.6f), new Depth(0.95f));
           float num2 = 62f;
           string str1 = "{:|DGBLUE|";
           string str2 = "_";
-          this._smallFont.Draw(!this._editControl || this._controlPosition != 1 ? str1 + this._configInputMapping.GetMappingString("LEFT") : str1 + str2, Maths.RoundToPixel(new Vec2(this.x + this.width / 2f - num2, (float) ((double) this.y + (double) num1 + 8.0))), Colors.MenuOption * (this._controlPosition == 1 ? 1f : 0.6f), (Depth) 0.95f);
+          this._smallFont.Draw(!this._editControl || this._controlPosition != 1 ? str1 + this._configInputMapping.GetMappingString("LEFT") : str1 + str2, Maths.RoundToPixel(new Vec2(this.x + this.width / 2f - num2, (float) ((double) this.y + (double) num1 + 8.0))), Colors.MenuOption * (this._controlPosition == 1 ? 1f : 0.6f), new Depth(0.95f));
           string str3 = "/:|DGBLUE|";
-          this._smallFont.Draw(!this._editControl || this._controlPosition != 2 ? str3 + this._configInputMapping.GetMappingString("RIGHT") : str3 + str2, Maths.RoundToPixel(new Vec2(this.x + this.width / 2f - num2, (float) ((double) this.y + (double) num1 + 8.0 + 6.0))), Colors.MenuOption * (this._controlPosition == 2 ? 1f : 0.6f), (Depth) 0.95f);
+          this._smallFont.Draw(!this._editControl || this._controlPosition != 2 ? str3 + this._configInputMapping.GetMappingString("RIGHT") : str3 + str2, Maths.RoundToPixel(new Vec2(this.x + this.width / 2f - num2, (float) ((double) this.y + (double) num1 + 8.0 + 6.0))), Colors.MenuOption * (this._controlPosition == 2 ? 1f : 0.6f), new Depth(0.95f));
           string str4 = "}:|DGBLUE|";
-          this._smallFont.Draw(!this._editControl || this._controlPosition != 3 ? str4 + this._configInputMapping.GetMappingString("UP") : str4 + str2, Maths.RoundToPixel(new Vec2(this.x + this.width / 2f - num2, (float) ((double) this.y + (double) num1 + 8.0 + 12.0))), Colors.MenuOption * (this._controlPosition == 3 ? 1f : 0.6f), (Depth) 0.95f);
+          this._smallFont.Draw(!this._editControl || this._controlPosition != 3 ? str4 + this._configInputMapping.GetMappingString("UP") : str4 + str2, Maths.RoundToPixel(new Vec2(this.x + this.width / 2f - num2, (float) ((double) this.y + (double) num1 + 8.0 + 12.0))), Colors.MenuOption * (this._controlPosition == 3 ? 1f : 0.6f), new Depth(0.95f));
           string str5 = "~:|DGBLUE|";
-          this._smallFont.Draw(!this._editControl || this._controlPosition != 4 ? str5 + this._configInputMapping.GetMappingString("DOWN") : str5 + str2, Maths.RoundToPixel(new Vec2(this.x + this.width / 2f - num2, (float) ((double) this.y + (double) num1 + 8.0 + 12.0 + 6.0))), Colors.MenuOption * (this._controlPosition == 4 ? 1f : 0.6f), (Depth) 0.95f);
+          this._smallFont.Draw(!this._editControl || this._controlPosition != 4 ? str5 + this._configInputMapping.GetMappingString("DOWN") : str5 + str2, Maths.RoundToPixel(new Vec2(this.x + this.width / 2f - num2, (float) ((double) this.y + (double) num1 + 8.0 + 12.0 + 6.0))), Colors.MenuOption * (this._controlPosition == 4 ? 1f : 0.6f), new Depth(0.95f));
           string str6 = "START:|DGBLUE|";
-          this._smallFont.Draw(!this._editControl || this._controlPosition != 5 ? str6 + this._configInputMapping.GetMappingString("START") : str6 + str2, Maths.RoundToPixel(new Vec2(this.x + this.width / 2f - num2, (float) ((double) this.y + (double) num1 + 8.0 + 12.0 + 6.0 + 6.0))), Colors.MenuOption * (this._controlPosition == 5 ? 1f : 0.6f), (Depth) 0.95f);
+          this._smallFont.Draw(!this._editControl || this._controlPosition != 5 ? str6 + this._configInputMapping.GetMappingString("START") : str6 + str2, Maths.RoundToPixel(new Vec2(this.x + this.width / 2f - num2, (float) ((double) this.y + (double) num1 + 8.0 + 12.0 + 6.0 + 6.0))), Colors.MenuOption * (this._controlPosition == 5 ? 1f : 0.6f), new Depth(0.95f));
           string str7 = "QUACK:|DGBLUE|";
-          this._smallFont.Draw(!this._editControl || this._controlPosition != 6 ? str7 + this._configInputMapping.GetMappingString("QUACK") : str7 + str2, Maths.RoundToPixel(new Vec2(this.x + this.width / 2f - num2, (float) ((double) this.y + (double) num1 + 8.0 + 12.0 + 6.0 + 6.0 + 6.0))), Colors.MenuOption * (this._controlPosition == 6 ? 1f : 0.6f), (Depth) 0.95f);
+          this._smallFont.Draw(!this._editControl || this._controlPosition != 6 ? str7 + this._configInputMapping.GetMappingString("QUACK") : str7 + str2, Maths.RoundToPixel(new Vec2(this.x + this.width / 2f - num2, (float) ((double) this.y + (double) num1 + 8.0 + 12.0 + 6.0 + 6.0 + 6.0))), Colors.MenuOption * (this._controlPosition == 6 ? 1f : 0.6f), new Depth(0.95f));
           string str8 = "ACCEPT:|DGBLUE|";
-          this._smallFont.Draw(!this._editControl || this._controlPosition != 7 ? str8 + this._configInputMapping.GetMappingString("SELECT") : str8 + str2, Maths.RoundToPixel(new Vec2(this.x + this.width / 2f - num2, (float) ((double) this.y + (double) num1 + 8.0 + 12.0 + 6.0 + 6.0 + 6.0 + 6.0))), Colors.MenuOption * (this._controlPosition == 7 ? 1f : 0.6f), (Depth) 0.95f);
+          this._smallFont.Draw(!this._editControl || this._controlPosition != 7 ? str8 + this._configInputMapping.GetMappingString("SELECT") : str8 + str2, Maths.RoundToPixel(new Vec2(this.x + this.width / 2f - num2, (float) ((double) this.y + (double) num1 + 8.0 + 12.0 + 6.0 + 6.0 + 6.0 + 6.0))), Colors.MenuOption * (this._controlPosition == 7 ? 1f : 0.6f), new Depth(0.95f));
           string str9 = "STRAFE:|DGBLUE|";
-          this._smallFont.Draw(!this._editControl || this._controlPosition != 8 ? str9 + this._configInputMapping.GetMappingString("STRAFE") : str9 + str2, Maths.RoundToPixel(new Vec2(this.x + this.width / 2f - num2, (float) ((double) this.y + (double) num1 + 8.0 + 12.0 + 6.0 + 6.0 + 6.0 + 6.0 + 6.0))), Colors.MenuOption * (this._controlPosition == 8 ? 1f : 0.6f), (Depth) 0.95f);
+          this._smallFont.Draw(!this._editControl || this._controlPosition != 8 ? str9 + this._configInputMapping.GetMappingString("STRAFE") : str9 + str2, Maths.RoundToPixel(new Vec2(this.x + this.width / 2f - num2, (float) ((double) this.y + (double) num1 + 8.0 + 12.0 + 6.0 + 6.0 + 6.0 + 6.0 + 6.0))), Colors.MenuOption * (this._controlPosition == 8 ? 1f : 0.6f), new Depth(0.95f));
           float num3 = 4f;
           string str10 = "JUMP:|DGBLUE|";
-          this._smallFont.Draw(!this._editControl || this._controlPosition != 9 ? str10 + this._configInputMapping.GetMappingString("JUMP") : str10 + str2, Maths.RoundToPixel(new Vec2(this.x + this.width / 2f - num3, (float) ((double) this.y + (double) num1 + 8.0))), Colors.MenuOption * (this._controlPosition == 9 ? 1f : 0.6f), (Depth) 0.95f);
+          this._smallFont.Draw(!this._editControl || this._controlPosition != 9 ? str10 + this._configInputMapping.GetMappingString("JUMP") : str10 + str2, Maths.RoundToPixel(new Vec2(this.x + this.width / 2f - num3, (float) ((double) this.y + (double) num1 + 8.0))), Colors.MenuOption * (this._controlPosition == 9 ? 1f : 0.6f), new Depth(0.95f));
           string str11 = "GRAB:|DGBLUE|";
-          this._smallFont.Draw(!this._editControl || this._controlPosition != 10 ? str11 + this._configInputMapping.GetMappingString("GRAB") : str11 + str2, Maths.RoundToPixel(new Vec2(this.x + this.width / 2f - num3, (float) ((double) this.y + (double) num1 + 8.0 + 6.0))), Colors.MenuOption * (this._controlPosition == 10 ? 1f : 0.6f), (Depth) 0.95f);
+          this._smallFont.Draw(!this._editControl || this._controlPosition != 10 ? str11 + this._configInputMapping.GetMappingString("GRAB") : str11 + str2, Maths.RoundToPixel(new Vec2(this.x + this.width / 2f - num3, (float) ((double) this.y + (double) num1 + 8.0 + 6.0))), Colors.MenuOption * (this._controlPosition == 10 ? 1f : 0.6f), new Depth(0.95f));
           string str12 = "TRIP:|DGBLUE|";
-          this._smallFont.Draw(!this._editControl || this._controlPosition != 11 ? str12 + this._configInputMapping.GetMappingString("RAGDOLL") : str12 + str2, Maths.RoundToPixel(new Vec2(this.x + this.width / 2f - num3, (float) ((double) this.y + (double) num1 + 8.0 + 12.0))), Colors.MenuOption * (this._controlPosition == 11 ? 1f : 0.6f), (Depth) 0.95f);
+          this._smallFont.Draw(!this._editControl || this._controlPosition != 11 ? str12 + this._configInputMapping.GetMappingString("RAGDOLL") : str12 + str2, Maths.RoundToPixel(new Vec2(this.x + this.width / 2f - num3, (float) ((double) this.y + (double) num1 + 8.0 + 12.0))), Colors.MenuOption * (this._controlPosition == 11 ? 1f : 0.6f), new Depth(0.95f));
           string str13 = "FIRE:|DGBLUE|";
-          this._smallFont.Draw(!this._editControl || this._controlPosition != 12 ? str13 + this._configInputMapping.GetMappingString("SHOOT") : str13 + str2, Maths.RoundToPixel(new Vec2(this.x + this.width / 2f - num3, (float) ((double) this.y + (double) num1 + 8.0 + 12.0 + 6.0))), Colors.MenuOption * (this._controlPosition == 12 ? 1f : 0.6f), (Depth) 0.95f);
+          this._smallFont.Draw(!this._editControl || this._controlPosition != 12 ? str13 + this._configInputMapping.GetMappingString("SHOOT") : str13 + str2, Maths.RoundToPixel(new Vec2(this.x + this.width / 2f - num3, (float) ((double) this.y + (double) num1 + 8.0 + 12.0 + 6.0))), Colors.MenuOption * (this._controlPosition == 12 ? 1f : 0.6f), new Depth(0.95f));
           string str14 = "|DGGREEN|LS:|DGYELLOW|";
-          this._smallFont.Draw(!this._editControl || this._controlPosition != 13 ? str14 + this._configInputMapping.GetMappingString("LSTICK") : str14 + str2, Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) num3 + 34.0), (float) ((double) this.y + (double) num1 + 8.0 + 6.0 + 12.0 + 6.0))), Colors.MenuOption * (this._controlPosition == 13 ? 1f : 0.6f), (Depth) 0.95f);
+          this._smallFont.Draw(!this._editControl || this._controlPosition != 13 ? str14 + this._configInputMapping.GetMappingString("LSTICK") : str14 + str2, Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) num3 + 34.0), (float) ((double) this.y + (double) num1 + 8.0 + 6.0 + 12.0 + 6.0))), Colors.MenuOption * (this._controlPosition == 13 ? 1f : 0.6f), new Depth(0.95f));
           string str15 = "|DGGREEN|RS:|DGYELLOW|";
-          this._smallFont.Draw(!this._editControl || this._controlPosition != 14 ? str15 + this._configInputMapping.GetMappingString("RSTICK") : str15 + str2, Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) num3 + 34.0), (float) ((double) this.y + (double) num1 + 8.0 + 6.0 + 12.0 + 6.0 + 6.0))), Colors.MenuOption * (this._controlPosition == 14 ? 1f : 0.6f), (Depth) 0.95f);
+          this._smallFont.Draw(!this._editControl || this._controlPosition != 14 ? str15 + this._configInputMapping.GetMappingString("RSTICK") : str15 + str2, Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) num3 + 34.0), (float) ((double) this.y + (double) num1 + 8.0 + 6.0 + 12.0 + 6.0 + 6.0))), Colors.MenuOption * (this._controlPosition == 14 ? 1f : 0.6f), new Depth(0.95f));
           string str16 = "|DGGREEN|LT:|DGYELLOW|";
-          this._smallFont.Draw(!this._editControl || this._controlPosition != 15 ? str16 + this._configInputMapping.GetMappingString("LTRIGGER") : str16 + str2, Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) num3 + 34.0), (float) ((double) this.y + (double) num1 + 8.0 + 6.0 + 12.0 + 6.0 + 6.0 + 6.0))), Colors.MenuOption * (this._controlPosition == 15 ? 1f : 0.6f), (Depth) 0.95f);
+          this._smallFont.Draw(!this._editControl || this._controlPosition != 15 ? str16 + this._configInputMapping.GetMappingString("LTRIGGER") : str16 + str2, Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) num3 + 34.0), (float) ((double) this.y + (double) num1 + 8.0 + 6.0 + 12.0 + 6.0 + 6.0 + 6.0))), Colors.MenuOption * (this._controlPosition == 15 ? 1f : 0.6f), new Depth(0.95f));
           string str17 = "|DGGREEN|RT:|DGYELLOW|";
-          this._smallFont.Draw(!this._editControl || this._controlPosition != 16 ? str17 + this._configInputMapping.GetMappingString("RTRIGGER") : str17 + str2, Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) num3 + 34.0), (float) ((double) this.y + (double) num1 + 8.0 + 6.0 + 12.0 + 6.0 + 6.0 + 6.0 + 6.0))), Colors.MenuOption * (this._controlPosition == 16 ? 1f : 0.6f), (Depth) 0.95f);
-          this._smallFont.Draw("ACCEPT", Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - 48.0), (float) ((double) this.y + (double) num1 + 9.0 + 22.0 + 6.0 + 6.0 + 6.0 + 8.0))), Colors.MenuOption * (this._controlPosition == 17 ? 1f : 0.6f), (Depth) 0.95f);
-          this._smallFont.Draw("CANCEL", Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 + 10.0), (float) ((double) this.y + (double) num1 + 9.0 + 22.0 + 6.0 + 6.0 + 6.0 + 8.0))), Colors.MenuOption * (this._controlPosition == 18 ? 1f : 0.6f), (Depth) 0.95f);
-          this._font.Draw("@SELECT@", 4f, 79f, new Color(180, 180, 180), (Depth) 0.95f, this._profile.inputProfile);
-          this._font.Draw("@QUACK@", 122f, 79f, new Color(180, 180, 180), (Depth) 0.95f, this._profile.inputProfile);
+          this._smallFont.Draw(!this._editControl || this._controlPosition != 16 ? str17 + this._configInputMapping.GetMappingString("RTRIGGER") : str17 + str2, Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) num3 + 34.0), (float) ((double) this.y + (double) num1 + 8.0 + 6.0 + 12.0 + 6.0 + 6.0 + 6.0 + 6.0))), Colors.MenuOption * (this._controlPosition == 16 ? 1f : 0.6f), new Depth(0.95f));
+          this._smallFont.Draw("ACCEPT", Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - 48.0), (float) ((double) this.y + (double) num1 + 9.0 + 22.0 + 6.0 + 6.0 + 6.0 + 8.0))), Colors.MenuOption * (this._controlPosition == 17 ? 1f : 0.6f), new Depth(0.95f));
+          this._smallFont.Draw("CANCEL", Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 + 10.0), (float) ((double) this.y + (double) num1 + 9.0 + 22.0 + 6.0 + 6.0 + 6.0 + 8.0))), Colors.MenuOption * (this._controlPosition == 18 ? 1f : 0.6f), new Depth(0.95f));
+          this._font.Draw("@SELECT@", 4f, 79f, new Color(180, 180, 180), new Depth(0.95f), this._profile.inputProfile);
+          this._font.Draw("@QUACK@", 122f, 79f, new Color(180, 180, 180), new Depth(0.95f), this._profile.inputProfile);
           this.position = position;
           this._selector.screen.EndDraw();
         }
@@ -666,7 +666,7 @@ namespace DuckGame
           this.position = Vec2.Zero;
           this._selector.screen.BeginDraw();
           string text1 = "@LWING@PICK PROFILE@RWING@";
-          this._font.Draw(text1, Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) this._font.GetWidth(text1) / 2.0), this.y + 8f)), Color.White, (Depth) 0.95f);
+          this._font.Draw(text1, Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) this._font.GetWidth(text1) / 2.0), this.y + 8f)), Color.White, new Depth(0.95f));
           float num1 = 8f;
           for (int index1 = 0; index1 < 7; ++index1)
           {
@@ -703,14 +703,14 @@ namespace DuckGame
               flag3 = true;
             if (flag3)
               text2 = text2.Replace("|DGBLUE|", "");
-            this._font.Draw(text2, Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) this._font.GetWidth(text2) / 2.0), y)), (flag3 ? Color.Red : (flag1 ? Color.Lime : (flag2 ? Colors.DGYellow : Colors.MenuOption))) * num6, (Depth) 0.95f);
+            this._font.Draw(text2, Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) this._font.GetWidth(text2) / 2.0), y)), (flag3 ? Color.Red : (flag1 ? Color.Lime : (flag2 ? Colors.DGYellow : Colors.MenuOption))) * num6, new Depth(0.95f));
             if (text3 != null)
-              this._font.Draw(text3, Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) this._font.GetWidth(text3) / 2.0), y)), Color.White, (Depth) 0.92f);
+              this._font.Draw(text3, Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) this._font.GetWidth(text3) / 2.0), y)), Color.White, new Depth(0.92f));
           }
           float y1 = num1 + 32f;
-          Graphics.DrawRect(this.position + new Vec2(2f, y1), this.position + new Vec2(138f, y1 + 9f), new Color(30, 30, 30) * this._fade, (Depth) 0.8f);
-          this._font.Draw("@SELECT@", 4f, 79f, new Color(180, 180, 180), (Depth) 0.95f, this._profile.inputProfile);
-          this._font.Draw(Profiles.IsDefault(this._profile) || this._selectorPosition == -1 || this._profile.steamID != 0UL ? "@QUACK@" : "@GRAB@", 122f, 79f, new Color(180, 180, 180), (Depth) 0.95f, this._profile.inputProfile);
+          Graphics.DrawRect(this.position + new Vec2(2f, y1), this.position + new Vec2(138f, y1 + 9f), new Color(30, 30, 30) * this._fade, new Depth(0.8f));
+          this._font.Draw("@SELECT@", 4f, 79f, new Color(180, 180, 180), new Depth(0.95f), this._profile.inputProfile);
+          this._font.Draw(Profiles.IsDefault(this._profile) || this._selectorPosition == -1 || this._profile.steamID != 0UL ? "@QUACK@" : "@GRAB@", 122f, 79f, new Color(180, 180, 180), new Depth(0.95f), this._profile.inputProfile);
           this.position = position;
           this._selector.screen.EndDraw();
         }
@@ -722,9 +722,9 @@ namespace DuckGame
           this.position = Vec2.Zero;
           this._selector.screen.BeginDraw();
           string text1 = "@LWING@New Profile@RWING@";
-          this._font.Draw(text1, Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) this._font.GetWidth(text1) / 2.0), this.y + 8f)), Color.White * (1f - Math.Min(1f, this._takenFlash * 2f)), (Depth) 0.95f);
+          this._font.Draw(text1, Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) this._font.GetWidth(text1) / 2.0), this.y + 8f)), Color.White * (1f - Math.Min(1f, this._takenFlash * 2f)), new Depth(0.95f));
           string text2 = "Name Taken";
-          this._font.Draw(text2, Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) this._font.GetWidth(text2) / 2.0), this.y + 8f)), Color.Red * this._takenFlash, (Depth) 0.97f);
+          this._font.Draw(text2, Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) this._font.GetWidth(text2) / 2.0), this.y + 8f)), Color.Red * this._takenFlash, new Depth(0.97f));
           string text3 = "NONAME";
           if (this._name != "")
             text3 = this._name;
@@ -733,75 +733,75 @@ namespace DuckGame
           {
             for (int index = 0; index < 9; ++index)
             {
-              Graphics.DrawRect(pos + new Vec2((float) (index * 8), 0.0f), pos + new Vec2((float) (index * 8 + 7), 7f), new Color(60, 60, 60), (Depth) 0.8f);
+              Graphics.DrawRect(pos + new Vec2((float) (index * 8), 0.0f), pos + new Vec2((float) (index * 8 + 7), 7f), new Color(60, 60, 60), new Depth(0.8f));
               if (index == this._currentLetter)
               {
                 this._spinnerArrows.frame = 0;
                 Vec2 vec2_1 = pos + new Vec2((float) (index * 8), -6f);
-                Graphics.Draw((Sprite) this._spinnerArrows, vec2_1.x, vec2_1.y, (Depth) 0.95f);
+                Graphics.Draw((Sprite) this._spinnerArrows, vec2_1.x, vec2_1.y, new Depth(0.95f));
                 this._spinnerArrows.frame = 1;
                 Vec2 vec2_2 = pos + new Vec2((float) (index * 8), 9f);
-                Graphics.Draw((Sprite) this._spinnerArrows, vec2_2.x, vec2_2.y, (Depth) 0.95f);
-                Graphics.DrawRect(pos + new Vec2((float) (index * 8 - 2), -2f), pos + new Vec2((float) (index * 8 + 9), 9f), Color.White * 0.8f, (Depth) 0.97f, false);
+                Graphics.Draw((Sprite) this._spinnerArrows, vec2_2.x, vec2_2.y, new Depth(0.95f));
+                Graphics.DrawRect(pos + new Vec2((float) (index * 8 - 2), -2f), pos + new Vec2((float) (index * 8 + 9), 9f), Color.White * 0.8f, new Depth(0.97f), false);
               }
             }
-            this._font.Draw(text3, Maths.RoundToPixel(pos), Color.Lime * (this._createSelection == PSCreateSelection.ChangeName ? 1f : 0.6f), (Depth) 0.95f);
+            this._font.Draw(text3, Maths.RoundToPixel(pos), Color.Lime * (this._createSelection == PSCreateSelection.ChangeName ? 1f : 0.6f), new Depth(0.95f));
             string text4 = ">              <";
-            this._font.Draw(text4, Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) this._font.GetWidth(text4) / 2.0), pos.y)), Color.White * (this._createSelection == PSCreateSelection.ChangeName ? 1f : 0.6f), (Depth) 0.95f);
+            this._font.Draw(text4, Maths.RoundToPixel(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) this._font.GetWidth(text4) / 2.0), pos.y)), Color.White * (this._createSelection == PSCreateSelection.ChangeName ? 1f : 0.6f), new Depth(0.95f));
           }
           else
           {
             string text4 = text3.Replace(" ", "");
             if (this._createSelection == PSCreateSelection.ChangeName)
               text4 = "> " + text4 + " <";
-            this._font.Draw(text4, Maths.RoundToPixel(new Vec2((float) ((double) this.x + 2.0 + (double) this.width / 2.0 - (double) this._font.GetWidth(text4) / 2.0), pos.y)), Colors.MenuOption * (this._createSelection == PSCreateSelection.ChangeName ? 1f : 0.6f), (Depth) 0.95f);
+            this._font.Draw(text4, Maths.RoundToPixel(new Vec2((float) ((double) this.x + 2.0 + (double) this.width / 2.0 - (double) this._font.GetWidth(text4) / 2.0), pos.y)), Colors.MenuOption * (this._createSelection == PSCreateSelection.ChangeName ? 1f : 0.6f), new Depth(0.95f));
           }
           float ypos = this.y + 34f;
           string text5 = "            ";
           if (this._createSelection == PSCreateSelection.Mood)
             text5 = "< " + text5 + " >";
-          this._font.Draw(text5, (float) ((double) this.x + (double) this.width / 2.0 - (double) this._font.GetWidth(text5) / 2.0), ypos, Color.White * (this._createSelection == PSCreateSelection.Mood ? 1f : 0.6f), (Depth) 0.95f);
-          Graphics.DrawLine(new Vec2((float) ((double) this.x + (double) this.width / 4.0 + 4.0), ypos + 5f), new Vec2(this.x + (float) ((double) this.width / 4.0 * 3.0), ypos + 5f), Colors.MenuOption * (this._createSelection == PSCreateSelection.Mood ? 1f : 0.6f), 2f, (Depth) 0.95f);
+          this._font.Draw(text5, (float) ((double) this.x + (double) this.width / 2.0 - (double) this._font.GetWidth(text5) / 2.0), ypos, Color.White * (this._createSelection == PSCreateSelection.Mood ? 1f : 0.6f), new Depth(0.95f));
+          Graphics.DrawLine(new Vec2((float) ((double) this.x + (double) this.width / 4.0 + 4.0), ypos + 5f), new Vec2(this.x + (float) ((double) this.width / 4.0 * 3.0), ypos + 5f), Colors.MenuOption * (this._createSelection == PSCreateSelection.Mood ? 1f : 0.6f), 2f, new Depth(0.95f));
           float num = 60f;
-          Graphics.DrawLine(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) num / 2.0 + (double) num * (double) this._moodVal + 2.0), ypos + 1f), new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) num / 2.0 + (double) num * (double) this._moodVal + 2.0), ypos + 4f), Colors.MenuOption * (this._createSelection == PSCreateSelection.Mood ? 1f : 0.6f), 3f, (Depth) 0.95f);
-          Graphics.DrawLine(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) num / 2.0 + (double) num * (double) this._moodVal + 2.0), ypos + 6f), new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) num / 2.0 + (double) num * (double) this._moodVal + 2.0), ypos + 9f), Colors.MenuOption * (this._createSelection == PSCreateSelection.Mood ? 1f : 0.6f), 3f, (Depth) 0.95f);
+          Graphics.DrawLine(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) num / 2.0 + (double) num * (double) this._moodVal + 2.0), ypos + 1f), new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) num / 2.0 + (double) num * (double) this._moodVal + 2.0), ypos + 4f), Colors.MenuOption * (this._createSelection == PSCreateSelection.Mood ? 1f : 0.6f), 3f, new Depth(0.95f));
+          Graphics.DrawLine(new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) num / 2.0 + (double) num * (double) this._moodVal + 2.0), ypos + 6f), new Vec2((float) ((double) this.x + (double) this.width / 2.0 - (double) num / 2.0 + (double) num * (double) this._moodVal + 2.0), ypos + 9f), Colors.MenuOption * (this._createSelection == PSCreateSelection.Mood ? 1f : 0.6f), 3f, new Depth(0.95f));
           this._happyIcons.color = Color.White * (this._createSelection == PSCreateSelection.Mood ? 1f : 0.6f);
           this._happyIcons.alpha = this._fade;
           this._happyIcons.frame = (int) Math.Round((double) this._moodVal * 4.0);
-          this._happyIcons.depth = (Depth) 0.95f;
+          this._happyIcons.depth = new Depth(0.95f);
           Graphics.Draw((Sprite) this._happyIcons, (float) ((double) this.x + (double) this.width / 6.0 + 2.0), ypos + 4f);
           this._angryIcons.color = Color.White * (this._createSelection == PSCreateSelection.Mood ? 1f : 0.6f);
           this._angryIcons.alpha = this._fade;
           this._angryIcons.frame = (int) Math.Round((1.0 - (double) this._moodVal) * 4.0);
-          this._angryIcons.depth = (Depth) 0.95f;
+          this._angryIcons.depth = new Depth(0.95f);
           Graphics.Draw((Sprite) this._angryIcons, this.x + (float) ((double) this.width / 6.0 * 5.0), ypos + 4f);
           string text6 = "CONTROLS";
           if (this._createSelection == PSCreateSelection.Controls)
             text6 = "> " + text6 + " <";
-          this._font.Draw(text6, Maths.RoundToPixel(new Vec2((float) ((double) this.x + 2.0 + (double) this.width / 2.0 - (double) this._font.GetWidth(text6) / 2.0), this.y + 48f)), Colors.MenuOption * (this._createSelection == PSCreateSelection.Controls ? 1f : 0.6f), (Depth) 0.95f);
+          this._font.Draw(text6, Maths.RoundToPixel(new Vec2((float) ((double) this.x + 2.0 + (double) this.width / 2.0 - (double) this._font.GetWidth(text6) / 2.0), this.y + 48f)), Colors.MenuOption * (this._createSelection == PSCreateSelection.Controls ? 1f : 0.6f), new Depth(0.95f));
           string text7 = "OK";
           if (this._createSelection == PSCreateSelection.Accept)
             text7 = "> " + text7 + " <";
-          this._font.Draw(text7, Maths.RoundToPixel(new Vec2((float) ((double) this.x + 2.0 + (double) this.width / 2.0 - (double) this._font.GetWidth(text7) / 2.0), (float) ((double) this.y + 48.0 + 12.0))), Colors.MenuOption * (this._createSelection == PSCreateSelection.Accept ? 1f : 0.6f), (Depth) 0.95f);
+          this._font.Draw(text7, Maths.RoundToPixel(new Vec2((float) ((double) this.x + 2.0 + (double) this.width / 2.0 - (double) this._font.GetWidth(text7) / 2.0), (float) ((double) this.y + 48.0 + 12.0))), Colors.MenuOption * (this._createSelection == PSCreateSelection.Accept ? 1f : 0.6f), new Depth(0.95f));
           if (this._changeName)
           {
-            this._font.Draw("@DPAD@", 4f, 79f, new Color(180, 180, 180), (Depth) 0.95f, this._profile.inputProfile);
-            this._font.Draw("@SELECT@", 122f, 79f, new Color(180, 180, 180), (Depth) 0.95f, this._profile.inputProfile);
+            this._font.Draw("@DPAD@", 4f, 79f, new Color(180, 180, 180), new Depth(0.95f), this._profile.inputProfile);
+            this._font.Draw("@SELECT@", 122f, 79f, new Color(180, 180, 180), new Depth(0.95f), this._profile.inputProfile);
           }
           else if (this._createSelection == PSCreateSelection.ChangeName)
           {
-            this._font.Draw("@SELECT@", 4f, 79f, new Color(180, 180, 180), (Depth) 0.95f, this._profile.inputProfile);
-            this._font.Draw("@QUACK@", 122f, 79f, new Color(180, 180, 180), (Depth) 0.95f, this._profile.inputProfile);
+            this._font.Draw("@SELECT@", 4f, 79f, new Color(180, 180, 180), new Depth(0.95f), this._profile.inputProfile);
+            this._font.Draw("@QUACK@", 122f, 79f, new Color(180, 180, 180), new Depth(0.95f), this._profile.inputProfile);
           }
           else if (this._createSelection == PSCreateSelection.Mood)
           {
-            this._font.Draw("@DPAD@", 4f, 79f, new Color(180, 180, 180), (Depth) 0.95f, this._profile.inputProfile);
-            this._font.Draw("@QUACK@", 122f, 79f, new Color(180, 180, 180), (Depth) 0.95f, this._profile.inputProfile);
+            this._font.Draw("@DPAD@", 4f, 79f, new Color(180, 180, 180), new Depth(0.95f), this._profile.inputProfile);
+            this._font.Draw("@QUACK@", 122f, 79f, new Color(180, 180, 180), new Depth(0.95f), this._profile.inputProfile);
           }
           else
           {
-            this._font.Draw("@SELECT@", 4f, 79f, new Color(180, 180, 180), (Depth) 0.95f, this._profile.inputProfile);
-            this._font.Draw("@QUACK@", 122f, 79f, new Color(180, 180, 180), (Depth) 0.95f, this._profile.inputProfile);
+            this._font.Draw("@SELECT@", 4f, 79f, new Color(180, 180, 180), new Depth(0.95f), this._profile.inputProfile);
+            this._font.Draw("@QUACK@", 122f, 79f, new Color(180, 180, 180), new Depth(0.95f), this._profile.inputProfile);
           }
           this.position = position;
           this._selector.screen.EndDraw();

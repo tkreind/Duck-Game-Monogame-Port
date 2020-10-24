@@ -35,7 +35,7 @@ namespace DuckGame
       this.center = new Vec2(12f, 5f);
       this.collisionOffset = new Vec2(-6f, -4f);
       this.collisionSize = new Vec2(12f, 8f);
-      this.depth = (Depth) 0.6f;
+      this.depth = new Depth(0.6f);
       this._barrelOffsetTL = new Vec2(24f, 4f);
       this._fireSound = "smg";
       this._fullAuto = true;

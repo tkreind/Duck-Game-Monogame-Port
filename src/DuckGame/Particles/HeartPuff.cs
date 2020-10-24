@@ -18,7 +18,7 @@ namespace DuckGame
       this._sprite.SetAnimation("wither");
       this.center = new Vec2(5f, 16f);
       this.alpha = 0.6f;
-      this.depth = (Depth) 0.9f;
+      this.depth = new Depth(0.9f);
       this.graphic = (Sprite) this._sprite;
       this._sprite.color = Color.Green;
     }

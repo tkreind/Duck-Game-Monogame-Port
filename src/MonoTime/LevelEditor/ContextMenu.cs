@@ -130,7 +130,7 @@ namespace DuckGame
       this.itemSize.y = 16f;
       this._root = owner == null;
       this._image = img;
-      this.depth = (Depth) 0.8f;
+      this.depth = new Depth(0.8f);
       this._toprootPosition = topRoot;
       this._hasToproot = hasToproot;
     }

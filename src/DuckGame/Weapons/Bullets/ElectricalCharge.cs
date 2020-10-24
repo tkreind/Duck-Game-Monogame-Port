@@ -55,7 +55,7 @@ namespace DuckGame
         }
         else
         {
-          Graphics.DrawLine(prevPosition, p2, Colors.DGYellow * num, depth: ((Depth) 0.9f));
+          Graphics.DrawLine(prevPosition, p2, Colors.DGYellow * num, depth: (new Depth(0.9f)));
           num -= 0.25f;
         }
         if ((double) num <= 0.0)

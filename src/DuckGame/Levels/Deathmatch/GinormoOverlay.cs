@@ -17,7 +17,7 @@ namespace DuckGame
     public GinormoOverlay(float xpos, float ypos)
       : base(xpos, ypos)
     {
-      this.depth = (Depth) 0.9f;
+      this.depth = new Depth(0.9f);
       this.graphic = new Sprite("rockThrow/boardOverlay");
     }
 
@@ -39,7 +39,7 @@ namespace DuckGame
       DuckGame.Graphics.material = this._screenMaterial;
       DuckGame.Graphics.device.Textures[1] = (Texture) (Texture2D) this._overlaySprite;
       DuckGame.Graphics.device.SamplerStates[1] = SamplerState.LinearClamp;
-      this._targetSprite.depth = (Depth) 0.9f;
+      this._targetSprite.depth = new Depth(0.9f);
       DuckGame.Graphics.Draw(this._targetSprite, this.x - 92f, this.y - 33f);
       DuckGame.Graphics.material = material;
     }

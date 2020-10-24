@@ -20,7 +20,7 @@ namespace DuckGame
       this._profile = p;
       this._temp = temp;
       this.layer = Layer.Blocks;
-      this.depth = (Depth) 0.9f;
+      this.depth = new Depth(0.9f);
     }
 
     public override void Initialize() => base.Initialize();
@@ -41,12 +41,12 @@ namespace DuckGame
       this.position = this.anchor.position;
       string text = "+1";
       float xpos = this.x - this._font.GetWidth(text) / 2f;
-      this._font.Draw(text, xpos - 1f, this.y - 1f, Color.Black, (Depth) 0.8f);
-      this._font.Draw(text, xpos + 1f, this.y - 1f, Color.Black, (Depth) 0.8f);
-      this._font.Draw(text, xpos - 1f, this.y + 1f, Color.Black, (Depth) 0.8f);
-      this._font.Draw(text, xpos + 1f, this.y + 1f, Color.Black, (Depth) 0.8f);
+      this._font.Draw(text, xpos - 1f, this.y - 1f, Color.Black, new Depth(0.8f));
+      this._font.Draw(text, xpos + 1f, this.y - 1f, Color.Black, new Depth(0.8f));
+      this._font.Draw(text, xpos - 1f, this.y + 1f, Color.Black, new Depth(0.8f));
+      this._font.Draw(text, xpos + 1f, this.y + 1f, Color.Black, new Depth(0.8f));
       Color c = new Color((byte) this._profile.persona.color.x, (byte) this._profile.persona.color.y, (byte) this._profile.persona.color.z);
-      this._font.Draw(text, xpos, this.y, c, (Depth) 0.9f);
+      this._font.Draw(text, xpos, this.y, c, new Depth(0.9f));
     }
   }
 }

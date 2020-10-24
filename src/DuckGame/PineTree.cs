@@ -31,7 +31,7 @@ namespace DuckGame
       this.centerx = 4f;
       this.centery = 8f;
       this.collisionOffset = new Vec2(-4f, -8f);
-      this.depth = (Depth) -0.12f;
+      this.depth = new Depth(-0.12f);
       this.placementLayerOverride = Layer.Foreground;
     }
 
@@ -92,9 +92,9 @@ namespace DuckGame
 
     public override void Draw()
     {
-      this.depth = (Depth) -0.12f;
+      this.depth = new Depth(-0.12f);
       if ((double) this._vertPush > 0.0)
-        this.depth = (Depth) -0.11f;
+        this.depth = new Depth(-0.11f);
       if (this._graphic != null)
       {
         this._graphic.position = this.position + new Vec2(0.0f * this.shiftTime, this._vertPush * 1.5f);

@@ -1452,8 +1452,8 @@ namespace DuckGame
         CH.SLOT[0].Incr = -1L;
       if (SLOT.ar + (uint) SLOT.ksr < 94U)
       {
-        SLOT.eg_sh_ar = YM2612Core.eg_rate_shift[(IntPtr) (SLOT.ar + (uint) SLOT.ksr)];
-        SLOT.eg_sel_ar = YM2612Core.eg_rate_select[(IntPtr) (SLOT.ar + (uint) SLOT.ksr)];
+        SLOT.eg_sh_ar = YM2612Core.eg_rate_shift[(SLOT.ar + (uint) SLOT.ksr)];
+        SLOT.eg_sel_ar = YM2612Core.eg_rate_select[(SLOT.ar + (uint) SLOT.ksr)];
       }
       else
       {
@@ -1465,15 +1465,15 @@ namespace DuckGame
     private void set_dr(YM2612Core.FM_SLOT SLOT, int v)
     {
       SLOT.d1r = (v & 31) != 0 ? (uint) (32 + ((v & 31) << 1)) : 0U;
-      SLOT.eg_sh_d1r = YM2612Core.eg_rate_shift[(IntPtr) (SLOT.d1r + (uint) SLOT.ksr)];
-      SLOT.eg_sel_d1r = YM2612Core.eg_rate_select[(IntPtr) (SLOT.d1r + (uint) SLOT.ksr)];
+      SLOT.eg_sh_d1r = YM2612Core.eg_rate_shift[(SLOT.d1r + (uint) SLOT.ksr)];
+      SLOT.eg_sel_d1r = YM2612Core.eg_rate_select[(SLOT.d1r + (uint) SLOT.ksr)];
     }
 
     private void set_sr(YM2612Core.FM_SLOT SLOT, int v)
     {
       SLOT.d2r = (v & 31) != 0 ? (uint) (32 + ((v & 31) << 1)) : 0U;
-      SLOT.eg_sh_d2r = YM2612Core.eg_rate_shift[(IntPtr) (SLOT.d2r + (uint) SLOT.ksr)];
-      SLOT.eg_sel_d2r = YM2612Core.eg_rate_select[(IntPtr) (SLOT.d2r + (uint) SLOT.ksr)];
+      SLOT.eg_sh_d2r = YM2612Core.eg_rate_shift[(SLOT.d2r + (uint) SLOT.ksr)];
+      SLOT.eg_sel_d2r = YM2612Core.eg_rate_select[(SLOT.d2r + (uint) SLOT.ksr)];
     }
 
     private void set_sl_rr(YM2612Core.FM_SLOT SLOT, int v)
@@ -1482,8 +1482,8 @@ namespace DuckGame
       if (SLOT.state == (byte) 3 && SLOT.volume >= (long) (int) SLOT.sl)
         SLOT.state = (byte) 2;
       SLOT.rr = (uint) (34 + ((v & 15) << 2));
-      SLOT.eg_sh_rr = YM2612Core.eg_rate_shift[(IntPtr) (SLOT.rr + (uint) SLOT.ksr)];
-      SLOT.eg_sel_rr = YM2612Core.eg_rate_select[(IntPtr) (SLOT.rr + (uint) SLOT.ksr)];
+      SLOT.eg_sh_rr = YM2612Core.eg_rate_shift[(SLOT.rr + (uint) SLOT.ksr)];
+      SLOT.eg_sel_rr = YM2612Core.eg_rate_select[(SLOT.rr + (uint) SLOT.ksr)];
     }
 
     private void advance_lfo()
@@ -1507,7 +1507,7 @@ namespace DuckGame
       do
       {
         int index = 0;
-        YM2612Core.FM_SLOT fmSlot = this.ym2612.CH[(IntPtr) num1].SLOT[index];
+        YM2612Core.FM_SLOT fmSlot = this.ym2612.CH[num1].SLOT[index];
         uint num2 = 4;
         do
         {
@@ -1519,7 +1519,7 @@ namespace DuckGame
                 if (((int) fmSlot.ssg & 8) != 0)
                 {
                   if (fmSlot.volume < 512L)
-                    fmSlot.volume += (long) (4 * (int) YM2612Core.eg_inc[(IntPtr) ((uint) fmSlot.eg_sel_rr + (egCnt >> (int) fmSlot.eg_sh_rr & 7U))]);
+                    fmSlot.volume += (long) (4 * (int) YM2612Core.eg_inc[((uint) fmSlot.eg_sel_rr + (egCnt >> (int) fmSlot.eg_sh_rr & 7U))]);
                   if (fmSlot.volume >= 512L)
                   {
                     fmSlot.volume = 1023L;
@@ -1528,7 +1528,7 @@ namespace DuckGame
                 }
                 else
                 {
-                  fmSlot.volume += (long) YM2612Core.eg_inc[(IntPtr) ((uint) fmSlot.eg_sel_rr + (egCnt >> (int) fmSlot.eg_sh_rr & 7U))];
+                  fmSlot.volume += (long) YM2612Core.eg_inc[((uint) fmSlot.eg_sel_rr + (egCnt >> (int) fmSlot.eg_sh_rr & 7U))];
                   if (fmSlot.volume >= 1023L)
                   {
                     fmSlot.volume = 1023L;
@@ -1546,13 +1546,13 @@ namespace DuckGame
                 {
                   if (fmSlot.volume < 512L)
                   {
-                    fmSlot.volume += (long) (4 * (int) YM2612Core.eg_inc[(IntPtr) ((uint) fmSlot.eg_sel_d2r + (egCnt >> (int) fmSlot.eg_sh_d2r & 7U))]);
+                    fmSlot.volume += (long) (4 * (int) YM2612Core.eg_inc[((uint) fmSlot.eg_sel_d2r + (egCnt >> (int) fmSlot.eg_sh_d2r & 7U))]);
                     fmSlot.vol_out = ((int) fmSlot.ssgn ^ (int) fmSlot.ssg & 4) == 0 ? (uint) fmSlot.volume + fmSlot.tl : ((uint) (512UL - (ulong) fmSlot.volume) & 1023U) + fmSlot.tl;
                     break;
                   }
                   break;
                 }
-                fmSlot.volume += (long) YM2612Core.eg_inc[(IntPtr) ((uint) fmSlot.eg_sel_d2r + (egCnt >> (int) fmSlot.eg_sh_d2r & 7U))];
+                fmSlot.volume += (long) YM2612Core.eg_inc[((uint) fmSlot.eg_sel_d2r + (egCnt >> (int) fmSlot.eg_sh_d2r & 7U))];
                 if (fmSlot.volume >= 1023L)
                   fmSlot.volume = 1023L;
                 fmSlot.vol_out = (uint) fmSlot.volume + fmSlot.tl;
@@ -1566,13 +1566,13 @@ namespace DuckGame
                 {
                   if (fmSlot.volume < 512L)
                   {
-                    fmSlot.volume += (long) (4 * (int) YM2612Core.eg_inc[(IntPtr) ((uint) fmSlot.eg_sel_d1r + (egCnt >> (int) fmSlot.eg_sh_d1r & 7U))]);
+                    fmSlot.volume += (long) (4 * (int) YM2612Core.eg_inc[((uint) fmSlot.eg_sel_d1r + (egCnt >> (int) fmSlot.eg_sh_d1r & 7U))]);
                     fmSlot.vol_out = ((int) fmSlot.ssgn ^ (int) fmSlot.ssg & 4) == 0 ? (uint) fmSlot.volume + fmSlot.tl : ((uint) (512UL - (ulong) fmSlot.volume) & 1023U) + fmSlot.tl;
                   }
                 }
                 else
                 {
-                  fmSlot.volume += (long) YM2612Core.eg_inc[(IntPtr) ((uint) fmSlot.eg_sel_d1r + (egCnt >> (int) fmSlot.eg_sh_d1r & 7U))];
+                  fmSlot.volume += (long) YM2612Core.eg_inc[((uint) fmSlot.eg_sel_d1r + (egCnt >> (int) fmSlot.eg_sh_d1r & 7U))];
                   fmSlot.vol_out = (uint) fmSlot.volume + fmSlot.tl;
                 }
                 if (fmSlot.volume >= (long) (int) fmSlot.sl)
@@ -1586,7 +1586,7 @@ namespace DuckGame
             case 4:
               if (((long) egCnt & (long) ((1 << (int) fmSlot.eg_sh_ar) - 1)) == 0L)
               {
-                fmSlot.volume += ~fmSlot.volume * (long) YM2612Core.eg_inc[(IntPtr) ((uint) fmSlot.eg_sel_ar + (egCnt >> (int) fmSlot.eg_sh_ar & 7U))] >> 4;
+                fmSlot.volume += ~fmSlot.volume * (long) YM2612Core.eg_inc[((uint) fmSlot.eg_sel_ar + (egCnt >> (int) fmSlot.eg_sh_ar & 7U))] >> 4;
                 if (fmSlot.volume <= 0L)
                 {
                   fmSlot.volume = 0L;
@@ -1598,8 +1598,8 @@ namespace DuckGame
               break;
           }
           ++index;
-          if (index < ((IEnumerable<YM2612Core.FM_SLOT>) this.ym2612.CH[(IntPtr) num1].SLOT).Count<YM2612Core.FM_SLOT>())
-            fmSlot = this.ym2612.CH[(IntPtr) num1].SLOT[index];
+          if (index < ((IEnumerable<YM2612Core.FM_SLOT>) this.ym2612.CH[num1].SLOT).Count<YM2612Core.FM_SLOT>())
+            fmSlot = this.ym2612.CH[num1].SLOT[index];
           --num2;
         }
         while (num2 != 0U);
@@ -1661,8 +1661,8 @@ namespace DuckGame
         block_fnum = (uint) ((ulong) (block_fnum * 2U) + (ulong) num1);
         byte num2 = (byte) ((block_fnum & 28672U) >> 12);
         block_fnum &= 4095U;
-        int index = (int) num2 << 2 | (int) YM2612Core.opn_fktable[(IntPtr) (block_fnum >> 8)];
-        int num3 = (int) ((long) (this.ym2612.OPN.fn_table[(IntPtr) block_fnum] >> 7 - (int) num2) + SLOT.DT.value[index]);
+        int index = (int) num2 << 2 | (int) YM2612Core.opn_fktable[(block_fnum >> 8)];
+        int num3 = (int) ((long) (this.ym2612.OPN.fn_table[block_fnum] >> 7 - (int) num2) + SLOT.DT.value[index]);
         if (num3 < 0)
           num3 += (int) this.ym2612.OPN.fn_max;
         SLOT.phase += (uint) ((long) num3 * (long) SLOT.mul >> 1);
@@ -1680,8 +1680,8 @@ namespace DuckGame
         uint num2 = (uint) ((ulong) (blockFnum * 2U) + (ulong) num1);
         byte num3 = (byte) ((num2 & 28672U) >> 12);
         uint num4 = num2 & 4095U;
-        int index = (int) num3 << 2 | (int) YM2612Core.opn_fktable[(IntPtr) (num4 >> 8)];
-        int num5 = (int) (this.ym2612.OPN.fn_table[(IntPtr) num4] >> 7 - (int) num3);
+        int index = (int) num3 << 2 | (int) YM2612Core.opn_fktable[(num4 >> 8)];
+        int num5 = (int) (this.ym2612.OPN.fn_table[num4] >> 7 - (int) num3);
         int num6 = (int) ((long) num5 + CH.SLOT[0].DT.value[index]);
         if (num6 < 0)
           num6 += (int) this.ym2612.OPN.fn_max;
@@ -1753,13 +1753,13 @@ namespace DuckGame
     private int op_calc(uint phase, uint env, int pm)
     {
       uint num = (env << 3) + this.sin_tab[(int) (((long) phase & -65536L) + (long) (pm << 15)) >> 16 & 1023];
-      return num >= 6656U ? 0 : this.tl_tab[(IntPtr) num];
+      return num >= 6656U ? 0 : this.tl_tab[num];
     }
 
     private int op_calc1(uint phase, uint env, int pm)
     {
       uint num = (env << 3) + this.sin_tab[(int) (((long) phase & -65536L) + (long) pm) >> 16 & 1023];
-      return num >= 6656U ? 0 : this.tl_tab[(IntPtr) num];
+      return num >= 6656U ? 0 : this.tl_tab[num];
     }
 
     private void chan_calc(YM2612Core.FM_CH CH)
@@ -1926,8 +1926,8 @@ namespace DuckGame
             case 0:
               uint num2 = (uint) ((ulong) (uint) (((int) this.ym2612.OPN.ST.fn_h & 7) << 8) + (ulong) v);
               byte num3 = (byte) ((uint) this.ym2612.OPN.ST.fn_h >> 3);
-              CH.kcode = (byte) ((uint) num3 << 2 | (uint) YM2612Core.opn_fktable[(IntPtr) (num2 >> 7)]);
-              CH.fc = this.ym2612.OPN.fn_table[(IntPtr) (num2 * 2U)] >> 7 - (int) num3;
+              CH.kcode = (byte) ((uint) num3 << 2 | (uint) YM2612Core.opn_fktable[(num2 >> 7)]);
+              CH.fc = this.ym2612.OPN.fn_table[(num2 * 2U)] >> 7 - (int) num3;
               CH.block_fnum = (uint) num3 << 11 | num2;
               CH.SLOT[0].Incr = -1L;
               return;
@@ -1939,8 +1939,8 @@ namespace DuckGame
                 return;
               uint num4 = (uint) ((ulong) (uint) (((int) this.ym2612.OPN.SL3.fn_h & 7) << 8) + (ulong) v);
               byte num5 = (byte) ((uint) this.ym2612.OPN.SL3.fn_h >> 3);
-              this.ym2612.OPN.SL3.kcode[(int) num1] = (byte) ((uint) num5 << 2 | (uint) YM2612Core.opn_fktable[(IntPtr) (num4 >> 7)]);
-              this.ym2612.OPN.SL3.fc[(int) num1] = this.ym2612.OPN.fn_table[(IntPtr) (num4 * 2U)] >> 7 - (int) num5;
+              this.ym2612.OPN.SL3.kcode[(int) num1] = (byte) ((uint) num5 << 2 | (uint) YM2612Core.opn_fktable[(num4 >> 7)]);
+              this.ym2612.OPN.SL3.fc[(int) num1] = this.ym2612.OPN.fn_table[(num4 * 2U)] >> 7 - (int) num5;
               this.ym2612.OPN.SL3.block_fnum[(int) num1] = (uint) num5 << 11 | num4;
               this.ym2612.CH[2].SLOT[0].Incr = -1L;
               return;
@@ -2056,7 +2056,7 @@ namespace DuckGame
               if (((int) index2 & 1 << (int) index4) != 0)
               {
                 uint num4 = index4 * 8U;
-                num3 += YM2612Core.lfo_pm_output[(int) (IntPtr) (num4 + num2), (int) (IntPtr) index3];
+                num3 += YM2612Core.lfo_pm_output[(int) (num4 + num2), (int) index3];
               }
             }
             this.lfo_pm_table[(int) index2 * 32 * 8 + index1 * 32 + (int) index3] = (long) num3;

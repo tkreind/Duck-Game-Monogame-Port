@@ -105,7 +105,9 @@ namespace WinFormsGraphicsDevice
     {
       try
       {
-        this.GraphicsDevice.Present(new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, this.ClientSize.Width, this.ClientSize.Height)), new Microsoft.Xna.Framework.Rectangle?(), this.Handle);
+                // Probably a big TODO, limitation of monogame
+                this.GraphicsDevice.Present();
+        //this.GraphicsDevice.Present(new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, this.ClientSize.Width, this.ClientSize.Height)), new Microsoft.Xna.Framework.Rectangle?(), this.Handle);
       }
       catch
       {

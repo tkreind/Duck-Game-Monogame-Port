@@ -20,7 +20,7 @@ namespace DuckGame
       Graphics.DrawString("@JUMP@", new Vec2(this.x - 26f, this.y + 32f), Color.White * 0.5f);
       Graphics.DrawString("@JUMP@", new Vec2(this.x - 5f, this.y - 16f), Color.White * 0.5f);
       Graphics.DrawString("@JUMP@", new Vec2(this.x + 15f, this.y - 8f), Color.White * 0.5f);
-      this.depth = (Depth) 0.99f;
+      this.depth = new Depth(0.99f);
       this.graphic.color = color;
       base.Draw();
     }

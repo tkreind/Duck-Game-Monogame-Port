@@ -50,7 +50,7 @@ namespace DuckGame
       this.center = new Vec2(16f, 16f);
       this.collisionOffset = new Vec2(-8f, -8f);
       this.collisionSize = new Vec2(16f, 16f);
-      this.depth = (Depth) -0.5f;
+      this.depth = new Depth(-0.5f);
       this.thickness = 0.5f;
       this.weight = 5f;
       this.flammable = 1f;

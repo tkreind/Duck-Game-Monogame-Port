@@ -95,7 +95,7 @@ namespace DuckGame
         this._sprite.SetAnimation("idle");
         this.collisionOffset = new Vec2(-6f, -2f);
         this.collisionSize = new Vec2(12f, 3f);
-        this.depth = (Depth) 0.8f;
+        this.depth = new Depth(0.8f);
         this._hasOldDepth = false;
         this.thickness = 1f;
         this.center = new Vec2(9f, 14f);

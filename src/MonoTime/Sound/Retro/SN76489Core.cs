@@ -238,7 +238,7 @@ namespace DuckGame
           if (this.divA > 1)
           {
             this.volA ^= 16U;
-            this.outA = SN76489Core.volumeTable[(IntPtr) this.volA];
+            this.outA = SN76489Core.volumeTable[this.volA];
           }
           this.cntA = this.divA;
         }
@@ -248,7 +248,7 @@ namespace DuckGame
           if (this.divB > 1)
           {
             this.volB ^= 16U;
-            this.outB = SN76489Core.volumeTable[(IntPtr) this.volB];
+            this.outB = SN76489Core.volumeTable[this.volB];
           }
           this.cntB = this.divB;
         }
@@ -258,7 +258,7 @@ namespace DuckGame
           if (this.divC > 1)
           {
             this.volC ^= 16U;
-            this.outC = SN76489Core.volumeTable[(IntPtr) this.volC];
+            this.outC = SN76489Core.volumeTable[this.volC];
           }
           this.cntC = this.divC;
         }
@@ -280,7 +280,7 @@ namespace DuckGame
             num2 = this.noiseLFSR & 1U;
           this.noiseLFSR = this.noiseLFSR >> 1 | num2 << 15;
           this.volD = (uint) ((int) this.volD & 15 | ((int) this.noiseLFSR & 1 ^ 1) << 4);
-          this.outD = SN76489Core.volumeTable[(IntPtr) this.volD];
+          this.outD = SN76489Core.volumeTable[this.volD];
         }
       }
       this.ticksCount += this.ticksPerSample;

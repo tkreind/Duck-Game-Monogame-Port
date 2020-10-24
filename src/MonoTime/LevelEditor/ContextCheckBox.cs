@@ -29,7 +29,7 @@ namespace DuckGame
       this._text = text;
       this._field = field;
       this._checkBox = new SpriteMap("Editor/checkBox", 16, 16);
-      this.depth = (Depth) 0.8f;
+      this.depth = new Depth(0.8f);
       this._myType = myType;
       if (field == null)
         this._field = new FieldBinding((object) this, nameof (isChecked));
@@ -44,7 +44,7 @@ namespace DuckGame
       this._text = text;
       this._field = field;
       this._checkBox = new SpriteMap("Editor/checkBox", 16, 16);
-      this.depth = (Depth) 0.8f;
+      this.depth = new Depth(0.8f);
       this._myType = myType;
       if (field != null)
         return;
@@ -82,10 +82,10 @@ namespace DuckGame
     public override void Draw()
     {
       if (this._hover)
-        Graphics.DrawRect(this.position, this.position + this.itemSize, new Color(70, 70, 70), (Depth) 0.82f);
-      Graphics.DrawString(this._text, this.position + new Vec2(2f, 5f), Color.White, (Depth) 0.85f);
+        Graphics.DrawRect(this.position, this.position + this.itemSize, new Color(70, 70, 70), new Depth(0.82f));
+      Graphics.DrawString(this._text, this.position + new Vec2(2f, 5f), Color.White, new Depth(0.85f));
       bool flag = !(this._field.value is IList) ? (bool) this._field.value : (this._field.value as IList).Contains((object) this._myType);
-      this._checkBox.depth = (Depth) 0.9f;
+      this._checkBox.depth = new Depth(0.9f);
       this._checkBox.x = (float) ((double) this.x + (double) this.itemSize.x - 16.0);
       this._checkBox.y = this.y;
       this._checkBox.frame = flag ? 1 : 0;

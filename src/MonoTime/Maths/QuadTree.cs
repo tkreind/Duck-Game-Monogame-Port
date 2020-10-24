@@ -4,6 +4,7 @@
 // MVID: 141E8A2E-D79A-4662-B1CF-5A369FF52288
 // Assembly location: C:\Users\Tristan Kreindler\Documents\Duck Game\Duck Game\DuckGame.exe
 
+using System;
 using System.Collections.Generic;
 
 namespace DuckGame
@@ -61,7 +62,7 @@ namespace DuckGame
           foreach (Thing t in quadTree._objects[key])
           {
             if (t != ignore && (layer == null || layer == t.layer) && (t.ghostType != (ushort) 0 && Collision.Point(pos, t)))
-              return (T) t;
+              return (T)(Object)t;
           }
           return default (T);
         }
@@ -90,7 +91,7 @@ namespace DuckGame
           foreach (Thing t in quadTree._objects[key])
           {
             if (t != ignore && (layer == null || layer == t.placementLayer) && (t.ghostType != (ushort) 0 && Collision.Point(pos, t)))
-              return (T) t;
+              return (T)(Object)t;
           }
           return default (T);
         }
@@ -114,7 +115,7 @@ namespace DuckGame
         foreach (Thing t in this._objects[typeof (T)])
         {
           if (t != ignore && (layer == null || layer == t.layer) && (t.ghostType != (ushort) 0 && Collision.Line(p1, p2, t)))
-            return (T) t;
+            return (T)(Object)t;
         }
         return default (T);
       }
@@ -137,7 +138,7 @@ namespace DuckGame
         foreach (Thing t in this._objects[typeof (T)])
         {
           if (t != ignore && (layer == null || layer == t.layer) && (t.ghostType != (ushort) 0 && Collision.Line(p1, p2, t)))
-            objList1.Add((T) t);
+            objList1.Add((T)(Object)t);
         }
         return objList1;
       }
@@ -165,7 +166,7 @@ namespace DuckGame
             if (vec2 != Vec2.Zero)
             {
               hit = vec2;
-              return (T) thing;
+              return (T)(Object)thing;
             }
           }
         }
@@ -189,7 +190,7 @@ namespace DuckGame
         foreach (Thing t in this._objects[typeof (T)])
         {
           if (t != ignore && (layer == null || layer == t.layer) && (t.ghostType != (ushort) 0 && Collision.Rect(p1, p2, t)))
-            return (T) t;
+            return (T)(Object)t;
         }
         return default (T);
       }
@@ -211,7 +212,7 @@ namespace DuckGame
         foreach (Thing t in this._objects[typeof (T)])
         {
           if (t.ghostType != (ushort) 0 && Collision.Rect(p1, p2, t))
-            outList.Add((object) (T) t);
+            outList.Add((object) (T)(Object)t);
         }
       }
       else
@@ -232,7 +233,7 @@ namespace DuckGame
         foreach (Thing t in this._objects[typeof (T)])
         {
           if (t != ignore && (layer == null || layer == t.layer) && (t.ghostType != (ushort) 0 && Collision.Circle(p1, radius, t)))
-            return (T) t;
+            return (T)(Object)t;
         }
         return default (T);
       }
@@ -254,7 +255,7 @@ namespace DuckGame
         foreach (Thing t in this._objects[typeof (T)])
         {
           if (Collision.Circle(p1, radius, t))
-            outList.Add((object) (T) t);
+            outList.Add((object) (T)(Object)t);
         }
       }
       else
@@ -342,9 +343,9 @@ namespace DuckGame
 
     public void Draw()
     {
-      Graphics.DrawRect(this._position, this._position + new Vec2(this._width, this._width), Color.Red, (Depth) 1f, false);
+      Graphics.DrawRect(this._position, this._position + new Vec2(this._width, this._width), Color.Red, new Depth(1f), false);
       if (!this._split)
-        Graphics.DrawString(Change.ToString((object) this._objects.Count), this._position + new Vec2(2f, 2f), Color.White, (Depth) 0.9f);
+        Graphics.DrawString(Change.ToString((object) this._objects.Count), this._position + new Vec2(2f, 2f), Color.White, new Depth(0.9f));
       if (this._depth == 0 || !this._split)
         return;
       foreach (QuadTree child in this._children)

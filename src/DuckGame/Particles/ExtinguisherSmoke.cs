@@ -69,7 +69,7 @@ namespace DuckGame
       float num3 = 0.6f - Rando.Float(0.2f);
       float num4 = 1f;
       this._sprite.color = new Color(num4, num4, num4);
-      this.depth = (Depth) 0.8f;
+      this.depth = new Depth(0.8f);
       this.alpha = 1f;
       this.layer = Layer.Game;
       this.s1 = this.xscale;
@@ -135,7 +135,7 @@ namespace DuckGame
       Graphics.Draw((Sprite) this._sprite, this.x + num2, this.y + num3);
       this._sprite2.imageIndex = this._sprite.imageIndex;
       this._sprite2.angle = this._sprite.angle;
-      this._sprite2.depth = (Depth) -0.5f;
+      this._sprite2.depth = new Depth(-0.5f);
       this._sprite2.scale = this._sprite.scale;
       this._sprite2.center = this.center;
       float num4 = 0.6f - Rando.Float(0.2f);
@@ -150,7 +150,7 @@ namespace DuckGame
       Graphics.Draw((Sprite) this._orbiter, this.x - num2, this.y - num3);
       this._sprite2.imageIndex = this._orbiter.imageIndex;
       this._sprite2.angle = this._orbiter.angle;
-      this._sprite2.depth = (Depth) -0.5f;
+      this._sprite2.depth = new Depth(-0.5f);
       this._sprite2.scale = this._orbiter.scale;
       this._sprite2.center = this.center;
       this._sprite2.color = new Color(num5, num5, num5);

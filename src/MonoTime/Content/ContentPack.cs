@@ -184,28 +184,28 @@ namespace DuckGame
       {
         Texture2D texture2D1 = (Texture2D) null;
         if (this._textures.TryGetValue(name, out texture2D1))
-          return (T) texture2D1;
+          return (T)(Object)texture2D1;
         Texture2D texture2D2 = ContentPack.LoadTexture2D(name, this._modConfig.processPinkTransparency);
         this._textures[name] = texture2D2;
-        return (T) texture2D2;
+        return (T)(Object)texture2D2;
       }
       if (typeof (T) == typeof (SoundEffect))
       {
         SoundEffect soundEffect1 = (SoundEffect) null;
         if (this._sounds.TryGetValue(name, out soundEffect1))
-          return (T) soundEffect1;
+          return (T)(Object)soundEffect1;
         SoundEffect soundEffect2 = this.LoadSoundEffect(name);
         this._sounds[name] = soundEffect2;
-        return (T) soundEffect2;
+        return (T)(Object)soundEffect2;
       }
       if (!(typeof (T) == typeof (Song)))
         return default (T);
       Song song1 = (Song) null;
       if (this._songs.TryGetValue(name, out song1))
-        return (T) song1;
+        return (T)(Object)song1;
       Song song2 = this.LoadSong(name);
       this._songs[name] = song2;
-      return (T) song2;
+      return (T)(Object)song2;
     }
   }
 }

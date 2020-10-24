@@ -599,7 +599,7 @@ namespace DuckGame
         thing.DoDraw();
       if (this.holdObject != null)
       {
-        this.holdObject.depth = (Depth) 0.9f;
+        this.holdObject.depth = new Depth(0.9f);
         this.holdObject.DoDraw();
       }
       base.EditorRender();

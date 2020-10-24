@@ -190,7 +190,7 @@ namespace DuckGame
             }
             player.prevTreeDraw = drawPos + vec2 + new Vec2(96f, 4f);
             Graphics.DrawLine(drawPos + vec2 + new Vec2(90f, 4f), drawPos + vec2 + new Vec2(96f, 4f), Color.White);
-            Graphics.DrawString(text, drawPos + vec2 + new Vec2((float) (88 - text.Length * 8), 0.0f), Color.White, (Depth) 1f);
+            Graphics.DrawString(text, drawPos + vec2 + new Vec2((float) (88 - text.Length * 8), 0.0f), Color.White, new Depth(1f));
             vec2.y += num1 + 8f;
             ++num3;
           }

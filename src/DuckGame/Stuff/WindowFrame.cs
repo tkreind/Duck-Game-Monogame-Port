@@ -16,7 +16,7 @@ namespace DuckGame
     {
       this.graphic = new Sprite("windowFrame");
       this.center = new Vec2(5f, 26f);
-      this.depth = (Depth) -0.95f;
+      this.depth = new Depth(-0.95f);
       this._editorCanModify = false;
       this.floor = f;
       if (!this.floor)

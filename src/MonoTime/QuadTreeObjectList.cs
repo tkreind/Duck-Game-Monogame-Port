@@ -246,13 +246,13 @@ namespace DuckGame
       int num = 0;
       foreach (CollisionIsland island in this._islands)
       {
-        Graphics.DrawCircle(island.owner.position, island.radiusCheck, Color.Red * 0.7f, depth: ((Depth) 0.9f), iterations: 64);
-        Graphics.DrawCircle(island.owner.position, island.radius, Color.Blue * 0.3f, depth: ((Depth) 0.9f), iterations: 64);
-        Graphics.DrawString(Convert.ToString(num), island.owner.position, Color.Red, (Depth) 1f);
+        Graphics.DrawCircle(island.owner.position, island.radiusCheck, Color.Red * 0.7f, depth: (new Depth(0.9f)), iterations: 64);
+        Graphics.DrawCircle(island.owner.position, island.radius, Color.Blue * 0.3f, depth: (new Depth(0.9f)), iterations: 64);
+        Graphics.DrawString(Convert.ToString(num), island.owner.position, Color.Red, new Depth(1f));
         foreach (Thing thing in island.things)
         {
           if (thing != island.owner)
-            Graphics.DrawString(Convert.ToString(num), thing.position, Color.White, (Depth) 1f);
+            Graphics.DrawString(Convert.ToString(num), thing.position, Color.White, new Depth(1f));
         }
         ++num;
       }

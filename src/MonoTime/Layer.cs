@@ -436,7 +436,7 @@ namespace DuckGame
         Color color = new Color(1f * this._targetFade, 1f * this._targetFade, 1f * this._targetFade, 1f);
         Vec2 vec2 = new Vec2(Math.Max(this.camera.width, (float) DuckGame.Graphics.width), Math.Max(this.camera.height, (float) DuckGame.Graphics.height));
         DuckGame.Graphics.skipReplayRender = true;
-        DuckGame.Graphics.Draw((Tex2D) this.target, position, new Rectangle?(), color, 0.0f, Vec2.Zero, new Vec2(vec2.x / (float) this.target.width, vec2.y / (float) this.target.height), SpriteEffects.None, (Depth) 1f);
+        DuckGame.Graphics.Draw((Tex2D) this.target, position, new Rectangle?(), color, 0.0f, Vec2.Zero, new Vec2(vec2.x / (float) this.target.width, vec2.y / (float) this.target.height), SpriteEffects.None, new Depth(1f));
         DuckGame.Graphics.skipReplayRender = false;
         if (!(this.name == "LIGHTING"))
           ;

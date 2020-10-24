@@ -207,9 +207,9 @@ namespace DuckGame
         text = "Workshop";
       }
       if (this.isPlaylist)
-        this._font.Draw(text, x, this.y, this._selected ? Colors.DGBlue : Colors.DGBlue * 0.75f, (Depth) 0.8f);
+        this._font.Draw(text, x, this.y, this._selected ? Colors.DGBlue : Colors.DGBlue * 0.75f, new Depth(0.8f));
       else
-        this._font.Draw(text, x, this.y, this._selected ? Color.White : Color.Gray, (Depth) 0.8f);
+        this._font.Draw(text, x, this.y, this._selected ? Color.White : Color.Gray, new Depth(0.8f));
     }
   }
 }

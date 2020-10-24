@@ -19,7 +19,7 @@ namespace DuckGame
     public MultiBeamParticle(float xpos, float ypos, float spd, bool inverse, Color c)
       : base(xpos, ypos)
     {
-      this.depth = (Depth) 0.9f;
+      this.depth = new Depth(0.9f);
       this.vSpeed = Rando.Float(-0.5f, -1.5f);
       this.y += Rando.Float(10f);
       this._inverse = inverse;
@@ -34,9 +34,9 @@ namespace DuckGame
       this._sinVal = (float) Math.Sin((double) this._wave);
       this.y += this.vSpeed;
       if ((double) this._sinVal < -0.800000011920929 && this.depth > 0.0f)
-        this.depth = (Depth) -0.8f;
+        this.depth = new Depth(-0.8f);
       else if ((double) this._sinVal > 0.800000011920929 && this.depth < 0.0f)
-        this.depth = (Depth) 0.8f;
+        this.depth = new Depth(0.8f);
       if ((double) this.y < 0.0)
         Level.Remove((Thing) this);
       base.Update();

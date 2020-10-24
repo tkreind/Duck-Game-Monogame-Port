@@ -34,7 +34,7 @@ namespace DuckGame
           frame = image
         };
       this.hoverText = ht;
-      this.depth = (Depth) 0.88f;
+      this.depth = new Depth(0.88f);
     }
 
     public override void Update()
@@ -56,9 +56,9 @@ namespace DuckGame
 
     public override void Draw()
     {
-      Graphics.DrawRect(this.position, this.position + new Vec2(16f, 16f), this._hover ? new Color(170, 170, 170) : new Color(70, 70, 70), (Depth) 0.87f);
+      Graphics.DrawRect(this.position, this.position + new Vec2(16f, 16f), this._hover ? new Color(170, 170, 170) : new Color(70, 70, 70), new Depth(0.87f));
       this.graphic.position = this.position;
-      this.graphic.depth = (Depth) 0.88f;
+      this.graphic.depth = new Depth(0.88f);
       this.graphic.Draw();
     }
   }

@@ -22,7 +22,7 @@ namespace DuckGame
       this._equippedCollisionSize = new Vec2(11f, 12f);
       this._hasEquippedCollision = true;
       this._sprite.CenterOrigin();
-      this.depth = (Depth) 0.0001f;
+      this.depth = new Depth(0.0001f);
       this.physicsMaterial = PhysicsMaterial.Metal;
       this._isArmor = true;
       this._equippedThickness = 3f;

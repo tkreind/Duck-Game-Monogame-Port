@@ -19,7 +19,7 @@ namespace DuckGame
       this.center = new Vec2(8f, 8f);
       this._collisionSize = new Vec2(16f, 16f);
       this._collisionOffset = new Vec2(-8f, -8f);
-      this.depth = (Depth) 0.9f;
+      this.depth = new Depth(0.9f);
       this.layer = Layer.Foreground;
       this._visibleInGame = false;
       this._editorName = "Office";
@@ -44,15 +44,15 @@ namespace DuckGame
       this._parallax.AddZone(8, 0.8f, speed);
       this._parallax.AddZone(9, 0.8f, speed);
       Sprite s1 = new Sprite("background/officeBuilding01");
-      s1.depth = (Depth) -0.9f;
+      s1.depth = new Depth(-0.9f);
       s1.position = new Vec2(100f, 100f);
       this._parallax.AddZoneSprite(s1, 15, 0.6f, speed);
       Sprite s2 = new Sprite("background/officeBuilding01Porch");
-      s2.depth = (Depth) -0.9f;
+      s2.depth = new Depth(-0.9f);
       s2.position = new Vec2(84f, 160f);
       this._parallax.AddZoneSprite(s2, 16, 0.6f, speed);
       Sprite s3 = new Sprite("background/officeBuilding02");
-      s3.depth = (Depth) -0.9f;
+      s3.depth = new Depth(-0.9f);
       s3.position = new Vec2(300f, 120f);
       this._parallax.AddZoneSprite(s3, 17, 0.6f, speed);
       this._parallax.AddZone(19, 0.6f, speed);

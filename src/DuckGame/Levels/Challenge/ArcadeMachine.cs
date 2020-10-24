@@ -73,7 +73,7 @@ namespace DuckGame
       this._sprite = new SpriteMap("arcade/arcadeMachines", 29, 36);
       this._sprite.frame = index;
       this.graphic = (Sprite) this._sprite;
-      this.depth = (Depth) -0.5f;
+      this.depth = new Depth(-0.5f);
       this._canHaveChance = false;
       this._customMachineOverlay = new Sprite("arcade/customMachine");
       this._outline = new Sprite("arcade/arcadeMachineOutline");

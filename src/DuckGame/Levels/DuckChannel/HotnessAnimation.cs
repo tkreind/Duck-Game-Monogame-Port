@@ -111,16 +111,16 @@ namespace DuckGame
       }
       else
         this._wait += 0.01f;
-      this._redBar.depth = (Depth) 0.2f;
+      this._redBar.depth = new Depth(0.2f);
       Graphics.Draw(this._redBar, 30f, 25f);
-      this._font.depth = (Depth) 0.25f;
+      this._font.depth = new Depth(0.25f);
       if (DG.isHalloween)
-        this._font.Draw("SPOOKY  REPORT", 44f, 28f, Color.White, (Depth) 0.25f);
+        this._font.Draw("SPOOKY  REPORT", 44f, 28f, Color.White, new Depth(0.25f));
       else
-        this._font.Draw("HOTNESS REPORT", 44f, 28f, Color.White, (Depth) 0.25f);
-      this._blueBar.depth = (Depth) 0.1f;
+        this._font.Draw("HOTNESS REPORT", 44f, 28f, Color.White, new Depth(0.25f));
+      this._blueBar.depth = new Depth(0.1f);
       Graphics.Draw(this._blueBar, 30f, 18f);
-      Graphics.DrawRect(new Vec2(20f, 135f), new Vec2(260f, 160f), new Color(12, 90, 182), (Depth) 0.1f);
+      Graphics.DrawRect(new Vec2(20f, 135f), new Vec2(260f, 160f), new Color(12, 90, 182), new Depth(0.1f));
       Vec2 vec2_1 = new Vec2(60f, 50f);
       Vec2 vec2_2 = new Vec2(200f, 150f);
       Vec2 vec2_3 = new Vec2(vec2_2.x - vec2_1.x, vec2_2.y - vec2_1.y);
@@ -141,18 +141,18 @@ namespace DuckGame
         float num7 = num2 + 0.28f;
         float x = vec2_1.x + num1;
         float y = (float) ((double) vec2_2.y - 32.0 - (double) num7 * (double) num6);
-        profile.persona.sprite.depth = (Depth) 0.3f;
+        profile.persona.sprite.depth = new Depth(0.3f);
         profile.persona.sprite.color = Color.White;
         Graphics.Draw(profile.persona.sprite, 0, x, y);
         Vec2 hatPoint = DuckRig.GetHatPoint(profile.persona.sprite.imageIndex);
-        profile.team.hat.depth = (Depth) 0.31f;
+        profile.team.hat.depth = new Depth(0.31f);
         profile.team.hat.center = new Vec2(16f, 16f) + profile.team.hatOffset;
         Graphics.Draw(profile.team.hat, profile.team.hat.frame, x + hatPoint.x, y + hatPoint.y);
-        Graphics.DrawRect(new Vec2(x - 17f, y + 16f), new Vec2(x + 16f, 160f), profile.persona.colorUsable, (Depth) 0.05f);
+        Graphics.DrawRect(new Vec2(x - 17f, y + 16f), new Vec2(x + 16f, 160f), profile.persona.colorUsable, new Depth(0.05f));
         string text = num5.ToString() + "=";
-        this._font.depth = (Depth) 0.25f;
-        this._font.Draw(text, new Vec2((float) ((double) x - (double) this._font.GetWidth(text) / 2.0 + 3.0), 140f), Color.White, (Depth) 0.25f);
-        this._icon.depth = (Depth) 0.3f;
+        this._font.depth = new Depth(0.25f);
+        this._font.Draw(text, new Vec2((float) ((double) x - (double) this._font.GetWidth(text) / 2.0 + 3.0), 140f), Color.White, new Depth(0.25f));
+        this._icon.depth = new Depth(0.3f);
         this._icon.frame = (int) Math.Floor((double) num2 * 8.98999977111816);
         if (this._icon.frame != this._lastFrame[index3])
         {

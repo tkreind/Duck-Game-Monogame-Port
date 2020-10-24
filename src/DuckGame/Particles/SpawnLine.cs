@@ -26,7 +26,7 @@ namespace DuckGame
       this._thickness = thickness;
       this.offDir = (sbyte) dir;
       this.layer = Layer.Foreground;
-      this.depth = (Depth) 0.9f;
+      this.depth = new Depth(0.9f);
     }
 
     public override void Update()
@@ -37,6 +37,6 @@ namespace DuckGame
       this.x += this._moveSpeed;
     }
 
-    public override void Draw() => Graphics.DrawLine(this.position, this.position + new Vec2(0.0f, -1200f), this._color * this.alpha, this._thickness, (Depth) 0.9f);
+    public override void Draw() => Graphics.DrawLine(this.position, this.position + new Vec2(0.0f, -1200f), this._color * this.alpha, this._thickness, new Depth(0.9f));
   }
 }

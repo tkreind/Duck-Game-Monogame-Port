@@ -331,12 +331,12 @@ label_76:
                 }
                 if (this.op == ScriptOperator.And)
                 {
-                  obj1 = (object) (bool) (!flag1 ? 0 : (flag2 ? 1 : 0));
+                  obj1 = (object) (bool) (!flag1 ? false : (flag2 ? true : false));
                   break;
                 }
                 if (this.op == ScriptOperator.Or)
                 {
-                  obj1 = (object) (bool) (flag1 ? 1 : (flag2 ? 1 : 0));
+                  obj1 = (object) (bool) (flag1 ? true : (flag2 ? true : false));
                   break;
                 }
                 break;
@@ -366,18 +366,21 @@ label_76:
               break;
           }
           obj1 = !(obj4 is ScriptObject scriptObject) ? obj4 : scriptObject.objectProperty.GetValue(scriptObject.obj, (object[]) null);
-          if (obj1 is float && scriptObject != null)
-            obj1 = (object) (float) ((double) (float) obj1 * (scriptObject.negative ? -1.0 : 1.0));
-          if (obj1 is int && scriptObject != null)
-            obj1 = (object) ((int) obj1 * (scriptObject.negative ? -1 : 1));
+          // TODO fix this decompiler issue
+          //if (obj1 is float && scriptObject != null)
+          //  obj1 = (object) (float) ((double) (float) obj1 * (scriptObject.negative ? -1.0 : 1.0));
+          //if (obj1 is int && scriptObject != null)
+          //  obj1 = (object) ((int) obj1 * (scriptObject.negative ? -1 : 1));
         }
-        if (obj3 == null || rightObject == null || rightObject.op <= ScriptOperator.IsNotEqual)
-          return obj1;
+        // TODO
+        //if (obj3 == null || rightObject == null || rightObject.op <= ScriptOperator.IsNotEqual)
+        //  return obj1;
         return new ScriptStatement()
         {
-          leftObject = obj1,
-          rightObject = rightObject.rightObject,
-          op = rightObject.op
+            // TODO
+          //leftObject = obj1,
+          //rightObject = rightObject.rightObject,
+          //op = rightObject.op
         }.result;
       }
     }

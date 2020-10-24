@@ -103,11 +103,11 @@ namespace DuckGame
           Vec2 vec2 = Network.isActive ? vote.leftStick : vote.who.inputProfile.leftStick;
           vote.who.persona.skipSprite.angle = (float) ((double) num2 * 0.0299999993294477 + (double) vec2.y * 0.400000005960464);
           vote.who.persona.skipSprite.frame = 0;
-          Graphics.Draw((Sprite) vote.who.persona.skipSprite, (float) ((double) Layer.HUD.width + 49.0 - (double) vote.slide * 48.0 + (double) vec2.x * 3.0), (float) ((double) Layer.HUD.height - 28.0 - (double) (num1 * 16) - (double) vec2.y * 3.0), (Depth) 0.9f);
+          Graphics.Draw((Sprite) vote.who.persona.skipSprite, (float) ((double) Layer.HUD.width + 49.0 - (double) vote.slide * 48.0 + (double) vec2.x * 3.0), (float) ((double) Layer.HUD.height - 28.0 - (double) (num1 * 16) - (double) vec2.y * 3.0), new Depth(0.9f));
           vote.who.persona.skipSprite.frame = 1;
           Vec2 p2 = Network.isActive ? vote.rightStick : vote.who.inputProfile.rightStick;
           vote.who.persona.skipSprite.angle = num2 * 0.03f + Maths.DegToRad(Maths.PointDirection(Vec2.Zero, p2) - 180f);
-          Graphics.Draw((Sprite) vote.who.persona.skipSprite, (float) ((double) Layer.HUD.width + 68.0 - (double) vote.slide * 48.0 + (double) p2.x * 20.0), (float) ((double) Layer.HUD.height - 32.0 - (double) (num1 * 16) - (double) p2.y * 20.0), (Depth) 0.9f);
+          Graphics.Draw((Sprite) vote.who.persona.skipSprite, (float) ((double) Layer.HUD.width + 68.0 - (double) vote.slide * 48.0 + (double) p2.x * 20.0), (float) ((double) Layer.HUD.height - 32.0 - (double) (num1 * 16) - (double) p2.y * 20.0), new Depth(0.9f));
         }
         ++num1;
       }

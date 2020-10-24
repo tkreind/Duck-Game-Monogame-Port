@@ -91,7 +91,7 @@ namespace DuckGame
         text = this._field.value as string;
       if (this._hover)
       {
-        Graphics.DrawRect(this.position, this.position + this.itemSize, new Color(70, 70, 70), (Depth) 0.82f);
+        Graphics.DrawRect(this.position, this.position + this.itemSize, new Color(70, 70, 70), new Depth(0.82f));
         if (text.Length > 12)
         {
           Vec2 p1 = new Vec2(this.x, this.y);
@@ -99,28 +99,28 @@ namespace DuckGame
           p1.y -= 2f;
           float x = 200f;
           float y = 100f;
-          Graphics.DrawString(this._text, this.position + new Vec2(2f, 5f), Color.White, (Depth) 0.88f);
-          Graphics.DrawRect(p1, p1 + new Vec2(x, y), new Color(70, 70, 70), (Depth) 0.83f);
-          Graphics.DrawRect(p1 + new Vec2(1f, 1f), p1 + new Vec2(x - 1f, y - 1f), new Color(30, 30, 30), (Depth) 0.84f);
-          this._fancyFont.depth = (Depth) 0.8f;
+          Graphics.DrawString(this._text, this.position + new Vec2(2f, 5f), Color.White, new Depth(0.88f));
+          Graphics.DrawRect(p1, p1 + new Vec2(x, y), new Color(70, 70, 70), new Depth(0.83f));
+          Graphics.DrawRect(p1 + new Vec2(1f, 1f), p1 + new Vec2(x - 1f, y - 1f), new Color(30, 30, 30), new Depth(0.84f));
+          this._fancyFont.depth = new Depth(0.8f);
           this._fancyFont.maxWidth = 200;
-          this._fancyFont.Draw(text, p1 + new Vec2(4f, 4f), Color.White, (Depth) 0.86f);
+          this._fancyFont.Draw(text, p1 + new Vec2(4f, 4f), Color.White, new Depth(0.86f));
         }
         else
         {
           if ((double) this._blink >= 0.5)
             text += "_";
           this._fancyFont.maxWidth = 200;
-          this._fancyFont.Draw(text, this.position + new Vec2(2f, 5f), Color.White, (Depth) 0.86f);
+          this._fancyFont.Draw(text, this.position + new Vec2(2f, 5f), Color.White, new Depth(0.86f));
         }
       }
       else
       {
-        Graphics.DrawString(this._text, this.position + new Vec2(2f, 5f), Color.White, (Depth) 0.84f);
+        Graphics.DrawString(this._text, this.position + new Vec2(2f, 5f), Color.White, new Depth(0.84f));
         if (text.Length > 12)
           text = text.Substring(0, 12) + "..";
-        this._fancyFont.depth = (Depth) 0.81f;
-        this._fancyFont.Draw(text, this.position + new Vec2(this.itemSize.x - 4f - this._fancyFont.GetWidth(text), 5f), Color.White, (Depth) 0.84f);
+        this._fancyFont.depth = new Depth(0.81f);
+        this._fancyFont.Draw(text, this.position + new Vec2(this.itemSize.x - 4f - this._fancyFont.GetWidth(text), 5f), Color.White, new Depth(0.84f));
       }
     }
   }

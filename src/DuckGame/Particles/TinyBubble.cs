@@ -20,7 +20,7 @@ namespace DuckGame
       this._gravMult = 0.0f;
       this.vSpeed = -Rando.Float(0.5f, 1f);
       this.hSpeed = startHSpeed;
-      this.depth = (Depth) 0.3f;
+      this.depth = new Depth(0.3f);
       SpriteMap spriteMap = new SpriteMap("tinyBubbles", 8, 8);
       if (blue)
         spriteMap = new SpriteMap("tinyBlueBubbles", 8, 8);

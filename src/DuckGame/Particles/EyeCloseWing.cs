@@ -20,7 +20,7 @@ namespace DuckGame
       this.graphic = (Sprite) this._sprite;
       this.center = new Vec2(8f, 8f);
       this._dir = dir;
-      this.depth = (Depth) 0.9f;
+      this.depth = new Depth(0.9f);
       if (this._dir < 0)
         this.angleDegrees = 70f;
       else

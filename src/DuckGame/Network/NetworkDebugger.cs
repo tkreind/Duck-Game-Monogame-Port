@@ -597,12 +597,12 @@ namespace DuckGame
                   this._connectionArrow.frame = networkConnection1.status != ConnectionStatus.Connected ? 0 : 3;
                   this._connectionArrow.angleDegrees = num1;
                   this._connectionArrow.alpha = 1f;
-                  this._connectionArrow.depth = (Depth) 0.92f;
+                  this._connectionArrow.depth = new Depth(0.92f);
                   Vec2 vec2_4 = (vec2_1 + vec2_2) / 2f + vec2_3 * num2;
                   DuckGame.Graphics.Draw((Sprite) this._connectionArrow, vec2_4.x, vec2_4.y);
                   if (networkConnection1.status != ConnectionStatus.Disconnecting)
                   {
-                    this._connectionX.depth = (Depth) 0.98f;
+                    this._connectionX.depth = new Depth(0.98f);
                     Vec2 vec2_5 = vec2_4 - p2.normalized * 22f;
                     if ((double) (Mouse.positionConsole - vec2_5).length < 8.0)
                     {
@@ -621,7 +621,7 @@ namespace DuckGame
                   {
                     ++this._connectionArrow.frame;
                     this._connectionArrow.alpha = num4;
-                    this._connectionArrow.depth = (Depth) 0.95f;
+                    this._connectionArrow.depth = new Depth(0.95f);
                     DuckGame.Graphics.Draw((Sprite) this._connectionArrow, vec2_4.x, vec2_4.y);
                     --this._connectionArrow.frame;
                   }
@@ -629,7 +629,7 @@ namespace DuckGame
                   {
                     this._connectionArrow.frame += 2;
                     this._connectionArrow.alpha = num3;
-                    this._connectionArrow.depth = (Depth) 0.95f;
+                    this._connectionArrow.depth = new Depth(0.95f);
                     DuckGame.Graphics.Draw((Sprite) this._connectionArrow, vec2_4.x, vec2_4.y);
                     this._connectionArrow.frame -= 2;
                   }

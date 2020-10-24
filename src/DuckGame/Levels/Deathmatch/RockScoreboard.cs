@@ -239,7 +239,7 @@ namespace DuckGame
         Layer.Add(this._sunLayer);
         Thing thing = (Thing) new SpriteThing(150f, 120f, new Sprite("sun"));
         thing.z = -9999f;
-        thing.depth = (Depth) -0.99f;
+        thing.depth = new Depth(-0.99f);
         thing.layer = this._sunLayer;
         thing.xscale = 1f;
         thing.yscale = 1f;
@@ -250,7 +250,7 @@ namespace DuckGame
         SpriteThing spriteThing1 = new SpriteThing(150f, 80f, new Sprite("rainbow"));
         spriteThing1.alpha = 0.15f;
         spriteThing1.z = -9999f;
-        spriteThing1.depth = (Depth) -0.99f;
+        spriteThing1.depth = new Depth(-0.99f);
         spriteThing1.layer = this._sunLayer;
         spriteThing1.xscale = 1f;
         spriteThing1.yscale = 1f;
@@ -262,7 +262,7 @@ namespace DuckGame
         this.rainbowThing.visible = false;
         SpriteThing spriteThing2 = new SpriteThing(150f, 80f, new Sprite("rainbow"));
         spriteThing2.z = -9999f;
-        spriteThing2.depth = (Depth) -0.99f;
+        spriteThing2.depth = new Depth(-0.99f);
         spriteThing2.layer = this._sunLayer;
         spriteThing2.xscale = 1f;
         spriteThing2.yscale = 1f;
@@ -575,12 +575,12 @@ namespace DuckGame
           break;
       }
       s1.scale = new Vec2(4f, 4f);
-      s1.depth = (Depth) 0.5f;
+      s1.depth = new Depth(0.5f);
       s1.y -= 16f;
       this._field.AddSprite(s1);
       Sprite s2 = new Sprite("fieldWall");
       s2.scale = new Vec2(4f, 4f);
-      s2.depth = (Depth) 0.5f;
+      s2.depth = new Depth(0.5f);
       s2.y -= 16f;
       this._wall = new WallLayer("FIELDWALL", 80);
       if (RockScoreboard.wallMode)
@@ -611,63 +611,63 @@ namespace DuckGame
         Thing thing1 = (Thing) new SpriteThing(300f, -10f, spr1);
         thing1.center = new Vec2((float) (spr1.w / 2), (float) (spr1.h / 2));
         thing1.z = (float) (106 + num);
-        thing1.depth = (Depth) 0.5f;
+        thing1.depth = new Depth(0.5f);
         thing1.layer = Layer.Background;
         Level.Add(thing1);
         Sprite spr2 = new Sprite("rockThrow/chairBottom");
         Thing thing2 = (Thing) new SpriteThing(300f, -6f, spr2);
         thing2.center = new Vec2((float) (spr2.w / 2), (float) (spr2.h / 2));
         thing2.z = (float) (120 + num);
-        thing2.depth = (Depth) 0.8f;
+        thing2.depth = new Depth(0.8f);
         thing2.layer = Layer.Background;
         Level.Add(thing2);
         Sprite spr3 = new Sprite("rockThrow/chairFront");
         Thing thing3 = (Thing) new SpriteThing(300f, -9f, spr3);
         thing3.center = new Vec2((float) (spr3.w / 2), (float) (spr3.h / 2));
         thing3.z = (float) (122 + num);
-        thing3.depth = (Depth) 0.9f;
+        thing3.depth = new Depth(0.9f);
         thing3.layer = Layer.Background;
         Level.Add(thing3);
         Sprite spr4 = new Sprite("rockThrow/tableBottomBack");
         Thing thing4 = (Thing) new SpriteThing(450f, -7f, spr4);
         thing4.center = new Vec2((float) (spr4.w / 2), (float) (spr4.h / 2));
         thing4.z = (float) (106 + num);
-        thing4.depth = (Depth) 0.5f;
+        thing4.depth = new Depth(0.5f);
         thing4.layer = Layer.Background;
         Level.Add(thing4);
         Sprite spr5 = new Sprite("rockThrow/tableBottom");
         Thing thing5 = (Thing) new SpriteThing(450f, -7f, spr5);
         thing5.center = new Vec2((float) (spr5.w / 2), (float) (spr5.h / 2));
         thing5.z = (float) (120 + num);
-        thing5.depth = (Depth) 0.8f;
+        thing5.depth = new Depth(0.8f);
         thing5.layer = Layer.Background;
         Level.Add(thing5);
         Sprite spr6 = new Sprite("rockThrow/keg");
         Thing thing6 = (Thing) new SpriteThing(460f, -24f, spr6);
         thing6.center = new Vec2((float) (spr6.w / 2), (float) (spr6.h / 2));
         thing6.z = (float) (120 + num - 4);
-        thing6.depth = (Depth) -0.4f;
+        thing6.depth = new Depth(-0.4f);
         thing6.layer = Layer.Game;
         Level.Add(thing6);
         Sprite spr7 = new Sprite("rockThrow/cup");
         Thing thing7 = (Thing) new SpriteThing(445f, -21f, spr7);
         thing7.center = new Vec2((float) (spr7.w / 2), (float) (spr7.h / 2));
         thing7.z = (float) (120 + num - 6);
-        thing7.depth = (Depth) -0.5f;
+        thing7.depth = new Depth(-0.5f);
         thing7.layer = Layer.Game;
         Level.Add(thing7);
         Sprite spr8 = new Sprite("rockThrow/cup");
         Thing thing8 = (Thing) new SpriteThing(437f, -20f, spr8);
         thing8.center = new Vec2((float) (spr8.w / 2), (float) (spr8.h / 2));
         thing8.z = (float) (120 + num);
-        thing8.depth = (Depth) -0.3f;
+        thing8.depth = new Depth(-0.3f);
         thing8.layer = Layer.Game;
         Level.Add(thing8);
         Sprite spr9 = new Sprite("rockThrow/cup");
         Thing thing9 = (Thing) new SpriteThing(472f, -20f, spr9);
         thing9.center = new Vec2((float) (spr9.w / 2), (float) (spr9.h / 2));
         thing9.z = (float) (120 + num - 7);
-        thing9.depth = (Depth) -0.5f;
+        thing9.depth = new Depth(-0.5f);
         thing9.layer = Layer.Game;
         thing9.angleDegrees = 80f;
         Level.Add(thing9);
@@ -676,7 +676,7 @@ namespace DuckGame
       {
         DistanceMarker distanceMarker = new DistanceMarker((float) (230 + index * 175), -25f, (int) Math.Round((double) (index * GameMode.winsPerSet) / 2.0));
         distanceMarker.z = 0.0f;
-        distanceMarker.depth = (Depth) 0.34f;
+        distanceMarker.depth = new Depth(0.34f);
         distanceMarker.layer = Layer.Background;
         Level.Add((Thing) distanceMarker);
       }
@@ -687,14 +687,14 @@ namespace DuckGame
         spriteThing.center = new Vec2((float) (spr.w / 2), (float) (spr.h - 1));
         spriteThing.collisionOffset = new Vec2(spriteThing.collisionOffset.x, (float) -spr.h);
         spriteThing.z = 0.0f;
-        spriteThing.depth = (Depth) 0.33f;
+        spriteThing.depth = new Depth(0.33f);
         spriteThing.layer = Layer.Background;
         Level.Add((Thing) spriteThing);
       }
       SpriteThing spriteThing3 = new SpriteThing(600f, 0.0f, new Sprite("blackSquare"));
       spriteThing3.z = -90f;
       spriteThing3.centery = 7f;
-      spriteThing3.depth = (Depth) 0.1f;
+      spriteThing3.depth = new Depth(0.1f);
       spriteThing3.layer = Layer.Background;
       spriteThing3.xscale = 100f;
       spriteThing3.yscale = 7f;
@@ -1078,7 +1078,7 @@ namespace DuckGame
                         break;
                     }
                     s.position = new Vec2(slot.rock.x - 12f, slot.rock.z - 10f);
-                    s.depth = (Depth) 0.9f;
+                    s.depth = new Depth(0.9f);
                     s.xscale = 0.8f;
                     s.yscale = 1.4f;
                     s.alpha = 0.9f;
@@ -1101,7 +1101,7 @@ namespace DuckGame
                         break;
                     }
                     s.position = new Vec2(slot.rock.x - 5f, slot.rock.z - 10f);
-                    s.depth = (Depth) 0.9f;
+                    s.depth = new Depth(0.9f);
                     s.xscale = 0.6f;
                     s.yscale = 1.4f;
                     s.alpha = 0.9f;
@@ -1540,13 +1540,13 @@ namespace DuckGame
         }
         if ((double) this._intermissionSlide > 0.00999999977648258)
         {
-          this._intermissionText.depth = (Depth) 0.91f;
+          this._intermissionText.depth = new Depth(0.91f);
           float x1 = (float) ((double) this._intermissionSlide * 320.0 - 320.0);
           float y = 60f;
-          DuckGame.Graphics.DrawRect(new Vec2(x1, y), new Vec2(x1 + 320f, y + 30f), Color.Black, (Depth) 0.9f);
+          DuckGame.Graphics.DrawRect(new Vec2(x1, y), new Vec2(x1 + 320f, y + 30f), Color.Black, new Depth(0.9f));
           float x2 = (float) (320.0 - (double) this._intermissionSlide * 320.0);
           float num = 60f;
-          DuckGame.Graphics.DrawRect(new Vec2(x2, num + 30f), new Vec2(x2 + 320f, num + 60f), Color.Black, (Depth) 0.9f);
+          DuckGame.Graphics.DrawRect(new Vec2(x2, num + 30f), new Vec2(x2 + 320f, num + 60f), Color.Black, new Depth(0.9f));
           DuckGame.Graphics.Draw(this._intermissionText, (float) ((double) this._intermissionSlide * 336.0 - 320.0), num + 18f);
         }
       }
@@ -1554,8 +1554,8 @@ namespace DuckGame
       {
         if (this._mode == ScoreBoardMode.ShowWinner && !this._afterHighlights)
         {
-          this._winnerPost.depth = (Depth) -0.962f;
-          this._winnerBanner.depth = (Depth) -0.858f;
+          this._winnerPost.depth = new Depth(-0.962f);
+          this._winnerBanner.depth = new Depth(-0.858f);
           float num1 = -10f;
           DuckGame.Graphics.Draw(this._winnerPost, 63f, 40f + num1);
           DuckGame.Graphics.Draw(this._winnerPost, 248f, 40f + num1);

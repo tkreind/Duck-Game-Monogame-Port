@@ -73,7 +73,7 @@ namespace DuckGame
         if ((int) this.prevState != (int) this.inputProfile.state)
         {
           InputObject inputObject = this;
-          inputObject.authority = NetIndex8.op_Increment(inputObject.authority);
+          inputObject.authority = ++(inputObject.authority);
           ++this._inputChangeIndex;
         }
         this.prevState = this.inputProfile.state;

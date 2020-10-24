@@ -356,27 +356,27 @@ namespace DuckGame
         this._font = new BitmapFont("biosFont", 8);
         this._background = new Sprite("title/background");
         this._optionsPlatform = new Sprite("title/optionsPlatform");
-        this._optionsPlatform.depth = (Depth) 0.9f;
+        this._optionsPlatform.depth = new Depth(0.9f);
         this._rightPlatform = new Sprite("title/rightPlatform");
-        this._rightPlatform.depth = (Depth) 0.9f;
+        this._rightPlatform.depth = new Depth(0.9f);
         this._beamPlatform = new Sprite("title/beamPlatform");
-        this._beamPlatform.depth = (Depth) 0.9f;
+        this._beamPlatform.depth = new Depth(0.9f);
         this._upperMonitor = new Sprite("title/upperMonitor");
-        this._upperMonitor.depth = (Depth) 0.85f;
+        this._upperMonitor.depth = new Depth(0.85f);
         this._airlock = new Sprite("title/airlock");
-        this._airlock.depth = (Depth) -0.85f;
+        this._airlock.depth = new Depth(-0.85f);
         this._leftPlatform = new Sprite("title/leftPlatform");
-        this._leftPlatform.depth = (Depth) 0.9f;
+        this._leftPlatform.depth = new Depth(0.9f);
         this._optionsTV = new Sprite("title/optionsTV");
-        this._optionsTV.depth = (Depth) -0.9f;
+        this._optionsTV.depth = new Depth(-0.9f);
         this._libraryBookcase = new Sprite("title/libraryBookcase");
-        this._libraryBookcase.depth = (Depth) -0.9f;
+        this._libraryBookcase.depth = new Depth(-0.9f);
         this._bigUButton = new Sprite("title/bigUButtonPC");
         this._bigUButton.CenterOrigin();
-        this._bigUButton.depth = (Depth) 0.95f;
+        this._bigUButton.depth = new Depth(0.95f);
         this._controls = new SpriteMap("title/controlsPC", 100, 11);
         this._controls.CenterOrigin();
-        this._controls.depth = (Depth) 0.95f;
+        this._controls.depth = new Depth(0.95f);
         this._multiBeam = new MultiBeam(160f, -30f);
         Level.Add((Thing) this._multiBeam);
         this._optionsBeam = new OptionsBeam(28f, -110f);
@@ -778,32 +778,32 @@ namespace DuckGame
           if (this._selection == TitleMenuSelection.None)
           {
             string text = "@DPAD@MOVE @JUMP@JUMP";
-            this._font.Draw(text, Level.current.camera.PercentW(50f) - this._font.GetWidth(text) / 2f, 16f, Color.White, (Depth) 0.95f);
+            this._font.Draw(text, Level.current.camera.PercentW(50f) - this._font.GetWidth(text) / 2f, 16f, Color.White, new Depth(0.95f));
           }
           else if (this._selection == TitleMenuSelection.Play)
           {
             string text = "@SELECT@PLAY GAME";
-            this._font.Draw(text, Level.current.camera.PercentW(50f) - this._font.GetWidth(text) / 2f, 16f, Color.White, (Depth) 0.95f);
+            this._font.Draw(text, Level.current.camera.PercentW(50f) - this._font.GetWidth(text) / 2f, 16f, Color.White, new Depth(0.95f));
           }
           else if (this._selection == TitleMenuSelection.Stats)
           {
             string text = "@SELECT@LIBRARY";
-            this._font.Draw(text, Level.current.camera.PercentW(50f) - this._font.GetWidth(text) / 2f, 16f, Color.White, (Depth) 0.95f);
+            this._font.Draw(text, Level.current.camera.PercentW(50f) - this._font.GetWidth(text) / 2f, 16f, Color.White, new Depth(0.95f));
           }
           else if (this._selection == TitleMenuSelection.Options)
           {
             string text = "@SELECT@OPTIONS";
-            this._font.Draw(text, Level.current.camera.PercentW(50f) - this._font.GetWidth(text) / 2f, 16f, Color.White, (Depth) 0.95f);
+            this._font.Draw(text, Level.current.camera.PercentW(50f) - this._font.GetWidth(text) / 2f, 16f, Color.White, new Depth(0.95f));
           }
           else if (this._selection == TitleMenuSelection.Editor)
           {
             string text = "@SELECT@EDITOR";
-            this._font.Draw(text, Level.current.camera.PercentW(50f) - this._font.GetWidth(text) / 2f, 16f, Color.White, (Depth) 0.95f);
+            this._font.Draw(text, Level.current.camera.PercentW(50f) - this._font.GetWidth(text) / 2f, 16f, Color.White, new Depth(0.95f));
           }
         }
         else if ((double) this._pressStartBlink >= 0.5)
         {
-          this._font.Draw("PRESS START", Level.current.camera.PercentW(50f) - this._font.GetWidth("PRESS START") / 2f, 15f, Color.White, (Depth) 0.95f);
+          this._font.Draw("PRESS START", Level.current.camera.PercentW(50f) - this._font.GetWidth("PRESS START") / 2f, 15f, Color.White, new Depth(0.95f));
         }
         else
         {
@@ -811,7 +811,7 @@ namespace DuckGame
           if (profileWithDevice != null && profileWithDevice.lastActiveDevice != null && profileWithDevice.lastActiveDevice is GenericController)
             Graphics.Draw(this._bigUButton, Level.current.camera.PercentW(50f) - 1f, 18f);
           else
-            Graphics.DrawString("@START@", new Vec2(Level.current.camera.PercentW(50f) - 7f, 16f), Color.White, (Depth) 0.9f);
+            Graphics.DrawString("@START@", new Vec2(Level.current.camera.PercentW(50f) - 7f, 16f), Color.White, new Depth(0.9f));
         }
       }
       else if (layer == Layer.Game)
@@ -831,14 +831,14 @@ namespace DuckGame
             if (stringList.Count == 1)
             {
               float stringWidth = Graphics.GetStringWidth(stringList[0]);
-              Graphics.DrawStringColoredSymbols(stringList[0], new Vec2((float) (320.0 + (160.0 - (double) stringWidth / 2.0)), num + (200f - this.creditsScroll)), Color.White, (Depth) 1f);
+              Graphics.DrawStringColoredSymbols(stringList[0], new Vec2((float) (320.0 + (160.0 - (double) stringWidth / 2.0)), num + (200f - this.creditsScroll)), Color.White, new Depth(1f));
             }
             else
             {
               double stringWidth1 = (double) Graphics.GetStringWidth(stringList[0]);
-              Graphics.DrawStringColoredSymbols(stringList[0], new Vec2(337f, num + (200f - this.creditsScroll)), Color.White, (Depth) 1f);
+              Graphics.DrawStringColoredSymbols(stringList[0], new Vec2(337f, num + (200f - this.creditsScroll)), Color.White, new Depth(1f));
               double stringWidth2 = (double) Graphics.GetStringWidth(stringList[1]);
-              Graphics.DrawStringColoredSymbols(stringList[1], new Vec2(497f, num + (200f - this.creditsScroll)), Color.White, (Depth) 1f);
+              Graphics.DrawStringColoredSymbols(stringList[1], new Vec2(497f, num + (200f - this.creditsScroll)), Color.White, new Depth(1f));
             }
             num += 11f;
           }
@@ -851,7 +851,7 @@ namespace DuckGame
         if ((double) this.camera.y > 4.0)
         {
           this._starField.alpha = num + (float) (((double) this.camera.y - 4.0) / 13.0);
-          Graphics.Draw(this._starField, 0.0f, layer.camera.y - 58f, (Depth) -0.99f);
+          Graphics.Draw(this._starField, 0.0f, layer.camera.y - 58f, new Depth(-0.99f));
         }
       }
       else if (layer == Layer.Background)
@@ -862,7 +862,7 @@ namespace DuckGame
           float num2 = 0.2f;
           if ((double) this.camera.y > 0.0)
             num2 += this.camera.y / 52f;
-          Graphics.DrawRect(particle.pos, particle.pos + new Vec2(1f, 1f), Color.White * (num2 + num1 * 0.6f), (Depth) -0.3f);
+          Graphics.DrawRect(particle.pos, particle.pos + new Vec2(1f, 1f), Color.White * (num2 + num1 * 0.6f), new Depth(-0.3f));
           float num3 = 0.1f;
           if ((double) this.camera.y > 0.0)
             num3 += this.camera.y / 52f;
@@ -871,11 +871,11 @@ namespace DuckGame
           for (int index = 0; index < num4; ++index)
           {
             float num5 = particle.speed.x * 8f;
-            Graphics.DrawLine(pos + new Vec2(-num5, 0.5f), pos + new Vec2(0.0f, 0.5f), particle.color * ((float) (1.0 - (double) index / (double) num4) * num3), depth: ((Depth) -0.4f));
+            Graphics.DrawLine(pos + new Vec2(-num5, 0.5f), pos + new Vec2(0.0f, 0.5f), particle.color * ((float) (1.0 - (double) index / (double) num4) * num3), depth: (new Depth(-0.4f)));
             pos.x -= num5;
           }
         }
-        this._background.depth = (Depth) 0.0f;
+        this._background.depth = new Depth(0.0f);
         Rectangle sourceRectangle = new Rectangle(0.0f, 0.0f, 90f, (float) this._background.height);
         Graphics.Draw(this._background, 0.0f, 0.0f, sourceRectangle);
         sourceRectangle = new Rectangle(63f, 107f, 194f, 61f);

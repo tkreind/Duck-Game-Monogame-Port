@@ -54,7 +54,7 @@ namespace DuckGame
             if (path != null && (double) path.length < (double) num)
             {
               num = path.length;
-              obj = (T) thing;
+              obj = (T) (Object)thing;
             }
           }
         }

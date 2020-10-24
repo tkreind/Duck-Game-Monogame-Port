@@ -260,45 +260,55 @@ namespace DuckGame
       {
         accessorInfo = new AccessorInfo();
         accessorInfo.type = field.FieldType;
-        accessorInfo.setAccessor = Editor.BuildSetAccessorField(t, field);
-        accessorInfo.getAccessor = Editor.BuildGetAccessorField(t, field);
+        //accessorInfo.setAccessor = Editor.BuildSetAccessorField(t, field);
+        //accessorInfo.getAccessor = Editor.BuildGetAccessorField(t, field);
       }
       else if (property != (PropertyInfo) null)
       {
         accessorInfo = new AccessorInfo();
         accessorInfo.type = property.PropertyType;
         MethodInfo setMethod = property.GetSetMethod(true);
-        if (setMethod != (MethodInfo) null)
-          accessorInfo.setAccessor = Editor.BuildSetAccessorProperty(t, setMethod);
-        accessorInfo.getAccessor = Editor.BuildGetAccessorProperty(t, property);
+                if (setMethod != (MethodInfo)null)
+                {
+                    //accessorInfo.setAccessor = Editor.BuildSetAccessorProperty(t, setMethod);
+                }
+        //accessorInfo.getAccessor = Editor.BuildGetAccessorProperty(t, property);
       }
       return accessorInfo;
     }
 
-    public static Action<object, object> BuildSetAccessorProperty(System.Type t, MethodInfo method)
-    {
-      ParameterExpression parameterExpression1;
-      ParameterExpression parameterExpression2;
-      return Expression.Lambda<Action<object, object>>((Expression) Expression.Call((Expression) Expression.Convert((Expression) parameterExpression1, method.DeclaringType), method, (Expression) Expression.Convert((Expression) parameterExpression2, method.GetParameters()[0].ParameterType)), parameterExpression1, parameterExpression2).Compile();
-    }
+        // TODO
+    //public static Action<object, object> BuildSetAccessorProperty(System.Type _, MethodInfo method)
+    //{
+    //  ParameterExpression parameterExpression1;
+    //  ParameterExpression parameterExpression2;
+    //  return Expression.Lambda<Action<object, object>>(
+    //      (Expression) Expression.Call(
+    //          (Expression) Expression.Convert(
+    //              (Expression) parameterExpression1, method.DeclaringType),
+    //          method,
+    //          (Expression) Expression.Convert((Expression) parameterExpression2, method.GetParameters()[0].ParameterType)
+    //          ), parameterExpression1, 
+    //      parameterExpression2).Compile();
+    //}
 
-    public static Func<object, object> BuildGetAccessorProperty(System.Type t, PropertyInfo property)
-    {
-      ParameterExpression parameterExpression;
-      return Expression.Lambda<Func<object, object>>((Expression) Expression.Convert((Expression) Expression.Property((Expression) Expression.Convert((Expression) parameterExpression, t), property), typeof (object)), parameterExpression).Compile();
-    }
+    //public static Func<object, object> BuildGetAccessorProperty(System.Type t, PropertyInfo property)
+    //{
+    //  ParameterExpression parameterExpression;
+    //  return Expression.Lambda<Func<object, object>>((Expression) Expression.Convert((Expression) Expression.Property((Expression) Expression.Convert((Expression) parameterExpression, t), property), typeof (object)), parameterExpression).Compile();
+    //}
 
-    public static Action<object, object> BuildSetAccessorField(System.Type t, FieldInfo field)
-    {
-      ParameterExpression parameterExpression;
-      return ((Expression<Action<object, object>>) ((target, value) => Expression.Assign((Expression) Expression.Field((Expression) Expression.Convert((Expression) parameterExpression, t), field), (Expression) Expression.Convert(value, field.FieldType)))).Compile();
-    }
+    //public static Action<object, object> BuildSetAccessorField(System.Type t, FieldInfo field)
+    //{
+    //  ParameterExpression parameterExpression;
+    //  return ((Expression<Action<object, object>>) ((target, value) => Expression.Assign((Expression) Expression.Field((Expression) Expression.Convert((Expression) parameterExpression, t), field), (Expression) Expression.Convert(value, field.FieldType)))).Compile();
+    //}
 
-    public static Func<object, object> BuildGetAccessorField(System.Type t, FieldInfo field)
-    {
-      ParameterExpression parameterExpression;
-      return Expression.Lambda<Func<object, object>>((Expression) Expression.Convert((Expression) Expression.Field((Expression) Expression.Convert((Expression) parameterExpression, t), field), typeof (object)), parameterExpression).Compile();
-    }
+    //public static Func<object, object> BuildGetAccessorField(System.Type t, FieldInfo field)
+    //{
+    //  ParameterExpression parameterExpression;
+    //  return Expression.Lambda<Func<object, object>>((Expression) Expression.Convert((Expression) Expression.Field((Expression) Expression.Convert((Expression) parameterExpression, t), field), typeof (object)), parameterExpression).Compile();
+    //}
 
     public static void PopFocus() => ++Editor.numPops;
 
@@ -1479,12 +1489,15 @@ namespace DuckGame
               {
                 if ((this._placementType.hugWalls & WallHug.Right) != WallHug.None && this.CollisionLine<IPlatform>(this._tilePosition, this._tilePosition + new Vec2(16f, 0.0f), this._placementType) is Thing thing && thing.GetType() != this._placementType.GetType())
                   this._tilePosition.x = thing.left - this._placementType.collisionSize.x - this._placementType.collisionOffset.x;
-                if ((this._placementType.hugWalls & WallHug.Left) != WallHug.None && this.CollisionLine<IPlatform>(this._tilePosition, this._tilePosition + new Vec2(-16f, 0.0f), this._placementType) is Thing thing && thing.GetType() != this._placementType.GetType())
-                  this._tilePosition.x = thing.right - this._placementType.collisionOffset.x;
-                if ((this._placementType.hugWalls & WallHug.Ceiling) != WallHug.None && this.CollisionLine<IPlatform>(this._tilePosition, this._tilePosition + new Vec2(0.0f, -16f), this._placementType) is Thing thing && thing.GetType() != this._placementType.GetType())
-                  this._tilePosition.y = thing.bottom - this._placementType.collisionOffset.y;
-                if ((this._placementType.hugWalls & WallHug.Floor) != WallHug.None && this.CollisionLine<IPlatform>(this._tilePosition, this._tilePosition + new Vec2(0.0f, 16f), this._placementType) is Thing thing && thing.GetType() != this._placementType.GetType())
-                  this._tilePosition.y = thing.top - this._placementType.collisionSize.y - this._placementType.collisionOffset.y;
+                if (
+                                    (this._placementType.hugWalls & WallHug.Left) != WallHug.None && 
+                                    this.CollisionLine<IPlatform>(this._tilePosition, this._tilePosition + new Vec2(-16f, 0.0f), this._placementType) is Thing thing1 && 
+                                    thing1.GetType() != this._placementType.GetType())
+                  this._tilePosition.x = thing1.right - this._placementType.collisionOffset.x;
+                if ((this._placementType.hugWalls & WallHug.Ceiling) != WallHug.None && this.CollisionLine<IPlatform>(this._tilePosition, this._tilePosition + new Vec2(0.0f, -16f), this._placementType) is Thing thing2 && thing2.GetType() != this._placementType.GetType())
+                  this._tilePosition.y = thing2.bottom - this._placementType.collisionOffset.y;
+                if ((this._placementType.hugWalls & WallHug.Floor) != WallHug.None && this.CollisionLine<IPlatform>(this._tilePosition, this._tilePosition + new Vec2(0.0f, 16f), this._placementType) is Thing thing3 && thing3.GetType() != this._placementType.GetType())
+                  this._tilePosition.y = thing3.top - this._placementType.collisionSize.y - this._placementType.collisionOffset.y;
               }
             }
             if (this._move != null)
@@ -1655,7 +1668,7 @@ namespace DuckGame
         Color col = new Color(38, 38, 38);
         if (Editor.arcadeMachineMode)
         {
-          DuckGame.Graphics.DrawRect(this._levelThings[0].position + new Vec2(-17f, -21f), this._levelThings[0].position + new Vec2(18f, 21f), col, (Depth) -0.9f, false);
+          DuckGame.Graphics.DrawRect(this._levelThings[0].position + new Vec2(-17f, -21f), this._levelThings[0].position + new Vec2(18f, 21f), col, new Depth(-0.9f), false);
         }
         else
         {
@@ -1673,9 +1686,9 @@ namespace DuckGame
           int num5 = (int) ((double) num3 / (double) this._cellSize);
           int num6 = (int) ((double) num4 / (double) this._cellSize);
           for (int index = 0; index < num5 + 1; ++index)
-            DuckGame.Graphics.DrawLine(new Vec2(x + (float) index * this._cellSize, y), new Vec2(x + (float) index * this._cellSize, y + (float) num6 * this._cellSize), col, 2f, (Depth) -0.9f);
+            DuckGame.Graphics.DrawLine(new Vec2(x + (float) index * this._cellSize, y), new Vec2(x + (float) index * this._cellSize, y + (float) num6 * this._cellSize), col, 2f, new Depth(-0.9f));
           for (int index = 0; index < num6 + 1; ++index)
-            DuckGame.Graphics.DrawLine(new Vec2(x, y + (float) index * this._cellSize), new Vec2(x + (float) num5 * this._cellSize, y + (float) index * this._cellSize), col, 2f, (Depth) -0.9f);
+            DuckGame.Graphics.DrawLine(new Vec2(x, y + (float) index * this._cellSize), new Vec2(x + (float) num5 * this._cellSize, y + (float) index * this._cellSize), col, 2f, new Depth(-0.9f));
           if (this._miniMode)
           {
             int num7 = 0;
@@ -1754,17 +1767,17 @@ namespace DuckGame
               int num7 = index1 - Editor._procXPos;
               int num8 = index2 - Editor._procYPos;
               if (index1 != Editor._procXPos || index2 != Editor._procYPos)
-                DuckGame.Graphics.DrawRect(new Vec2(num1 + (float) (num5 * num7), num2 + (float) (num6 * num8)), new Vec2(num1 + (float) (num5 * (num7 + 1)), num2 + (float) (num6 * (num8 + 1))), Color.White * 0.2f, (Depth) 1f, false);
+                DuckGame.Graphics.DrawRect(new Vec2(num1 + (float) (num5 * num7), num2 + (float) (num6 * num8)), new Vec2(num1 + (float) (num5 * (num7 + 1)), num2 + (float) (num6 * (num8 + 1))), Color.White * 0.2f, new Depth(1f), false);
             }
           }
         }
         if (this._hoverButton == null)
         {
           if (this._secondaryHover != null && this._placementMode)
-            DuckGame.Graphics.DrawRect(this._secondaryHover.topLeft, this._secondaryHover.bottomRight, Color.White * 0.5f, (Depth) 1f, false);
+            DuckGame.Graphics.DrawRect(this._secondaryHover.topLeft, this._secondaryHover.bottomRight, Color.White * 0.5f, new Depth(1f), false);
           else if (this._hover != null && this._placementMode)
           {
-            DuckGame.Graphics.DrawRect(this._hover.topLeft, this._hover.bottomRight, Color.White * 0.5f, (Depth) 1f, false);
+            DuckGame.Graphics.DrawRect(this._hover.topLeft, this._hover.bottomRight, Color.White * 0.5f, new Depth(1f), false);
             this._hover.DrawHoverInfo();
           }
           else if (this._editMode)
@@ -1773,10 +1786,10 @@ namespace DuckGame
               thing.DrawHoverInfo();
           }
           if (this._hover == null && Editor.gamepadMode)
-            DuckGame.Graphics.DrawRect(this._tilePosition - new Vec2(this._cellSize / 2f, this._cellSize / 2f), this._tilePosition + new Vec2(this._cellSize / 2f, this._cellSize / 2f), Color.White * 0.5f, (Depth) 1f, false);
+            DuckGame.Graphics.DrawRect(this._tilePosition - new Vec2(this._cellSize / 2f, this._cellSize / 2f), this._tilePosition + new Vec2(this._cellSize / 2f, this._cellSize / 2f), Color.White * 0.5f, new Depth(1f), false);
           if (this._hover == null && this._placementMode && this._placementType != null)
           {
-            this._placementType.depth = (Depth) 0.9f;
+            this._placementType.depth = new Depth(0.9f);
             this._placementType.x = this._tilePosition.x;
             this._placementType.y = this._tilePosition.y;
             this._placementType.Draw();
@@ -1799,7 +1812,7 @@ namespace DuckGame
               p2 = this._tilePosition + new Vec2(this._cellSize / 2f, this._cellSize / 2f);
             }
           }
-          DuckGame.Graphics.DrawDottedRect(p1, p2, Color.White * 0.5f, (Depth) 1f, 2f, 4f);
+          DuckGame.Graphics.DrawDottedRect(p1, p2, Color.White * 0.5f, new Depth(1f), 2f, 4f);
           foreach (Thing thing in Level.current.things)
             thing.material = (Material) null;
           foreach (Thing thing in this._selection)
@@ -1809,7 +1822,7 @@ namespace DuckGame
       if (layer != Layer.HUD)
         return;
       if (Editor.tooltip != null)
-        DuckGame.Graphics.DrawFancyString(Editor.tooltip, new Vec2(4f, 4f), Color.White, (Depth) 0.99f);
+        DuckGame.Graphics.DrawFancyString(Editor.tooltip, new Vec2(4f, 4f), Color.White, new Depth(0.99f));
       bool flag = Editor._input.lastActiveDevice is Keyboard;
       if (this._hoverMode == 0 && this._hoverButton == null)
       {
@@ -1849,9 +1862,9 @@ namespace DuckGame
         {
           float width = this._font.GetWidth(text);
           Vec2 vec2 = new Vec2(layer.width - 28f - width, layer.height - 28f);
-          this._font.depth = (Depth) 0.8f;
-          this._font.Draw(text, vec2.x, vec2.y, Color.White, (Depth) 0.7f, Editor._input);
-          DuckGame.Graphics.DrawRect(vec2 + new Vec2(-2f, -2f), vec2 + new Vec2(width + 2f, 9f), Color.Black * 0.5f, (Depth) 0.6f);
+          this._font.depth = new Depth(0.8f);
+          this._font.Draw(text, vec2.x, vec2.y, Color.White, new Depth(0.7f), Editor._input);
+          DuckGame.Graphics.DrawRect(vec2 + new Vec2(-2f, -2f), vec2 + new Vec2(width + 2f, 9f), Color.Black * 0.5f, new Depth(0.6f));
         }
         this._font.scale = new Vec2(0.5f, 0.5f);
         float num1 = 0.0f;
@@ -1868,15 +1881,15 @@ namespace DuckGame
           string detailsString = this._placementType.GetDetailsString();
           float x = this._font.GetWidth(detailsString) + 8f;
           if (detailsString != "")
-            this._font.Draw(detailsString, (float) ((double) p1.x + (double) vec2.x + 4.0), p1.y + 4f, Color.White, (Depth) 0.7f);
+            this._font.Draw(detailsString, (float) ((double) p1.x + (double) vec2.x + 4.0), p1.y + 4f, Color.White, new Depth(0.7f));
           else
             x = 0.0f;
-          DuckGame.Graphics.DrawRect(p1, p1 + vec2 + new Vec2(x, 0.0f), Color.Black * 0.5f, (Depth) 0.6f);
+          DuckGame.Graphics.DrawRect(p1, p1 + vec2 + new Vec2(x, 0.0f), Color.Black * 0.5f, new Depth(0.6f));
           this._placementType.left = p1.x + (float) ((double) vec2.x / 2.0 - (double) this._placementType.w / 2.0);
           this._placementType.top = p1.y + (float) ((double) vec2.y / 2.0 - (double) this._placementType.h / 2.0);
-          this._placementType.depth = (Depth) 0.7f;
+          this._placementType.depth = new Depth(0.7f);
           this._placementType.Draw();
-          this._font.Draw("Placing", p1.x, p1.y - 6f, Color.White, (Depth) 0.7f);
+          this._font.Draw("Placing", p1.x, p1.y - 6f, Color.White, new Depth(0.7f));
           num1 = vec2.y;
         }
         else
@@ -1899,15 +1912,15 @@ namespace DuckGame
           string detailsString = thing.GetDetailsString();
           float x = this._font.GetWidth(detailsString) + 8f;
           if (detailsString != "")
-            this._font.Draw(detailsString, (float) ((double) p1.x + (double) vec2.x + 4.0), p1.y + 4f, Color.White, (Depth) 0.7f);
+            this._font.Draw(detailsString, (float) ((double) p1.x + (double) vec2.x + 4.0), p1.y + 4f, Color.White, new Depth(0.7f));
           else
             x = 0.0f;
-          DuckGame.Graphics.DrawRect(p1, p1 + vec2 + new Vec2(x, 0.0f), Color.Black * 0.5f, (Depth) 0.6f);
+          DuckGame.Graphics.DrawRect(p1, p1 + vec2 + new Vec2(x, 0.0f), Color.Black * 0.5f, new Depth(0.6f));
           Vec2 position = thing.position;
           Depth depth = thing.depth;
           thing.left = p1.x + (float) ((double) vec2.x / 2.0 - (double) thing.w / 2.0);
           thing.top = p1.y + (float) ((double) vec2.y / 2.0 - (double) thing.h / 2.0);
-          thing.depth = (Depth) 0.7f;
+          thing.depth = new Depth(0.7f);
           thing.Draw();
           thing.position = position;
           thing.depth = depth;
@@ -1921,15 +1934,15 @@ namespace DuckGame
         {
           float width = this._font.GetWidth(hoverText);
           Vec2 vec2 = new Vec2(layer.width - 28f - width, layer.height - 28f);
-          this._font.depth = (Depth) 0.8f;
-          this._font.Draw(hoverText, vec2.x, vec2.y, Color.White, (Depth) 0.8f);
-          DuckGame.Graphics.DrawRect(vec2 + new Vec2(-2f, -2f), vec2 + new Vec2(width + 2f, 9f), Color.Black * 0.5f, (Depth) 0.6f);
+          this._font.depth = new Depth(0.8f);
+          this._font.Draw(hoverText, vec2.x, vec2.y, Color.White, new Depth(0.8f));
+          DuckGame.Graphics.DrawRect(vec2 + new Vec2(-2f, -2f), vec2 + new Vec2(width + 2f, 9f), Color.Black * 0.5f, new Depth(0.6f));
         }
       }
       this._font.scale = new Vec2(1f, 1f);
       if (!Mouse.available || Editor.gamepadMode)
         return;
-      this._cursor.depth = (Depth) 1f;
+      this._cursor.depth = new Depth(1f);
       this._cursor.scale = new Vec2(1f, 1f);
       this._cursor.position = Mouse.position;
       if (this._cursorMode == CursorMode.Normal)
@@ -2419,9 +2432,10 @@ namespace DuckGame
                     case SpawnPoint _:
                       ++num3;
                       break;
-                    case TeamSpawn _:
-                      ++num4;
-                      break;
+                    // TODO figure out this case
+                    //case TeamSpawn _:
+                    //  ++num4;
+                    //  break;
                   }
                   break;
               }
@@ -2617,9 +2631,10 @@ namespace DuckGame
                     case SpawnPoint _:
                       ++num3;
                       break;
-                    case TeamSpawn _:
-                      ++num4;
-                      break;
+                                            // TODO
+                    //case TeamSpawn _:
+                    //  ++num4;
+                    //  break;
                   }
                   break;
               }

@@ -85,7 +85,7 @@ namespace DuckGame
       this.centerx = 8f;
       this.centery = 8f;
       this.collisionOffset = new Vec2(-8f, -8f);
-      this.depth = (Depth) 0.3f;
+      this.depth = new Depth(0.3f);
       this._canBeGrouped = true;
       this._isStatic = true;
     }

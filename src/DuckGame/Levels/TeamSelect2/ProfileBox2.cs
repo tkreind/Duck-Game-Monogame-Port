@@ -102,13 +102,13 @@ namespace DuckGame
       this._playerProfile = defaultProfile;
       this._teamSelection = this.ControllerNumber();
       this._doorLeft = new Sprite("selectDoorLeftPC");
-      this._doorLeft.depth = (Depth) 0.905f;
+      this._doorLeft.depth = new Depth(0.905f);
       this._doorRight = new Sprite("selectDoorRight");
-      this._doorRight.depth = (Depth) 0.9f;
+      this._doorRight.depth = new Depth(0.9f);
       this._doorLeftBlank = new Sprite("selectDoorLeftBlank");
-      this._doorLeftBlank.depth = (Depth) 0.905f;
+      this._doorLeftBlank.depth = new Depth(0.905f);
       this._doorRightBlank = new Sprite("selectDoorRightBlank");
-      this._doorRightBlank.depth = (Depth) 0.9f;
+      this._doorRightBlank.depth = new Depth(0.9f);
       this._doorSpinner = new SpriteMap("doorSpinner", 25, 25);
       this._doorSpinner.AddAnimation("spin", 0.2f, true, 0, 1, 2, 3, 4, 5, 6, 7);
       this._doorSpinner.SetAnimation("spin");
@@ -129,7 +129,7 @@ namespace DuckGame
         ScaffoldingTileset scaffoldingTileset = new ScaffoldingTileset(this.x + 126f, this.y + 63f);
         scaffoldingTileset.neverCheap = true;
         Level.Add((Thing) scaffoldingTileset);
-        scaffoldingTileset.depth = (Depth) -0.5f;
+        scaffoldingTileset.depth = new Depth(-0.5f);
         scaffoldingTileset.PlaceBlock();
         scaffoldingTileset.UpdateNubbers();
         Level.Add((Thing) new Platform(this.x + 49f, this.y + 56f, 3f, 5f));
@@ -147,16 +147,16 @@ namespace DuckGame
         ScaffoldingTileset scaffoldingTileset = new ScaffoldingTileset(this.x + 14f, this.y + 63f);
         scaffoldingTileset.neverCheap = true;
         Level.Add((Thing) scaffoldingTileset);
-        scaffoldingTileset.depth = (Depth) -0.5f;
+        scaffoldingTileset.depth = new Depth(-0.5f);
         scaffoldingTileset.PlaceBlock();
         scaffoldingTileset.UpdateNubbers();
         Level.Add((Thing) new Platform(this.x + 89f, this.y + 56f, 3f, 5f));
         this._readySign = new Sprite("readyRight");
       }
       this._gunSpawnPoint = !this.rightRoom ? new Vec2(this.x + 113f, this.y + 42f) : new Vec2((float) ((double) this.x + 142.0 - 118.0), this.y + 42f);
-      this._readySign.depth = (Depth) 0.2f;
-      this._roomLeftBackground.depth = (Depth) -0.6f;
-      this._roomLeftForeground.depth = (Depth) 0.1f;
+      this._readySign.depth = new Depth(0.2f);
+      this._roomLeftBackground.depth = new Depth(-0.6f);
+      this._roomLeftForeground.depth = new Depth(0.1f);
       this._tutorialMessages = new SpriteMap("tutorialScreensPC", 53, 30);
       this._aButton = new Sprite("aButton");
       this._tutorialTV = new Sprite("tutorialTV");
@@ -549,9 +549,9 @@ namespace DuckGame
           this._duck.mindControl = (InputProfile) null;
         this._projector.visible = true;
         if ((double) this._tooManyPulse > 0.00999999977648258)
-          Graphics.DrawStringOutline("ROOM FULL", this.position + new Vec2(0.0f, 36f), Color.Red * this._tooManyPulse, Color.Black * this._tooManyPulse, (Depth) 0.95f, scale: 2f);
+          Graphics.DrawStringOutline("ROOM FULL", this.position + new Vec2(0.0f, 36f), Color.Red * this._tooManyPulse, Color.Black * this._tooManyPulse, new Depth(0.95f), scale: 2f);
         if ((double) this._noMorePulse > 0.00999999977648258)
-          Graphics.DrawStringOutline(" NO MORE ", this.position + new Vec2(0.0f, 36f), Color.Red * this._noMorePulse, Color.Black * this._noMorePulse, (Depth) 0.95f, scale: 2f);
+          Graphics.DrawStringOutline(" NO MORE ", this.position + new Vec2(0.0f, 36f), Color.Red * this._noMorePulse, Color.Black * this._noMorePulse, new Depth(0.95f), scale: 2f);
         this._tooManyPulse = Lerp.Float(this._tooManyPulse, 0.0f, 0.05f);
         this._noMorePulse = Lerp.Float(this._noMorePulse, 0.0f, 0.05f);
         if ((double) this._doorX < 82.0)
@@ -868,7 +868,7 @@ namespace DuckGame
             Graphics.Draw((Sprite) furniture2.sprite, this.x + 21f, this.y + 44f, new Rectangle(49f, 0.0f, 92f, 68f));
             furniture2.sprite.depth = this._selectConsole.depth - 20;
             Graphics.Draw((Sprite) furniture2.sprite, (float) ((double) this.x + 70.0 - 4.0), this.y + 44f, new Rectangle(4f, 0.0f, 44f, 54f));
-            furniture2.sprite.depth = (Depth) 0.31f;
+            furniture2.sprite.depth = new Depth(0.31f);
             Graphics.Draw((Sprite) furniture2.sprite, (float) ((double) this.x + 70.0 - 4.0), (float) ((double) this.y + 44.0 + 54.0), new Rectangle(4f, 54f, 44f, 14f));
             furniture2.sprite.flipH = false;
             furniture2.background.flipH = true;
@@ -886,7 +886,7 @@ namespace DuckGame
           }
           if (Network.isActive && (Network.isServer && this.profile.connection == DuckNetwork.localConnection || this.profile.connection == Network.host))
           {
-            this._hostCrown.depth = (Depth) -0.5f;
+            this._hostCrown.depth = new Depth(-0.5f);
             Graphics.Draw(this._hostCrown, this.x + 126f, this.y + 23f);
           }
         }
@@ -920,7 +920,7 @@ namespace DuckGame
             Graphics.Draw((Sprite) furniture2.sprite, (float) ((double) this.x + 70.0 + 49.0), this.y + 44f, new Rectangle(49f, 0.0f, 92f, 68f));
             furniture2.sprite.depth = this._selectConsole.depth - 20;
             Graphics.Draw((Sprite) furniture2.sprite, (float) ((double) this.x + 70.0 + 4.0), this.y + 44f, new Rectangle(4f, 0.0f, 44f, 54f));
-            furniture2.sprite.depth = (Depth) 0.31f;
+            furniture2.sprite.depth = new Depth(0.31f);
             Graphics.Draw((Sprite) furniture2.sprite, (float) ((double) this.x + 70.0 + 4.0), (float) ((double) this.y + 44.0 + 54.0), new Rectangle(4f, 54f, 44f, 14f));
             Graphics.Draw((Sprite) furniture2.background, this.x + 70f, this.y + 45f);
           }
@@ -935,23 +935,23 @@ namespace DuckGame
           }
           if (Network.isActive && (Network.isServer && this.profile.connection == DuckNetwork.localConnection || this.profile.connection == Network.host))
           {
-            this._hostCrown.depth = (Depth) -0.5f;
+            this._hostCrown.depth = new Depth(-0.5f);
             Graphics.Draw(this._hostCrown, this.x + 14f, this.y + 23f);
           }
         }
-        this._tutorialTV.depth = (Depth) -0.58f;
-        this._tutorialMessages.depth = (Depth) -0.5f;
+        this._tutorialTV.depth = new Depth(-0.58f);
+        this._tutorialMessages.depth = new Depth(-0.5f);
         this._tutorialMessages.alpha = this._screenFade;
         this._font.alpha = 1f;
-        this._font.depth = (Depth) 0.6f;
+        this._font.depth = new Depth(0.6f);
         if (furniture1 != null)
         {
-          this._tutorialTV.depth = (Depth) -0.8f;
-          this._tutorialMessages.depth = (Depth) -0.8f;
+          this._tutorialTV.depth = new Depth(-0.8f);
+          this._tutorialMessages.depth = new Depth(-0.8f);
         }
         string currentDisplayName = this._playerProfile.team.currentDisplayName;
-        this._selectConsole.depth = (Depth) -0.5f;
-        this._consoleHighlight.depth = (Depth) -0.49f;
+        this._selectConsole.depth = new Depth(-0.5f);
+        this._consoleHighlight.depth = new Depth(-0.49f);
         float num1 = 8f;
         if (this.rightRoom)
         {
@@ -1007,7 +1007,7 @@ namespace DuckGame
             this._font.Draw("@GRAB@TOSS", new Vec2(this.x + 28f + num3, this.y + 16f), Color.White * this._screenFade, (Depth) num2, this._inputProfile);
             this._font.Draw("@SHOOT@TEAM", new Vec2(this.x + 28f + num3, this.y + 30f), Color.White * this._screenFade, (Depth) num2, this._inputProfile);
           }
-          this._font.depth = (Depth) 0.6f;
+          this._font.depth = new Depth(0.6f);
           float num4 = 0.0f;
           float num5 = 0.0f;
           Vec2 vec2 = new Vec2(1f, 1f);
@@ -1036,33 +1036,33 @@ namespace DuckGame
             {
               furniture2.font.scale = new Vec2(0.5f, 0.5f);
               furniture2.font.spriteScale = new Vec2(0.5f, 0.5f);
-              furniture2.font.Draw("@SELECT@ACCEPT @QUACK@CANCEL", (float) ((double) this.x + 24.0 - (double) furniture2.font.GetWidth(text) / 2.0) - num6, this.y + 75f + num7, Color.White, (Depth) 0.7f, this.profile.inputProfile);
+              furniture2.font.Draw("@SELECT@ACCEPT @QUACK@CANCEL", (float) ((double) this.x + 24.0 - (double) furniture2.font.GetWidth(text) / 2.0) - num6, this.y + 75f + num7, Color.White, new Depth(0.7f), this.profile.inputProfile);
               furniture2.font.scale = new Vec2(1f, 1f);
             }
             else if (furniture2.type == FurnitureType.Theme)
             {
               this.profile.font.scale = new Vec2(0.5f, 0.5f);
               this.profile.font.spriteScale = new Vec2(0.5f, 0.5f);
-              this.profile.font.Draw("@SELECT@ACCEPT @QUACK@CANCEL", (float) ((double) this.x + 24.0 - (double) this.profile.font.GetWidth(text) / 2.0) - num6, this.y + 75f + num7, Color.White, (Depth) 0.7f, this.profile.inputProfile);
+              this.profile.font.Draw("@SELECT@ACCEPT @QUACK@CANCEL", (float) ((double) this.x + 24.0 - (double) this.profile.font.GetWidth(text) / 2.0) - num6, this.y + 75f + num7, Color.White, new Depth(0.7f), this.profile.inputProfile);
             }
             else
             {
               this.profile.font.scale = new Vec2(0.5f, 0.5f);
               this.profile.font.spriteScale = new Vec2(0.5f, 0.5f);
               if (this._hatSelector._roomEditor._hover != null)
-                this.profile.font.Draw("@SELECT@DEL @GRAB@GRAB @QUACK@DONE", (float) ((double) this.x + 24.0 - (double) this.profile.font.GetWidth(text) / 2.0) - num6, this.y + 75f + num7, Color.White, (Depth) 0.7f, this.profile.inputProfile);
+                this.profile.font.Draw("@SELECT@DEL @GRAB@GRAB @QUACK@DONE", (float) ((double) this.x + 24.0 - (double) this.profile.font.GetWidth(text) / 2.0) - num6, this.y + 75f + num7, Color.White, new Depth(0.7f), this.profile.inputProfile);
               else
-                this.profile.font.Draw("@SELECT@ADD @GRAB@MOD @QUACK@DONE", (float) ((double) this.x + 24.0 - (double) this.profile.font.GetWidth(text) / 2.0) - num6, this.y + 75f + num7, Color.White, (Depth) 0.7f, this.profile.inputProfile);
+                this.profile.font.Draw("@SELECT@ADD @GRAB@MOD @QUACK@DONE", (float) ((double) this.x + 24.0 - (double) this.profile.font.GetWidth(text) / 2.0) - num6, this.y + 75f + num7, Color.White, new Depth(0.7f), this.profile.inputProfile);
               this.profile.font.scale = new Vec2(0.25f, 0.25f);
               int num9 = Profiles.experienceProfile.GetNumFurnitures((int) furniture2.index) - this.profile.GetNumFurnituresPlaced((int) furniture2.index);
-              this.profile.font.Draw(furniture2.name + (num9 > 0 ? (object) " |DGGREEN|" : (object) " |DGRED|") + "x" + (object) num9, (float) ((double) this.x + 17.0 - (double) this.profile.font.GetWidth(text) / 2.0 - (double) num6), (float) ((double) this.y + 75.0 + 6.5 + (double) num7), Color.White, (Depth) 0.7f);
+              this.profile.font.Draw(furniture2.name + (num9 > 0 ? (object) " |DGGREEN|" : (object) " |DGRED|") + "x" + (object) num9, (float) ((double) this.x + 17.0 - (double) this.profile.font.GetWidth(text) / 2.0 - (double) num6), (float) ((double) this.y + 75.0 + 6.5 + (double) num7), Color.White, new Depth(0.7f));
               int furnituresPlaced = this.profile.GetTotalFurnituresPlaced();
               int num10 = 16;
               float num11 = (float) furnituresPlaced / (float) num10;
-              this.profile.font.Draw(furnituresPlaced.ToString() + "/" + num10.ToString(), (float) ((double) this.x + 68.0 - (double) this.profile.font.GetWidth(text) / 2.0) - num6, (float) ((double) this.y + 75.0 + 6.5) + num7, Color.Black, (Depth) 0.7f);
+              this.profile.font.Draw(furnituresPlaced.ToString() + "/" + num10.ToString(), (float) ((double) this.x + 68.0 - (double) this.profile.font.GetWidth(text) / 2.0) - num6, (float) ((double) this.y + 75.0 + 6.5) + num7, Color.Black, new Depth(0.7f));
               Vec2 p1 = new Vec2((float) ((double) this.x + 56.0 - (double) this.profile.font.GetWidth(text) / 2.0) - num6, (float) ((double) this.y + 75.0 + 6.0) + num7);
-              Graphics.DrawRect(p1, p1 + new Vec2(37f, 3f), Colors.BlueGray, (Depth) 0.66f, borderWidth: 0.5f);
-              Graphics.DrawRect(p1, p1 + new Vec2(37f * num11, 3f), (double) num11 < 0.400000005960464 ? Colors.DGGreen : ((double) num11 < 0.800000011920929 ? Colors.DGYellow : Colors.DGRed), (Depth) 0.68f, borderWidth: 0.5f);
+              Graphics.DrawRect(p1, p1 + new Vec2(37f, 3f), Colors.BlueGray, new Depth(0.66f), borderWidth: 0.5f);
+              Graphics.DrawRect(p1, p1 + new Vec2(37f * num11, 3f), (double) num11 < 0.400000005960464 ? Colors.DGGreen : ((double) num11 < 0.800000011920929 ? Colors.DGYellow : Colors.DGRed), new Depth(0.68f), borderWidth: 0.5f);
             }
             this.profile.font.spriteScale = new Vec2(1f, 1f);
             this.profile.font.scale = new Vec2(1f, 1f);
@@ -1071,7 +1071,7 @@ namespace DuckGame
           else
           {
             this._playerProfile.font.scale = vec2;
-            this._playerProfile.font.Draw(currentDisplayName, (float) ((double) this.x + 94.0 - (double) this._playerProfile.font.GetWidth(currentDisplayName) / 2.0) - num5, this.y + 75f + num4, Color.White, (Depth) 0.7f);
+            this._playerProfile.font.Draw(currentDisplayName, (float) ((double) this.x + 94.0 - (double) this._playerProfile.font.GetWidth(currentDisplayName) / 2.0) - num5, this.y + 75f + num4, Color.White, new Depth(0.7f));
             this._font.scale = new Vec2(1f, 1f);
           }
         }
@@ -1087,9 +1087,9 @@ namespace DuckGame
             this._consoleFlash.alpha = 0.0f;
           Graphics.Draw(this._consoleFlash, this._consolePos.x + 9f, this._consolePos.y + 7f);
           if (furniture1 != null)
-            this._selectConsole.depth = (Depth) -0.8f;
+            this._selectConsole.depth = new Depth(-0.8f);
           Graphics.Draw((Sprite) this._selectConsole, this._consolePos.x, this._consolePos.y);
-          this._selectConsole.depth = (Depth) -0.5f;
+          this._selectConsole.depth = new Depth(-0.5f);
           if ((double) this._consoleFade > 0.00999999977648258)
           {
             this._consoleHighlight.alpha = this._consoleFade;
@@ -1130,7 +1130,7 @@ namespace DuckGame
             this._font.Draw("@GRAB@TOSS", new Vec2(this.x + 28f + num1, this.y + 16f), Color.White * this._screenFade, (Depth) num2, this._inputProfile);
             this._font.Draw("@SHOOT@TEAM", new Vec2(this.x + 28f + num1, this.y + 30f), Color.White * this._screenFade, (Depth) num2, this._inputProfile);
           }
-          this._font.depth = (Depth) 0.6f;
+          this._font.depth = new Depth(0.6f);
           this._aButton.position = new Vec2(this.x + 39f, this.y + 71f);
           float num3 = 0.0f;
           float num4 = 0.0f;
@@ -1157,33 +1157,33 @@ namespace DuckGame
             {
               furniture2.font.scale = new Vec2(0.5f, 0.5f);
               furniture2.font.spriteScale = new Vec2(0.5f, 0.5f);
-              furniture2.font.Draw("@SELECT@ACCEPT @QUACK@CANCEL", (float) ((double) this.x + 24.0 - (double) furniture2.font.GetWidth(text) / 2.0) - num5, this.y + 75f + num6, Color.White, (Depth) 0.7f, this.profile.inputProfile);
+              furniture2.font.Draw("@SELECT@ACCEPT @QUACK@CANCEL", (float) ((double) this.x + 24.0 - (double) furniture2.font.GetWidth(text) / 2.0) - num5, this.y + 75f + num6, Color.White, new Depth(0.7f), this.profile.inputProfile);
               furniture2.font.scale = new Vec2(1f, 1f);
             }
             else if (furniture2.type == FurnitureType.Theme)
             {
               this.profile.font.scale = new Vec2(0.5f, 0.5f);
               this.profile.font.spriteScale = new Vec2(0.5f, 0.5f);
-              this.profile.font.Draw("@SELECT@ACCEPT @QUACK@CANCEL", (float) ((double) this.x + 24.0 - (double) this.profile.font.GetWidth(text) / 2.0) - num5, this.y + 75f + num6, Color.White, (Depth) 0.7f, this.profile.inputProfile);
+              this.profile.font.Draw("@SELECT@ACCEPT @QUACK@CANCEL", (float) ((double) this.x + 24.0 - (double) this.profile.font.GetWidth(text) / 2.0) - num5, this.y + 75f + num6, Color.White, new Depth(0.7f), this.profile.inputProfile);
             }
             else
             {
               this.profile.font.scale = new Vec2(0.5f, 0.5f);
               this.profile.font.spriteScale = new Vec2(0.5f, 0.5f);
               if (this._hatSelector._roomEditor._hover != null)
-                this.profile.font.Draw("@SELECT@DEL @GRAB@GRAB @QUACK@DONE", (float) ((double) this.x + 24.0 - (double) this.profile.font.GetWidth(text) / 2.0) - num5, this.y + 75f + num6, Color.White, (Depth) 0.7f, this.profile.inputProfile);
+                this.profile.font.Draw("@SELECT@DEL @GRAB@GRAB @QUACK@DONE", (float) ((double) this.x + 24.0 - (double) this.profile.font.GetWidth(text) / 2.0) - num5, this.y + 75f + num6, Color.White, new Depth(0.7f), this.profile.inputProfile);
               else
-                this.profile.font.Draw("@SELECT@ADD @GRAB@MOD @QUACK@DONE", (float) ((double) this.x + 24.0 - (double) this.profile.font.GetWidth(text) / 2.0) - num5, this.y + 75f + num6, Color.White, (Depth) 0.7f, this.profile.inputProfile);
+                this.profile.font.Draw("@SELECT@ADD @GRAB@MOD @QUACK@DONE", (float) ((double) this.x + 24.0 - (double) this.profile.font.GetWidth(text) / 2.0) - num5, this.y + 75f + num6, Color.White, new Depth(0.7f), this.profile.inputProfile);
               this.profile.font.scale = new Vec2(0.25f, 0.25f);
               int num7 = Profiles.experienceProfile.GetNumFurnitures((int) furniture2.index) - this.profile.GetNumFurnituresPlaced((int) furniture2.index);
-              this.profile.font.Draw(furniture2.name + (num7 > 0 ? (object) " |DGGREEN|" : (object) " |DGRED|") + "x" + (object) num7, (float) ((double) this.x + 17.0 - (double) this.profile.font.GetWidth(text) / 2.0 - (double) num5), (float) ((double) this.y + 75.0 + 6.5 + (double) num6), Color.White, (Depth) 0.7f);
+              this.profile.font.Draw(furniture2.name + (num7 > 0 ? (object) " |DGGREEN|" : (object) " |DGRED|") + "x" + (object) num7, (float) ((double) this.x + 17.0 - (double) this.profile.font.GetWidth(text) / 2.0 - (double) num5), (float) ((double) this.y + 75.0 + 6.5 + (double) num6), Color.White, new Depth(0.7f));
               int furnituresPlaced = this.profile.GetTotalFurnituresPlaced();
               int num8 = 16;
               float num9 = (float) furnituresPlaced / (float) num8;
-              this.profile.font.Draw(furnituresPlaced.ToString() + "/" + num8.ToString(), (float) ((double) this.x + 68.0 - (double) this.profile.font.GetWidth(text) / 2.0) - num5, (float) ((double) this.y + 75.0 + 6.5) + num6, Color.Black, (Depth) 0.7f);
+              this.profile.font.Draw(furnituresPlaced.ToString() + "/" + num8.ToString(), (float) ((double) this.x + 68.0 - (double) this.profile.font.GetWidth(text) / 2.0) - num5, (float) ((double) this.y + 75.0 + 6.5) + num6, Color.Black, new Depth(0.7f));
               Vec2 p1 = new Vec2((float) ((double) this.x + 56.0 - (double) this.profile.font.GetWidth(text) / 2.0) - num5, (float) ((double) this.y + 75.0 + 6.0) + num6);
-              Graphics.DrawRect(p1, p1 + new Vec2(37f, 3f), Colors.BlueGray, (Depth) 0.66f, borderWidth: 0.5f);
-              Graphics.DrawRect(p1, p1 + new Vec2(37f * num9, 3f), (double) num9 < 0.400000005960464 ? Colors.DGGreen : ((double) num9 < 0.800000011920929 ? Colors.DGYellow : Colors.DGRed), (Depth) 0.68f, borderWidth: 0.5f);
+              Graphics.DrawRect(p1, p1 + new Vec2(37f, 3f), Colors.BlueGray, new Depth(0.66f), borderWidth: 0.5f);
+              Graphics.DrawRect(p1, p1 + new Vec2(37f * num9, 3f), (double) num9 < 0.400000005960464 ? Colors.DGGreen : ((double) num9 < 0.800000011920929 ? Colors.DGYellow : Colors.DGRed), new Depth(0.68f), borderWidth: 0.5f);
             }
             this.profile.font.spriteScale = new Vec2(1f, 1f);
             this.profile.font.scale = new Vec2(1f, 1f);
@@ -1191,7 +1191,7 @@ namespace DuckGame
           else
           {
             this._playerProfile.font.scale = vec2;
-            this._playerProfile.font.Draw(currentDisplayName, (float) ((double) this.x + 48.0 - (double) this._playerProfile.font.GetWidth(currentDisplayName) / 2.0) - num4, this.y + 75f + num3, Color.White, (Depth) 0.7f);
+            this._playerProfile.font.Draw(currentDisplayName, (float) ((double) this.x + 48.0 - (double) this._playerProfile.font.GetWidth(currentDisplayName) / 2.0) - num4, this.y + 75f + num3, Color.White, new Depth(0.7f));
             this._font.scale = new Vec2(1f, 1f);
           }
         }

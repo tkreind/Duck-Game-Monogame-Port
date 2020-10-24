@@ -25,7 +25,7 @@ namespace DuckGame
       this.center = new Vec2(8f, 7f);
       this.collisionOffset = new Vec2(-8f, 0.0f);
       this.collisionSize = new Vec2(16f, 8f);
-      this.depth = (Depth) -0.5f;
+      this.depth = new Depth(-0.5f);
       this._editorName = "Spring UpRight";
       this.physicsMaterial = PhysicsMaterial.Metal;
       this.angleDegrees = 45f;

@@ -202,8 +202,8 @@ namespace DuckGame
         float num3 = Layer.HUD.camera.width / 32f + num1;
         Vec2 vec2_4 = Vec2.Zero;
         vec2_4 = new Vec2(0.0f, -num3);
-        Graphics.DrawRect(vec2_3 + vec2_4 * inputChangeDisplay.slide, vec2_3 + new Vec2(x, num1 - 1f) + vec2_4 * inputChangeDisplay.slide, Color.Black, (Depth) 0.95f);
-        Graphics.DrawString(text, vec2_2 + new Vec2((float) (((double) x - (double) stringWidth) / 2.0), (float) (((double) num1 - (double) stringHeight) / 2.0) + num2) + vec2_4 * inputChangeDisplay.slide, Color.White, (Depth) 0.97f, inputChangeDisplay.profile);
+        Graphics.DrawRect(vec2_3 + vec2_4 * inputChangeDisplay.slide, vec2_3 + new Vec2(x, num1 - 1f) + vec2_4 * inputChangeDisplay.slide, Color.Black, new Depth(0.95f));
+        Graphics.DrawString(text, vec2_2 + new Vec2((float) (((double) x - (double) stringWidth) / 2.0), (float) (((double) num1 - (double) stringHeight) / 2.0) + num2) + vec2_4 * inputChangeDisplay.slide, Color.White, new Depth(0.97f), inputChangeDisplay.profile);
       }
       int num4 = 0;
       int num5 = 0;
@@ -297,10 +297,10 @@ namespace DuckGame
           vec2_4 = new Vec2(num8, -num8);
         else if (cornerDisplay.corner == HUDCorner.BottomRight)
           vec2_4 = new Vec2(-num8, -num8);
-        Graphics.DrawRect(vec2_3 + vec2_4 * cornerDisplay.slide, vec2_3 + new Vec2(x, num2 - 1f) + vec2_4 * cornerDisplay.slide, Color.Black, (Depth) 0.95f);
-        Graphics.DrawRect(vec2_3 + new Vec2(x, 1f) + vec2_4 * cornerDisplay.slide, vec2_3 + new Vec2(x + 1f, num2 - 2f) + vec2_4 * cornerDisplay.slide, Color.Black, (Depth) 0.95f);
-        Graphics.DrawRect(vec2_3 + new Vec2(0.0f, 1f) + vec2_4 * cornerDisplay.slide, vec2_3 + new Vec2(-1f, num2 - 2f) + vec2_4 * cornerDisplay.slide, Color.Black, (Depth) 0.95f);
-        Graphics.DrawString(text, vec2_2 + new Vec2((float) (((double) num1 - (double) stringWidth1) / 2.0), (float) (((double) num2 - (double) stringHeight) / 2.0) + num3) + vec2_4 * cornerDisplay.slide, flag ? Color.Red : Color.White, (Depth) 0.98f, cornerDisplay.profile);
+        Graphics.DrawRect(vec2_3 + vec2_4 * cornerDisplay.slide, vec2_3 + new Vec2(x, num2 - 1f) + vec2_4 * cornerDisplay.slide, Color.Black, new Depth(0.95f));
+        Graphics.DrawRect(vec2_3 + new Vec2(x, 1f) + vec2_4 * cornerDisplay.slide, vec2_3 + new Vec2(x + 1f, num2 - 2f) + vec2_4 * cornerDisplay.slide, Color.Black, new Depth(0.95f));
+        Graphics.DrawRect(vec2_3 + new Vec2(0.0f, 1f) + vec2_4 * cornerDisplay.slide, vec2_3 + new Vec2(-1f, num2 - 2f) + vec2_4 * cornerDisplay.slide, Color.Black, new Depth(0.95f));
+        Graphics.DrawString(text, vec2_2 + new Vec2((float) (((double) num1 - (double) stringWidth1) / 2.0), (float) (((double) num2 - (double) stringHeight) / 2.0) + num3) + vec2_4 * cornerDisplay.slide, flag ? Color.Red : Color.White, new Depth(0.98f), cornerDisplay.profile);
       }
     }
   }

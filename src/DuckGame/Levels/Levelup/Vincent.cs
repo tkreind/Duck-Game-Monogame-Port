@@ -920,7 +920,7 @@ namespace DuckGame
         DuckGame.Graphics.screen.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, depthStencilState, RasterizerState.CullNone, (MTEffect) null, camera.getMatrix());
         string text = "$" + Math.Min(Math.Max(Vincent.products[index].cost, 0), 9999).ToString();
         Vincent._furniTag.frame = text.Length - 1;
-        Vincent._priceFontRightways.Draw(text, new Vec2((float) ((double) (5 - text.Length) / 5.0 * 20.0), 0.0f), Vincent.products[index].cost > Profiles.experienceProfile.littleManBucks ? Colors.DGRed : Color.Black, (Depth) 0.97f);
+        Vincent._priceFontRightways.Draw(text, new Vec2((float) ((double) (5 - text.Length) / 5.0 * 20.0), 0.0f), Vincent.products[index].cost > Profiles.experienceProfile.littleManBucks ? Colors.DGRed : Color.Black, new Depth(0.97f));
         DuckGame.Graphics.screen.End();
         DuckGame.Graphics.SetRenderTarget((RenderTarget2D) null);
       }
@@ -934,7 +934,7 @@ namespace DuckGame
       Vec2 vec2_2 = new Vec2((float) (100.0 * (1.0 - (double) Vincent._chancyLerp)), (float) (100.0 * (1.0 - (double) Vincent._chancyLerp) - 4.0));
       Vec2 vec2_3 = new Vec2(280f, 30f);
       Vec2 vec2_4 = new Vec2(20f, 132f) + vec2_2;
-      DuckGame.Graphics.DrawRect(vec2_4 + new Vec2(-2f, 0.0f), vec2_4 + vec2_3 + new Vec2(2f, 0.0f), Color.Black, (Depth) 0.96f);
+      DuckGame.Graphics.DrawRect(vec2_4 + new Vec2(-2f, 0.0f), vec2_4 + vec2_3 + new Vec2(2f, 0.0f), Color.Black, new Depth(0.96f));
       int num = 0;
       for (int index1 = Vincent._lineProgress.Count - 1; index1 >= 0; --index1)
       {
@@ -943,7 +943,7 @@ namespace DuckGame
         float x = (float) ((double) vec2_4.x + (double) vec2_3.x / 2.0 - (double) stringWidth / 2.0);
         for (int index2 = Vincent._lineProgress[index1].segments.Count - 1; index2 >= 0; --index2)
         {
-          Vincent._descriptionFont.Draw(Vincent._lineProgress[index1].segments[index2].text, new Vec2(x, y), Vincent._lineProgress[index1].segments[index2].color, (Depth) 0.97f);
+          Vincent._descriptionFont.Draw(Vincent._lineProgress[index1].segments[index2].text, new Vec2(x, y), Vincent._lineProgress[index1].segments[index2].color, new Depth(0.97f));
           x += (float) (Vincent._lineProgress[index1].segments[index2].text.Length * 8);
         }
         ++num;
@@ -952,18 +952,18 @@ namespace DuckGame
       DuckGame.Graphics.Draw(Vincent._tail, 222f + vec2_2.x, 117f + vec2_2.y);
       if (Vincent.hasKid)
         Vincent._dealer.frame += 9;
-      Vincent._dealer.depth = (Depth) 0.96f;
+      Vincent._dealer.depth = new Depth(0.96f);
       Vincent._dealer.alpha = Vincent.alpha;
       DuckGame.Graphics.Draw((Sprite) Vincent._dealer, 200f + vec2_2.x, 26f + vec2_2.y);
       switch (Vincent.type)
       {
         case DayType.SaleDay:
-          Vincent._bigBanner.depth = (Depth) 0.96f;
+          Vincent._bigBanner.depth = new Depth(0.96f);
           DuckGame.Graphics.Draw(Vincent._bigBanner, 22f, (float) ((double) Vincent._showLerp * 100.0 - 80.0));
           DuckGame.Graphics.Draw(Vincent._bigBanner, 194f, (float) ((double) Vincent._showLerp * 100.0 - 80.0));
           break;
         case DayType.ImportDay:
-          Vincent._fancyBanner.depth = (Depth) 0.96f;
+          Vincent._fancyBanner.depth = new Depth(0.96f);
           DuckGame.Graphics.Draw(Vincent._fancyBanner, 22f, (float) ((double) Vincent._showLerp * 100.0 - 80.0));
           DuckGame.Graphics.Draw(Vincent._fancyBanner, 194f, (float) ((double) Vincent._showLerp * 100.0 - 80.0));
           break;
@@ -977,14 +977,14 @@ namespace DuckGame
       Vincent._rareSticker.alpha = Vincent.alpha;
       Vincent._soldSprite.alpha = Vincent.alpha;
       Vec2 vec2_5 = new Vec2(84f, 46f);
-      Vincent._cheapTape.depth = (Depth) 0.968f;
-      Vincent._furniFrame.depth = (Depth) 0.96f;
-      Vincent._furniFill.depth = (Depth) 0.965f;
-      Vincent._furniHov.depth = (Depth) 0.965f;
-      Vincent._furniTag.depth = (Depth) 0.972f;
-      Vincent._newSticker.depth = (Depth) 0.972f;
-      Vincent._rareSticker.depth = (Depth) 0.972f;
-      Vincent._soldSprite.depth = (Depth) 0.975f;
+      Vincent._cheapTape.depth = new Depth(0.968f);
+      Vincent._furniFrame.depth = new Depth(0.96f);
+      Vincent._furniFill.depth = new Depth(0.965f);
+      Vincent._furniHov.depth = new Depth(0.965f);
+      Vincent._furniTag.depth = new Depth(0.972f);
+      Vincent._newSticker.depth = new Depth(0.972f);
+      Vincent._rareSticker.depth = new Depth(0.972f);
+      Vincent._soldSprite.depth = new Depth(0.975f);
       if (Vincent.products.Count > 0)
       {
         int index1 = 0;
@@ -998,7 +998,7 @@ namespace DuckGame
         {
           flag1 = true;
           val1_1 = Vincent.products[0].originalCost;
-          DuckGame.Graphics.Draw((Tex2D) Vincent._priceTargets[0], new Vec2(pos.x - 13f, pos.y - 27f), new Rectangle?(), Color.White, 0.3f, Vec2.Zero, Vec2.One, SpriteEffects.None, (Depth) 0.9685f);
+          DuckGame.Graphics.Draw((Tex2D) Vincent._priceTargets[0], new Vec2(pos.x - 13f, pos.y - 27f), new Rectangle?(), Color.White, 0.3f, Vec2.Zero, Vec2.One, SpriteEffects.None, new Depth(0.9685f));
           DuckGame.Graphics.Draw(Vincent._cheapTape, pos.x, pos.y);
         }
         Vincent._furniFill.color = Vincent.products[index1].color;
@@ -1041,7 +1041,7 @@ namespace DuckGame
           {
             flag2 = true;
             val1_2 = Vincent.products[1].originalCost;
-            DuckGame.Graphics.Draw((Tex2D) Vincent._priceTargets[1], new Vec2(pos.x - 13f, pos.y - 27f), new Rectangle?(), Color.White, 0.3f, Vec2.Zero, Vec2.One, SpriteEffects.None, (Depth) 0.9685f);
+            DuckGame.Graphics.Draw((Tex2D) Vincent._priceTargets[1], new Vec2(pos.x - 13f, pos.y - 27f), new Rectangle?(), Color.White, 0.3f, Vec2.Zero, Vec2.One, SpriteEffects.None, new Depth(0.9685f));
             DuckGame.Graphics.Draw(Vincent._cheapTape, pos.x, pos.y);
           }
           Vincent._furniFill.color = Vincent.products[index2].color;
@@ -1085,7 +1085,7 @@ namespace DuckGame
           {
             flag2 = true;
             val1_2 = Vincent.products[2].originalCost;
-            DuckGame.Graphics.Draw((Tex2D) Vincent._priceTargets[2], new Vec2(pos.x - 13f, pos.y - 27f), new Rectangle?(), Color.White, 0.3f, Vec2.Zero, Vec2.One, SpriteEffects.None, (Depth) 0.9685f);
+            DuckGame.Graphics.Draw((Tex2D) Vincent._priceTargets[2], new Vec2(pos.x - 13f, pos.y - 27f), new Rectangle?(), Color.White, 0.3f, Vec2.Zero, Vec2.One, SpriteEffects.None, new Depth(0.9685f));
             DuckGame.Graphics.Draw(Vincent._cheapTape, pos.x, pos.y);
           }
           Vincent._furniFill.color = Vincent.products[index2].color;
@@ -1129,7 +1129,7 @@ namespace DuckGame
           {
             flag2 = true;
             val1_2 = Vincent.products[3].originalCost;
-            DuckGame.Graphics.Draw((Tex2D) Vincent._priceTargets[3], new Vec2(pos.x - 13f, pos.y - 27f), new Rectangle?(), Color.White, 0.3f, Vec2.Zero, Vec2.One, SpriteEffects.None, (Depth) 0.9685f);
+            DuckGame.Graphics.Draw((Tex2D) Vincent._priceTargets[3], new Vec2(pos.x - 13f, pos.y - 27f), new Rectangle?(), Color.White, 0.3f, Vec2.Zero, Vec2.One, SpriteEffects.None, new Depth(0.9685f));
             DuckGame.Graphics.Draw(Vincent._cheapTape, pos.x, pos.y);
           }
           Vincent._furniFill.color = Vincent.products[index2].color;
@@ -1170,10 +1170,10 @@ namespace DuckGame
           index = Vincent._selectIndex;
         Vec2 p1 = new Vec2(20f, 6f);
         Vec2 vec2_6 = new Vec2(226f, 11f);
-        DuckGame.Graphics.DrawRect(p1, p1 + vec2_6, Color.Black, (Depth) 0.96f);
+        DuckGame.Graphics.DrawRect(p1, p1 + vec2_6, Color.Black, new Depth(0.96f));
         string name = Vincent.products[index].name;
-        DuckGame.Graphics.DrawString(name, p1 + new Vec2((float) (((double) vec2_6.x - 27.0) / 2.0 - (double) DuckGame.Graphics.GetStringWidth(name) / 2.0), 2f), new Color(163, 206, 39) * Vincent.alpha, (Depth) 0.97f);
-        Vincent._tail.depth = (Depth) 0.5f;
+        DuckGame.Graphics.DrawString(name, p1 + new Vec2((float) (((double) vec2_6.x - 27.0) / 2.0 - (double) DuckGame.Graphics.GetStringWidth(name) / 2.0), 2f), new Color(163, 206, 39) * Vincent.alpha, new Depth(0.97f));
+        Vincent._tail.depth = new Depth(0.5f);
         Vincent._tail.alpha = Vincent.alpha;
         Vincent._tail.flipH = false;
         Vincent._tail.flipV = false;

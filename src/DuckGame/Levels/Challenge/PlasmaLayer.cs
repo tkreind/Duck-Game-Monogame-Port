@@ -44,7 +44,7 @@ namespace DuckGame
       Viewport viewport = DuckGame.Graphics.viewport;
       DuckGame.Graphics.viewport = new Viewport(0, 0, 320, 180);
       this.Begin(false, false);
-      this._plasma.depth = (Depth) -0.9f;
+      this._plasma.depth = new Depth(-0.9f);
       this._plasma.alpha = 1f;
       DuckGame.Graphics.device.SamplerStates[0] = SamplerState.PointWrap;
       DuckGame.Graphics.Draw(this._plasma, -30f, -30f);
@@ -71,7 +71,7 @@ namespace DuckGame
       DuckGame.Graphics.ResetDepthBias();
       DuckGame.Graphics.screen = this._batch;
       this._batch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.DepthRead, this._state, (MTEffect) null, this.camera.getMatrix());
-      DuckGame.Graphics.Draw((Tex2D) this._target, Vec2.Zero, new Rectangle?(), Color.White * this.alpha, 0.0f, Vec2.Zero, new Vec2(1f, 1f), SpriteEffects.None, (Depth) 1f);
+      DuckGame.Graphics.Draw((Tex2D) this._target, Vec2.Zero, new Rectangle?(), Color.White * this.alpha, 0.0f, Vec2.Zero, new Vec2(1f, 1f), SpriteEffects.None, new Depth(1f));
       this._batch.End();
       DuckGame.Graphics.screen = (MTSpriteBatch) null;
       DuckGame.Graphics.currentLayer = (Layer) null;

@@ -29,7 +29,7 @@ namespace DuckGame
       this.graphic = (Sprite) this._sprite;
       this.center = new Vec2(2f, 2f);
       this._sprite.center = new Vec2(2f, 2f);
-      this.depth = (Depth) 0.5f;
+      this.depth = new Depth(0.5f);
       this._secondBall = secondBall;
     }
 

@@ -85,7 +85,7 @@ namespace DuckGame
       }
       this._capeWaveMult = num2 * 0.5f;
       float num7 = num3 * 0.5f;
-      this.offDir = -this._attach.offDir;
+      this.offDir = (sbyte)-this._attach.offDir;
       Vec2 position = thing.position;
       Vec2 _p2 = thing.position;
       this.depth = thing.depth - 18;

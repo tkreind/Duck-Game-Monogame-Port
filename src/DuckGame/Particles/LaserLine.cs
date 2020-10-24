@@ -42,6 +42,6 @@ namespace DuckGame
       this.y += this._move.y * this._moveSpeed;
     }
 
-    public override void Draw() => Graphics.DrawLine(this.position, this.position + this._target, this._color * this.alpha, this._thickness, (Depth) 0.9f);
+    public override void Draw() => Graphics.DrawLine(this.position, this.position + this._target, this._color * this.alpha, this._thickness, new Depth(0.9f));
   }
 }

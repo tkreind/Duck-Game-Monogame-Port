@@ -21,7 +21,7 @@ namespace DuckGame
       this.center = new Vec2(8f, 8f);
       this._collisionSize = new Vec2(16f, 16f);
       this._collisionOffset = new Vec2(-8f, -8f);
-      this.depth = (Depth) 0.9f;
+      this.depth = new Depth(0.9f);
       this.layer = Layer.Foreground;
       this._visibleInGame = false;
       this._speedMult = speedMult;
@@ -46,7 +46,7 @@ namespace DuckGame
       this._parallax.restrictBottom = false;
       for (int index = 0; index < 11; ++index)
         this._parallax.AddZone(21 + index, distance, speed);
-      this._parallax.depth = (Depth) -0.9f;
+      this._parallax.depth = new Depth(-0.9f);
       this._parallax.layer = new Layer("PARALLAX2", 110, new Camera(0.0f, 0.0f, 320f, 200f));
       Layer.Add(this._parallax.layer);
       Level.Add((Thing) this._parallax);

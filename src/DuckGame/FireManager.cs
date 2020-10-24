@@ -59,9 +59,10 @@ namespace DuckGame
                 Level.Add((Thing) smallSmoke);
                 Level.Remove((Thing) smallFire);
               }
-              else if ((double) Rando.Float(1000f) < (double) materialThing.flammable * 1000.0 && (smallFire.whoWait == null || duck != smallFire.whoWait))
-                materialThing.Burn(smallFire.position + new Vec2(0.0f, 4f), (Thing) smallFire);
-              materialThing.DoHeatUp(0.05f, smallFire.position);
+              // remove this
+              //else if ((double) Rando.Float(1000f) < (double) materialThing.flammable * 1000.0 && (smallFire.whoWait == null || duck != smallFire.whoWait))
+              //  materialThing.Burn(smallFire.position + new Vec2(0.0f, 4f), (Thing) smallFire);
+              //materialThing.DoHeatUp(0.05f, smallFire.position);
             }
           }
         }

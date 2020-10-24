@@ -95,7 +95,7 @@ namespace DuckGame
           }
         }
         if (this._isValid)
-          Graphics.DrawRect(new Vec2(this._leftSide.x, this._floor - (float) ((int) this.deep * 8)), new Vec2(this._rightSide.x, this._floor), new Color(this.GetFluidType().color) * 0.5f, (Depth) 0.9f);
+          Graphics.DrawRect(new Vec2(this._leftSide.x, this._floor - (float) ((int) this.deep * 8)), new Vec2(this._rightSide.x, this._floor), new Color(this.GetFluidType().color) * 0.5f, new Depth(0.9f));
       }
       base.Draw();
     }

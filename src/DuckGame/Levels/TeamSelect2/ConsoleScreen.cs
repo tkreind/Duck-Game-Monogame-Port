@@ -76,7 +76,7 @@ namespace DuckGame
           DuckGame.Graphics.ResetDepthBias();
           DuckGame.Graphics.screen = this._batch;
           this._batch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.DepthRead, RasterizerState.CullNone, (MTEffect) this._blurMaterial, camera1.getMatrix());
-          DuckGame.Graphics.Draw((Tex2D) this._screenTarget, Vec2.Zero, new Rectangle?(), Color.White, 0.0f, Vec2.Zero, new Vec2(1f, 1f), SpriteEffects.None, (Depth) 1f);
+          DuckGame.Graphics.Draw((Tex2D) this._screenTarget, Vec2.Zero, new Rectangle?(), Color.White, 0.0f, Vec2.Zero, new Vec2(1f, 1f), SpriteEffects.None, new Depth(1f));
           this._batch.End();
           DuckGame.Graphics.SetRenderTarget(this._finalTarget);
           DuckGame.Graphics.viewport = new Viewport(0, 0, this._finalTarget.width, this._finalTarget.height);
@@ -84,7 +84,7 @@ namespace DuckGame
           this._batch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.DepthRead, RasterizerState.CullNone, (MTEffect) this._lcdMaterial, camera2.getMatrix());
           DuckGame.Graphics.device.Textures[1] = (Texture) (Texture2D) (Tex2D) this._bloomTarget;
           DuckGame.Graphics.device.SamplerStates[1] = SamplerState.LinearClamp;
-          DuckGame.Graphics.Draw((Tex2D) this._screenTarget, Vec2.Zero, new Rectangle?(), Color.White, 0.0f, Vec2.Zero, new Vec2(1f, 1f), SpriteEffects.None, (Depth) 0.82f);
+          DuckGame.Graphics.Draw((Tex2D) this._screenTarget, Vec2.Zero, new Rectangle?(), Color.White, 0.0f, Vec2.Zero, new Vec2(1f, 1f), SpriteEffects.None, new Depth(0.82f));
           DuckGame.Graphics.material = (Material) null;
           this._batch.End();
         }

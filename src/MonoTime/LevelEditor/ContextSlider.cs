@@ -305,7 +305,7 @@ namespace DuckGame
           Graphics.DrawRect(this.position + new Vec2(x2, 0.0f), this.position + new Vec2(x4, this.itemSize.y), new Color(70, 70, 70), (Depth) (0.75f + num3));
           Graphics.DrawRect(this.position + new Vec2(4f, (float) ((double) this.itemSize.y / 2.0 - 2.0)), this.position + new Vec2(this.itemSize.x - 4f, (float) ((double) this.itemSize.y / 2.0 + 2.0)), new Color(150, 150, 150), (Depth) (0.82f + num3));
           Vec2 vec2 = this.position + new Vec2(x1, 0.0f);
-          this._adjusterHand.depth = (Depth) 0.9f;
+          this._adjusterHand.depth = new Depth(0.9f);
           Graphics.Draw((Sprite) this._adjusterHand, vec2.x - 6f, vec2.y - 6f);
         }
         else
@@ -331,8 +331,8 @@ namespace DuckGame
         Color color = Color.White;
         if (this._field.value is List<TypeProbPair>)
           color = (double) num1 != 0.0 ? ((double) num1 >= 0.300000011920929 ? ((double) num1 >= 0.699999988079071 ? Color.Green : Color.Orange) : Colors.DGRed) : Color.DarkGray;
-        Graphics.DrawString(this._text, this.position + new Vec2(2f, 5f), color, (Depth) 0.82f);
-        Graphics.DrawString(text1, this.position + new Vec2(this.itemSize.x - 4f - Graphics.GetStringWidth(text1), 5f), Color.White, (Depth) 0.82f);
+        Graphics.DrawString(this._text, this.position + new Vec2(2f, 5f), color, new Depth(0.82f));
+        Graphics.DrawString(text1, this.position + new Vec2(this.itemSize.x - 4f - Graphics.GetStringWidth(text1), 5f), Color.White, new Depth(0.82f));
       }
     }
   }

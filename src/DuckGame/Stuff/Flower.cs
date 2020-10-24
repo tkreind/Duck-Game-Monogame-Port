@@ -27,7 +27,7 @@ namespace DuckGame
       this.collisionOffset = new Vec2(-3f, -12f);
       this.collisionSize = new Vec2(6f, 14f);
       this._holdOffset = new Vec2(-2f, 2f);
-      this.depth = (Depth) -0.5f;
+      this.depth = new Depth(-0.5f);
       this.weight = 1f;
       this.flammable = 0.3f;
       this.hugWalls = WallHug.Floor;
@@ -56,7 +56,7 @@ namespace DuckGame
           this.collisionSize = new Vec2(14f, 6f);
           this.angleDegrees = 90f;
           this.graphic.flipH = true;
-          this.depth = (Depth) 0.4f;
+          this.depth = new Depth(0.4f);
         }
       }
       base.Update();

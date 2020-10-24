@@ -187,16 +187,16 @@ namespace DuckGame
       Level._core.currentLevel.DoDraw();
     }
 
-    public static T First<T>()
+    public static Thing First<T>()
     {
       IEnumerable<Thing> thing = Level.current.things[typeof (T)];
-      return thing.Count<Thing>() > 0 ? (T) thing.First<Thing>() : default (T);
+      return thing.Count<Thing>() > 0 ? thing.First<Thing>() : default (Thing);
     }
 
-    public T FirstOfType<T>()
+    public Thing FirstOfType<T>()
     {
       IEnumerable<Thing> thing = this.things[typeof (T)];
-      return thing.Count<Thing>() > 0 ? (T) thing.First<Thing>() : default (T);
+      return thing.Count<Thing>() > 0 ? thing.First<Thing>() : default (Thing);
     }
 
     public QuadTreeObjectList things => this._things;
@@ -507,7 +507,7 @@ namespace DuckGame
     {
       this._lowestPointInitialized = true;
       this.lowestPoint = 0.0f;
-      CameraBounds cameraBounds = this.FirstOfType<CameraBounds>();
+      CameraBounds cameraBounds = (CameraBounds)this.FirstOfType<CameraBounds>();
       if (cameraBounds != null)
       {
         this._topLeft = new Vec2(cameraBounds.x - (float) ((int) cameraBounds.wide / 2), cameraBounds.y - (float) ((int) cameraBounds.high / 2));
@@ -725,8 +725,8 @@ namespace DuckGame
       if ((double) num <= 0.0)
         return;
       DuckGame.Graphics.screen.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullNone, (MTEffect) null, Matrix.Identity);
-      DuckGame.Graphics.DrawRect(Vec2.Zero, new Vec2((float) DuckGame.Graphics.width, num / 2f), Color.Black, (Depth) 0.9f);
-      DuckGame.Graphics.DrawRect(new Vec2(0.0f, (float) DuckGame.Graphics.height - num / 2f), new Vec2((float) DuckGame.Graphics.width, (float) DuckGame.Graphics.height), Color.Black, (Depth) 0.9f);
+      DuckGame.Graphics.DrawRect(Vec2.Zero, new Vec2((float) DuckGame.Graphics.width, num / 2f), Color.Black, new Depth(0.9f));
+      DuckGame.Graphics.DrawRect(new Vec2(0.0f, (float) DuckGame.Graphics.height - num / 2f), new Vec2((float) DuckGame.Graphics.width, (float) DuckGame.Graphics.height), Color.Black, new Depth(0.9f));
       DuckGame.Graphics.screen.End();
     }
 
@@ -936,10 +936,10 @@ namespace DuckGame
       {
         List<KeyValuePair<float, Thing>> keyValuePairList = this.nearest(point, this._things[typeof (Thing)], ignore, layer);
         if (keyValuePairList.Count > nearIndex)
-          return (T) keyValuePairList[nearIndex].Value;
+          return (T)(Object)keyValuePairList[nearIndex].Value;
       }
       List<KeyValuePair<float, Thing>> keyValuePairList1 = this.nearest(point, this._things[key], ignore, layer);
-      return keyValuePairList1.Count > nearIndex ? (T) keyValuePairList1[nearIndex].Value : default (T);
+      return keyValuePairList1.Count > nearIndex ? (T)(Object)keyValuePairList1[nearIndex].Value : default (T);
     }
 
     public T CollisionCircle<T>(Vec2 p1, float radius, Thing ignore = null)
@@ -948,7 +948,7 @@ namespace DuckGame
       foreach (Thing dynamicObject in this._things.GetDynamicObjects(key))
       {
         if (dynamicObject.ghostType != (ushort) 0 && dynamicObject != ignore && Collision.Circle(p1, radius, dynamicObject))
-          return (T) dynamicObject;
+          return (T)(Object)dynamicObject;
       }
       return this._things.HasStaticObjects(key) ? this._things.quadTree.CheckCircle<T>(p1, radius, ignore) : default (T);
     }
@@ -973,7 +973,7 @@ namespace DuckGame
       foreach (Thing dynamicObject in this._things.GetDynamicObjects(key))
       {
         if (dynamicObject.ghostType != (ushort) 0 && dynamicObject != ignore && Collision.Rect(p1, p2, dynamicObject))
-          return (T) dynamicObject;
+          return (T)(Object)dynamicObject;
       }
       return this._things.HasStaticObjects(key) ? this._things.quadTree.CheckRectangle<T>(p1, p2, ignore) : default (T);
     }
@@ -998,7 +998,7 @@ namespace DuckGame
       foreach (Thing dynamicObject in this._things.GetDynamicObjects(key))
       {
         if (dynamicObject.ghostType != (ushort) 0 && dynamicObject != ignore && Collision.Line(p1, p2, dynamicObject))
-          return (T) dynamicObject;
+          return (T)(Object)dynamicObject;
       }
       return this._things.HasStaticObjects(key) ? this._things.quadTree.CheckLine<T>(p1, p2, ignore) : default (T);
     }
@@ -1015,7 +1015,7 @@ namespace DuckGame
           if (vec2 != Vec2.Zero)
           {
             position = vec2;
-            return (T) dynamicObject;
+            return (T)(Object)dynamicObject;
           }
         }
       }
@@ -1047,13 +1047,13 @@ namespace DuckGame
         foreach (Thing thing in this._things)
         {
           if (thing.ghostType != (ushort) 0 && thing != ignore && Collision.Point(point, thing) && (layer == null || layer == thing.layer))
-            return (T) thing;
+            return (T)(Object)thing;
         }
       }
       foreach (Thing dynamicObject in this._things.GetDynamicObjects(key))
       {
         if (dynamicObject.ghostType != (ushort) 0 && dynamicObject != ignore && Collision.Point(point, dynamicObject) && (layer == null || layer == dynamicObject.layer))
-          return (T) dynamicObject;
+          return (T)(Object)dynamicObject;
       }
       return this._things.HasStaticObjects(key) ? this._things.quadTree.CheckPoint<T>(point, ignore, layer) : default (T);
     }
@@ -1066,13 +1066,13 @@ namespace DuckGame
         foreach (Thing thing in this._things)
         {
           if (thing.ghostType != (ushort) 0 && thing != ignore && Collision.Point(point, thing) && (layer == null || layer == thing.placementLayer))
-            return (T) thing;
+            return (T)(Object)thing;
         }
       }
       foreach (Thing dynamicObject in this._things.GetDynamicObjects(key))
       {
         if (dynamicObject.ghostType != (ushort) 0 && dynamicObject != ignore && Collision.Point(point, dynamicObject) && (layer == null || layer == dynamicObject.placementLayer))
-          return (T) dynamicObject;
+          return (T)(Object)dynamicObject;
       }
       return this._things.HasStaticObjects(key) ? this._things.quadTree.CheckPointPlacementLayer<T>(point, ignore, layer) : default (T);
     }

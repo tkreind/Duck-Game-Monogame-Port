@@ -201,7 +201,7 @@ namespace DuckGame
     {
       if (this._arrow.visible)
       {
-        this._styleBubble.depth = (Depth) 0.9f;
+        this._styleBubble.depth = new Depth(0.9f);
         Vec2 vec2_1 = new Vec2(this.x + 90f, this.y);
         if (this._selectStyle)
         {
@@ -216,20 +216,20 @@ namespace DuckGame
           Sprite g = this.inputMapping.GetSprite(this.inputMapping.map[this._trigger]) ?? this.inputMapping.device.DoGetMapImage(this.inputMapping.map[this._trigger], true);
           if (g != null)
           {
-            g.depth = (Depth) 0.95f;
+            g.depth = new Depth(0.95f);
             Graphics.Draw(g, vec2_1.x + (this._selectStyle ? -22f : 9f), vec2_1.y - 7f);
           }
         }
         if (this._selectStyle)
         {
-          this._styleTray.depth = (Depth) 0.92f;
+          this._styleTray.depth = new Depth(0.92f);
           Graphics.Draw(this._styleTray, this.x + 118f, Layer.HUD.camera.height / 2f);
           Vec2 vec2_2 = new Vec2(this.x + 90f, (float) ((double) Layer.HUD.camera.height / 2.0 - 80.0));
           int num = 0;
           foreach (Sprite buttonStyle in Input.buttonStyles)
           {
             Vec2 vec2_3 = vec2_2 + new Vec2((float) (num % 4 * 14), (float) (num / 4 * 14));
-            buttonStyle.depth = (Depth) 0.95f;
+            buttonStyle.depth = new Depth(0.95f);
             buttonStyle.color = Color.White * (num == this._selectionIndex ? 1f : 0.4f);
             Graphics.Draw(buttonStyle, vec2_3.x, vec2_3.y);
             ++num;

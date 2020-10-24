@@ -53,6 +53,6 @@ namespace DuckGame
         this.layer.scissor = new Rectangle(0.0f, 0.0f, (float) num1, (float) Graphics.height);
     }
 
-    public void Draw() => Graphics.DrawLine(this.point1, this.point2, Color.Orange, 2f, (Depth) 1f);
+    public void Draw() => Graphics.DrawLine(this.point1, this.point2, Color.Orange, 2f, new Depth(1f));
   }
 }

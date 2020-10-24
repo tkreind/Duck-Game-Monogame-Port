@@ -383,21 +383,23 @@ namespace DuckGame
 
     public static string GetInfiniteLoopDetails()
     {
-      StackTrace stackTrace = new StackTrace(MonoMain.mainThread, true);
-      string str = "An infinite loop occurred.\r\n";
-      int num = 15;
-      for (int index = 0; index < num; ++index)
-      {
-        if (index < stackTrace.FrameCount)
-        {
-          StackFrame frame = stackTrace.GetFrame(index);
-          if (frame.GetFileName() != null)
-            str = str + "  at " + frame.ToString();
-          else
-            ++num;
-        }
-      }
-      return str;
+            // TODO
+            //StackTrace stackTrace = new StackTrace(MonoMain.mainThread, true);
+            //string str = "An infinite loop occurred.\r\n";
+            //int num = 15;
+            //for (int index = 0; index < num; ++index)
+            //{
+            //  if (index < stackTrace.FrameCount)
+            //  {
+            //    StackFrame frame = stackTrace.GetFrame(index);
+            //    if (frame.GetFileName() != null)
+            //      str = str + "  at " + frame.ToString();
+            //    else
+            //      ++num;
+            //  }
+            //}
+            //return str;
+            return "";
     }
 
     protected override void LoadContent() => base.LoadContent();
@@ -994,24 +996,24 @@ namespace DuckGame
             DuckGame.Graphics.screen.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullNone, (MTEffect) null, camera.getMatrix());
             Vec2 p1 = new Vec2(50f, (float) (DuckGame.Graphics.height - 50));
             Vec2 vec2_1 = new Vec2((float) (DuckGame.Graphics.width - 100), 20f);
-            DuckGame.Graphics.DrawRect(p1, p1 + vec2_1, Color.DarkGray * 0.1f, (Depth) 0.5f);
+            DuckGame.Graphics.DrawRect(p1, p1 + vec2_1, Color.DarkGray * 0.1f, new Depth(0.5f));
             float num = (float) MonoMain.loadyBits / (float) MonoMain.totalLoadyBits;
             if ((double) num > 1.0)
               num = 1f;
-            DuckGame.Graphics.DrawRect(p1, p1 + new Vec2(vec2_1.x * num, vec2_1.y), Color.White * 0.1f, (Depth) 0.6f);
+            DuckGame.Graphics.DrawRect(p1, p1 + new Vec2(vec2_1.x * num, vec2_1.y), Color.White * 0.1f, new Depth(0.6f));
             string text = MonoMain.loadMessage;
             if (MonoMain._foreverLoad && MonoMain._didReceiptCheck)
               text = !MonoMain.notOnlineError ? "DRM FAILURE(ughhh). Gotta crack it. Or it's broke, I could have broke it. Sorry dude (I'm so sorry)." : "Couldn't get DRM crap (ughhh), have you a web connection? Do you need... an adapter?";
-            DuckGame.Graphics.DrawString(text, p1 + new Vec2(0.0f, -16f), Color.White, (Depth) 1f);
+            DuckGame.Graphics.DrawString(text, p1 + new Vec2(0.0f, -16f), Color.White, new Depth(1f));
             this._duckRun.speed = 0.15f;
             this._duckRun.scale = new Vec2(4f, 4f);
-            this._duckRun.depth = (Depth) 0.7f;
+            this._duckRun.depth = new Depth(0.7f);
             this._duckRun.color = new Color(80, 80, 80);
             Vec2 vec2_2 = new Vec2((float) (DuckGame.Graphics.width - this._duckRun.width * 4 - 50), (float) (DuckGame.Graphics.height - this._duckRun.height * 4 - 55));
             DuckGame.Graphics.Draw((Sprite) this._duckRun, vec2_2.x, vec2_2.y);
             this._duckArm.frame = this._duckRun.imageIndex;
             this._duckArm.scale = new Vec2(4f, 4f);
-            this._duckArm.depth = (Depth) 0.6f;
+            this._duckArm.depth = new Depth(0.6f);
             this._duckArm.color = new Color(80, 80, 80);
             DuckGame.Graphics.Draw((Sprite) this._duckArm, vec2_2.x + 20f, vec2_2.y + 56f);
             DuckGame.Graphics.screen.End();
@@ -1121,7 +1123,7 @@ namespace DuckGame
                 Vec2 scale = new Vec2(Layer.HUD.camera.width / (float) MonoMain._screenCapture.width, Layer.HUD.camera.height / (float) MonoMain._screenCapture.height);
                 DuckGame.Graphics.screen.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.DepthRead, RasterizerState.CullNone, (MTEffect) null, Layer.HUD.camera.getMatrix());
                 DuckGame.Graphics.material = (Material) MonoMain._pauseMaterial;
-                DuckGame.Graphics.Draw((Tex2D) MonoMain._screenCapture, new Vec2(0.0f, 0.0f), new Rectangle?(), new Color(120, 120, 120), 0.0f, Vec2.Zero, scale, SpriteEffects.None, (Depth) -0.9f);
+                DuckGame.Graphics.Draw((Tex2D) MonoMain._screenCapture, new Vec2(0.0f, 0.0f), new Rectangle?(), new Color(120, 120, 120), 0.0f, Vec2.Zero, scale, SpriteEffects.None, new Depth(-0.9f));
                 DuckGame.Graphics.material = (Material) null;
                 DuckGame.Graphics.screen.End();
                 Layer.HUD.Begin(true);

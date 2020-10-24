@@ -89,7 +89,7 @@ namespace DuckGame
         float num1 = 160f;
         float num2 = this._yScroll * num1;
         this._virtualBackground.parallax.y = (float) (-(double) num1 * (1.0 - (double) num2 / (double) num1));
-        this._bigDome.depth = (Depth) 0.5f;
+        this._bigDome.depth = new Depth(0.5f);
         Graphics.Draw(this._bigDome, 160f, 130f + num2);
         float deg = 45f;
         float rad1 = Maths.DegToRad(deg);
@@ -100,9 +100,9 @@ namespace DuckGame
         for (int index = 0; index < 8; ++index)
         {
           if (index == 0 || index > 4)
-            this._smallDome.depth = (Depth) 0.6f;
+            this._smallDome.depth = new Depth(0.6f);
           else
-            this._smallDome.depth = (Depth) 0.4f;
+            this._smallDome.depth = new Depth(0.4f);
           Vec2 vec2_1 = new Vec2((float) Math.Cos((double) rad2 + (double) index * (double) rad1), (float) (-Math.Sin((double) rad2 + (double) index * (double) rad1) * (0.400000005960464 * (1.0 - (double) num2 / (double) num1))));
           Vec2 vec2_2 = new Vec2(160f, 130f + num2) + vec2_1 * 100f;
           Graphics.Draw(this._smallDome, vec2_2.x, vec2_2.y - 30f);
@@ -116,17 +116,17 @@ namespace DuckGame
       else if (l == Layer.HUD)
       {
         this._cornerWedge.flipH = false;
-        this._cornerWedge.depth = (Depth) 0.7f;
+        this._cornerWedge.depth = new Depth(0.7f);
         if ((double) this._intermissionSlide > 0.00999999977648258)
         {
           float x1 = (float) ((double) this._intermissionSlide * 320.0 - 320.0);
           float y = 60f;
-          Graphics.DrawRect(new Vec2(x1, y), new Vec2(x1 + 320f, y + 30f), Color.Black, (Depth) 0.9f);
+          Graphics.DrawRect(new Vec2(x1, y), new Vec2(x1 + 320f, y + 30f), Color.Black, new Depth(0.9f));
           float x2 = (float) (320.0 - (double) this._intermissionSlide * 320.0);
           float num = 60f;
-          Graphics.DrawRect(new Vec2(x2, num + 30f), new Vec2(x2 + 320f, num + 60f), Color.Black, (Depth) 0.9f);
+          Graphics.DrawRect(new Vec2(x2, num + 30f), new Vec2(x2 + 320f, num + 60f), Color.Black, new Depth(0.9f));
           Graphics.Draw(this._intermissionText, (float) ((double) this._intermissionSlide * 336.0 - 320.0), num + 18f);
-          this._intermissionText.depth = (Depth) 0.91f;
+          this._intermissionText.depth = new Depth(0.91f);
         }
       }
       base.PostDrawLayer(l);

@@ -68,7 +68,7 @@ namespace DuckGame
     public override void Initialize()
     {
       this.layer = Layer.HUD;
-      this.depth = (Depth) 0.9f;
+      this.depth = new Depth(0.9f);
       this._showBackground = false;
       this.itemSize = new Vec2(386f, 16f);
       this._root = true;

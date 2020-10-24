@@ -48,7 +48,7 @@ namespace DuckGame
       this._sprite = new Sprite("duckGameTitle");
       this._demo = new Sprite("demoPro");
       this.graphic = this._sprite;
-      this.depth = (Depth) 0.6f;
+      this.depth = new Depth(0.6f);
       this.graphic.color = Color.Black;
       this.centery = (float) (this.graphic.height / 2);
       this.alpha = 0.0f;
@@ -66,7 +66,7 @@ namespace DuckGame
       if (this._showFart)
       {
         this._demo.alpha = this.alpha;
-        this._demo.depth = (Depth) 0.7f;
+        this._demo.depth = new Depth(0.7f);
         Graphics.Draw(this._demo, this.x + 28f, this.y + 32f);
       }
       base.Draw();

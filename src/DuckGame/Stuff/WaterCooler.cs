@@ -31,7 +31,7 @@ namespace DuckGame
       this.center = new Vec2(8f, 8f);
       this.collisionOffset = new Vec2(-5f, -5f);
       this.collisionSize = new Vec2(10f, 10f);
-      this.depth = (Depth) -0.5f;
+      this.depth = new Depth(-0.5f);
       this._editorName = "Water Cooler";
       this.thickness = 2f;
       this.weight = 5f;

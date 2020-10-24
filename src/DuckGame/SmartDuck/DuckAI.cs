@@ -100,7 +100,7 @@ namespace DuckGame
       foreach (PathNodeLink pathNodeLink in this._locomotion.pathFinder.path)
       {
         if (p1 != Vec2.Zero)
-          Graphics.DrawLine(p1, pathNodeLink.owner.position, new Color((int) byte.MaxValue, 0, (int) byte.MaxValue), 2f, (Depth) 0.9f);
+          Graphics.DrawLine(p1, pathNodeLink.owner.position, new Color((int) byte.MaxValue, 0, (int) byte.MaxValue), 2f, new Depth(0.9f));
         p1 = pathNodeLink.owner.position;
       }
     }

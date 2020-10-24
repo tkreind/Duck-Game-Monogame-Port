@@ -109,7 +109,7 @@ namespace DuckGame
       double width = (double) this._font.GetWidth(Change.ToString((object) (this._currentHighlight + 1)));
       double height = (double) this._font.height;
       this._numbers.frame = 4 - this._currentHighlight;
-      this._numbers.depth = (Depth) 1f;
+      this._numbers.depth = new Depth(1f);
       this._numbers.scale = new Vec2(4f, 4f);
       DuckGame.Graphics.Draw((Sprite) this._numbers, 32f, 32f);
       DuckGame.Graphics.screen.End();

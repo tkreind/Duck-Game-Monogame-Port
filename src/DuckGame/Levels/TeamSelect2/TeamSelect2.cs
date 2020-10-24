@@ -586,7 +586,7 @@ namespace DuckGame
       this._font.scale = new Vec2(1f, 1f);
       this._buttons = new SpriteMap("buttons", 14, 14);
       this._buttons.CenterOrigin();
-      this._buttons.depth = (Depth) 0.9f;
+      this._buttons.depth = new Depth(0.9f);
       Music.Play("CharacterSelect");
       this._beam = new TeamBeam(160f, 0.0f);
       Level.Add((Thing) this._beam);
@@ -1126,11 +1126,11 @@ namespace DuckGame
           if ((double) this._afkTimeout >= (double) this._afkShowTimeout)
           {
             this._timeoutFade = Lerp.Float(this._timeoutFade, 1f, 0.05f);
-            Graphics.DrawRect(new Vec2(-1000f, -1000f), new Vec2(10000f, 10000f), Color.Black * 0.7f * this._timeoutFade, (Depth) 0.95f);
+            Graphics.DrawRect(new Vec2(-1000f, -1000f), new Vec2(10000f, 10000f), Color.Black * 0.7f * this._timeoutFade, new Depth(0.95f));
             string text1 = "AFK TIMEOUT IN";
             string text2 = ((int) ((double) this._afkMaxTimeout - (double) this._afkTimeout)).ToString();
-            Graphics.DrawString(text1, new Vec2((float) ((double) layer.width / 2.0 - (double) Graphics.GetStringWidth(text1) / 2.0), (float) ((double) layer.height / 2.0 - 8.0)), Color.White * this._timeoutFade, (Depth) 0.96f);
-            Graphics.DrawString(text2, new Vec2(layer.width / 2f - Graphics.GetStringWidth(text2), (float) ((double) layer.height / 2.0 + 4.0)), Color.White * this._timeoutFade, (Depth) 0.96f, scale: 2f);
+            Graphics.DrawString(text1, new Vec2((float) ((double) layer.width / 2.0 - (double) Graphics.GetStringWidth(text1) / 2.0), (float) ((double) layer.height / 2.0 - 8.0)), Color.White * this._timeoutFade, new Depth(0.96f));
+            Graphics.DrawString(text2, new Vec2(layer.width / 2f - Graphics.GetStringWidth(text2), (float) ((double) layer.height / 2.0 + 4.0)), Color.White * this._timeoutFade, new Depth(0.96f), scale: 2f);
           }
           else
             this._timeoutFade = Lerp.Float(this._timeoutFade, 0.0f, 0.05f);
@@ -1146,8 +1146,8 @@ namespace DuckGame
           if (flag && Level.core.gameInProgress)
           {
             Vec2 vec2 = new Vec2(0.0f, Layer.HUD.barSize);
-            Graphics.DrawRect(new Vec2(0.0f, vec2.y), new Vec2(320f, vec2.y + 10f), Color.Black, (Depth) 0.9f);
-            this._littleFont.depth = (Depth) 0.95f;
+            Graphics.DrawRect(new Vec2(0.0f, vec2.y), new Vec2(320f, vec2.y + 10f), Color.Black, new Depth(0.9f));
+            this._littleFont.depth = new Depth(0.95f);
             string str = "";
             foreach (Profile profile in DuckNetwork.profiles)
             {
@@ -1189,7 +1189,7 @@ namespace DuckGame
               --this._topScroll;
             if ((double) this._topScroll < 0.0)
               ++this._topScroll;
-            this._littleFont.Draw(text2, new Vec2((float) (1.0 - (double) this._topScroll * ((double) this._littleFont.GetWidth(text1) + 7.0)), vec2.y + 3f), Color.White, (Depth) 0.95f);
+            this._littleFont.Draw(text2, new Vec2((float) (1.0 - (double) this._topScroll * ((double) this._littleFont.GetWidth(text1) + 7.0)), vec2.y + 3f), Color.White, new Depth(0.95f));
           }
           if ((double) this._setupFade > 0.00999999977648258)
           {
@@ -1209,10 +1209,10 @@ namespace DuckGame
               {
                 string text1 = "@SELECT@CHALLENGE ARCADE";
                 this._font.alpha = this._setupFade;
-                this._font.Draw(text1, (float) ((double) Layer.HUD.width / 2.0 - (double) this._font.GetWidth(text1) / 2.0), num + 15f, Color.White, (Depth) 0.9f);
+                this._font.Draw(text1, (float) ((double) Layer.HUD.width / 2.0 - (double) this._font.GetWidth(text1) / 2.0), num + 15f, Color.White, new Depth(0.9f));
                 string text2 = str;
                 this._font.alpha = this._setupFade;
-                this._font.Draw(text2, (float) ((double) Layer.HUD.width / 2.0 - (double) this._font.GetWidth(text2) / 2.0), (float) ((double) num + 12.0 + 17.0), Color.White, (Depth) 0.9f);
+                this._font.Draw(text2, (float) ((double) Layer.HUD.width / 2.0 - (double) this._font.GetWidth(text2) / 2.0), (float) ((double) num + 12.0 + 17.0), Color.White, new Depth(0.9f));
               }
               else
               {
@@ -1220,10 +1220,10 @@ namespace DuckGame
                 if (Main.isDemo)
                   text1 = "NO CHALLENGE MODE IN DEMO :(";
                 this._font.alpha = this._setupFade;
-                this._font.Draw(text1, (float) ((double) Layer.HUD.width / 2.0 - (double) this._font.GetWidth(text1) / 2.0), num + 15f, Color.White, (Depth) 0.9f);
+                this._font.Draw(text1, (float) ((double) Layer.HUD.width / 2.0 - (double) this._font.GetWidth(text1) / 2.0), num + 15f, Color.White, new Depth(0.9f));
                 string text2 = str;
                 this._font.alpha = this._setupFade;
-                this._font.Draw(text2, (float) ((double) Layer.HUD.width / 2.0 - (double) this._font.GetWidth(text2) / 2.0), (float) ((double) num + 12.0 + 17.0), Color.White, (Depth) 0.9f);
+                this._font.Draw(text2, (float) ((double) Layer.HUD.width / 2.0 - (double) this._font.GetWidth(text2) / 2.0), (float) ((double) num + 12.0 + 17.0), Color.White, new Depth(0.9f));
               }
             }
             else
@@ -1232,25 +1232,25 @@ namespace DuckGame
               if (Network.isClient)
               {
                 string text = "WAITING FOR HOST TO START";
-                this._font.Draw(text, (float) ((double) Layer.HUD.width / 2.0 - (double) this._font.GetWidth(text) / 2.0), num + 22f, Color.White, (Depth) 0.9f);
+                this._font.Draw(text, (float) ((double) Layer.HUD.width / 2.0 - (double) this._font.GetWidth(text) / 2.0), num + 22f, Color.White, new Depth(0.9f));
               }
               else if (!Network.isActive)
               {
                 string text1 = "@SELECT@START MATCH";
-                this._font.Draw(text1, (float) ((double) Layer.HUD.width / 2.0 - (double) this._font.GetWidth(text1) / 2.0), num + 9f, Color.White, (Depth) 0.9f);
+                this._font.Draw(text1, (float) ((double) Layer.HUD.width / 2.0 - (double) this._font.GetWidth(text1) / 2.0), num + 9f, Color.White, new Depth(0.9f));
                 string text2 = "@SHOOT@MATCH SETTINGS";
-                this._font.Draw(text2, (float) ((double) Layer.HUD.width / 2.0 - (double) this._font.GetWidth(text2) / 2.0), num + 22f, Color.White, (Depth) 0.9f);
+                this._font.Draw(text2, (float) ((double) Layer.HUD.width / 2.0 - (double) this._font.GetWidth(text2) / 2.0), num + 22f, Color.White, new Depth(0.9f));
                 string text3 = str;
-                this._font.Draw(text3, (float) ((double) Layer.HUD.width / 2.0 - (double) this._font.GetWidth(text3) / 2.0), num + 35f, Color.White, (Depth) 0.9f);
+                this._font.Draw(text3, (float) ((double) Layer.HUD.width / 2.0 - (double) this._font.GetWidth(text3) / 2.0), num + 35f, Color.White, new Depth(0.9f));
               }
               else
               {
                 string text = "@SELECT@START MATCH";
-                this._font.Draw(text, (float) ((double) Layer.HUD.width / 2.0 - (double) this._font.GetWidth(text) / 2.0), num + 22f, Color.White, (Depth) 0.9f);
+                this._font.Draw(text, (float) ((double) Layer.HUD.width / 2.0 - (double) this._font.GetWidth(text) / 2.0), num + 22f, Color.White, new Depth(0.9f));
               }
             }
             this._countdownScreen.alpha = this._setupFade;
-            this._countdownScreen.depth = (Depth) 0.8f;
+            this._countdownScreen.depth = new Depth(0.8f);
             this._countdownScreen.centery = (float) (this._countdownScreen.height / 2);
             Vec2 vec2 = new Vec2(this.camera.x, this.camera.height / 2f);
             Graphics.Draw(this._countdownScreen, vec2.x, vec2.y);
@@ -1258,11 +1258,11 @@ namespace DuckGame
           if ((double) this.dim > 0.00999999977648258)
           {
             this._countdownScreen.alpha = 1f;
-            this._countdownScreen.depth = (Depth) 0.8f;
+            this._countdownScreen.depth = new Depth(0.8f);
             Vec2 vec2 = new Vec2(this.camera.x, this.camera.height / 2f);
             Graphics.Draw(this._countdownScreen, vec2.x, vec2.y);
             this._countdown.alpha = this.dim * 1.2f;
-            this._countdown.depth = (Depth) 0.98f;
+            this._countdown.depth = new Depth(0.98f);
             this._countdown.frame = (int) (float) Math.Ceiling((1.0 - (double) this._countTime) * 2.0);
             this._countdown.centery = (float) (this._countdown.height / 2);
             Graphics.Draw((Sprite) this._countdown, 160f, (float) ((double) this.camera.height / 2.0 - 3.0));

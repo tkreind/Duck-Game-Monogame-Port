@@ -104,14 +104,14 @@ namespace DuckGame
         if (!this._checkedZoom)
         {
           this._checkedZoom = true;
-          CameraZoom cameraZoom = Level.First<CameraZoom>();
+          CameraZoom cameraZoom = (CameraZoom)Level.First<CameraZoom>();
           if (cameraZoom != null)
           {
             this._zoomMult = cameraZoom.zoomMult;
             this._overFollow = (bool) cameraZoom.overFollow;
             this._allowWarps = (bool) cameraZoom.allowWarps;
           }
-          CustomCamera customCamera = Level.First<CustomCamera>();
+          CustomCamera customCamera = (CustomCamera)Level.First<CustomCamera>();
           if (customCamera != null)
           {
             this.width = (float) customCamera.wide.value;

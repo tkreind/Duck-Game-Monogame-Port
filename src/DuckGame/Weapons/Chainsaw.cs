@@ -736,7 +736,6 @@ namespace DuckGame
       {
         if (amAduck != this.duck && amAduck is MaterialThing materialThing)
         {
-          MaterialThing materialThing = materialThing;
           materialThing.velocity = materialThing.velocity + new Vec2((float) this.offDir * 0.8f, -0.8f);
           materialThing.Destroy((DestroyType) new DTImpale((Thing) this));
           if (this.duck != null)

@@ -124,7 +124,7 @@ namespace DuckGame
         this._packets.Dequeue();
       int num1 = 0;
       int num2 = 0;
-      DuckGame.Graphics.DrawLine(pos, new Vec2(pos.x + (float) this._packetsToDraw * this._widthPerPacket, pos.y), Color.White, depth: ((Depth) 0.9f));
+      DuckGame.Graphics.DrawLine(pos, new Vec2(pos.x + (float) this._packetsToDraw * this._widthPerPacket, pos.y), Color.White, depth: (new Depth(0.9f)));
       int num3 = 0;
       foreach (NCPacketBreakdown packet in this._packets)
       {
@@ -138,7 +138,7 @@ namespace DuckGame
             Color typeColor = NCPacketBreakdown.GetTypeColor(dataType);
             Vec2 p1 = vec2 - new Vec2(0.0f, (float) num4 / (float) this._currentMaxSize * this._maxHeightPerPacket);
             Vec2 p2 = p1 - new Vec2(0.0f, (float) num5 / (float) this._currentMaxSize * this._maxHeightPerPacket);
-            DuckGame.Graphics.DrawLine(p1, p2, typeColor, this._widthPerPacket, (Depth) 0.9f);
+            DuckGame.Graphics.DrawLine(p1, p2, typeColor, this._widthPerPacket, new Depth(0.9f));
             num4 += num5;
             num3 += num5;
           }
@@ -168,8 +168,8 @@ namespace DuckGame
         NetGraph.numAckBytes = 0;
         NetGraph.numFrames = 0;
       }
-      DuckGame.Graphics.DrawString("in: " + (this._currentMaxSize / 8).ToString() + " bytes - " + ((int) ((double) num3 / (double) this._packets.Count / 8.0)).ToString() + " avg", new Vec2(pos.x, pos.y - 9f), Color.White, (Depth) 0.9f);
-      DuckGame.Graphics.DrawString("fps: " + this.fps.ToString() + "    ping: " + ((int) ((double) this.ping * 1000.0)).ToString() + "ms     bytes out:" + NetGraph.avgBytes.ToString("0.00") + " hdr:" + NetGraph.avgHeaderBytes.ToString("0.00") + " ack:" + NetGraph.avgAckBytes.ToString("0.00") + " gst:" + NetGraph.avgGhostBytes.ToString("0.00"), new Vec2(pos.x, (float) ((double) pos.y + (double) this._maxHeightPerPacket + 8.0)), Color.White, (Depth) 0.9f);
+      DuckGame.Graphics.DrawString("in: " + (this._currentMaxSize / 8).ToString() + " bytes - " + ((int) ((double) num3 / (double) this._packets.Count / 8.0)).ToString() + " avg", new Vec2(pos.x, pos.y - 9f), Color.White, new Depth(0.9f));
+      DuckGame.Graphics.DrawString("fps: " + this.fps.ToString() + "    ping: " + ((int) ((double) this.ping * 1000.0)).ToString() + "ms     bytes out:" + NetGraph.avgBytes.ToString("0.00") + " hdr:" + NetGraph.avgHeaderBytes.ToString("0.00") + " ack:" + NetGraph.avgAckBytes.ToString("0.00") + " gst:" + NetGraph.avgGhostBytes.ToString("0.00"), new Vec2(pos.x, (float) ((double) pos.y + (double) this._maxHeightPerPacket + 8.0)), Color.White, new Depth(0.9f));
       NCBasic.bytesThisFrame = 0;
       NCBasic.headerBytes = 0;
       NCBasic.ackBytes = 0;

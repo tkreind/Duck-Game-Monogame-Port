@@ -115,7 +115,7 @@ namespace DuckGame
       this.center = new Vec2(3f, 24f);
       this.collisionSize = new Vec2(6f, 32f);
       this.collisionOffset = new Vec2(-3f, -24f);
-      this.depth = (Depth) -0.5f;
+      this.depth = new Depth(-0.5f);
       this._editorName = nameof (Window);
       this.thickness = 0.3f;
       this._sprite.color = new Color(1f, 1f, 1f, 0.2f);

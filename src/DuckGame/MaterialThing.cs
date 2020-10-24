@@ -300,7 +300,7 @@ namespace DuckGame
           if (this.extWait >= 3)
           {
             JetpackSmoke jetpackSmoke = new JetpackSmoke(this.x + Rando.Float(-1f, 1f), this.bottom + Rando.Float(-4f, 1f));
-            jetpackSmoke.depth = (Depth) 0.9f;
+            jetpackSmoke.depth = new Depth(0.9f);
             Level.current.AddThing((Thing) jetpackSmoke);
             jetpackSmoke.hSpeed += this.hSpeed * Rando.Float(0.2f, 0.3f);
             jetpackSmoke.vSpeed = Rando.Float(-0.1f, 0.0f);

@@ -21,7 +21,7 @@ namespace DuckGame
       this.center = new Vec2(8f, 8f);
       this._bounceSound = "";
       this._rotSpeed = rotSpeed;
-      this.depth = (Depth) 0.3f;
+      this.depth = new Depth(0.3f);
     }
 
     public override void Update()

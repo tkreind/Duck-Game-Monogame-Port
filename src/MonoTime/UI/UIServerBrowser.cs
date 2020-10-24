@@ -161,7 +161,7 @@ namespace DuckGame
       this._yesNoMenu.Add((UIComponent) (this._yesNoNo = new UIMenuItem("NO")), true);
       this._yesNoMenu.Close();
       this._updateTextBox = new Textbox(0.0f, 0.0f, 0.0f, 0.0f);
-      this._updateTextBox.depth = (Depth) 0.9f;
+      this._updateTextBox.depth = new Depth(0.9f);
       this._updateTextBox.maxLength = 5000;
       this._downloadModsMenu = new UIMenu("MODS REQUIRED!", Layer.HUD.camera.width / 2f, Layer.HUD.camera.height / 2f, 290f, conString: "@SELECT@SELECT");
       this._downloadModsMenu.Add((UIComponent) new UIText("You're missing the mods required", Colors.DGBlue), true);
@@ -435,12 +435,12 @@ namespace DuckGame
           Layer.HUD.camera.height *= 2f;
           this.fixView = false;
         }
-        DuckGame.Graphics.DrawRect(new Vec2(this._box.x - this._box.halfWidth, this._box.y - this._box.halfHeight), new Vec2((float) ((double) this._box.x + (double) this._box.halfWidth - 12.0 - 2.0), this._box.y + this._box.halfHeight), Color.Black, (Depth) 0.4f);
-        DuckGame.Graphics.DrawRect(new Vec2((float) ((double) this._box.x + (double) this._box.halfWidth - 12.0), this._box.y - this._box.halfHeight), new Vec2(this._box.x + this._box.halfWidth, this._box.y + this._box.halfHeight), Color.Black, (Depth) 0.4f);
+        DuckGame.Graphics.DrawRect(new Vec2(this._box.x - this._box.halfWidth, this._box.y - this._box.halfHeight), new Vec2((float) ((double) this._box.x + (double) this._box.halfWidth - 12.0 - 2.0), this._box.y + this._box.halfHeight), Color.Black, new Depth(0.4f));
+        DuckGame.Graphics.DrawRect(new Vec2((float) ((double) this._box.x + (double) this._box.halfWidth - 12.0), this._box.y - this._box.halfHeight), new Vec2(this._box.x + this._box.halfWidth, this._box.y + this._box.halfHeight), Color.Black, new Depth(0.4f));
         Rectangle r = this.ScrollBarBox();
-        DuckGame.Graphics.DrawRect(r, this._draggingScrollbar || r.Contains(Mouse.position) ? Color.LightGray : Color.Gray, (Depth) 0.5f);
+        DuckGame.Graphics.DrawRect(r, this._draggingScrollbar || r.Contains(Mouse.position) ? Color.LightGray : Color.Gray, new Depth(0.5f));
         if (this._lobbies.Count == 0)
-          this._fancyFont.Draw("No games found!", new Vec2(this._box.x - this._box.halfWidth + 10f, (float) ((double) this._box.y - (double) this._box.halfHeight + 0.0) + 2f), Color.Yellow, (Depth) 0.5f);
+          this._fancyFont.Draw("No games found!", new Vec2(this._box.x - this._box.halfWidth + 10f, (float) ((double) this._box.y - (double) this._box.halfHeight + 0.0) + 2f), Color.Yellow, new Depth(0.5f));
         this._lobbies = this._lobbies.OrderByDescending<UIServerBrowser.LobbyData, bool>((Func<UIServerBrowser.LobbyData, bool>) (x => x.canJoin)).ToList<UIServerBrowser.LobbyData>();
         for (int index1 = 0; index1 < this._maxLobbiesToShow; ++index1)
         {
@@ -450,9 +450,9 @@ namespace DuckGame
             float x1 = this._box.x - this._box.halfWidth;
             float y = this._box.y - this._box.halfHeight + (float) (36 * index1);
             if (this._hoverIndex == index2)
-              DuckGame.Graphics.DrawRect(new Vec2(x1, y), new Vec2((float) ((double) x1 + (double) this._box.width - 14.0), y + 36f), Color.White * 0.6f, (Depth) 0.4f);
+              DuckGame.Graphics.DrawRect(new Vec2(x1, y), new Vec2((float) ((double) x1 + (double) this._box.width - 14.0), y + 36f), Color.White * 0.6f, new Depth(0.4f));
             else if ((index2 & 1) != 0)
-              DuckGame.Graphics.DrawRect(new Vec2(x1, y), new Vec2((float) ((double) x1 + (double) this._box.width - 14.0), y + 36f), Color.White * 0.1f, (Depth) 0.4f);
+              DuckGame.Graphics.DrawRect(new Vec2(x1, y), new Vec2((float) ((double) x1 + (double) this._box.width - 14.0), y + 36f), Color.White * 0.1f, new Depth(0.4f));
             UIServerBrowser.LobbyData lobby = this._lobbies[index2];
             if (lobby != null)
             {
@@ -533,7 +533,7 @@ namespace DuckGame
                 text1 = text1 + "rests every " + lobby.restsEvery.ToString() + ". ";
               if (lobby.customLevels != "" && lobby.customLevels != "0")
                 text1 = text1 + lobby.customLevels.ToString() + " Custom Levels. ";
-              DuckGame.Graphics.DrawRect(new Vec2(x1 + 2f, y + 2f), new Vec2((float) ((double) x1 + 36.0 - 2.0), (float) ((double) y + 36.0 - 2.0)), Color.Gray, (Depth) 0.5f, false, 2f);
+              DuckGame.Graphics.DrawRect(new Vec2(x1 + 2f, y + 2f), new Vec2((float) ((double) x1 + 36.0 - 2.0), (float) ((double) y + 36.0 - 2.0)), Color.Gray, new Depth(0.5f), false, 2f);
               if (tex2DList.Count > 0)
               {
                 Vec2 zero = Vec2.Zero;
@@ -551,13 +551,13 @@ namespace DuckGame
                       if (this._noImage.texture.width > this._noImage.texture.height)
                       {
                         this._noImage.scale = new Vec2(32f / (float) this._noImage.texture.height);
-                        DuckGame.Graphics.Draw(this._noImage, x1 + 2f + zero.x, y + 2f + zero.y, new Rectangle((float) (this._noImage.texture.width / 2 - this._noImage.texture.height / 2), 0.0f, (float) this._noImage.texture.height, (float) this._noImage.texture.height), (Depth) 0.5f);
+                        DuckGame.Graphics.Draw(this._noImage, x1 + 2f + zero.x, y + 2f + zero.y, new Rectangle((float) (this._noImage.texture.width / 2 - this._noImage.texture.height / 2), 0.0f, (float) this._noImage.texture.height, (float) this._noImage.texture.height), new Depth(0.5f));
                       }
                       else
-                        DuckGame.Graphics.Draw(this._noImage, x1 + 2f + zero.x, y + 2f + zero.y, new Rectangle(0.0f, 0.0f, (float) this._noImage.texture.width, (float) this._noImage.texture.width), (Depth) 0.5f);
+                        DuckGame.Graphics.Draw(this._noImage, x1 + 2f + zero.x, y + 2f + zero.y, new Rectangle(0.0f, 0.0f, (float) this._noImage.texture.width, (float) this._noImage.texture.width), new Depth(0.5f));
                     }
                     else
-                      DuckGame.Graphics.Draw(this._noImage, x1 + 2f + zero.x, y + 2f + zero.y, (Depth) 0.5f);
+                      DuckGame.Graphics.Draw(this._noImage, x1 + 2f + zero.x, y + 2f + zero.y, new Depth(0.5f));
                     zero.x += 16f;
                     if ((double) zero.x >= 32.0)
                     {
@@ -568,7 +568,7 @@ namespace DuckGame
                 }
               }
               else
-                DuckGame.Graphics.Draw(this._noImage, x1 + 2f, y + 2f, (Depth) 0.5f);
+                DuckGame.Graphics.Draw(this._noImage, x1 + 2f, y + 2f, new Depth(0.5f));
               string text2 = name;
               if (lobby.maxPlayers != "")
                 text2 = text2 + " (" + lobby.lobby.users.Count.ToString() + "/" + lobby.numSlots.ToString() + ")";
@@ -599,16 +599,16 @@ namespace DuckGame
                 else if (lobby.hasLocalMods)
                   str += "This game is using non-workshop mods.";
                 text2 = str + ")";
-                DuckGame.Graphics.DrawRect(new Vec2(x1, y), new Vec2((float) ((double) x1 + (double) this._box.width - 14.0), y + 36f), Color.Black * 0.5f, (Depth) 0.99f);
+                DuckGame.Graphics.DrawRect(new Vec2(x1, y), new Vec2((float) ((double) x1 + (double) this._box.width - 14.0), y + 36f), Color.Black * 0.5f, new Depth(0.99f));
               }
               this._fancyFont.maxWidth = 1000;
-              this._fancyFont.Draw(text2, new Vec2((float) ((double) x1 + 36.0 + 10.0), y + 2f), Color.Yellow, (Depth) 0.5f);
+              this._fancyFont.Draw(text2, new Vec2((float) ((double) x1 + 36.0 + 10.0), y + 2f), Color.Yellow, new Depth(0.5f));
               if (lobby.version == DG.version)
-                this._fancyFont.Draw(lobby.version, new Vec2((float) ((double) x1 + 430.0 + 10.0), y + 2f), Colors.DGGreen * 0.35f, (Depth) 0.5f);
+                this._fancyFont.Draw(lobby.version, new Vec2((float) ((double) x1 + 430.0 + 10.0), y + 2f), Colors.DGGreen * 0.35f, new Depth(0.5f));
               else
-                this._fancyFont.Draw(lobby.version, new Vec2((float) ((double) x1 + 430.0 + 10.0), y + 2f), Colors.DGRed * 0.35f, (Depth) 0.5f);
-              DuckGame.Graphics.Draw(this._steamIcon, x1 + 36f, y + 2.5f, (Depth) 0.5f);
-              this._fancyFont.Draw(text1, new Vec2(x1 + 36f, y + 6f + (float) this._fancyFont.characterHeight), Color.LightGray, (Depth) 0.5f);
+                this._fancyFont.Draw(lobby.version, new Vec2((float) ((double) x1 + 430.0 + 10.0), y + 2f), Colors.DGRed * 0.35f, new Depth(0.5f));
+              DuckGame.Graphics.Draw(this._steamIcon, x1 + 36f, y + 2.5f, new Depth(0.5f));
+              this._fancyFont.Draw(text1, new Vec2(x1 + 36f, y + 6f + (float) this._fancyFont.characterHeight), Color.LightGray, new Depth(0.5f));
             }
           }
           else
@@ -616,7 +616,7 @@ namespace DuckGame
         }
         if (Mouse.available && !this._gamepadMode)
         {
-          this._cursor.depth = (Depth) 1f;
+          this._cursor.depth = new Depth(1f);
           this._cursor.scale = new Vec2(1f, 1f);
           this._cursor.position = Mouse.position;
           this._cursor.frame = 0;

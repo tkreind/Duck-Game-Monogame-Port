@@ -628,29 +628,29 @@ namespace DuckGame
       Vec2 vec2_1 = new Vec2((float) ((double) Chancy._listLerp * 270.0 - 200.0), 20f);
       if (Chancy.lookingAtList || (double) Chancy._listLerp > 0.00999999977648258)
       {
-        Chancy.listPaper.depth = (Depth) 0.8f;
+        Chancy.listPaper.depth = new Depth(0.8f);
         DuckGame.Graphics.Draw(Chancy.listPaper, vec2_1.x, vec2_1.y);
-        Chancy._font.depth = (Depth) 0.85f;
+        Chancy._font.depth = new Depth(0.85f);
         Chancy._font.scale = new Vec2(1f);
-        Chancy._font.Draw("Chancy Challenges", vec2_1 + new Vec2(11f, 6f), Colors.BlueGray, (Depth) 0.85f);
+        Chancy._font.Draw("Chancy Challenges", vec2_1 + new Vec2(11f, 6f), Colors.BlueGray, new Depth(0.85f));
         float num = 9f;
         List<ChallengeData> chancyChallenges = Chancy._chancyChallenges;
         int index = 0;
         foreach (ChallengeData challengeData in chancyChallenges)
         {
-          Chancy._font.Draw(challengeData.name, vec2_1 + new Vec2(19f, 12f + num), Colors.DGRed, (Depth) 0.85f);
+          Chancy._font.Draw(challengeData.name, vec2_1 + new Vec2(19f, 12f + num), Colors.DGRed, new Depth(0.85f));
           Vec2 vec2_2 = vec2_1 + new Vec2(12f, (float) (12.0 + (double) num + 4.0));
           if (index == Chancy._challengeSelection)
           {
-            Chancy._pencil.depth = (Depth) 0.9f;
+            Chancy._pencil.depth = new Depth(0.9f);
             DuckGame.Graphics.Draw(Chancy._pencil, vec2_2.x, vec2_2.y);
-            DuckGame.Graphics.DrawLine(vec2_1 + new Vec2(19f, (float) (12.0 + (double) num + 8.5)), vec2_1 + new Vec2(19f + Chancy._font.GetWidth(challengeData.name), (float) (12.0 + (double) num + 8.5)), Colors.SuperDarkBlueGray, depth: ((Depth) 0.9f));
+            DuckGame.Graphics.DrawLine(vec2_1 + new Vec2(19f, (float) (12.0 + (double) num + 8.5)), vec2_1 + new Vec2(19f + Chancy._font.GetWidth(challengeData.name), (float) (12.0 + (double) num + 8.5)), Colors.SuperDarkBlueGray, depth: (new Depth(0.9f)));
           }
           ChallengeSaveData saveData = Challenges.GetSaveData(Chancy._chancyChallenges[index].levelID, Profiles.active[0]);
           if (saveData != null && saveData.trophy > TrophyType.Baseline)
           {
             Chancy._tinyStars.frame = (int) (saveData.trophy - 1);
-            Chancy._tinyStars.depth = (Depth) 0.85f;
+            Chancy._tinyStars.depth = new Depth(0.85f);
             DuckGame.Graphics.Draw((Sprite) Chancy._tinyStars, vec2_2.x + 2f, vec2_2.y);
           }
           num += 9f;
@@ -671,7 +671,7 @@ namespace DuckGame
         float x = (float) ((double) vec2_5.x + (double) vec2_4.x / 2.0 - (double) stringWidth / 2.0);
         for (int index2 = Chancy._lineProgress[index1].segments.Count - 1; index2 >= 0; --index2)
         {
-          DuckGame.Graphics.DrawString(Chancy._lineProgress[index1].segments[index2].text, new Vec2(x, y), Chancy._lineProgress[index1].segments[index2].color, (Depth) 0.85f);
+          DuckGame.Graphics.DrawString(Chancy._lineProgress[index1].segments[index2].text, new Vec2(x, y), Chancy._lineProgress[index1].segments[index2].color, new Depth(0.85f));
           x += (float) (Chancy._lineProgress[index1].segments[index2].text.Length * 8);
         }
         ++num1;
@@ -680,15 +680,15 @@ namespace DuckGame
       {
         vec2_1 = new Vec2(40f, 28f);
         vec2_1 = new Vec2((float) ((double) Chancy._challengeLerp * 240.0 - 200.0), 28f);
-        Chancy.challengePaper.depth = (Depth) 0.8f;
+        Chancy.challengePaper.depth = new Depth(0.8f);
         DuckGame.Graphics.Draw(Chancy.challengePaper, vec2_1.x, vec2_1.y);
-        Chancy._paperclip.depth = (Depth) 0.92f;
-        Chancy._photo.depth = (Depth) 0.87f;
+        Chancy._paperclip.depth = new Depth(0.92f);
+        Chancy._photo.depth = new Depth(0.87f);
         DuckGame.Graphics.Draw(Chancy._photo, vec2_1.x + 135f, vec2_1.y - 3f);
         DuckGame.Graphics.Draw((Sprite) Chancy._paperclip, vec2_1.x + 140f, vec2_1.y - 10f);
         if (Chancy._previewPhoto != null)
         {
-          Chancy._previewPhoto.depth = (Depth) 0.89f;
+          Chancy._previewPhoto.depth = new Depth(0.89f);
           Chancy._previewPhoto.angleDegrees = 12f;
           DuckGame.Graphics.Draw((Sprite) Chancy._previewPhoto, vec2_1.x + 146f, vec2_1.y + 0.0f);
         }
@@ -696,10 +696,10 @@ namespace DuckGame
         {
           if (Chancy._save.trophy > TrophyType.Baseline)
           {
-            Chancy._sticker.depth = (Depth) 0.9f;
+            Chancy._sticker.depth = new Depth(0.9f);
             Chancy._sticker.frame = (int) (Chancy._save.trophy - 1);
             DuckGame.Graphics.Draw((Sprite) Chancy._sticker, vec2_1.x + 123f, vec2_1.y + 2f);
-            Chancy._completeStamp.depth = (Depth) 0.9f;
+            Chancy._completeStamp.depth = new Depth(0.9f);
             Chancy._completeStamp.angleDegrees = Chancy._stampAngle;
             Chancy._completeStamp.alpha = 0.9f;
             DuckGame.Graphics.Draw(Chancy._completeStamp, vec2_1.x + 72f, vec2_1.y + 82f);
@@ -707,37 +707,37 @@ namespace DuckGame
           string challengeBestString = Chancy.GetChallengeBestString(Chancy._save, Chancy._challengeData, true);
           if (challengeBestString != null && challengeBestString != "")
           {
-            Chancy._tapePaper.depth = (Depth) 0.9f;
+            Chancy._tapePaper.depth = new Depth(0.9f);
             Chancy._tapePaper.angleDegrees = Chancy._paperAngle;
             DuckGame.Graphics.Draw(Chancy._tapePaper, vec2_1.x + 64f, vec2_1.y + 22f);
-            Chancy._tape.depth = (Depth) 0.95f;
+            Chancy._tape.depth = new Depth(0.95f);
             Chancy._tape.angleDegrees = Chancy._tapeAngle;
             DuckGame.Graphics.Draw(Chancy._tape, vec2_1.x + 64f, vec2_1.y + 22f);
             if (Chancy._bestTextTarget != null)
-              DuckGame.Graphics.Draw((Tex2D) (Texture2D) (Tex2D) Chancy._bestTextTarget, new Vec2(vec2_1.x + 64f, vec2_1.y + 22f), new Rectangle?(), Color.White, Maths.DegToRad(Chancy._paperAngle), new Vec2((float) (Chancy._bestTextTarget.width / 2), (float) (Chancy._bestTextTarget.height / 2)), new Vec2(1f, 1f), SpriteEffects.None, (Depth) 0.92f);
+              DuckGame.Graphics.Draw((Tex2D) (Texture2D) (Tex2D) Chancy._bestTextTarget, new Vec2(vec2_1.x + 64f, vec2_1.y + 22f), new Rectangle?(), Color.White, Maths.DegToRad(Chancy._paperAngle), new Vec2((float) (Chancy._bestTextTarget.width / 2), (float) (Chancy._bestTextTarget.height / 2)), new Vec2(1f, 1f), SpriteEffects.None, new Depth(0.92f));
           }
         }
-        Chancy._font.depth = (Depth) 0.85f;
+        Chancy._font.depth = new Depth(0.85f);
         Chancy._font.scale = new Vec2(1f);
-        Chancy._font.Draw(Chancy._challengeData.name, vec2_1 + new Vec2(9f, 7f), Colors.DGRed, (Depth) 0.85f);
+        Chancy._font.Draw(Chancy._challengeData.name, vec2_1 + new Vec2(9f, 7f), Colors.DGRed, new Depth(0.85f));
         Chancy._font.scale = new Vec2(1f);
         Chancy._font.maxWidth = 120;
-        Chancy._font.Draw(Chancy._challengeData.description, vec2_1 + new Vec2(5f, 30f), Colors.BlueGray, (Depth) 0.85f);
+        Chancy._font.Draw(Chancy._challengeData.description, vec2_1 + new Vec2(5f, 30f), Colors.BlueGray, new Depth(0.85f));
         Chancy._font.scale = new Vec2(1f);
         Chancy._font.maxWidth = 300;
         Unlockable unlock = Unlockables.GetUnlock(Chancy._challengeData.reward);
         if (unlock != null)
         {
           if (unlock is UnlockableHat)
-            Chancy._font.Draw("|MENUORANGE|Reward - " + unlock.name + " hat", vec2_1 + new Vec2(5f, 84f), Colors.BlueGray, (Depth) 0.85f);
+            Chancy._font.Draw("|MENUORANGE|Reward - " + unlock.name + " hat", vec2_1 + new Vec2(5f, 84f), Colors.BlueGray, new Depth(0.85f));
         }
         else
-          Chancy._font.Draw("|MENUORANGE|Reward - TICKETS", vec2_1 + new Vec2(5f, 84f), Colors.BlueGray, (Depth) 0.85f);
+          Chancy._font.Draw("|MENUORANGE|Reward - TICKETS", vec2_1 + new Vec2(5f, 84f), Colors.BlueGray, new Depth(0.85f));
         ChallengeTrophy trophy = Chancy._challengeData.trophies[1];
         if (trophy.targets != -1)
-          Chancy._font.Draw("|DGBLUE|break at least " + (object) trophy.targets + " targets", vec2_1 + new Vec2(5f, 75f), Colors.BlueGray, (Depth) 0.85f);
+          Chancy._font.Draw("|DGBLUE|break at least " + (object) trophy.targets + " targets", vec2_1 + new Vec2(5f, 75f), Colors.BlueGray, new Depth(0.85f));
         else if (trophy.timeRequirement != -1)
-          Chancy._font.Draw("|DGBLUE|beat it in " + (object) trophy.timeRequirement + " seconds", vec2_1 + new Vec2(5f, 75f), Colors.BlueGray, (Depth) 0.85f);
+          Chancy._font.Draw("|DGBLUE|beat it in " + (object) trophy.timeRequirement + " seconds", vec2_1 + new Vec2(5f, 75f), Colors.BlueGray, new Depth(0.85f));
       }
       Chancy._tail.flipV = true;
       DuckGame.Graphics.Draw(Chancy._tail, 222f + vec2_3.x, 117f + vec2_3.y);
@@ -746,7 +746,7 @@ namespace DuckGame
         flag = false;
       if (!flag)
         Chancy._dealer.frame += 6;
-      Chancy._dealer.depth = (Depth) 0.5f;
+      Chancy._dealer.depth = new Depth(0.5f);
       Chancy._dealer.alpha = Chancy.alpha;
       DuckGame.Graphics.Draw((Sprite) Chancy._dealer, 216f + vec2_3.x, 32f + vec2_3.y);
       if (flag)
@@ -758,7 +758,7 @@ namespace DuckGame
     {
       if (Chancy.atCounter)
         return;
-      Chancy.body.depth = (Depth) 0.0f;
+      Chancy.body.depth = new Depth(0.0f);
       DuckGame.Graphics.Draw(Chancy.body, Chancy.standingPosition.x, Chancy.standingPosition.y);
       if (Chancy.hover)
         Chancy.hoverSprite.alpha = Lerp.Float(Chancy.hoverSprite.alpha, 1f, 0.05f);
@@ -766,7 +766,7 @@ namespace DuckGame
         Chancy.hoverSprite.alpha = Lerp.Float(Chancy.hoverSprite.alpha, 0.0f, 0.05f);
       if ((double) Chancy.hoverSprite.alpha <= 0.00999999977648258)
         return;
-      Chancy.hoverSprite.depth = (Depth) 0.0f;
+      Chancy.hoverSprite.depth = new Depth(0.0f);
       Chancy.hoverSprite.flipH = Chancy.body.flipH;
       if (Chancy.hoverSprite.flipH)
         DuckGame.Graphics.Draw(Chancy.hoverSprite, Chancy.standingPosition.x + 1f, Chancy.standingPosition.y - 1f);

@@ -968,7 +968,7 @@ namespace DuckGame
           Thing.Fondle((Thing) holdObject, DuckNetwork.localConnection);
       }
       Main.SpecialCode = "DROPPED ITEM";
-      this.depth = (Depth) 0.3f;
+      this.depth = new Depth(0.3f);
       if (profile != null)
       {
         if (profile == this.profile)
@@ -1042,8 +1042,9 @@ namespace DuckGame
             }
             if ((DateTime.Now - profile.stats.lastKillTime).TotalSeconds < 2.0)
               ++num3;
-            if (bullet != null && (double) Math.Abs(bullet.travelDirNormalized.y) > 0.300000011920929)
-              ++num3;
+            // remove this garbage
+            //if (bullet != null && (double) Math.Abs(bullet.travelDirNormalized.y) > 0.300000011920929)
+            //  ++num3;
             Main.SpecialCode = "KILLED BY 01";
             profile.stats.lastKillTime = DateTime.Now;
             if (thing is Grenade)
@@ -1645,7 +1646,8 @@ namespace DuckGame
         this._equipment.Remove((Equipment) equipment);
         Level.Remove((Thing) equipment);
       }
-      else if (equipment == null && this._isGhost)
+            // TODO: else if (equipment == null && this._isGhost)
+            else if (this._isGhost)
       {
         GhostPack ghostPack = new GhostPack(0.0f, 0.0f);
         this._equipment.Add((Equipment) ghostPack);
@@ -1744,7 +1746,30 @@ namespace DuckGame
     public override void OnSoftImpact(MaterialThing with, ImpactedFrom from)
     {
       Holdable holdable = with as Holdable;
-      if (this._isGhost || holdable != null && holdable.owner == this || (with is FeatherVolume || with == this._lastHoldItem && this._timeSinceThrow < (byte) 7) || (with == this._trapped || with == this._trappedInstance || this._disarmDisable > 0) || with is RagdollPart && (with is RagdollPart ragdollPart && ragdollPart.doll != null && (ragdollPart.doll.captureDuck != null && ragdollPart.doll.captureDuck.killedByProfile == this.profile) && ragdollPart.doll.captureDuck.framesSinceKilled < 50 || ragdollPart != null && ragdollPart.doll != null && (ragdollPart.doll.PartHeld() || this.holdObject is Chainsaw && this._timeSinceChainKill < 50) || (this.holdObject != null && this.holdObject is RagdollPart && ragdollPart.doll.holdingOwner == this || this.ragdoll != null && (with == this.ragdoll.part1 || with == this.ragdoll.part2 || with == this.ragdoll.part3)) || (ragdollPart.doll == null || ragdollPart.doll.captureDuck == this || this._timeSinceThrow < (byte) 15 && ragdollPart.doll != null && (ragdollPart.doll.part1 == this._lastHoldItem || ragdollPart.doll.part2 == this._lastHoldItem || ragdollPart.doll.part3 == this._lastHoldItem))) || (this.dead || this.swinging || (!(with is PhysicsObject) || (double) with.totalImpactPower <= (double) with.weightMultiplierInv * 2.0)))
+      if (this._isGhost 
+                || holdable != null && holdable.owner == this 
+                || (with is FeatherVolume 
+                || with == this._lastHoldItem && this._timeSinceThrow < (byte) 7) 
+                || (with == this._trapped || with == this._trappedInstance 
+                || this._disarmDisable > 0) 
+                || with is RagdollPart 
+                    && (with is RagdollPart ragdollPart 
+                        && ragdollPart.doll != null 
+                        && (ragdollPart.doll.captureDuck != null 
+                        && ragdollPart.doll.captureDuck.killedByProfile == this.profile) 
+                        && ragdollPart.doll.captureDuck.framesSinceKilled < 50
+                            /*|| ragdollPart != null && ragdollPart.doll != null && (ragdollPart.doll.PartHeld() 
+                            || this.holdObject is Chainsaw && this._timeSinceChainKill < 50) 
+                            || (this.holdObject != null && this.holdObject is RagdollPart && ragdollPart.doll.holdingOwner == this 
+                            || this.ragdoll != null && (with == this.ragdoll.part1 
+                            || with == this.ragdoll.part2 
+                            || with == this.ragdoll.part3)) 
+                            || (ragdollPart.doll == null 
+                            || ragdollPart.doll.captureDuck == this 
+                            || this._timeSinceThrow < (byte) 15 && ragdollPart.doll != null && (ragdollPart.doll.part1 == this._lastHoldItem 
+                            || ragdollPart.doll.part2 == this._lastHoldItem 
+                            || ragdollPart.doll.part3 == this._lastHoldItem)))*/
+                 || (this.dead || this.swinging || (!(with is PhysicsObject) || (double) with.totalImpactPower <= (double) with.weightMultiplierInv * 2.0))))
         return;
       if (with is Duck && (double) with.weight >= 5.0)
       {
@@ -2950,7 +2975,7 @@ namespace DuckGame
           this._trapped.Draw();
         else
           this.Draw();
-        DuckGame.Graphics.DrawRect(camera.center + new Vec2((float) (-this._offSide.width / 4), (float) (-this._offSide.width / 4)), camera.center + new Vec2((float) (this._offSide.width / 4), (float) (this._offSide.width / 4)), this.profile.persona.colorUsable, (Depth) 1f, false);
+        DuckGame.Graphics.DrawRect(camera.center + new Vec2((float) (-this._offSide.width / 4), (float) (-this._offSide.width / 4)), camera.center + new Vec2((float) (this._offSide.width / 4), (float) (this._offSide.width / 4)), this.profile.persona.colorUsable, new Depth(1f), false);
         DuckGame.Graphics.screen.End();
         this._renderingDuck = false;
         DuckGame.Graphics.SetRenderTarget((RenderTarget2D) null);
@@ -3305,7 +3330,7 @@ namespace DuckGame
       int frame = this._sprite.frame;
       this._sprite.imageIndex = 21;
       float rad = Maths.DegToRad(Maths.PointDirection(position, p2));
-      this._sprite.depth = (Depth) 1f;
+      this._sprite.depth = new Depth(1f);
       this._sprite.angle = -rad;
       this._sprite.flipH = false;
       this._sprite.UpdateSpriteBox();

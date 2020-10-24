@@ -28,7 +28,7 @@ namespace DuckGame
       this._sin = new SinWave(0.01f + Rando.Float(0.03f), Rando.Float(7f));
       this._size = 10f + Rando.Float(60f);
       this._speed = 0.8f + Rando.Float(1.4f);
-      this.depth = (Depth) 0.95f;
+      this.depth = new Depth(0.95f);
     }
 
     public override void Update() => this.y += this._speed;

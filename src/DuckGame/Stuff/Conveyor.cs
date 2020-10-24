@@ -24,7 +24,7 @@ namespace DuckGame
       this.center = new Vec2(7f, 5f);
       this.collisionOffset = new Vec2(-7f, -4f);
       this.collisionSize = new Vec2(14f, 8f);
-      this.depth = (Depth) 0.5f;
+      this.depth = new Depth(0.5f);
       this._editorName = nameof (Conveyor);
       this.thickness = 100f;
       this.physicsMaterial = PhysicsMaterial.Metal;

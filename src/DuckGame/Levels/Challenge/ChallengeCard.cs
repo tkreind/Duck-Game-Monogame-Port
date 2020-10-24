@@ -174,7 +174,7 @@ namespace DuckGame
       string str1 = this._challenge.name;
       if (!this._unlocked)
         str1 = this.MakeQuestionMarks(str1);
-      this._font.Draw(str1, this.x + 41f, this.y + 2f, Color.White * num1, (Depth) 1f);
+      this._font.Draw(str1, this.x + 41f, this.y + 2f, Color.White * num1, new Depth(1f));
       Color c1 = new Color(247, 224, 89);
       string str2 = this._challenge.description;
       if (!this._unlocked)
@@ -182,7 +182,7 @@ namespace DuckGame
       this._fancyFont.maxWidth = 200;
       this._fancyFont.alpha = num1;
       this._fancyFont.xscale = this._fancyFont.yscale = 0.75f;
-      this._fancyFont.Draw(str2, this.x + 41f, this.y + 12f, c1, (Depth) 1f);
+      this._fancyFont.Draw(str2, this.x + 41f, this.y + 12f, c1, new Depth(1f));
       if ((double) this._dataAlpha <= 0.00999999977648258)
         return;
       float num2 = this._dataAlpha * num1;
@@ -199,8 +199,8 @@ namespace DuckGame
         c2 = Colors.Gold;
       else if (this._save.trophy == TrophyType.Platinum)
         c2 = Colors.Platinum;
-      this._fancyFont.Draw("|DGBLUE|" + this._challenge.goal, this.x + 6f, this.y + 45f, Color.White, (Depth) 1f);
-      this._font.Draw(Chancy.GetChallengeBestString(this._save, this._challenge), this.x + 6f, (float) ((double) this.y + 45.0 + 9.0), c2, (Depth) 1f);
+      this._fancyFont.Draw("|DGBLUE|" + this._challenge.goal, this.x + 6f, this.y + 45f, Color.White, new Depth(1f));
+      this._font.Draw(Chancy.GetChallengeBestString(this._save, this._challenge), this.x + 6f, (float) ((double) this.y + 45.0 + 9.0), c2, new Depth(1f));
       bool flag = false;
       this._medalNoRibbon.depth = (Depth) (float) (0.800000011920929 + (double) num1 * 0.0399999991059303);
       this._medalNoRibbon.alpha = num2;
@@ -209,7 +209,7 @@ namespace DuckGame
       float num3 = this.y + 68f;
       DuckGame.Graphics.Draw((Sprite) this._medalNoRibbon, x, num3);
       Color c3 = new Color(245, 165, 36);
-      this._font.Draw("GOLD", x + 22f, num3, c3, (Depth) 1f);
+      this._font.Draw("GOLD", x + 22f, num3, c3, new Depth(1f));
       ChallengeTrophy challengeTrophy1 = this._challenge.trophies.FirstOrDefault<ChallengeTrophy>((Func<ChallengeTrophy, bool>) (val => val.type == TrophyType.Gold));
       string text1 = "";
       if (challengeTrophy1.timeRequirement > 0)
@@ -233,13 +233,13 @@ namespace DuckGame
           str3 = this._challenge.prefix;
         text1 = text1 + "|ORANGE|" + challengeTrophy1.goodies.ToString() + " " + str3;
       }
-      this._font.Draw(text1, x + 22f, num3 + 9f, Color.White, (Depth) 1f);
+      this._font.Draw(text1, x + 22f, num3 + 9f, Color.White, new Depth(1f));
       float num4 = (float) ((double) this.y + 68.0 + 20.0);
       this._medalNoRibbon.alpha = num2;
       this._medalNoRibbon.frame = 1;
       DuckGame.Graphics.Draw((Sprite) this._medalNoRibbon, x, num4);
       c3 = new Color(173, 173, 173);
-      this._font.Draw("SILVER", x + 22f, num4, c3, (Depth) 1f);
+      this._font.Draw("SILVER", x + 22f, num4, c3, new Depth(1f));
       ChallengeTrophy challengeTrophy2 = this._challenge.trophies.FirstOrDefault<ChallengeTrophy>((Func<ChallengeTrophy, bool>) (val => val.type == TrophyType.Silver));
       string text2 = "";
       if (challengeTrophy2.timeRequirement > 0)
@@ -265,13 +265,13 @@ namespace DuckGame
           str3 = this._challenge.prefix;
         text2 = text2 + "|ORANGE|" + challengeTrophy2.goodies.ToString() + " " + str3;
       }
-      this._font.Draw(text2, x + 22f, num4 + 9f, Color.White, (Depth) 1f);
+      this._font.Draw(text2, x + 22f, num4 + 9f, Color.White, new Depth(1f));
       float num5 = (float) ((double) this.y + 68.0 + 40.0);
       this._medalNoRibbon.alpha = num2;
       this._medalNoRibbon.frame = 2;
       DuckGame.Graphics.Draw((Sprite) this._medalNoRibbon, x, num5);
       c3 = new Color(181, 86, 3);
-      this._font.Draw("BRONZE", x + 22f, num5, c3, (Depth) 1f);
+      this._font.Draw("BRONZE", x + 22f, num5, c3, new Depth(1f));
       ChallengeTrophy challengeTrophy3 = this._challenge.trophies.FirstOrDefault<ChallengeTrophy>((Func<ChallengeTrophy, bool>) (val => val.type == TrophyType.Bronze));
       string text3 = "";
       if (challengeTrophy3.timeRequirement > 0)
@@ -296,7 +296,7 @@ namespace DuckGame
           str3 = this._challenge.prefix;
         text3 = text3 + "|ORANGE|" + challengeTrophy3.goodies.ToString() + " " + str3;
       }
-      this._font.Draw(text3, x + 22f, num5 + 9f, Color.White, (Depth) 1f);
+      this._font.Draw(text3, x + 22f, num5 + 9f, Color.White, new Depth(1f));
     }
   }
 }

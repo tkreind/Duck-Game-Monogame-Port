@@ -303,11 +303,11 @@ namespace DuckGame
       {
         float width = this._font.GetWidth(this._lineProgress[index1].text);
         float ypos = (float) (140 - (this._lineProgress.Count - 1) * 9 + num * 9);
-        Graphics.DrawRect(new Vec2((float) (132.0 - (double) width / 2.0 - 1.0), ypos - 1f), new Vec2((float) (132.0 + (double) width / 2.0), ypos + 9f), Color.Black, (Depth) 0.84f);
+        Graphics.DrawRect(new Vec2((float) (132.0 - (double) width / 2.0 - 1.0), ypos - 1f), new Vec2((float) (132.0 + (double) width / 2.0), ypos + 9f), Color.Black, new Depth(0.84f));
         float xpos = (float) (132.0 - (double) width / 2.0);
         for (int index2 = this._lineProgress[index1].segments.Count - 1; index2 >= 0; --index2)
         {
-          this._font.Draw(this._lineProgress[index1].segments[index2].text, xpos, ypos, this._lineProgress[index1].segments[index2].color, (Depth) 0.85f);
+          this._font.Draw(this._lineProgress[index1].segments[index2].text, xpos, ypos, this._lineProgress[index1].segments[index2].color, new Depth(0.85f));
           xpos += (float) (this._lineProgress[index1].segments[index2].text.Length * 8);
         }
         ++num;

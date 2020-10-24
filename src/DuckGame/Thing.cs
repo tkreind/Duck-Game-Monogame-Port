@@ -406,18 +406,26 @@ namespace DuckGame
       set => this._responsibleProfile = value;
       get
       {
-        if (this._responsibleProfile != null)
-          return this._responsibleProfile;
-        if (!(this is Duck duck) && !(this.owner is Duck duck) && (!(this.prevOwner is Duck duck) && this.owner != null) && (!(this.owner.owner is Duck duck) && !(this.owner.prevOwner is Duck duck) && (this.prevOwner != null && !(this.prevOwner.owner is Duck duck))))
-          duck = this.prevOwner.prevOwner as Duck;
-        if (duck == null && this is Bullet)
-        {
-          Bullet bullet = this as Bullet;
-          if (bullet.firedFrom != null && !(bullet.firedFrom is Bullet))
-            return bullet.firedFrom.responsibleProfile;
-        }
+                //if (this._responsibleProfile != null)
+                //  return this._responsibleProfile;
+                //if (!(this is Duck duck) && 
+                //            !(this.owner is Duck duck) && 
+                //            (!(this.prevOwner is Duck duck) && this.owner != null) && 
+                //            (!(this.owner.owner is Duck duck) && 
+                //            !(this.owner.prevOwner is Duck duck) && (this.prevOwner != null && !(this.prevOwner.owner is Duck duck))))
+                //  duck = this.prevOwner.prevOwner as Duck;
+                //if (duck == null && this is Bullet)
+                //{
+                //  Bullet bullet = this as Bullet;
+                //  if (bullet.firedFrom != null && !(bullet.firedFrom is Bullet))
+                //    return bullet.firedFrom.responsibleProfile;
+                //}
+                //return duck?.profile;
+
+                // TODO fix this garbage
+                Duck duck = this.prevOwner.prevOwner as Duck;
         return duck?.profile;
-      }
+            }
     }
 
     public System.Type killThingType
@@ -1352,9 +1360,9 @@ namespace DuckGame
       if (Network.isActive && NetworkDebugger.enabled && this.isStateObject)
       {
         if (this.connection == DuckNetwork.localConnection || this.connection == null)
-          DuckGame.Graphics.DrawRect(this.topLeft, this.bottomRight, Color.Red * 0.8f, (Depth) 1f, false);
+          DuckGame.Graphics.DrawRect(this.topLeft, this.bottomRight, Color.Red * 0.8f, new Depth(1f), false);
         if (this.ghostObject != null)
-          DuckGame.Graphics.DrawString(this.ghostObject._tickIncrementAmount.ToString("0.00"), this.position + new Vec2(-8f, -8f), Color.White, (Depth) 0.99f);
+          DuckGame.Graphics.DrawString(this.ghostObject._tickIncrementAmount.ToString("0.00"), this.position + new Vec2(-8f, -8f), Color.White, new Depth(0.99f));
       }
       DuckGame.Graphics.material = (Material) null;
       DuckGame.Graphics.currentObjectIndex = -1;

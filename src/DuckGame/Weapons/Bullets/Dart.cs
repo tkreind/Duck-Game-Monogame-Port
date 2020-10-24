@@ -24,7 +24,7 @@ namespace DuckGame
       this.center = new Vec2(8f, 8f);
       this.collisionOffset = new Vec2(-4f, -2f);
       this.collisionSize = new Vec2(9f, 4f);
-      this.depth = (Depth) -0.5f;
+      this.depth = new Depth(-0.5f);
       this.thickness = 1f;
       this.weight = 3f;
       this._owner = owner;
@@ -85,18 +85,19 @@ namespace DuckGame
                 duck.Swear();
               duck.ThrowItem();
             }
-            if (with is IPlatform || duck != null)
-            {
-              DartShell dartShell = new DartShell(this.x, this.y, -this._sprite.flipMultH * Rando.Float(0.6f), this._sprite.flipH);
-              Level.Add((Thing) dartShell);
-              dartShell.hSpeed = (float) (-(double) this.hSpeed / 3.0 * (0.300000011920929 + (double) Rando.Float(0.8f)));
-              dartShell.vSpeed = Rando.Float(4f) - 2f;
-              Level.Remove((Thing) this);
-              if (!this.burning)
-                break;
-              with.Burn(this.position, (Thing) this);
-              break;
-            }
+            // TODO
+            //if (with is IPlatform || duck != null)
+            //{
+            //  DartShell dartShell = new DartShell(this.x, this.y, -this._sprite.flipMultH * Rando.Float(0.6f), this._sprite.flipH);
+            //  Level.Add((Thing) dartShell);
+            //  dartShell.hSpeed = (float) (-(double) this.hSpeed / 3.0 * (0.300000011920929 + (double) Rando.Float(0.8f)));
+            //  dartShell.vSpeed = Rando.Float(4f) - 2f;
+            //  Level.Remove((Thing) this);
+            //  if (!this.burning)
+            //    break;
+            //  with.Burn(this.position, (Thing) this);
+            //  break;
+            //}
           }
           float num = (float) (-(double) this.angleDegrees % 360.0);
           if ((double) num < 0.0)

@@ -111,7 +111,7 @@ namespace DuckGame
       for (int index = 0; (double) index < (double) num4; ++index)
       {
         Vec2 p1 = vec2 + normalized2 * num5 * (float) index;
-        Graphics.DrawLine(p1, p1 + (this._target - this.position), Color.SkyBlue * (this._blast * 0.9f), 2f, (Depth) 0.9f);
+        Graphics.DrawLine(p1, p1 + (this._target - this.position), Color.SkyBlue * (this._blast * 0.9f), 2f, new Depth(0.9f));
       }
     }
   }

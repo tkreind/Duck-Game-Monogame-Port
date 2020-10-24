@@ -25,7 +25,7 @@ namespace DuckGame
       this.center = new Vec2(16f, 16f);
       this.collisionSize = new Vec2(10f, 10f);
       this.collisionOffset = new Vec2(-5f, -5f);
-      this.depth = (Depth) 0.5f;
+      this.depth = new Depth(0.5f);
       this._canFlip = false;
     }
 
@@ -142,7 +142,7 @@ namespace DuckGame
           Color white = Color.White;
           Color color = (double) contain.probability != 0.0 ? ((double) contain.probability >= 0.300000011920929 ? ((double) contain.probability >= 0.699999988079071 ? Color.Green : Color.Orange) : Colors.DGRed) : Color.DarkGray;
           string text = contain.type.Name + ": " + contain.probability.ToString("0.000");
-          Graphics.DrawString(text, this.position + new Vec2((float) (-(double) Graphics.GetStringWidth(text, scale: 0.5f) / 2.0), (float) -(16.0 + (double) num)), color, (Depth) 0.9f, scale: 0.5f);
+          Graphics.DrawString(text, this.position + new Vec2((float) (-(double) Graphics.GetStringWidth(text, scale: 0.5f) / 2.0), (float) -(16.0 + (double) num)), color, new Depth(0.9f), scale: 0.5f);
           num += 4f;
         }
       }

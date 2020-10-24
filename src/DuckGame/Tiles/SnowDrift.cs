@@ -33,7 +33,7 @@ namespace DuckGame
       this.collisionSize = new Vec2(14f, 4f);
       this.collisionOffset = new Vec2(-7f, -2f);
       this.layer = Layer.Blocks;
-      this.depth = (Depth) 0.5f;
+      this.depth = new Depth(0.5f);
     }
 
     public override void Update()

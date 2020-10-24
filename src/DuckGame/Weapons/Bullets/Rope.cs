@@ -108,7 +108,7 @@ namespace DuckGame
       if (tex != null)
         this._vine = tex;
       this._isVine = vine;
-      this.depth = (Depth) -0.5f;
+      this.depth = new Depth(-0.5f);
     }
 
     public void RemoveRope()
@@ -170,11 +170,11 @@ namespace DuckGame
       }
       else
       {
-        if (!(this._attach2 is Harpoon attach2))
+        if (!(this._attach2 is Harpoon attach3))
           return;
-        Vec2 vec2 = this.position - attach2.position;
+        Vec2 vec2 = this.position - attach3.position;
         vec2.Normalize();
-        Harpoon harpoon = attach2;
+        Harpoon harpoon = attach3;
         harpoon.position = harpoon.position - vec2 * length;
       }
     }

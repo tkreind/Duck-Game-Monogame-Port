@@ -26,9 +26,9 @@ namespace DuckGame
     {
       this._selectBeam = new Sprite("selectBeam");
       this._selectBeam.alpha = 0.9f;
-      this._selectBeam.depth = (Depth) -0.8f;
+      this._selectBeam.depth = new Depth(-0.8f);
       this._selectBeam.center = new Vec2((float) (this._selectBeam.w / 2), 0.0f);
-      this.depth = (Depth) 0.0f;
+      this.depth = new Depth(0.0f);
       this._collisionOffset = new Vec2((float) -((double) (this._selectBeam.w / 2) * 0.800000011920929), 0.0f);
       this._collisionSize = new Vec2((float) this._selectBeam.w * 0.8f, 180f);
       this.center = new Vec2((float) (this._selectBeam.w / 2));

@@ -50,7 +50,7 @@ namespace DuckGame
           PlusOne plusOne = new PlusOne(0.0f, 0.0f, this.win < (byte) 4 ? DuckNetwork.profiles[(int) this.win] : profile);
           plusOne.anchor = (Anchor) (Thing) profile.duck;
           plusOne.anchor.offset = new Vec2(0.0f, -16f);
-          plusOne.depth = (Depth) 0.95f;
+          plusOne.depth = new Depth(0.95f);
           Level.Add((Thing) plusOne);
         }
       }

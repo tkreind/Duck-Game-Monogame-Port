@@ -72,7 +72,7 @@ namespace DuckGame
       for (int index = 0; index < 5; ++index)
       {
         Vec2 p1 = vec2 + normalized2 * 8f * (float) index;
-        Graphics.DrawLine(p1, p1 + this._target, Color.Red * (this._blast * 0.5f), 2f, (Depth) 0.9f);
+        Graphics.DrawLine(p1, p1 + this._target, Color.Red * (this._blast * 0.5f), 2f, new Depth(0.9f));
       }
     }
   }

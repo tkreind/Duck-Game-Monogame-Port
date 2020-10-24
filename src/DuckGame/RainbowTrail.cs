@@ -36,7 +36,7 @@ namespace DuckGame
       this.visible = attach.visible;
       this.killTimer = this.killTime;
       this._attach = attach;
-      this.depth = (Depth) -0.5f;
+      this.depth = new Depth(-0.5f);
     }
 
     public override void Update()
@@ -77,7 +77,7 @@ namespace DuckGame
       float num6 = (float) Math.Sin((double) this._inverseWave2);
       this._capeWaveMult = num2 * 0.5f;
       float num7 = num3 * 0.5f;
-      this.offDir = -this._attach.offDir;
+      this.offDir = (sbyte)-this._attach.offDir;
       Vec2 position = thing.position;
       Vec2 _p2 = thing.position;
       this.depth = thing.depth - 18;

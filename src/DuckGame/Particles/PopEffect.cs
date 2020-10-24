@@ -29,7 +29,7 @@ namespace DuckGame
           rot = Maths.DegToRad(num2 + Rando.Float(-10f, 10f))
         });
       }
-      this.depth = (Depth) 0.9f;
+      this.depth = new Depth(0.9f);
     }
 
     public override void Update()

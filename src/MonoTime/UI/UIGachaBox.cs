@@ -267,16 +267,16 @@ namespace DuckGame
     public override void Draw()
     {
       this.y += this.yOffset;
-      this._frame.depth = (Depth) -0.9f;
+      this._frame.depth = new Depth(-0.9f);
       Graphics.Draw(this._frame, this.x, this.y);
-      this._frame.depth = (Depth) -0.7f;
+      this._frame.depth = new Depth(-0.7f);
       Graphics.Draw(this._frame, this.x, this.y, new Rectangle(0.0f, 0.0f, 125f, 36f));
       if (this._swapped)
       {
-        this._contains.Draw(this.position + new Vec2(0.0f, 10f), (Depth) -0.8f);
+        this._contains.Draw(this.position + new Vec2(0.0f, 10f), new Depth(-0.8f));
         if ((double) this._starGrow <= 1.0)
         {
-          this._star.depth = (Depth) 0.9f;
+          this._star.depth = new Depth(0.9f);
           this._star.scale = new Vec2((float) (2.5 + (double) this._starGrow * 3.0));
           this._star.alpha = 1f - this._starGrow;
           Graphics.Draw(this._star, this.x, this.y + 10f);
@@ -284,7 +284,7 @@ namespace DuckGame
       }
       else if ((double) this.gachaY > 10.0)
       {
-        this._gachaEgg.depth = (Depth) -0.8f;
+        this._gachaEgg.depth = new Depth(-0.8f);
         Graphics.Draw((Sprite) this._gachaEgg, this.x, this.y - 38f + this.gachaY);
       }
       string text1 = "@LWING@NEW TOY@RWING@";
@@ -302,7 +302,7 @@ namespace DuckGame
       if ((double) this._insertCoin > 0.00999999977648258)
       {
         this._duckCoin.frame = this._rare ? 1 : 0;
-        this._duckCoin.depth = (Depth) -0.8f;
+        this._duckCoin.depth = new Depth(-0.8f);
         Graphics.Draw((Sprite) this._duckCoin, this.x + 40f, (float) ((double) this.y - 100.0 + (double) this._insertCoin * 65.0));
       }
       if (this._swapped)

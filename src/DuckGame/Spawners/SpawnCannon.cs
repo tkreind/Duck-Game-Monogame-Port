@@ -28,7 +28,7 @@ namespace DuckGame
       this.center = new Vec2(6f, 9f);
       this.collisionSize = new Vec2(8f, 8f);
       this.collisionOffset = new Vec2(-6f, -6f);
-      this.depth = (Depth) -0.6f;
+      this.depth = new Depth(-0.6f);
       this.contains = c;
       this.hugWalls = WallHug.None;
     }
@@ -140,7 +140,7 @@ namespace DuckGame
       string text = "EMPTY";
       if (this.contains != (System.Type) null)
         text = this.contains.Name;
-      Graphics.DrawString(text, this.position + new Vec2((float) (-(double) Graphics.GetStringWidth(text) / 2.0), -16f), Color.White, (Depth) 0.9f);
+      Graphics.DrawString(text, this.position + new Vec2((float) (-(double) Graphics.GetStringWidth(text) / 2.0), -16f), Color.White, new Depth(0.9f));
       if (!(this.contains != (System.Type) null))
         return;
       if (this._hoverThing == null || this._hoverThing.GetType() != this.contains)
@@ -155,7 +155,7 @@ namespace DuckGame
       for (int index = 0; index < 100; ++index)
       {
         this._hoverThing.UpdatePhysics();
-        Graphics.DrawLine(position, this._hoverThing.position, Color.Red, 2f, (Depth) 1f);
+        Graphics.DrawLine(position, this._hoverThing.position, Color.Red, 2f, new Depth(1f));
         position = this._hoverThing.position;
       }
     }

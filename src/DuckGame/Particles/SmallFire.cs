@@ -182,7 +182,7 @@ namespace DuckGame
       this.needsSynchronization = true;
       if (shortLife)
         this._groundLife = (byte) 31;
-      this.depth = (Depth) 0.6f;
+      this.depth = new Depth(0.6f);
       this._stick = stick;
       this._stickOffset = new Vec2(xpos, ypos);
       this.UpdateStick();

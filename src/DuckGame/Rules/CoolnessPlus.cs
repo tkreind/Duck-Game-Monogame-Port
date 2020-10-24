@@ -57,12 +57,12 @@ namespace DuckGame
         str = "+";
       string text = str + this.change.ToString();
       float xpos = this.x - this._font.GetWidth(text) / 2f;
-      this._font.Draw(text, xpos - 1f, this.y - 1f, Color.Black, (Depth) 0.8f);
-      this._font.Draw(text, xpos + 1f, this.y - 1f, Color.Black, (Depth) 0.8f);
-      this._font.Draw(text, xpos - 1f, this.y + 1f, Color.Black, (Depth) 0.8f);
-      this._font.Draw(text, xpos + 1f, this.y + 1f, Color.Black, (Depth) 0.8f);
+      this._font.Draw(text, xpos - 1f, this.y - 1f, Color.Black, new Depth(0.8f));
+      this._font.Draw(text, xpos + 1f, this.y - 1f, Color.Black, new Depth(0.8f));
+      this._font.Draw(text, xpos - 1f, this.y + 1f, Color.Black, new Depth(0.8f));
+      this._font.Draw(text, xpos + 1f, this.y + 1f, Color.Black, new Depth(0.8f));
       Color c = new Color((byte) this._profile.persona.color.x, (byte) this._profile.persona.color.y, (byte) this._profile.persona.color.z);
-      this._font.Draw(text, xpos, this.y, c, (Depth) 0.9f);
+      this._font.Draw(text, xpos, this.y, c, new Depth(0.9f));
     }
   }
 }

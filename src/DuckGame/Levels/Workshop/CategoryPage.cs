@@ -77,9 +77,9 @@ namespace DuckGame
       if (layer != Layer.HUD)
         return;
       this._font.xscale = this._font.yscale = 1f;
-      this._font.Draw("CUSTOM MAPS", 8f, 8f, Color.White, (Depth) 0.95f);
+      this._font.Draw("CUSTOM MAPS", 8f, 8f, Color.White, new Depth(0.95f));
       this._font.xscale = this._font.yscale = 0.75f;
-      this._font.Draw("BEST NEW MAPS", 14f, 22f, Color.White, (Depth) 0.95f);
+      this._font.Draw("BEST NEW MAPS", 14f, 22f, Color.White, new Depth(0.95f));
     }
   }
 }

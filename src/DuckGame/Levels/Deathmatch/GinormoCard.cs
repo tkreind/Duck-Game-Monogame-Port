@@ -41,7 +41,7 @@ namespace DuckGame
       this._slideWait = slideWait;
       this.position = this._start;
       this._team = team;
-      this.depth = (Depth) 0.98f;
+      this.depth = new Depth(0.98f);
       this.index = idx;
       this._font = new BitmapFont("biosFont", 8);
       this._smallFont = new BitmapFont("smallBiosFont", 7, 6);
@@ -62,7 +62,7 @@ namespace DuckGame
       DuckGame.Graphics.SetRenderTarget(this._faceTarget);
       DuckGame.Graphics.Clear(Color.Transparent);
       DuckGame.Graphics.screen.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.DepthRead, RasterizerState.CullNone, (MTEffect) null, Matrix.Identity);
-      this._gradient.depth = (Depth) -0.6f;
+      this._gradient.depth = new Depth(-0.6f);
       this._gradient.alpha = 0.5f;
       if (this._team.activeProfiles.Count == 1)
       {
@@ -84,7 +84,7 @@ namespace DuckGame
         }
       }
       DuckGame.Graphics.Draw(this._gradient, 0.0f, 0.0f);
-      this._edgeOverlay.depth = (Depth) 0.9f;
+      this._edgeOverlay.depth = new Depth(0.9f);
       this._edgeOverlay.alpha = 0.5f;
       DuckGame.Graphics.Draw(this._edgeOverlay, 0.0f, 0.0f);
       int num = 0;
@@ -92,13 +92,13 @@ namespace DuckGame
       {
         float x = (float) ((num * 8 + 8) * 2);
         float y = 16f;
-        activeProfile.persona.quackSprite.depth = (Depth) 0.7f;
+        activeProfile.persona.quackSprite.depth = new Depth(0.7f);
         activeProfile.persona.quackSprite.scale = new Vec2(2f, 2f);
         DuckGame.Graphics.Draw(activeProfile.persona.quackSprite, 0, x, y, 2f, 2f);
         activeProfile.persona.quackSprite.color = Color.White;
         activeProfile.persona.quackSprite.scale = new Vec2(1f, 1f);
         Vec2 hatPoint = DuckRig.GetHatPoint(activeProfile.persona.sprite.imageIndex);
-        activeProfile.team.hat.depth = (Depth) 0.8f;
+        activeProfile.team.hat.depth = new Depth(0.8f);
         activeProfile.team.hat.center = new Vec2(16f, 16f) + activeProfile.team.hatOffset;
         activeProfile.team.hat.scale = new Vec2(2f, 2f);
         if ((double) activeProfile.team.hat.texture.width > 16.0)

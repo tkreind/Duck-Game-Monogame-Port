@@ -28,7 +28,7 @@ namespace DuckGame
     public override void Initialize()
     {
       this.layer = Layer.HUD;
-      this.depth = (Depth) 0.97f;
+      this.depth = new Depth(0.97f);
       float num1 = 300f;
       float num2 = 40f;
       Vec2 vec2_1 = new Vec2((float) ((double) this.layer.width / 2.0 - (double) num1 / 2.0), (float) ((double) this.layer.height / 2.0 - (double) num2 / 2.0));

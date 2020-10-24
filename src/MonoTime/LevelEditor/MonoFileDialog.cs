@@ -51,7 +51,7 @@ namespace DuckGame
     public override void Initialize()
     {
       this.layer = Layer.HUD;
-      this.depth = (Depth) 0.9f;
+      this.depth = new Depth(0.9f);
       this._showBackground = false;
       this.itemSize = new Vec2(390f, 16f);
       this._root = true;
@@ -504,7 +504,7 @@ namespace DuckGame
       DuckGame.Graphics.DrawRect(p1_4, p2_4, new Color(30, 30, 30), this.depth - 8);
       if (this._previewSprite == null || this._previewSprite.texture == null)
         return;
-      this._previewSprite.depth = (Depth) 0.95f;
+      this._previewSprite.depth = new Depth(0.95f);
       this._previewSprite.scale = new Vec2(0.5f);
       if (this._type == ContextFileType.Block || this._type == ContextFileType.Background || this._type == ContextFileType.Platform)
         this._previewSprite.scale = new Vec2(1f);

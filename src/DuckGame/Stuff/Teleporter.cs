@@ -37,7 +37,7 @@ namespace DuckGame
       this.center = new Vec2(8f, 24f);
       this.collisionSize = new Vec2(6f, 32f);
       this.collisionOffset = new Vec2(-3f, -24f);
-      this.depth = (Depth) -0.5f;
+      this.depth = new Depth(-0.5f);
       this._editorName = nameof (Teleporter);
       this._bottom = new Sprite("teleporterBottom");
       this._bottom.CenterOrigin();
@@ -160,8 +160,8 @@ namespace DuckGame
       {
         Vec2 vec2_1 = warpLine.start - warpLine.end;
         Vec2 vec2_2 = warpLine.end - warpLine.start;
-        Graphics.DrawTexturedLine(this._warpLine.texture, warpLine.end, warpLine.end + vec2_1 * (1f - warpLine.lerp), color * 0.8f, warpLine.wide / 32f, (Depth) 0.9f);
-        Graphics.DrawTexturedLine(this._warpLine.texture, warpLine.start + vec2_2 * warpLine.lerp, warpLine.start, color * 0.8f, warpLine.wide / 32f, (Depth) 0.9f);
+        Graphics.DrawTexturedLine(this._warpLine.texture, warpLine.end, warpLine.end + vec2_1 * (1f - warpLine.lerp), color * 0.8f, warpLine.wide / 32f, new Depth(0.9f));
+        Graphics.DrawTexturedLine(this._warpLine.texture, warpLine.start + vec2_2 * warpLine.lerp, warpLine.start, color * 0.8f, warpLine.wide / 32f, new Depth(0.9f));
         warpLine.lerp += 0.1f;
       }
       this.warpLines.RemoveAll((Predicate<WarpLine>) (v => (double) v.lerp >= 1.0));

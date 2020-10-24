@@ -25,7 +25,7 @@ namespace DuckGame
       this._sprite.frame = place;
       this.center = new Vec2((float) (this._sprite.w / 2), (float) this._sprite.h);
       this.graphic = (Sprite) this._sprite;
-      this.depth = (Depth) 0.062f;
+      this.depth = new Depth(0.062f);
       this._scoreCard = new Sprite("rockThrow/scoreCard");
       this._font = new BitmapFont("biosFont", 8);
       this._scoreCard.CenterOrigin();
@@ -38,7 +38,7 @@ namespace DuckGame
         {
           float num2 = (float) ((team.activeProfiles.Count - 1) * 10);
           Duck duck = new Duck(xpos - num2 / 2f + (float) (num1 * 10), this.GetYOffset() - 15f, activeProfile);
-          duck.depth = (Depth) 0.06f;
+          duck.depth = new Depth(0.06f);
           Level.Add((Thing) duck);
           if (place == 0)
           {
@@ -77,7 +77,7 @@ namespace DuckGame
 
     public override void Draw()
     {
-      this.depth = (Depth) -0.5f;
+      this.depth = new Depth(-0.5f);
       base.Draw();
       int count = this._team.activeProfiles.Count;
       if (this._sprite.frame == 0)
@@ -85,7 +85,7 @@ namespace DuckGame
         this._trophy.depth = this.depth + 1;
         Graphics.Draw(this._trophy, this.x, this.y - 14f);
       }
-      this._scoreCard.depth = (Depth) 1f;
+      this._scoreCard.depth = new Depth(1f);
       Graphics.Draw(this._scoreCard, this.x, this.y + 2f);
       string text = Change.ToString((object) this._team.score);
       this._font.Draw(text, this.x - this._font.GetWidth(text) / 2f, this.y, Color.DarkSlateGray, this._scoreCard.depth + 1);

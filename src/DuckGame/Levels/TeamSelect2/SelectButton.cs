@@ -17,7 +17,7 @@ namespace DuckGame
     {
       this.graphic = new Sprite("selectButtonAssembly");
       this._box = box;
-      this.depth = (Depth) 0.2f;
+      this.depth = new Depth(0.2f);
       this.center = new Vec2(8f, 8f);
       this._button = new Sprite("selectButton");
       this._button.CenterOrigin();

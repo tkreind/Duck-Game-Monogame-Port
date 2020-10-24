@@ -40,7 +40,7 @@ namespace DuckGame
       this.sequence.type = SequenceItemType.Goody;
       this.collisionOffset = new Vec2(-7f, -8f);
       this.collisionSize = new Vec2(14f, 16f);
-      this.depth = (Depth) -0.1f;
+      this.depth = new Depth(-0.1f);
       this._editorName = "Barrel Y";
       this.thickness = 4f;
       this.weight = 5f;

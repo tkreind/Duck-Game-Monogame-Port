@@ -46,7 +46,7 @@ namespace DuckGame
         return;
       this.position = this._attach.barrelPosition + this._attach.barrelVector * this._length;
       Vec2 vec2 = this._attach.barrelVector.Rotate(Maths.DegToRad(90f), Vec2.Zero);
-      Graphics.DrawLine(this.position + vec2 * 7f, this.position - vec2 * 7f, Color.Blue * this.alpha, (float) (1.0 + (1.0 - (double) this._length / (double) this._startLength) * 4.0), (Depth) 0.9f);
+      Graphics.DrawLine(this.position + vec2 * 7f, this.position - vec2 * 7f, Color.Blue * this.alpha, (float) (1.0 + (1.0 - (double) this._length / (double) this._startLength) * 4.0), new Depth(0.9f));
     }
   }
 }

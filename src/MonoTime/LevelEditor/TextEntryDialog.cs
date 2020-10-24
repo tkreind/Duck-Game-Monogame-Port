@@ -4,7 +4,8 @@
 // MVID: 141E8A2E-D79A-4662-B1CF-5A369FF52288
 // Assembly location: C:\Users\Tristan Kreindler\Documents\Duck Game\Duck Game\DuckGame.exe
 
-using Microsoft.Xna.Framework.GamerServices;
+// TODO: Depracated GamerServicess
+// using Microsoft.Xna.Framework.GamerServices;
 using System;
 using System.IO;
 
@@ -28,7 +29,8 @@ namespace DuckGame
 
     private void DoStuff(IAsyncResult r)
     {
-      this.result = Guide.EndShowKeyboardInput(r);
+      // TODO: Depracated GamerServicess
+      // this.result = Guide.EndShowKeyboardInput(r);
       this.opened = false;
       Editor.PopFocus();
     }
@@ -36,7 +38,7 @@ namespace DuckGame
     public override void Initialize()
     {
       this.layer = Layer.HUD;
-      this.depth = (Depth) 0.95f;
+      this.depth = new Depth(0.95f);
       float num1 = 300f;
       float num2 = 40f;
       Vec2 vec2_1 = new Vec2((float) ((double) this.layer.width / 2.0 - (double) num1 / 2.0), (float) ((double) this.layer.height / 2.0 - (double) num2 / 2.0));

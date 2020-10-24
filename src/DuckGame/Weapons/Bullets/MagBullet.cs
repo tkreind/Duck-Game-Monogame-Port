@@ -47,7 +47,7 @@ namespace DuckGame
           flag = true;
         }
         num2 += num1;
-        DuckGame.Graphics.DrawTexturedLine((Tex2D) this._beem, this.drawStart + this.travelDirNormalized * val, this.drawStart + this.travelDirNormalized * (val + num3), Color.White * num2, this._thickness, (Depth) 0.6f);
+        DuckGame.Graphics.DrawTexturedLine((Tex2D) this._beem, this.drawStart + this.travelDirNormalized * val, this.drawStart + this.travelDirNormalized * (val + num3), Color.White * num2, this._thickness, new Depth(0.6f));
         if (!flag)
           val += 8f;
         else

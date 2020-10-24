@@ -37,7 +37,7 @@ namespace DuckGame
       this.center = new Vec2(8f, 8f);
       this.collisionOffset = new Vec2(-8f, -7f);
       this.collisionSize = new Vec2(16f, 14f);
-      this.depth = (Depth) -0.5f;
+      this.depth = new Depth(-0.5f);
       this._editorName = nameof (TV);
       this.thickness = 2f;
       this.weight = 5f;
@@ -149,7 +149,7 @@ namespace DuckGame
           if (!flag)
             flag = true;
           else
-            Graphics.DrawTexturedLine(this._rainbow.texture, p1, p2, Color.White, depth: ((Depth) 0.1f));
+            Graphics.DrawTexturedLine(this._rainbow.texture, p1, p2, Color.White, depth: (new Depth(0.1f)));
           p1 = p2;
         }
       }

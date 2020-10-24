@@ -69,9 +69,9 @@ namespace DuckGame
 
     public override void Draw()
     {
-      this._selectProjector.depth = (Depth) -0.51f;
+      this._selectProjector.depth = new Depth(-0.51f);
       this._selectProjector.alpha = (float) (0.300000011920929 + (double) this._projectorSin.normalized * 0.200000002980232);
-      this._selectPlatform.depth = (Depth) -0.51f;
+      this._selectPlatform.depth = new Depth(-0.51f);
       int count = this._profiles.Count;
       int num1 = 0;
       foreach (Profile profile in this._profiles)
@@ -89,7 +89,7 @@ namespace DuckGame
         float num3 = (float) ((double) this.x - (double) (count - 1) * (double) num2 / 2.0 + (double) num1 * (double) num2);
         profile.persona.sprite.depth = (Depth) (float) ((double) num1 * 0.00999999977648258 - 0.400000005960464);
         profile.persona.armSprite.depth = (Depth) (float) ((double) num1 * 0.00999999977648258 - 0.300000011920929);
-        Graphics.Draw((Sprite) profile.persona.sprite, num3 + 1f, this.y - 17f, (Depth) -0.4f);
+        Graphics.Draw((Sprite) profile.persona.sprite, num3 + 1f, this.y - 17f, new Depth(-0.4f));
         Graphics.Draw((Sprite) profile.persona.armSprite, (float) ((double) num3 + 1.0 - 3.0), (float) ((double) this.y - 17.0 + 6.0));
         Team team = profile.team;
         if (team != null)

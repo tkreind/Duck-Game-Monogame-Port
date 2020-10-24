@@ -49,18 +49,18 @@ namespace DuckGame
       this._scanner = new Sprite("purpleScanner");
       this._scanner.center = new Vec2(4f, 1f);
       this._scanner.alpha = 0.7f;
-      this._scanner.depth = (Depth) 0.9f;
+      this._scanner.depth = new Depth(0.9f);
       this._projector = new Sprite("purpleProjector");
       this._projector.center = new Vec2(8f, 16f);
       this._projector.alpha = 0.7f;
-      this._projector.depth = (Depth) 0.9f;
+      this._projector.depth = new Depth(0.9f);
       this._none = new Sprite("none");
       this._none.center = new Vec2(8f, 8f);
       this._none.alpha = 0.7f;
       this._projectorGlitch = new Sprite("projectorGlitch");
       this._projectorGlitch.center = new Vec2(8f, 8f);
       this._projectorGlitch.alpha = 0.7f;
-      this._projectorGlitch.depth = (Depth) 0.91f;
+      this._projectorGlitch.depth = new Depth(0.91f);
       this._currentProjection = this._none;
       this.impactThreshold = 0.2f;
     }

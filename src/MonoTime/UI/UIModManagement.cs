@@ -92,12 +92,16 @@ namespace DuckGame
     [DllImport("shell32.dll", CharSet = CharSet.Auto)]
     private static extern int SHFileOperation(ref UIModManagement.SHFILEOPSTRUCT FileOp);
 
-    private static void DeleteFileOrFolder(string path) => UIModManagement.SHFileOperation(ref new UIModManagement.SHFILEOPSTRUCT()
-    {
-      wFunc = 3,
-      pFrom = path + (object) char.MinValue + (object) char.MinValue,
-      fFlags = (short) 80
-    });
+        private static void DeleteFileOrFolder(string path)
+        {
+            var val = new UIModManagement.SHFILEOPSTRUCT()
+            {
+                wFunc = 3,
+                pFrom = path + (object)char.MinValue + (object)char.MinValue,
+                fFlags = (short)80
+            };
+            UIModManagement.SHFileOperation(ref val);
+        }
 
     private void DeleteMod() => this.ShowYesNo(this._editModMenu, (UIMenuActionCallFunction.Function) (() =>
     {
@@ -220,7 +224,7 @@ namespace DuckGame
       this._yesNoMenu.Add((UIComponent) (this._yesNoNo = new UIMenuItem("NO")), true);
       this._yesNoMenu.Close();
       this._updateTextBox = new Textbox(0.0f, 0.0f, 0.0f, 0.0f);
-      this._updateTextBox.depth = (Depth) 0.9f;
+      this._updateTextBox.depth = new Depth(0.9f);
       this._updateTextBox.maxLength = 5000;
     }
 
@@ -518,10 +522,10 @@ namespace DuckGame
           Layer.HUD.camera.height *= 2f;
           this.fixView = false;
         }
-        DuckGame.Graphics.DrawRect(new Vec2(this._box.x - this._box.halfWidth, this._box.y - this._box.halfHeight), new Vec2((float) ((double) this._box.x + (double) this._box.halfWidth - 12.0 - 2.0), this._box.y + this._box.halfHeight), Color.Black, (Depth) 0.4f);
-        DuckGame.Graphics.DrawRect(new Vec2((float) ((double) this._box.x + (double) this._box.halfWidth - 12.0), this._box.y - this._box.halfHeight), new Vec2(this._box.x + this._box.halfWidth, this._box.y + this._box.halfHeight), Color.Black, (Depth) 0.4f);
+        DuckGame.Graphics.DrawRect(new Vec2(this._box.x - this._box.halfWidth, this._box.y - this._box.halfHeight), new Vec2((float) ((double) this._box.x + (double) this._box.halfWidth - 12.0 - 2.0), this._box.y + this._box.halfHeight), Color.Black, new Depth(0.4f));
+        DuckGame.Graphics.DrawRect(new Vec2((float) ((double) this._box.x + (double) this._box.halfWidth - 12.0), this._box.y - this._box.halfHeight), new Vec2(this._box.x + this._box.halfWidth, this._box.y + this._box.halfHeight), Color.Black, new Depth(0.4f));
         Rectangle r = this.ScrollBarBox();
-        DuckGame.Graphics.DrawRect(r, this._draggingScrollbar || r.Contains(Mouse.position) ? Color.LightGray : Color.Gray, (Depth) 0.5f);
+        DuckGame.Graphics.DrawRect(r, this._draggingScrollbar || r.Contains(Mouse.position) ? Color.LightGray : Color.Gray, new Depth(0.5f));
         for (int index1 = 0; index1 < this._maxModsToShow; ++index1)
         {
           int index2 = this._scrollItemOffset + index1;
@@ -530,9 +534,9 @@ namespace DuckGame
             float x = this._box.x - this._box.halfWidth;
             float y = this._box.y - this._box.halfHeight + (float) (36 * index1);
             if (this._transferItem == null && this._hoverIndex == index2)
-              DuckGame.Graphics.DrawRect(new Vec2(x, y), new Vec2((float) ((double) x + (double) this._box.width - 14.0), y + 36f), Color.White * 0.6f, (Depth) 0.4f);
+              DuckGame.Graphics.DrawRect(new Vec2(x, y), new Vec2((float) ((double) x + (double) this._box.width - 14.0), y + 36f), Color.White * 0.6f, new Depth(0.4f));
             else if ((index2 & 1) != 0)
-              DuckGame.Graphics.DrawRect(new Vec2(x, y), new Vec2((float) ((double) x + (double) this._box.width - 14.0), y + 36f), Color.White * 0.1f, (Depth) 0.4f);
+              DuckGame.Graphics.DrawRect(new Vec2(x, y), new Vec2((float) ((double) x + (double) this._box.width - 14.0), y + 36f), Color.White * 0.1f, new Depth(0.4f));
             Mod mod = this._mods[index2];
             if (mod != null)
             {
@@ -542,33 +546,33 @@ namespace DuckGame
                 this._noImage.texture = previewTexture;
                 this._noImage.scale = new Vec2(32f / (float) previewTexture.width);
               }
-              DuckGame.Graphics.DrawRect(new Vec2(x + 2f, y + 2f), new Vec2((float) ((double) x + 36.0 - 2.0), (float) ((double) y + 36.0 - 2.0)), Color.Gray, (Depth) 0.5f, false, 2f);
-              DuckGame.Graphics.Draw(this._noImage, x + 2f, y + 2f, (Depth) 0.5f);
+              DuckGame.Graphics.DrawRect(new Vec2(x + 2f, y + 2f), new Vec2((float) ((double) x + 36.0 - 2.0), (float) ((double) y + 36.0 - 2.0)), Color.Gray, new Depth(0.5f), false, 2f);
+              DuckGame.Graphics.Draw(this._noImage, x + 2f, y + 2f, new Depth(0.5f));
               string str = "#" + (object) (index2 + 1) + ": ";
               string text;
               if (!mod.configuration.loaded)
                 text = str + mod.configuration.name;
               else
                 text = str + mod.configuration.displayName + "|WHITE| v" + mod.configuration.version.ToString() + " by |PURPLE|" + mod.configuration.author;
-              this._fancyFont.Draw(text, new Vec2((float) ((double) x + 36.0 + 10.0), y + 2f), Color.Yellow, (Depth) 0.5f);
-              DuckGame.Graphics.Draw(!mod.configuration.isWorkshop ? (Sprite) this._localIcon : this._steamIcon, x + 36f, y + 2.5f, (Depth) 0.5f);
+              this._fancyFont.Draw(text, new Vec2((float) ((double) x + 36.0 + 10.0), y + 2f), Color.Yellow, new Depth(0.5f));
+              DuckGame.Graphics.Draw(!mod.configuration.isWorkshop ? (Sprite) this._localIcon : this._steamIcon, x + 36f, y + 2.5f, new Depth(0.5f));
               if (!mod.configuration.loaded)
               {
                 if (mod.configuration.disabled)
-                  this._fancyFont.Draw("Mod is disabled.", new Vec2(x + 36f, y + 6f + (float) this._fancyFont.characterHeight), Color.LightGray, (Depth) 0.5f);
+                  this._fancyFont.Draw("Mod is disabled.", new Vec2(x + 36f, y + 6f + (float) this._fancyFont.characterHeight), Color.LightGray, new Depth(0.5f));
                 else
-                  this._fancyFont.Draw("|DGGREEN|Mod will be enabled on next restart.", new Vec2(x + 36f, y + 6f + (float) this._fancyFont.characterHeight), Color.Orange, (Depth) 0.5f);
+                  this._fancyFont.Draw("|DGGREEN|Mod will be enabled on next restart.", new Vec2(x + 36f, y + 6f + (float) this._fancyFont.characterHeight), Color.Orange, new Depth(0.5f));
               }
               else if (mod.configuration.disabled)
-                this._fancyFont.Draw("|DGRED|Mod will be disabled on next restart.", new Vec2(x + 36f, y + 6f + (float) this._fancyFont.characterHeight), Color.Orange, (Depth) 0.5f);
+                this._fancyFont.Draw("|DGRED|Mod will be disabled on next restart.", new Vec2(x + 36f, y + 6f + (float) this._fancyFont.characterHeight), Color.Orange, new Depth(0.5f));
               else
-                this._fancyFont.Draw(mod.configuration.description, new Vec2(x + 36f, y + 6f + (float) this._fancyFont.characterHeight), Color.White, (Depth) 0.5f);
+                this._fancyFont.Draw(mod.configuration.description, new Vec2(x + 36f, y + 6f + (float) this._fancyFont.characterHeight), Color.White, new Depth(0.5f));
             }
             else
             {
-              DuckGame.Graphics.Draw((Sprite) this._newIcon, x + 2f, y + 1f, (Depth) 0.5f);
+              DuckGame.Graphics.Draw((Sprite) this._newIcon, x + 2f, y + 1f, new Depth(0.5f));
               this._fancyFont.scale = new Vec2(1.5f);
-              this._fancyFont.Draw("Get " + (this._mods.Count == 1 ? "some" : "more") + " mods!", new Vec2(x + 36f, y + 11f), Color.White, (Depth) 0.5f);
+              this._fancyFont.Draw("Get " + (this._mods.Count == 1 ? "some" : "more") + " mods!", new Vec2(x + 36f, y + 11f), Color.White, new Depth(0.5f));
               this._fancyFont.scale = new Vec2(1f);
             }
           }
@@ -576,10 +580,10 @@ namespace DuckGame
             break;
         }
         if (this._awaitingChanges)
-          DuckGame.Graphics.DrawString("Restart required for some changes to take effect!", new Vec2((float) ((double) this.x - (double) this.halfWidth + 128.0), (float) ((double) this.y - (double) this.halfHeight + 8.0)), Color.Red, (Depth) 0.6f);
+          DuckGame.Graphics.DrawString("Restart required for some changes to take effect!", new Vec2((float) ((double) this.x - (double) this.halfWidth + 128.0), (float) ((double) this.y - (double) this.halfHeight + 8.0)), Color.Red, new Depth(0.6f));
         if (this._transferItem != null)
         {
-          DuckGame.Graphics.DrawRect(new Rectangle(this._box.x - this._box.halfWidth, this._box.y - this._box.halfHeight, this._box.width, this._box.height), Color.Black * 0.9f, (Depth) 0.7f);
+          DuckGame.Graphics.DrawRect(new Rectangle(this._box.x - this._box.halfWidth, this._box.y - this._box.halfHeight, this._box.width, this._box.height), Color.Black * 0.9f, new Depth(0.7f));
           string text = "Creating item...";
           if (this._transferring)
           {
@@ -610,25 +614,25 @@ namespace DuckGame
             {
               float amount = (float) uploadProgress.bytesDownloaded / (float) uploadProgress.bytesTotal;
               str = str + " (" + (object) (int) ((double) amount * 100.0) + "%)";
-              DuckGame.Graphics.DrawRect(new Rectangle((float) ((double) this._box.x - (double) this._box.halfWidth + 8.0), this._box.y - 8f, this._box.width - 16f, 16f), Color.LightGray, (Depth) 0.8f);
-              DuckGame.Graphics.DrawRect(new Rectangle((float) ((double) this._box.x - (double) this._box.halfWidth + 8.0), this._box.y - 8f, Lerp.FloatSmooth(0.0f, this._box.width - 16f, amount), 16f), Color.Green, (Depth) 0.8f);
+              DuckGame.Graphics.DrawRect(new Rectangle((float) ((double) this._box.x - (double) this._box.halfWidth + 8.0), this._box.y - 8f, this._box.width - 16f, 16f), Color.LightGray, new Depth(0.8f));
+              DuckGame.Graphics.DrawRect(new Rectangle((float) ((double) this._box.x - (double) this._box.halfWidth + 8.0), this._box.y - 8f, Lerp.FloatSmooth(0.0f, this._box.width - 16f, amount), 16f), Color.Green, new Depth(0.8f));
             }
             text = str + "...";
           }
           else if (this._needsUpdateNotes)
           {
-            DuckGame.Graphics.DrawRect(new Rectangle(this._updateTextBox.position.x - 1f, this._updateTextBox.position.y - 1f, this._updateTextBox.size.x + 2f, this._updateTextBox.size.y + 2f), Color.Gray, (Depth) 0.85f, false);
-            DuckGame.Graphics.DrawRect(new Rectangle(this._updateTextBox.position.x, this._updateTextBox.position.y, this._updateTextBox.size.x, this._updateTextBox.size.y), Color.Black, (Depth) 0.85f);
+            DuckGame.Graphics.DrawRect(new Rectangle(this._updateTextBox.position.x - 1f, this._updateTextBox.position.y - 1f, this._updateTextBox.size.x + 2f, this._updateTextBox.size.y + 2f), Color.Gray, new Depth(0.85f), false);
+            DuckGame.Graphics.DrawRect(new Rectangle(this._updateTextBox.position.x, this._updateTextBox.position.y, this._updateTextBox.size.x, this._updateTextBox.size.y), Color.Black, new Depth(0.85f));
             this._updateTextBox.Draw();
             text = "Enter change notes:";
-            DuckGame.Graphics.DrawString(this._updateButtonText, new Vec2(this._updateButton.x, this._updateButton.y), this._updateButton.Contains(Mouse.position) ? Color.Yellow : Color.White, (Depth) 0.9f, scale: 2f);
+            DuckGame.Graphics.DrawString(this._updateButtonText, new Vec2(this._updateButton.x, this._updateButton.y), this._updateButton.Contains(Mouse.position) ? Color.Yellow : Color.White, new Depth(0.9f), scale: 2f);
           }
           float stringWidth = DuckGame.Graphics.GetStringWidth(text, scale: 2f);
-          DuckGame.Graphics.DrawString(text, new Vec2(this._box.x - stringWidth / 2f, (float) ((double) this._box.y - (double) this._box.halfHeight + 24.0)), Color.White, (Depth) 0.8f, scale: 2f);
+          DuckGame.Graphics.DrawString(text, new Vec2(this._box.x - stringWidth / 2f, (float) ((double) this._box.y - (double) this._box.halfHeight + 24.0)), Color.White, new Depth(0.8f), scale: 2f);
         }
         if (Mouse.available && !this._gamepadMode)
         {
-          this._cursor.depth = (Depth) 1f;
+          this._cursor.depth = new Depth(1f);
           this._cursor.scale = new Vec2(1f, 1f);
           this._cursor.position = Mouse.position;
           this._cursor.frame = 0;

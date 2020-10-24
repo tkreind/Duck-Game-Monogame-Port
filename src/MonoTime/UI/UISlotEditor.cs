@@ -156,15 +156,15 @@ namespace DuckGame
       if (Graphics.sixteenTen)
         rectPosition.y += Layer.HUD.barSize;
       Vec2 p1_1 = rectPosition;
-      Graphics.DrawRect(p1_1, p1_1 + new Vec2(142f, 90f), Color.White, (Depth) 0.8f, false);
+      Graphics.DrawRect(p1_1, p1_1 + new Vec2(142f, 90f), Color.White, new Depth(0.8f), false);
       p1_1 = new Vec2(rectPosition.x - 200f, rectPosition.y - 200f);
-      Graphics.DrawRect(p1_1, p1_1 + new Vec2(200f, 400f), Color.Black * 0.5f, (Depth) 0.8f);
+      Graphics.DrawRect(p1_1, p1_1 + new Vec2(200f, 400f), Color.Black * 0.5f, new Depth(0.8f));
       p1_1 = new Vec2(rectPosition.x + 142f, rectPosition.y - 200f);
-      Graphics.DrawRect(p1_1, p1_1 + new Vec2(200f, 400f), Color.Black * 0.5f, (Depth) 0.8f);
+      Graphics.DrawRect(p1_1, p1_1 + new Vec2(200f, 400f), Color.Black * 0.5f, new Depth(0.8f));
       p1_1 = new Vec2(rectPosition.x, rectPosition.y + 90f);
-      Graphics.DrawRect(p1_1, p1_1 + new Vec2(142f, 200f), Color.Black * 0.5f, (Depth) 0.8f);
+      Graphics.DrawRect(p1_1, p1_1 + new Vec2(142f, 200f), Color.Black * 0.5f, new Depth(0.8f));
       p1_1 = new Vec2(rectPosition.x, rectPosition.y - 200f);
-      Graphics.DrawRect(p1_1, p1_1 + new Vec2(142f, 200f), Color.Black * 0.5f, (Depth) 0.8f);
+      Graphics.DrawRect(p1_1, p1_1 + new Vec2(142f, 200f), Color.Black * 0.5f, new Depth(0.8f));
       string text1 = "FRIENDS ONLY";
       if (DuckNetwork.profiles[this._slot].slotType == SlotType.Open)
         text1 = "OPEN SLOT";
@@ -177,20 +177,20 @@ namespace DuckGame
       if (DuckNetwork.profiles[this._slot].connection == DuckNetwork.localConnection || DuckNetwork.profiles[this._slot].slotType == SlotType.Local)
         text1 = "LOCAL SLOT";
       Vec2 p1_2 = new Vec2(rectPosition.x + 1f, rectPosition.y + 1f);
-      Graphics.DrawRect(p1_2, p1_2 + new Vec2(this._littleFont.GetWidth(text1) + 4f, 7f), Color.Black, (Depth) 0.9f);
-      this._littleFont.depth = (Depth) 0.93f;
-      this._littleFont.Draw(text1, p1_2 + new Vec2(1f, 1f), Color.White, (Depth) 0.93f);
+      Graphics.DrawRect(p1_2, p1_2 + new Vec2(this._littleFont.GetWidth(text1) + 4f, 7f), Color.Black, new Depth(0.9f));
+      this._littleFont.depth = new Depth(0.93f);
+      this._littleFont.Draw(text1, p1_2 + new Vec2(1f, 1f), Color.White, new Depth(0.93f));
       if (!this._showWarning)
         return;
       Vec2 vec2 = new Vec2(160f, 30f);
-      Graphics.DrawRect(new Vec2(0.0f, 0.0f), new Vec2(Layer.HUD.camera.width, Layer.HUD.camera.height), Color.Black * 0.4f, (Depth) 0.95f);
-      Graphics.DrawRect(new Vec2((float) ((double) Layer.HUD.camera.width / 2.0 - (double) vec2.x / 2.0), (float) ((double) Layer.HUD.camera.height / 2.0 - (double) vec2.y / 2.0)), new Vec2((float) ((double) Layer.HUD.camera.width / 2.0 + (double) vec2.x / 2.0), (float) ((double) Layer.HUD.camera.height / 2.0 + (double) vec2.y / 2.0)), Color.Black, (Depth) 0.96f);
+      Graphics.DrawRect(new Vec2(0.0f, 0.0f), new Vec2(Layer.HUD.camera.width, Layer.HUD.camera.height), Color.Black * 0.4f, new Depth(0.95f));
+      Graphics.DrawRect(new Vec2((float) ((double) Layer.HUD.camera.width / 2.0 - (double) vec2.x / 2.0), (float) ((double) Layer.HUD.camera.height / 2.0 - (double) vec2.y / 2.0)), new Vec2((float) ((double) Layer.HUD.camera.width / 2.0 + (double) vec2.x / 2.0), (float) ((double) Layer.HUD.camera.height / 2.0 + (double) vec2.y / 2.0)), Color.Black, new Depth(0.96f));
       string text2 = "WARNING!";
-      this._littleFont.depth = (Depth) 0.98f;
-      this._littleFont.Draw(text2, new Vec2((float) ((double) Layer.HUD.camera.width / 2.0 - (double) this._littleFont.GetWidth(text2) / 2.0), (float) ((double) Layer.HUD.camera.height / 2.0 - ((double) vec2.y / 2.0 - 2.0))), Color.White, (Depth) 0.98f);
+      this._littleFont.depth = new Depth(0.98f);
+      this._littleFont.Draw(text2, new Vec2((float) ((double) Layer.HUD.camera.width / 2.0 - (double) this._littleFont.GetWidth(text2) / 2.0), (float) ((double) Layer.HUD.camera.height / 2.0 - ((double) vec2.y / 2.0 - 2.0))), Color.White, new Depth(0.98f));
       string text3 = "Changing slot settings\nwill reset all scores\nin the current match!";
-      this._littleFont2.depth = (Depth) 0.98f;
-      this._littleFont2.Draw(text3, new Vec2((float) ((double) Layer.HUD.camera.width / 2.0 - (double) this._littleFont.GetWidth(text3) / 2.0), (float) ((double) Layer.HUD.camera.height / 2.0 - ((double) vec2.y / 2.0 - 10.0))), Color.White, (Depth) 0.98f);
+      this._littleFont2.depth = new Depth(0.98f);
+      this._littleFont2.Draw(text3, new Vec2((float) ((double) Layer.HUD.camera.width / 2.0 - (double) this._littleFont.GetWidth(text3) / 2.0), (float) ((double) Layer.HUD.camera.height / 2.0 - ((double) vec2.y / 2.0 - 10.0))), Color.White, new Depth(0.98f));
     }
   }
 }

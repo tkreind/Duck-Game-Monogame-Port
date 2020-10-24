@@ -92,11 +92,11 @@ namespace DuckGame
       Vec2 vec2_2 = new Vec2((float) (-200.0 * (1.0 - (double) this._duckLerp)), 0.0f);
       Vec2 vec2_3 = new Vec2((float) (200.0 * (1.0 - (double) this._channelLerp)), 0.0f);
       Vec2 vec2_4 = new Vec2((float) (300.0 * (1.0 - (double) this._channelLerp)), 0.0f);
-      this._duck.depth = (Depth) 0.85f;
+      this._duck.depth = new Depth(0.85f);
       Graphics.Draw(this._duck, vec2_1.x + 80f + vec2_2.x, vec2_1.y + 60f + vec2_2.y);
-      this._channel.depth = (Depth) 0.86f;
+      this._channel.depth = new Depth(0.86f);
       Graphics.Draw(this._channel, vec2_1.x + 64f + vec2_3.x, vec2_1.y + 74f + vec2_3.y);
-      this._five.depth = (Depth) 0.85f;
+      this._five.depth = new Depth(0.85f);
       Graphics.Draw(this._five, vec2_1.x + 144f + vec2_4.x, vec2_1.y + 64f + vec2_4.y);
       Vec2 vec2_5 = new Vec2(30f, 20f);
       float num1 = 500f;
@@ -105,7 +105,7 @@ namespace DuckGame
       for (int index = 0; index < this._swipeLines.Count; ++index)
       {
         float num4 = this._swipeLines[index] * -1200f;
-        Graphics.DrawRect(new Vec2(vec2_5.x + num3 + num4, vec2_5.y + (float) index * num2), new Vec2(vec2_5.x + num1 + num3 + num4, vec2_5.y + (float) index * num2 + num2), Color.Black, (Depth) 0.83f);
+        Graphics.DrawRect(new Vec2(vec2_5.x + num3 + num4, vec2_5.y + (float) index * num2), new Vec2(vec2_5.x + num1 + num3 + num4, vec2_5.y + (float) index * num2 + num2), Color.Black, new Depth(0.83f));
       }
     }
   }

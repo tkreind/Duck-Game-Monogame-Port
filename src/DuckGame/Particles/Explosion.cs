@@ -27,7 +27,7 @@ namespace DuckGame
       this.center = new Vec2(32f, 32f);
       this._wait = Rando.Float(1f);
       this._smokeFrame = Rando.Int(1, 3);
-      this.depth = (Depth) 1f;
+      this.depth = new Depth(1f);
       this.vSpeed = Rando.Float(-0.2f, -0.4f);
       if (doWait)
         return;

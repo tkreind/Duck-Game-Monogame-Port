@@ -199,10 +199,10 @@ namespace DuckGame
             num7 = 2f;
             num8 = 1f;
           }
-          Graphics.DrawString(text, new Vec2(x - Graphics.GetStringWidth(text, scale: vec2_2.x) / 2f + num8, 35f + num7), new Color((byte) Math.Round(165.0 * (double) num6), (byte) Math.Round(100.0 * (double) num6), (byte) Math.Round(34.0 * (double) num6)) * this._fade, (Depth) 0.9f, scale: vec2_2.x);
+          Graphics.DrawString(text, new Vec2(x - Graphics.GetStringWidth(text, scale: vec2_2.x) / 2f + num8, 35f + num7), new Color((byte) Math.Round(165.0 * (double) num6), (byte) Math.Round(100.0 * (double) num6), (byte) Math.Round(34.0 * (double) num6)) * this._fade, new Depth(0.9f), scale: vec2_2.x);
         }
         this._door.scale = new Vec2(1f, 1f);
-        this._door.depth = (Depth) 0.4f;
+        this._door.depth = new Depth(0.4f);
       }
       base.PostDrawLayer(layer);
     }

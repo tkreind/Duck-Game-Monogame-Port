@@ -25,7 +25,7 @@ namespace DuckGame
       this.center = new Vec2(8f, 11f);
       this.collisionOffset = new Vec2(-8f, -8f);
       this.collisionSize = new Vec2(16f, 16f);
-      this.depth = (Depth) -0.5f;
+      this.depth = new Depth(-0.5f);
       this._editorName = "Wire Button";
       this.thickness = 4f;
       this.physicsMaterial = PhysicsMaterial.Metal;

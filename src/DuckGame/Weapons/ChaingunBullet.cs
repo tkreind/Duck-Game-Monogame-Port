@@ -26,7 +26,7 @@ namespace DuckGame
     {
       this.graphic = new Sprite("chainBullet");
       this.center = new Vec2(4f, 3f);
-      this.depth = (Depth) 0.8f;
+      this.depth = new Depth(0.8f);
     }
 
     public ChaingunBullet(float xpos, float ypos, bool dart)
@@ -42,7 +42,7 @@ namespace DuckGame
         this.graphic = new Sprite("chainBullet");
         this.center = new Vec2(4f, 3f);
       }
-      this.depth = (Depth) 0.8f;
+      this.depth = new Depth(0.8f);
     }
 
     public override void Update()
@@ -78,8 +78,8 @@ namespace DuckGame
         else
           this.waveSpeed = 0.0f;
         this.lastDesiredSway = this.desiredSway;
-        if (this.parentThing is ChaingunBullet parentThing)
-          this.desiredSway += parentThing.sway * 0.7f;
+        if (this.parentThing is ChaingunBullet parentThing2)
+          this.desiredSway += parentThing2.sway * 0.7f;
         this.desiredSway += (float) Math.Sin((double) this.wave + (double) this.waveAdd) * this.shake;
         this.sway = MathHelper.Lerp(this.sway, this.desiredSway, 1f);
         this.position.x += this.sway;

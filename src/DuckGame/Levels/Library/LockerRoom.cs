@@ -212,15 +212,15 @@ namespace DuckGame
         if (this._screen == LockerScreen.Locker)
         {
           this._background.scale = new Vec2(1f, 1f);
-          this._background.depth = (Depth) 0.4f;
+          this._background.depth = new Depth(0.4f);
           this._background.alpha = this._fade;
           Graphics.Draw(this._background, 0.0f, 0.0f);
           string text = this._profile.name;
           Vec2 vec2 = new Vec2(115f, 46f);
-          Graphics.DrawString(text, vec2 + new Vec2((float) (-(double) Graphics.GetStringWidth(text) / 2.0), 0.0f), Color.Gray * this._fade, (Depth) 0.5f);
+          Graphics.DrawString(text, vec2 + new Vec2((float) (-(double) Graphics.GetStringWidth(text) / 2.0), 0.0f), Color.Gray * this._fade, new Depth(0.5f));
           if (this._selection == LockerSelection.Stats)
           {
-            this._boardHighlight.depth = (Depth) 0.5f;
+            this._boardHighlight.depth = new Depth(0.5f);
             this._boardHighlight.alpha = (float) (0.5 + (double) this._pulse.normalized * 0.5) * this._fade;
             this._boardHighlight.xscale = this._boardHighlight.yscale = (float) (1.0 + (double) this._pulse.normalized * 0.100000001490116);
             Graphics.Draw(this._boardHighlight, (float) (75 + this._boardHighlight.w / 2), (float) (60 + this._boardHighlight.h / 2));
@@ -228,14 +228,14 @@ namespace DuckGame
           }
           else if (this._selection == LockerSelection.Trophies)
           {
-            this._trophiesHighlight.depth = (Depth) 0.5f;
+            this._trophiesHighlight.depth = new Depth(0.5f);
             this._trophiesHighlight.alpha = (float) (0.5 + (double) this._pulse.normalized * 0.5) * this._fade;
             this._trophiesHighlight.xscale = this._trophiesHighlight.yscale = (float) (1.0 + (double) this._pulse.normalized * 0.100000001490116);
             Graphics.Draw(this._trophiesHighlight, (float) (161 + this._trophiesHighlight.w / 2), (float) (53 + this._trophiesHighlight.h / 2));
             text = "TROPHIES";
           }
           vec2 = new Vec2(160f, 140f);
-          Graphics.DrawString(text, vec2 + new Vec2((float) (-(double) Graphics.GetStringWidth(text) / 2.0), 0.0f), new Color(14, 20, 27) * this._fade, (Depth) 0.5f);
+          Graphics.DrawString(text, vec2 + new Vec2((float) (-(double) Graphics.GetStringWidth(text) / 2.0), 0.0f), new Color(14, 20, 27) * this._fade, new Depth(0.5f));
         }
         else if (this._screen == LockerScreen.Stats)
         {
@@ -244,7 +244,7 @@ namespace DuckGame
           {
             Vec2 vec2 = new Vec2(160f, (float) (18 + num * 10) - this._statScroll * (float) (this._stats.Count * 10 - 150));
             string name = stat.name;
-            Graphics.DrawString(name, vec2 + new Vec2((float) (-(double) Graphics.GetStringWidth(name) / 2.0), 0.0f), stat.color * this._fade, (Depth) 0.5f);
+            Graphics.DrawString(name, vec2 + new Vec2((float) (-(double) Graphics.GetStringWidth(name) / 2.0), 0.0f), stat.color * this._fade, new Depth(0.5f));
             ++num;
           }
         }
@@ -252,7 +252,7 @@ namespace DuckGame
         {
           Vec2 vec2 = new Vec2(160f, 84f);
           string text = "NOPE";
-          Graphics.DrawString(text, vec2 + new Vec2((float) (-(double) Graphics.GetStringWidth(text) / 2.0), 0.0f), Color.White * this._fade, (Depth) 0.5f);
+          Graphics.DrawString(text, vec2 + new Vec2((float) (-(double) Graphics.GetStringWidth(text) / 2.0), 0.0f), Color.White * this._fade, new Depth(0.5f));
         }
       }
       base.PostDrawLayer(layer);

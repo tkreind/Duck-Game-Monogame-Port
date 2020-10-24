@@ -74,7 +74,8 @@ namespace DuckGame
       {
         case FlareGun _:
         case QuadLaser _:
-        case RomanCandle _:
+        // TODO
+        //case RomanCandle _:
         case Matchbox _:
         case FireCrackers _:
           return false;
@@ -173,7 +174,7 @@ namespace DuckGame
       this._clickPuff.center = new Vec2(0.0f, 12f);
       this._sightHit = new Sprite("laserSightHit");
       this._sightHit.CenterOrigin();
-      this.depth = (Depth) -0.1f;
+      this.depth = new Depth(-0.1f);
       this.infinite = new EditorProperty<bool>(false, (Thing) this);
       this.collideSounds.Add("smallMetalCollide");
       this.impactVolume = 0.3f;

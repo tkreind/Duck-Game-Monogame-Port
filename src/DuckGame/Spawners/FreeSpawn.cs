@@ -16,7 +16,7 @@ namespace DuckGame
       : base(xpos, ypos)
     {
       SpriteMap spriteMap = new SpriteMap("duckSpawn", 32, 32);
-      spriteMap.depth = (Depth) 0.9f;
+      spriteMap.depth = new Depth(0.9f);
       this.graphic = (Sprite) spriteMap;
       this._editorName = "free spawn";
       this.center = new Vec2(16f, 23f);

@@ -47,7 +47,7 @@ namespace DuckGame
       this.hSpeed = (float) (-(double) hitAngle.x * 2.0 * ((double) Rando.Float(1f) + 0.300000011920929));
       this.vSpeed = (float) (-(double) hitAngle.y * 2.0 * ((double) Rando.Float(1f) + 0.300000011920929)) - Rando.Float(2f);
       this._bounceEfficiency = 0.6f;
-      this.depth = (Depth) 0.9f;
+      this.depth = new Depth(0.9f);
       this._killSpeed = killSpeed;
       this._color = new Color(byte.MaxValue, (byte) Rando.Int(180, (int) byte.MaxValue), (byte) 0);
     }

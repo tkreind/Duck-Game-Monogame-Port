@@ -115,7 +115,7 @@ namespace DuckGame
                 float deg = (float) (-(double) num3 / 2.0 + (double) num5 * (double) num2);
                 float x = vec2_1.x - (float) Math.Sin((double) Maths.DegToRad(deg)) * num6;
                 float y = vec2_1.y + (float) Math.Cos((double) Maths.DegToRad(deg)) * num6;
-                ConnectionIndicator._lagIcons.depth = (Depth) 0.9f;
+                ConnectionIndicator._lagIcons.depth = new Depth(0.9f);
                 ConnectionIndicator._lagIcons.frame = detail.Value.iconFrame;
                 ConnectionIndicator._lagIcons.scale = new Vec2((float) (1.0 + (1.0 - (double) detail.Value.grow) * 0.300000011920929));
                 Graphics.Draw((Sprite) ConnectionIndicator._lagIcons, x, y);
@@ -123,7 +123,7 @@ namespace DuckGame
                 {
                   Vec2 vec2_3 = new Vec2(x, y);
                   Vec2 normalized = (vec2_3 - vec2_2).normalized;
-                  Graphics.DrawTexturedLine(ConnectionIndicator._rainbowGradient.texture, vec2_2 - normalized, vec2_3 + normalized, Color.White * num4, (float) (0.600000023841858 + 0.600000023841858 * (double) num4), (Depth) 0.85f);
+                  Graphics.DrawTexturedLine(ConnectionIndicator._rainbowGradient.texture, vec2_2 - normalized, vec2_3 + normalized, Color.White * num4, (float) (0.600000023841858 + 0.600000023841858 * (double) num4), new Depth(0.85f));
                 }
                 flag = true;
                 vec2_2 = new Vec2(x, y);

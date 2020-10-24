@@ -393,7 +393,6 @@ namespace DuckGame
           }
           else if (property.binding.isRotation)
           {
-            byte num = property.value as byte;
             if (property.binding._previousValue == null)
               property.binding._previousValue = property.binding.value;
             Vec2 p2 = this.Slerp(Maths.AngleToVec((float) lerpFrom.properties[index].value), Maths.AngleToVec((float) property.value), lerpProgress);

@@ -413,8 +413,8 @@ namespace DuckGame
       {
         owner._openedOffset = 0.0f;
         owner.y = contextMenu1.y - 16f - owner.menuSize.y;
-      }
       owner.PositionItems();
+      }
       contextMenu1.PositionItems();
     }
 

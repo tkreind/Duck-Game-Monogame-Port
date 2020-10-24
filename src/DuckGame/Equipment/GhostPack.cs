@@ -25,14 +25,14 @@ namespace DuckGame
       this._heat = 0.01f;
       if (this._equippedDuck != null)
       {
-        this.depth = (Depth) -0.5f;
+        this.depth = new Depth(-0.5f);
         Vec2 offset = this._offset;
         if (this.duck.offDir < (sbyte) 0)
           offset.x *= -1f;
         this.position = this.duck.position + offset;
       }
       else
-        this.depth = (Depth) 0.0f;
+        this.depth = new Depth(0.0f);
     }
   }
 }

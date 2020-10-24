@@ -39,7 +39,7 @@ namespace DuckGame
       this._collisionOffset.y = -4f;
       this._collisionSize.y = 1f;
       this._block = b;
-      this.depth = (Depth) 0.3f;
+      this.depth = new Depth(0.3f);
       this.flammable = 0.9f;
       this.alpha = 0.0f;
       List<BlockCorner> groupCorners = b.GetGroupCorners();
@@ -327,8 +327,8 @@ label_19:;
 
     public override void Draw()
     {
-      Graphics.DrawLine(this.position + new Vec2(-this._collisionOffset.x, (float) ((double) this.collisionOffset.y / 2.0 + 0.5)), this.position + new Vec2(this._collisionOffset.x, (float) ((double) this.collisionOffset.y / 2.0 + 0.5)), new Color(this.data.color) * this.data.transparent, this._collisionSize.y, (Depth) 0.38f);
-      Graphics.DrawLine(this.position + new Vec2(-this._collisionOffset.x, (float) ((double) this.collisionOffset.y / 2.0 + 0.5)), this.position + new Vec2(this._collisionOffset.x, (float) ((double) this.collisionOffset.y / 2.0 + 0.5)), new Color(this.data.color), this._collisionSize.y, (Depth) -0.99f);
+      Graphics.DrawLine(this.position + new Vec2(-this._collisionOffset.x, (float) ((double) this.collisionOffset.y / 2.0 + 0.5)), this.position + new Vec2(this._collisionOffset.x, (float) ((double) this.collisionOffset.y / 2.0 + 0.5)), new Color(this.data.color) * this.data.transparent, this._collisionSize.y, new Depth(0.38f));
+      Graphics.DrawLine(this.position + new Vec2(-this._collisionOffset.x, (float) ((double) this.collisionOffset.y / 2.0 + 0.5)), this.position + new Vec2(this._collisionOffset.x, (float) ((double) this.collisionOffset.y / 2.0 + 0.5)), new Color(this.data.color), this._collisionSize.y, new Depth(-0.99f));
       if (this._lightRect != null)
       {
         this._lightRect.position = this.topLeft;
@@ -359,12 +359,12 @@ label_19:;
           SpriteMap g = this._lava;
           if (flag)
             g = this._lavaAlternate;
-          g.depth = (Depth) 0.38f;
+          g.depth = new Depth(0.38f);
           SpriteMap spriteMap1 = g;
           spriteMap1.depth = spriteMap1.depth + index;
           g.alpha = 0.7f;
           Graphics.DrawWithoutUpdate(g, (float) Math.Round((double) this.left + 8.0 + (double) index * (double) num2), (float) ((double) this.y + (double) this._collisionOffset.y - 4.0));
-          g.depth = (Depth) -0.5f;
+          g.depth = new Depth(-0.5f);
           SpriteMap spriteMap2 = g;
           spriteMap2.depth = spriteMap2.depth + index;
           g.alpha = 1f;

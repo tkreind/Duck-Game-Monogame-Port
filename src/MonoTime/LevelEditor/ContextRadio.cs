@@ -27,7 +27,7 @@ namespace DuckGame
       this._selected = field == null ? selected : field.value == index;
       this._field = field;
       this._index = index;
-      this.depth = (Depth) 0.8f;
+      this.depth = new Depth(0.8f);
       this._radioButton = new SpriteMap("Editor/radioButton", 16, 16);
     }
 
@@ -64,12 +64,12 @@ namespace DuckGame
     public override void Draw()
     {
       if (this._hover && !this.greyOut)
-        Graphics.DrawRect(this.position, this.position + this.itemSize, new Color(70, 70, 70), (Depth) 0.83f);
+        Graphics.DrawRect(this.position, this.position + this.itemSize, new Color(70, 70, 70), new Depth(0.83f));
       Color color = Color.White;
       if (this.greyOut)
         color = Color.White * 0.3f;
-      Graphics.DrawString(this._text, this.position + new Vec2(4f, 5f), color, (Depth) 0.85f);
-      this._radioButton.depth = (Depth) 0.9f;
+      Graphics.DrawString(this._text, this.position + new Vec2(4f, 5f), color, new Depth(0.85f));
+      this._radioButton.depth = new Depth(0.9f);
       this._radioButton.x = (float) ((double) this.x + (double) this.itemSize.x - 16.0);
       this._radioButton.y = this.y;
       this._radioButton.frame = this._selected ? 1 : 0;

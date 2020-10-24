@@ -30,16 +30,16 @@ namespace DuckGame
       this.move.y = Rando.Float(0.2f) - 0.1f;
       GraphicList graphicList = new GraphicList();
       Sprite graphic1 = new Sprite("smoke");
-      graphic1.depth = (Depth) 1f;
+      graphic1.depth = new Depth(1f);
       graphic1.CenterOrigin();
       graphicList.Add(graphic1);
       Sprite graphic2 = new Sprite("smokeBack");
-      graphic2.depth = (Depth) -0.1f;
+      graphic2.depth = new Depth(-0.1f);
       graphic2.CenterOrigin();
       graphicList.Add(graphic2);
       this.graphic = (Sprite) graphicList;
       this.center = new Vec2(0.0f, 0.0f);
-      this.depth = (Depth) 1f;
+      this.depth = new Depth(1f);
       this._backgroundSmoke = new Sprite("smokeBack");
     }
 

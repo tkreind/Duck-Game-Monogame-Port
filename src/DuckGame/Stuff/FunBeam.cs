@@ -29,7 +29,7 @@ namespace DuckGame
       this.center = new Vec2(9f, 8f);
       this.collisionOffset = new Vec2(-2f, -5f);
       this.collisionSize = new Vec2(4f, 10f);
-      this.depth = (Depth) -0.5f;
+      this.depth = new Depth(-0.5f);
       this._editorName = "Fun Beam";
       this.hugWalls = WallHug.Left;
     }

@@ -41,7 +41,7 @@ namespace DuckGame
       this.center = new Vec2(8f, 8f);
       this.collisionOffset = new Vec2(-8f, -8f);
       this.collisionSize = new Vec2(16f, 16f);
-      this.depth = (Depth) -0.5f;
+      this.depth = new Depth(-0.5f);
       this._editorName = "Wire Mount";
       this.layer = Layer.Foreground;
       this._canFlip = true;
@@ -98,7 +98,7 @@ namespace DuckGame
       string text = "EMPTY";
       if (this.contains != (System.Type) null)
         text = this.contains.Name;
-      Graphics.DrawString(text, this.position + new Vec2((float) (-(double) Graphics.GetStringWidth(text) / 2.0), -16f), Color.White, (Depth) 0.9f);
+      Graphics.DrawString(text, this.position + new Vec2((float) (-(double) Graphics.GetStringWidth(text) / 2.0), -16f), Color.White, new Depth(0.9f));
     }
 
     public override void Initialize()

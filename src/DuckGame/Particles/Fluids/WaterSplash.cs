@@ -18,7 +18,7 @@ namespace DuckGame
       this._sprite.SetAnimation("splash");
       this.center = new Vec2(8f, 16f);
       this.graphic = (Sprite) this._sprite;
-      this.depth = (Depth) 0.7f;
+      this.depth = new Depth(0.7f);
     }
 
     public override void Update()

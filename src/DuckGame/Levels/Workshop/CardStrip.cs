@@ -126,7 +126,7 @@ namespace DuckGame
       if (this._heading != null && this._heading != "")
       {
         CardStrip._font.scale = new Vec2(0.75f, 0.75f);
-        CardStrip._font.Draw(this._heading, this.x + 4f, this.y, Color.White, (Depth) 0.95f);
+        CardStrip._font.Draw(this._heading, this.x + 4f, this.y, Color.White, new Depth(0.95f));
         y += 10f;
       }
       Vec2 position = Vec2.Zero;
@@ -171,7 +171,7 @@ namespace DuckGame
         ++num;
       }
       this._arrow.xscale = this._arrow.yscale = 0.25f;
-      this._arrow.depth = (Depth) 0.98f;
+      this._arrow.depth = new Depth(0.98f);
       if (this._levelIndex + this._numCardsPerScreen < this._cards.Count)
       {
         this._arrow.flipH = false;

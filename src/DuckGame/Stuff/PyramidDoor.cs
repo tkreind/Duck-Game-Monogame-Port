@@ -29,7 +29,7 @@ namespace DuckGame
       this.center = new Vec2(8f, 24f);
       this.collisionSize = new Vec2(10f, 32f);
       this.collisionOffset = new Vec2(-5f, -24f);
-      this.depth = (Depth) -0.5f;
+      this.depth = new Depth(-0.5f);
       this._editorName = "Pyramid Door";
       this.thickness = 3f;
       this.physicsMaterial = PhysicsMaterial.Metal;

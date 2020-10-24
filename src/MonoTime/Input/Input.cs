@@ -814,7 +814,7 @@ namespace DuckGame
       foreach (InputDevice device in Input._devices)
       {
         if (typeof (T) == device.GetType() && device.index == index)
-          return (T) device;
+          return (T)(Object)device;
       }
       return default (T);
     }

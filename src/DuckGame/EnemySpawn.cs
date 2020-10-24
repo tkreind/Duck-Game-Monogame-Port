@@ -15,11 +15,11 @@ namespace DuckGame
     {
       GraphicList graphicList = new GraphicList();
       SpriteMap spriteMap = new SpriteMap("duck", 32, 32);
-      spriteMap.depth = (Depth) 0.9f;
+      spriteMap.depth = new Depth(0.9f);
       spriteMap.position = new Vec2(-8f, -18f);
       graphicList.Add((Sprite) spriteMap);
       this._spawnSprite = new SpriteMap("spawnSheet", 16, 16);
-      this._spawnSprite.depth = (Depth) 0.95f;
+      this._spawnSprite.depth = new Depth(0.95f);
       graphicList.Add((Sprite) this._spawnSprite);
       this.graphic = (Sprite) graphicList;
       this._editorName = "enemy spawn";

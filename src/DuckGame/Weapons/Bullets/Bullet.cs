@@ -108,7 +108,7 @@ namespace DuckGame
     {
       this._gravityAffected = type.affectedByGravity;
       this._bulletLength = type.bulletLength;
-      this.depth = (Depth) -0.1f;
+      this.depth = new Depth(-0.1f);
       if (!tracer)
       {
         this._tracePhase = true;
@@ -501,13 +501,13 @@ namespace DuckGame
         for (int index = 0; index < num; ++index)
         {
           Vec2 pointOnArc = this.GetPointOnArc((float) (index * 8));
-          Graphics.DrawLine(pointOnArc, p2, this.color * (float) (1.0 - (double) index / (double) num) * this.alpha, this.ammo.bulletThickness, (Depth) 0.9f);
+          Graphics.DrawLine(pointOnArc, p2, this.color * (float) (1.0 - (double) index / (double) num) * this.alpha, this.ammo.bulletThickness, new Depth(0.9f));
           if (pointOnArc == this.prev.First<Vec2>())
             break;
           p2 = pointOnArc;
           if (index == 0 && this.ammo.sprite != null && !this.doneTravelling)
           {
-            this.ammo.sprite.depth = (Depth) 1f;
+            this.ammo.sprite.depth = new Depth(1f);
             this.ammo.sprite.angleDegrees = -Maths.PointDirection(Vec2.Zero, this.travelDirNormalized);
             Graphics.Draw(this.ammo.sprite, p2.x, p2.y);
           }
@@ -517,7 +517,7 @@ namespace DuckGame
       {
         if (this.ammo.sprite != null && !this.doneTravelling)
         {
-          this.ammo.sprite.depth = (Depth) 1f;
+          this.ammo.sprite.depth = new Depth(1f);
           this.ammo.sprite.angleDegrees = -Maths.PointDirection(Vec2.Zero, this.travelDirNormalized);
           Graphics.Draw(this.ammo.sprite, this.drawEnd.x, this.drawEnd.y);
         }

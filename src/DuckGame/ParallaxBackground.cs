@@ -41,7 +41,7 @@ namespace DuckGame
       this._sprite = new Sprite((Tex2D) t);
       this.graphic = this._sprite;
       this.x = 0.0f;
-      this.depth = (Depth) 0.0f;
+      this.depth = new Depth(0.0f);
       this.layer = Layer.Parallax;
       this._hRepeat = 3;
       this._opaque = true;

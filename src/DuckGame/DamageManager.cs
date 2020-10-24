@@ -125,7 +125,7 @@ namespace DuckGame
           DuckGame.Graphics.screen.Begin(SpriteSortMode.BackToFront, DamageManager._blendState, SamplerState.PointClamp, depthStencilState, RasterizerState.CullNone, (MTEffect) null, camera.getMatrix());
           foreach (Vec2 point in hit.points)
           {
-            DamageManager._bulletHoles.depth = (Depth) 1f;
+            DamageManager._bulletHoles.depth = new Depth(1f);
             DamageManager._bulletHoles.x = point.x + Rando.Float(-1f, 1f);
             DamageManager._bulletHoles.y = point.y + Rando.Float(-1f, 1f);
             DamageManager._bulletHoles.imageIndex = Rando.Int(4);

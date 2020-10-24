@@ -29,7 +29,7 @@ namespace DuckGame
         spriteMap.color = Color.Wheat;
       if (num == 4)
         spriteMap.color = Color.GreenYellow;
-      this.depth = (Depth) 1f;
+      this.depth = new Depth(1f);
     }
 
     public override void Update()

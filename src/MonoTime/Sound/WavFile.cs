@@ -54,7 +54,7 @@ namespace DuckGame
             if (this._header.channels == (ushort) 1)
             {
               uint num = this._header.dataSize / (uint) this._header.blockSize;
-              this._stereoData[0] = new short[(IntPtr) num];
+              this._stereoData[0] = new short[num];
               for (int index = 0; (long) index < (long) num; ++index)
                 this._stereoData[0][index] = (short) binaryReader.ReadUInt16();
             }
@@ -63,8 +63,8 @@ namespace DuckGame
               if (this._header.channels != (ushort) 2)
                 return;
               uint num = this._header.dataSize / (uint) this._header.blockSize;
-              this._stereoData[0] = new short[(IntPtr) num];
-              this._stereoData[1] = new short[(IntPtr) num];
+              this._stereoData[0] = new short[num];
+              this._stereoData[1] = new short[num];
               for (int index = 0; (long) index < (long) num; ++index)
               {
                 this._stereoData[0][index] = (short) binaryReader.ReadUInt16();

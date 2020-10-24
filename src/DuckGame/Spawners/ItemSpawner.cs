@@ -78,7 +78,7 @@ namespace DuckGame
       this.center = new Vec2(7f, 0.0f);
       this.collisionSize = new Vec2(14f, 2f);
       this.collisionOffset = new Vec2(-7f, 0.0f);
-      this.depth = (Depth) 0.0f;
+      this.depth = new Depth(0.0f);
       this.contains = c;
       this.hugWalls = WallHug.Floor;
       this._isStateObject = true;
@@ -376,7 +376,7 @@ namespace DuckGame
             Color white = Color.White;
             Color color = (double) typeProbPair.probability != 0.0 ? ((double) typeProbPair.probability >= 0.300000011920929 ? ((double) typeProbPair.probability >= 0.699999988079071 ? Color.Green : Color.Orange) : Colors.DGRed) : Color.DarkGray;
             string text = typeProbPair.type.Name + ": " + typeProbPair.probability.ToString("0.000");
-            Graphics.DrawString(text, this.position + new Vec2((float) (-(double) Graphics.GetStringWidth(text, scale: 0.5f) / 2.0), (float) -(16.0 + (double) num)), color, (Depth) 0.9f, scale: 0.5f);
+            Graphics.DrawString(text, this.position + new Vec2((float) (-(double) Graphics.GetStringWidth(text, scale: 0.5f) / 2.0), (float) -(16.0 + (double) num)), color, new Depth(0.9f), scale: 0.5f);
             num += 4f;
           }
         }
@@ -386,7 +386,7 @@ namespace DuckGame
         string text = "EMPTY";
         if (this.contains != (System.Type) null)
           text = this.contains.Name;
-        Graphics.DrawString(text, this.position + new Vec2((float) (-(double) Graphics.GetStringWidth(text) / 2.0), -16f), Color.White, (Depth) 0.9f);
+        Graphics.DrawString(text, this.position + new Vec2((float) (-(double) Graphics.GetStringWidth(text) / 2.0), -16f), Color.White, new Depth(0.9f));
       }
     }
 

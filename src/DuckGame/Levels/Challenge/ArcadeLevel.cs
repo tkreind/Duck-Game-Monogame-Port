@@ -130,7 +130,7 @@ namespace DuckGame
       foreach (Duck pendingSpawn in this._pendingSpawns)
       {
         this.followCam.Add((Thing) pendingSpawn);
-        Level.First<ArcadeHatConsole>()?.MakeHatSelector(pendingSpawn);
+        ((ArcadeHatConsole)Level.First<ArcadeHatConsole>())?.MakeHatSelector(pendingSpawn);
       }
       this.followCam.Adjust();
       foreach (ArcadeMachine arcadeMachine in this.things[typeof (ArcadeMachine)])
@@ -488,7 +488,7 @@ namespace DuckGame
           else if (this._state == ArcadeState.ViewProfileSelector)
           {
             this._duck.active = false;
-            ArcadeHatConsole arcadeHatConsole = Level.First<ArcadeHatConsole>();
+            ArcadeHatConsole arcadeHatConsole = (ArcadeHatConsole)Level.First<ArcadeHatConsole>();
             if (arcadeHatConsole == null)
               return;
             HUD.CloseAllCorners();
@@ -565,7 +565,7 @@ namespace DuckGame
           }
           else
           {
-            ArcadeHatConsole arcadeHatConsole = Level.First<ArcadeHatConsole>();
+            ArcadeHatConsole arcadeHatConsole = (ArcadeHatConsole)Level.First<ArcadeHatConsole>();
             if (arcadeHatConsole != null && Input.Pressed("SHOOT") && arcadeHatConsole.hover)
             {
               this._desiredState = ArcadeState.ViewProfileSelector;
@@ -790,7 +790,7 @@ namespace DuckGame
         if (this._state != ArcadeState.ViewProfileSelector)
           return;
         Graphics.fade = Lerp.Float(Graphics.fade, 1f, 0.05f);
-        ArcadeHatConsole arcadeHatConsole = Level.First<ArcadeHatConsole>();
+        ArcadeHatConsole arcadeHatConsole = (ArcadeHatConsole)Level.First<ArcadeHatConsole>();
         if (arcadeHatConsole == null || arcadeHatConsole.IsOpen())
           return;
         foreach (ArcadeMachine challenge in this._challenges)

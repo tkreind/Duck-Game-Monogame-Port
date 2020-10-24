@@ -46,7 +46,7 @@ namespace DuckGame
       this.verticalWidthThick = 8f;
       this.horizontalHeight = 8f;
       this.layer = Layer.Foreground;
-      this.depth = (Depth) -0.8f;
+      this.depth = new Depth(-0.8f);
       this._signalSprite = new Sprite("wireBulge");
       this._signalSprite.CenterOrigin();
     }
@@ -269,7 +269,7 @@ namespace DuckGame
     {
       foreach (WireTileset.WireSignal signal in this._signals)
       {
-        this._signalSprite.depth = (Depth) -0.6f;
+        this._signalSprite.depth = new Depth(-0.6f);
         this._signalSprite.alpha = signal.life;
         this._signalSprite.xscale = this._signalSprite.yscale = 1f;
         Graphics.Draw(this._signalSprite, signal.position.x, signal.position.y);

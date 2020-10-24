@@ -25,7 +25,7 @@ namespace DuckGame
       this.itemSize.y = 16f;
       this._text = text;
       this._field = field;
-      this.depth = (Depth) 0.8f;
+      this.depth = new Depth(0.8f);
       this._type = type;
       this.fancy = true;
       if (field == null)
@@ -44,7 +44,7 @@ namespace DuckGame
       this.itemSize.y = 16f;
       this._text = text;
       this._field = field;
-      this.depth = (Depth) 0.8f;
+      this.depth = new Depth(0.8f);
       this._type = type;
       this.fancy = true;
       if (field != null)
@@ -123,7 +123,7 @@ namespace DuckGame
         guid = level.GetPath();
       if (this._hover)
       {
-        Graphics.DrawRect(this.position, this.position + this.itemSize, new Color(70, 70, 70), (Depth) 0.83f);
+        Graphics.DrawRect(this.position, this.position + this.itemSize, new Color(70, 70, 70), new Depth(0.83f));
         if (guid.Length > 0)
         {
           Vec2 vec2 = new Vec2(this.x, this.y);
@@ -133,10 +133,10 @@ namespace DuckGame
           string str = guid.Substring(startIndex, guid.Length - startIndex);
           if (str.Length > 20)
             str = str.Substring(0, 20);
-          Graphics.DrawString(str + "...", this.position + new Vec2(2f, 5f), Color.White, (Depth) 0.85f);
+          Graphics.DrawString(str + "...", this.position + new Vec2(2f, 5f), Color.White, new Depth(0.85f));
         }
         else
-          Graphics.DrawString("NO FILE", this.position + new Vec2(2f, 5f), Color.White, (Depth) 0.85f);
+          Graphics.DrawString("NO FILE", this.position + new Vec2(2f, 5f), Color.White, new Depth(0.85f));
       }
       else if (guid.Length > 0)
       {
@@ -144,10 +144,10 @@ namespace DuckGame
         string text = guid.Substring(startIndex, guid.Length - startIndex);
         if (text.Length > 20)
           text = text.Substring(0, 20);
-        Graphics.DrawString(text, this.position + new Vec2(2f, 5f), Color.LimeGreen, (Depth) 0.85f);
+        Graphics.DrawString(text, this.position + new Vec2(2f, 5f), Color.LimeGreen, new Depth(0.85f));
       }
       else
-        Graphics.DrawString(this._text, this.position + new Vec2(2f, 5f), Color.Red, (Depth) 0.85f);
+        Graphics.DrawString(this._text, this.position + new Vec2(2f, 5f), Color.Red, new Depth(0.85f));
     }
   }
 }

@@ -52,7 +52,7 @@ namespace DuckGame
       this.hugWalls = WallHug.Floor;
       this.UpdateSize();
       this.thickness = 0.0f;
-      this.depth = (Depth) 0.01f;
+      this.depth = new Depth(0.01f);
       this.placementLayerOverride = Layer.Blocks;
     }
 

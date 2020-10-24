@@ -19,11 +19,11 @@ namespace DuckGame
       this._treeInside = new Sprite("treeTopInside");
       this._treeInside.center = new Vec2(24f, 24f);
       this._treeInside.alpha = 0.8f;
-      this._treeInside.depth = (Depth) 0.9f;
+      this._treeInside.depth = new Depth(0.9f);
       this.center = new Vec2(24f, 24f);
       this._collisionSize = new Vec2(16f, 16f);
       this._collisionOffset = new Vec2(-8f, -8f);
-      this.depth = (Depth) 0.9f;
+      this.depth = new Depth(0.9f);
       this.hugWalls = WallHug.Left | WallHug.Right | WallHug.Ceiling | WallHug.Floor;
     }
 

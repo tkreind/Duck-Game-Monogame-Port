@@ -45,7 +45,7 @@ namespace DuckGame
       this.center = new Vec2(8f, 8f);
       this.collisionSize = new Vec2(14f, 14f);
       this.collisionOffset = new Vec2(-7f, -7f);
-      this.depth = (Depth) 0.5f;
+      this.depth = new Depth(0.5f);
       this._canFlip = false;
       this._visibleInGame = false;
     }
@@ -117,10 +117,10 @@ namespace DuckGame
       string text = "EMPTY";
       if (this.contains != (System.Type) null)
         text = this.contains.Name;
-      Graphics.DrawString(text, this.position + new Vec2((float) (-(double) Graphics.GetStringWidth(text) / 2.0), -16f), Color.White, (Depth) 0.9f);
+      Graphics.DrawString(text, this.position + new Vec2((float) (-(double) Graphics.GetStringWidth(text) / 2.0), -16f), Color.White, new Depth(0.9f));
       if (this.radius.value == 0)
         return;
-      Graphics.DrawCircle(this.position, (float) this.radius.value, Color.Red, depth: ((Depth) 0.9f));
+      Graphics.DrawCircle(this.position, (float) this.radius.value, Color.Red, depth: (new Depth(0.9f)));
     }
 
     public override void Draw()

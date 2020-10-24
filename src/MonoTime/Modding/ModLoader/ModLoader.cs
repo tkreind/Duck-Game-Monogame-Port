@@ -165,7 +165,7 @@ namespace DuckGame
     {
       if (!ModLoader.modsEnabled)
         return "nomods";
-      using (SHA256Cng shA256Cng = new SHA256Cng())
+      using (SHA256 shA256Cng = SHA256.Create())
       {
         ModLoader._modString = string.Join("|", ModLoader._sortedAccessibleMods.Where<Mod>((Func<Mod, bool>) (a => !(a is CoreMod) && !(a is DisabledMod))).Select<Mod, string>((Func<Mod, string>) (a => a.configuration.uniqueID + "_" + (object) a.configuration.version)));
         return string.IsNullOrEmpty(ModLoader._modString) ? "nomods" : Convert.ToBase64String(shA256Cng.ComputeHash(Encoding.ASCII.GetBytes(ModLoader._modString)));

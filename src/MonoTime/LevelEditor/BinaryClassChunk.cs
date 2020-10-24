@@ -306,7 +306,7 @@ namespace DuckGame
         return default (T);
       if (binaryClassChunk._result == DeserializeResult.HeaderDeserialized)
         binaryClassChunk.Deserialize();
-      return (T) binaryClassChunk;
+      return (T)(Object)binaryClassChunk;
     }
 
     private void SerializeArray(Array array, System.Type arrayType, BitBuffer data)

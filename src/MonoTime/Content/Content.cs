@@ -715,7 +715,7 @@ namespace DuckGame
             DuckGame.Content._texture2DMap[(object) tex] = tex2D;
           }
         }
-        return (T) tex2D;
+        return (T)(Object)tex2D;
       }
       if (typeof (T) == typeof (MTEffect))
       {
@@ -736,7 +736,7 @@ namespace DuckGame
             DuckGame.Content._effectMap[effect] = mtEffect;
           }
         }
-        return (T) mtEffect;
+        return (T)(Object)mtEffect;
       }
       if (typeof (T) == typeof (SoundEffect))
       {
@@ -761,7 +761,7 @@ namespace DuckGame
               break;
           }
         }
-        return (T) soundEffect;
+        return (T)(Object)soundEffect;
       }
       if (!(typeof (T) == typeof (Song)))
         return DuckGame.Content._base.Load<T>(name);
@@ -773,7 +773,7 @@ namespace DuckGame
           {
             Song song = accessibleMod.configuration.content.Load<Song>(name);
             if (song != null)
-              return (T) song;
+              return (T)(Object)song;
           }
         }
       }

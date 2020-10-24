@@ -20,7 +20,7 @@ namespace DuckGame
       this.layer = Layer.HUD;
       this.alpha = 0.0f;
       this._startWait = Rando.Float(2.5f);
-      this._sprite.depth = (Depth) 1f;
+      this._sprite.depth = new Depth(1f);
     }
 
     public override void Update()

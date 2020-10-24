@@ -476,7 +476,7 @@ namespace DuckGame
             HUD.CloseAllCorners();
             this._menuBool.value = false;
             UILevelBox._confirmMenu = (UIMenu) new UIPresentBox(RoomEditor.GetFurniture("YOYO"), Layer.HUD.camera.width / 2f, Layer.HUD.camera.height / 2f, 190f);
-            UILevelBox._confirmMenu.depth = (Depth) 0.98f;
+            UILevelBox._confirmMenu.depth = new Depth(0.98f);
             this._attemptingGive = true;
           }
           if (this._attemptingGive && UILevelBox._confirmMenu != null && !UILevelBox._confirmMenu.open)
@@ -497,7 +497,7 @@ namespace DuckGame
             UILevelBox._confirmMenu.Add((UIComponent) new UIText(" ", Color.White), true);
             UILevelBox._confirmMenu.Add((UIComponent) new UIMenuItem(Vincent.type == DayType.PawnDay ? "SELL |WHITE|(|LIME|$" + FurniShopScreen.attemptBuy.cost.ToString() + "|WHITE|)" : "BUY |WHITE|(|LIME|$" + FurniShopScreen.attemptBuy.cost.ToString() + "|WHITE|)", (UIMenuAction) new UIMenuActionCloseMenuSetBoolean((UIComponent) UILevelBox._confirmMenu, this._menuBool)), true);
             UILevelBox._confirmMenu.Add((UIComponent) new UIMenuItem("CANCEL", (UIMenuAction) new UIMenuActionCloseMenu((UIComponent) UILevelBox._confirmMenu), c: Colors.MenuOption, backButton: true), true);
-            UILevelBox._confirmMenu.depth = (Depth) 0.98f;
+            UILevelBox._confirmMenu.depth = new Depth(0.98f);
             UILevelBox._confirmMenu.DoInitialize();
             UILevelBox._confirmMenu.Close();
             for (int index = 0; index < 10; ++index)
@@ -582,7 +582,7 @@ label_36:
           {
             this._menuBool.value = false;
             UILevelBox._confirmMenu = new UIMenu("LEAVE VINCENT?", Layer.HUD.camera.width / 2f, Layer.HUD.camera.height / 2f, 160f, conString: "@SELECT@SELECT");
-            UILevelBox._confirmMenu.depth = (Depth) 0.98f;
+            UILevelBox._confirmMenu.depth = new Depth(0.98f);
             UILevelBox._confirmMenu.Add((UIComponent) new UIMenuItem("YES!", (UIMenuAction) new UIMenuActionCloseMenuSetBoolean((UIComponent) UILevelBox._confirmMenu, this._menuBool)), true);
             UILevelBox._confirmMenu.Add((UIComponent) new UIMenuItem("NO!", (UIMenuAction) new UIMenuActionCloseMenu((UIComponent) UILevelBox._confirmMenu)), true);
             UILevelBox._confirmMenu.DoInitialize();
@@ -838,7 +838,7 @@ label_36:
             if (this._talking)
               return;
             UILevelBox._confirmMenu = (UIMenu) new UIPresentBox(Profiles.experienceProfile.numLittleMen != 0 ? (Profiles.experienceProfile.numLittleMen != 1 ? (Profiles.experienceProfile.numLittleMen != 2 ? (Profiles.experienceProfile.numLittleMen != 3 ? (Profiles.experienceProfile.numLittleMen != 4 ? (Profiles.experienceProfile.numLittleMen != 5 ? (Profiles.experienceProfile.numLittleMen != 6 ? (Profiles.experienceProfile.numLittleMen != 7 ? UIGachaBox.GetRandomFurniture(Rarity.VeryRare, 1, 0.75f)[0] : RoomEditor.GetFurniture("JUKEBOX")) : RoomEditor.GetFurniture("EASEL")) : RoomEditor.GetFurniture("JUNK")) : RoomEditor.GetFurniture("WINE")) : RoomEditor.GetFurniture("GIFT BASKET")) : RoomEditor.GetFurniture("PLATE")) : RoomEditor.GetFurniture("PHOTO")) : RoomEditor.GetFurniture("EGG"), Layer.HUD.camera.width / 2f, Layer.HUD.camera.height / 2f, 190f);
-            UILevelBox._confirmMenu.depth = (Depth) 0.98f;
+            UILevelBox._confirmMenu.depth = new Depth(0.98f);
             UILevelBox._confirmMenu.DoInitialize();
             UILevelBox._confirmMenu.Open();
             this._genericWait = 0.5f;
@@ -1563,7 +1563,7 @@ label_36:
         Graphics.Draw(this._gachaBar, vec2_5.x + (num14 - 2f), vec2_5.y + num3, new Rectangle(3f, 0.0f, 3f, 3f));
         this._duckCoin.frame = 0;
         this._duckCoin.alpha = (float) (1.0 - (double) Math.Max(this._coinLerp - 0.5f, 0.0f) * 2.0);
-        this._duckCoin.depth = (Depth) 0.9f;
+        this._duckCoin.depth = new Depth(0.9f);
         Graphics.Draw((Sprite) this._duckCoin, (float) ((double) vec2_5.x + ((double) num13 - 2.0) + 15.0), (float) ((double) vec2_5.y + (double) num3 - 8.0 - (double) this._coinLerp * 18.0));
       }
       if (this._currentLevel >= 4)
@@ -1582,7 +1582,7 @@ label_36:
         this._sandwichBar.depth = this.depth + 7;
         this._sandwichBar.xscale = 1f;
         Graphics.Draw(this._sandwichBar, vec2_5.x + (num14 - 2f), vec2_5.y + num3, new Rectangle(3f, 0.0f, 3f, 3f));
-        this._sandwich.depth = (Depth) 0.88f;
+        this._sandwich.depth = new Depth(0.88f);
         float num15 = this._sandwichLerp * -150f;
         float num16 = 0.0f;
         float val1 = 0.0f;
@@ -1596,7 +1596,7 @@ label_36:
         }
         float x2 = Math.Max(val1, 0.0f);
         if ((double) x2 < (double) this._sandwich.width)
-          Graphics.Draw(this._sandwich, (float) ((double) vec2_5.x + ((double) num13 - 2.0) + 12.0 + (double) num16 + (double) x2 + 1.0), (float) ((double) vec2_5.y + (double) num3 - 16.0) + num15, new Rectangle(x2, 0.0f, (float) this._sandwich.width - x2, (float) this._sandwich.height), (Depth) 0.88f);
+          Graphics.Draw(this._sandwich, (float) ((double) vec2_5.x + ((double) num13 - 2.0) + 12.0 + (double) num16 + (double) x2 + 1.0), (float) ((double) vec2_5.y + (double) num3 - 16.0) + num15, new Rectangle(x2, 0.0f, (float) this._sandwich.width - x2, (float) this._sandwich.height), new Depth(0.88f));
       }
       if (this._currentStat.Key != null)
       {
@@ -1628,7 +1628,7 @@ label_36:
       foreach (LittleHeart heart in this._hearts)
       {
         this._heart.alpha = heart.alpha;
-        this._heart.depth = (Depth) 0.98f;
+        this._heart.depth = new Depth(0.98f);
         this._heart.scale = new Vec2(0.5f, 0.5f);
         Graphics.Draw(this._heart, heart.position.x, heart.position.y);
       }
@@ -1662,7 +1662,7 @@ label_36:
         {
           if (curLev == 2)
           {
-            this._egg.depth = (Depth) 0.85f;
+            this._egg.depth = new Depth(0.85f);
             this._egg.yscale = 1f;
             int num14 = 8;
             Vec2 vec2_5 = new Vec2(this.x + num9, this.y - 29f + num3 + (float) num14 + (float) num13);
@@ -1676,7 +1676,7 @@ label_36:
         else
         {
           this._littleMan.frame = UILevelBox.LittleManFrame(Profiles.experienceProfile.numLittleMen, curLev);
-          this._littleMan.depth = (Depth) 0.85f;
+          this._littleMan.depth = new Depth(0.85f);
           this._littleMan.yscale = 1f;
           this.littleManPos = new Vec2(this.x + num9, (float) ((double) this.y - 29.0 + (double) num3 + 4.0) + (float) num13);
           if (!this._inTaxi)
@@ -1688,7 +1688,7 @@ label_36:
             Graphics.Draw((Sprite) this._littleMan, this.x + num9, (float) ((double) this.y - 29.0 + ((double) num3 - (double) num12) + 4.0) + (float) num13, new Rectangle(0.0f, (float) (4 + num13), 16f, 1f));
             this._littleMan.center = center;
           }
-          this._talkBubble.depth = (Depth) 0.9f;
+          this._talkBubble.depth = new Depth(0.9f);
           string talkLine = this._talkLine;
           if (this._talkLine.Length > 0)
           {
@@ -1704,18 +1704,18 @@ label_36:
             Graphics.Draw(this._talkBubble, vec2_5.x, vec2_5.y + (y2 - 2f), new Rectangle(0.0f, 8f, 8f, 4f));
             Graphics.Draw(this._talkBubble, (float) ((double) vec2_5.x + (double) num14 + 8.0), vec2_5.y + (y2 - 2f), new Rectangle(8f, 8f, 4f, 4f));
             Graphics.Draw(this._talkBubble, (float) ((double) vec2_5.x + (double) num14 + 8.0), vec2_5.y, new Rectangle(8f, 0.0f, 4f, 4f));
-            Graphics.DrawRect(vec2_5 + new Vec2(5f, 2f), vec2_5 + new Vec2(num14 + 11f, y2), Color.White, (Depth) 0.9f);
-            Graphics.DrawLine(vec2_5 + new Vec2(4.5f, 5f), vec2_5 + new Vec2(4.5f, y2 - 1f), Color.Black, depth: ((Depth) 0.9f));
-            Graphics.DrawLine(vec2_5 + new Vec2(11.5f + num14, 4f), vec2_5 + new Vec2(11.5f + num14, y2 - 1f), Color.Black, depth: ((Depth) 0.9f));
-            Graphics.DrawString(talkLine, vec2_5 + new Vec2(6f, 2f), Color.Black, (Depth) 0.95f);
+            Graphics.DrawRect(vec2_5 + new Vec2(5f, 2f), vec2_5 + new Vec2(num14 + 11f, y2), Color.White, new Depth(0.9f));
+            Graphics.DrawLine(vec2_5 + new Vec2(4.5f, 5f), vec2_5 + new Vec2(4.5f, y2 - 1f), Color.Black, depth: (new Depth(0.9f)));
+            Graphics.DrawLine(vec2_5 + new Vec2(11.5f + num14, 4f), vec2_5 + new Vec2(11.5f + num14, y2 - 1f), Color.Black, depth: (new Depth(0.9f)));
+            Graphics.DrawString(talkLine, vec2_5 + new Vec2(6f, 2f), Color.Black, new Depth(0.95f));
           }
         }
       }
       if ((double) this._stampCardLerp > 0.00999999977648258)
       {
         float num12 = (float) (-((1.0 - (double) this._stampCardLerp) * 200.0) + Math.Sin((double) this._stampWobbleSin) * (double) this._stampWobble * 4.0);
-        Graphics.DrawRect(new Vec2(-1000f, -1000f), new Vec2(1000f, 1000f), Color.Black * 0.5f * this._stampCardLerp, (Depth) 0.96f);
-        Graphics.Draw((Sprite) this._sandwichCard, this.x, this.y + num12, (Depth) 0.97f);
+        Graphics.DrawRect(new Vec2(-1000f, -1000f), new Vec2(1000f, 1000f), Color.Black * 0.5f * this._stampCardLerp, new Depth(0.96f));
+        Graphics.Draw((Sprite) this._sandwichCard, this.x, this.y + num12, new Depth(0.97f));
         Random generator = Rando.generator;
         Random random = new Random(365023);
         Rando.generator = random;
@@ -1728,12 +1728,12 @@ label_36:
           float num15 = (float) (index / 2 * 16);
           this._sandwichStamp.angle = Rando.Float(-0.2f, 0.2f);
           this._sandwichStamp.frame = Rando.Int(3);
-          Graphics.Draw((Sprite) this._sandwichStamp, this.x + 30f + num14 + Rando.Float(-2f, 2f), this.y - 15f + num15 + Rando.Float(-2f, 2f) + num12, (Depth) 0.98f);
+          Graphics.Draw((Sprite) this._sandwichStamp, this.x + 30f + num14 + Rando.Float(-2f, 2f), this.y - 15f + num15 + Rando.Float(-2f, 2f) + num12, new Depth(0.98f));
           if (index == 5)
           {
             this._duckCoin.frame = 1;
             this._duckCoin.alpha = (float) (1.0 - (double) Math.Max(this._coinLerp2 - 0.5f, 0.0f) * 2.0);
-            this._duckCoin.depth = (Depth) 0.99f;
+            this._duckCoin.depth = new Depth(0.99f);
             Graphics.Draw((Sprite) this._duckCoin, this.x + 30f + num14, (float) ((double) this.y - 15.0 + (double) num15 + (double) num12 - (double) this._coinLerp2 * 18.0));
           }
         }
@@ -1741,14 +1741,14 @@ label_36:
       }
       if (this._currentLevel >= 7)
       {
-        this._milk.depth = (Depth) 0.7f;
+        this._milk.depth = new Depth(0.7f);
         this._milk.frame = (int) ((double) this._milkValue / (double) this.milkNeed * 15.0);
         Graphics.Draw((Sprite) this._milk, this.x + 26f, this.y - 33f);
         Vec2 vec2_5 = this.position + new Vec2(-88f, 44f);
         int num12 = 0;
         foreach (Sprite littleEgg in this.littleEggs)
         {
-          littleEgg.depth = (Depth) 0.85f;
+          littleEgg.depth = new Depth(0.85f);
           Graphics.Draw(littleEgg, vec2_5.x + (float) (num12 * 23), vec2_5.y);
           ++num12;
         }
@@ -1763,14 +1763,14 @@ label_36:
         int littleManBucks = Profiles.experienceProfile.littleManBucks;
         string str2 = "|DGGREEN|$";
         string text3 = littleManBucks <= 9999 ? str2 + littleManBucks.ToString() : str2 + (littleManBucks / 1000).ToString() + "K";
-        Graphics.DrawRect(vec2_6 + new Vec2(-16f, 9f), vec2_6 + new Vec2(15f, 18f), Color.Black, (Depth) 0.89f);
-        this._fancyFont.Draw(text3, vec2_6 + new Vec2(-16f, 9f) + new Vec2(30f - this._fancyFont.GetWidth(text3), 0.0f), Color.White, (Depth) 0.9f);
+        Graphics.DrawRect(vec2_6 + new Vec2(-16f, 9f), vec2_6 + new Vec2(15f, 18f), Color.Black, new Depth(0.89f));
+        this._fancyFont.Draw(text3, vec2_6 + new Vec2(-16f, 9f) + new Vec2(30f - this._fancyFont.GetWidth(text3), 0.0f), Color.White, new Depth(0.9f));
         if (this._giveMoney > 0 && (double) this._giveMoneyRise < 0.949999988079071)
         {
           string text4 = "+" + this._giveMoney.ToString();
           Color dgGreen = Colors.DGGreen;
           Color black = Color.Black;
-          this._fancyFont.DrawOutline(text4, vec2_6 + new Vec2(-16f, 9f) + new Vec2(30f - this._fancyFont.GetWidth(text4), (float) -(10.0 + (double) this._giveMoneyRise * 10.0)), dgGreen, black, (Depth) 0.97f);
+          this._fancyFont.DrawOutline(text4, vec2_6 + new Vec2(-16f, 9f) + new Vec2(30f - this._fancyFont.GetWidth(text4), (float) -(10.0 + (double) this._giveMoneyRise * 10.0)), dgGreen, black, new Depth(0.97f));
         }
         Vec2 vec2_5 = new Vec2();
         vec2_5.x = (float) (-Math.Sin((double) this.time * 12.0 * 6.28318548202515 - 3.14159274101257) * 8.0);
@@ -1778,8 +1778,8 @@ label_36:
         Vec2 vec2_7 = new Vec2();
         vec2_7.x = (float) (-Math.Sin((double) this.time * 6.28318548202515 - 3.14159274101257) * 5.0);
         vec2_7.y = (float) Math.Cos((double) this.time * 6.28318548202515 - 3.14159274101257) * 5f;
-        Graphics.DrawLine(p1_1, p1_1 + vec2_5, Color.Black, depth: ((Depth) 0.9f));
-        Graphics.DrawLine(p1_1, p1_1 + vec2_7, Color.Black, 1.5f, (Depth) 0.9f);
+        Graphics.DrawLine(p1_1, p1_1 + vec2_5, Color.Black, depth: (new Depth(0.9f)));
+        Graphics.DrawLine(p1_1, p1_1 + vec2_7, Color.Black, 1.5f, new Depth(0.9f));
         Random random = new Random(0);
         Random generator = Rando.generator;
         Rando.generator = random;
@@ -1835,14 +1835,14 @@ label_36:
         Graphics.DrawRect(new Vec2(-1000f, -1000f), new Vec2(1000f, 1000f), Color.Black * 0.5f, (Depth) (275f * (float) Math.PI / 887f));
       if (FurniShopScreen.open)
       {
-        Graphics.DrawRect(new Vec2(-1000f, -1000f), new Vec2(1000f, 1000f), Color.Black * 0.5f, (Depth) 0.95f);
+        Graphics.DrawRect(new Vec2(-1000f, -1000f), new Vec2(1000f, 1000f), Color.Black * 0.5f, new Depth(0.95f));
         FurniShopScreen.open = true;
         Vincent.Draw();
       }
       if ((double) this._taxiDrive > 0.0)
       {
         Vec2 vec2_5 = new Vec2((float) ((double) this.position.x - 200.0 + (double) this._taxiDrive * 210.0), this.position.y - 33f);
-        this._taxi.depth = (Depth) 0.97f;
+        this._taxi.depth = new Depth(0.97f);
         Graphics.Draw(this._taxi, vec2_5.x, vec2_5.y);
         if (this._inTaxi)
           Graphics.Draw((Sprite) this._littleMan, vec2_5.x - 16f, vec2_5.y - 8f, new Rectangle(0.0f, 0.0f, 16f, 6f));
@@ -1851,10 +1851,10 @@ label_36:
       {
         float x2 = (float) ((double) this._intermissionSlide * 320.0 - 320.0);
         float y2 = 60f;
-        Graphics.DrawRect(new Vec2(x2, y2), new Vec2(x2 + 320f, y2 + 30f), Color.Black, (Depth) 0.98f);
+        Graphics.DrawRect(new Vec2(x2, y2), new Vec2(x2 + 320f, y2 + 30f), Color.Black, new Depth(0.98f));
         float x3 = (float) (320.0 - (double) this._intermissionSlide * 320.0);
         float num12 = 60f;
-        Graphics.DrawRect(new Vec2(x3, num12 + 30f), new Vec2(x3 + 320f, num12 + 60f), Color.Black, (Depth) 0.98f);
+        Graphics.DrawRect(new Vec2(x3, num12 + 30f), new Vec2(x3 + 320f, num12 + 60f), Color.Black, new Depth(0.98f));
         string text3 = "ADVANCE DAY";
         switch (this.GetDay(Profiles.experienceProfile.currentDay))
         {
@@ -1891,7 +1891,7 @@ label_36:
         }
         if (this._overrideSlide != null)
           text3 = this._overrideSlide;
-        this._bigFont.Draw(text3, new Vec2((float) ((double) this._intermissionSlide * (320.0 + (double) Layer.HUD.width / 2.0 - (double) this._bigFont.GetWidth(text3) / 2.0) - 320.0), num12 + 18f), Color.White, (Depth) 0.99f);
+        this._bigFont.Draw(text3, new Vec2((float) ((double) this._intermissionSlide * (320.0 + (double) Layer.HUD.width / 2.0 - (double) this._bigFont.GetWidth(text3) / 2.0) - 320.0), num12 + 18f), Color.White, new Depth(0.99f));
       }
       this._lastFill = num8;
       if (UILevelBox._confirmMenu == null)

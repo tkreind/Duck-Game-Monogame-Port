@@ -18,7 +18,7 @@ namespace DuckGame
       this._font.scale = new Vec2(0.5f, 0.5f);
       this.layer = Layer.HUD;
       this._image = gun.GetEditorImage(0, 0, true);
-      this._image.depth = (Depth) 1f;
+      this._image.depth = new Depth(1f);
       this._image.scale = new Vec2(4f, 4f);
     }
 
@@ -28,7 +28,7 @@ namespace DuckGame
 
     public override void Draw()
     {
-      Graphics.DrawRect(this.position, this.position + new Vec2(100f, 100f), new Color(100, 100, 100), (Depth) 0.8f);
+      Graphics.DrawRect(this.position, this.position + new Vec2(100f, 100f), new Color(100, 100, 100), new Depth(0.8f));
       Graphics.Draw(this._image, this.position.x, this.position.y);
     }
   }

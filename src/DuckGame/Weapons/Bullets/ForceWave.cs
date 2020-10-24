@@ -35,7 +35,7 @@ namespace DuckGame
       this._collisionOffset = new Vec2(-3f, -15f);
       this.graphic.flipH = this.offDir <= (sbyte) 0;
       this.owner = (Thing) own;
-      this.depth = (Depth) -0.7f;
+      this.depth = new Depth(-0.7f);
     }
 
     public override void Update()

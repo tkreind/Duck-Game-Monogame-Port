@@ -270,7 +270,7 @@ namespace DuckGame
           float num2 = (Layer.HUD.camera.width - 0.0f) / (float) this._rockImage2.texture.width;
           this._rockImage2.color = new Color(this._tvFade, this._tvFade, this._tvFade);
           this._rockImage2.scale = new Vec2(num2, num2);
-          DuckGame.Graphics.Draw(this._rockImage2, num1 - 10f, y, (Depth) 0.8f);
+          DuckGame.Graphics.Draw(this._rockImage2, num1 - 10f, y, new Depth(0.8f));
         }
         else if (this._state == TVState.ShowNewscaster)
         {
@@ -278,9 +278,9 @@ namespace DuckGame
           this._duck.color = new Color(this._tvFade, this._tvFade, this._tvFade);
           this._tie.color = new Color(this._tvFade, this._tvFade, this._tvFade);
           this._newsTable.color = new Color(this._tvFade, this._tvFade, this._tvFade);
-          DuckGame.Graphics.Draw(this._background, 0.0f + this._cameraOffset.x, 3f + this._cameraOffset.y, (Depth) 0.5f);
-          DuckGame.Graphics.Draw(this._newsTable, 0.0f + this._cameraOffset.x, 116f + this._cameraOffset.y, (Depth) 0.6f);
-          this._duck.depth = (Depth) 0.8f;
+          DuckGame.Graphics.Draw(this._background, 0.0f + this._cameraOffset.x, 3f + this._cameraOffset.y, new Depth(0.5f));
+          DuckGame.Graphics.Draw(this._newsTable, 0.0f + this._cameraOffset.x, 116f + this._cameraOffset.y, new Depth(0.6f));
+          this._duck.depth = new Depth(0.8f);
           Vec2 vec2 = new Vec2(63f + this._cameraOffset.x, 35f + this._cameraOffset.y);
           DuckGame.Graphics.Draw((Sprite) this._duck, vec2.x, vec2.y);
           if (this._duck.frame == 6)
@@ -291,22 +291,22 @@ namespace DuckGame
             ++vec2.x;
           if (DG.isHalloween)
           {
-            this._pumpkin.depth = (Depth) 0.81f;
+            this._pumpkin.depth = new Depth(0.81f);
             DuckGame.Graphics.Draw(this._pumpkin, vec2.x + 69f, vec2.y + 22f);
           }
-          this._tie.depth = (Depth) 0.805f;
+          this._tie.depth = new Depth(0.805f);
           float num2 = 0.0f;
           if (this._duck.frame == 7)
             num2 += 2f;
           else if (this._duck.frame == 8)
             ++num2;
           DuckGame.Graphics.Draw((Sprite) this._tie, 130f + this._cameraOffset.x + num2, 96f + this._cameraOffset.y);
-          this._duckBeak.depth = (Depth) 0.81f;
+          this._duckBeak.depth = new Depth(0.81f);
           this._duckBeak.frame = this._duck.frame;
           DuckGame.Graphics.Draw((Sprite) this._duckBeak, 63f + this._cameraOffset.x, 35f + this._cameraOffset.y);
           if (HighlightLevel._image != null)
           {
-            HighlightLevel._image.depth = (Depth) 0.65f;
+            HighlightLevel._image.depth = new Depth(0.65f);
             if ((double) this._cameraOffset.x > 19.0)
               DuckGame.Graphics.Draw(HighlightLevel._image, 50f, 40f);
           }
@@ -318,7 +318,7 @@ namespace DuckGame
           HighlightLevel._image.scale = new Vec2(2f);
           DuckGame.Graphics.Draw(HighlightLevel._image, 40f, 30f);
         }
-        DuckGame.Graphics.Draw(this._tv, 0.0f, -10f, (Depth) 0.9f);
+        DuckGame.Graphics.Draw(this._tv, 0.0f, -10f, new Depth(0.9f));
       }
       base.PostDrawLayer(layer);
     }

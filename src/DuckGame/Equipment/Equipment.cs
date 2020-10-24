@@ -182,20 +182,21 @@ namespace DuckGame
 
     public override void OnSoftImpact(MaterialThing with, ImpactedFrom from)
     {
-      if (this._equippedDuck == null && (double) this.autoEquipTime > 0.0)
-      {
-        if (!(with is Duck duck) && with is FeatherVolume)
-          duck = (with as FeatherVolume).duckOwner;
-        if (duck != null)
-        {
-          duck.Equip(this);
-          if (this is ChokeCollar)
-          {
-            (this as ChokeCollar).ball.hSpeed = 0.0f;
-            (this as ChokeCollar).ball.vSpeed = 0.0f;
-          }
-        }
-      }
+      // TODO fix this garbage
+      //if (this._equippedDuck == null && (double) this.autoEquipTime > 0.0)
+      //{
+      //  if (!(with is Duck duck) && with is FeatherVolume)
+      //    duck = (with as FeatherVolume).duckOwner;
+      //  if (duck != null)
+      //  {
+      //    duck.Equip(this);
+      //    if (this is ChokeCollar)
+      //    {
+      //      (this as ChokeCollar).ball.hSpeed = 0.0f;
+      //      (this as ChokeCollar).ball.vSpeed = 0.0f;
+      //    }
+      //  }
+      //}
       base.OnSoftImpact(with, from);
     }
 

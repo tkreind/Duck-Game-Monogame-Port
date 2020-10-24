@@ -37,7 +37,7 @@ namespace DuckGame
       this._sin = new SinWave(0.03f + Rando.Float(0.1f), num2 * 6.283185f);
       this._size = 3f + Rando.Float(6f);
       this._speed = 0.8f + Rando.Float(1.4f);
-      this.depth = (Depth) 0.95f;
+      this.depth = new Depth(0.95f);
       this.scale = new Vec2(0.1f, 0.1f);
     }
 

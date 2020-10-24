@@ -96,7 +96,7 @@ namespace DuckGame
       float num1 = 256f;
       int width = Graphics.width;
       DevConsole._core.font.alpha = DevConsole._core.alpha;
-      DevConsole._core.font.Draw(DevConsole._core.typing, 16f, num1 + 20f, Color.White, (Depth) 0.9f);
+      DevConsole._core.font.Draw(DevConsole._core.typing, 16f, num1 + 20f, Color.White, new Depth(0.9f));
       int index1 = DevConsole._core.lines.Count - 1;
       float num2 = 0.0f;
       for (int index2 = 0; (double) index2 < (double) num1 / 18.0 && index1 >= 0; ++index2)
@@ -105,7 +105,7 @@ namespace DuckGame
         if (!NetworkDebugger.enabled || dcLine.threadIndex == NetworkDebugger.networkDrawingIndex)
         {
           DevConsole._core.font.scale = new Vec2(dcLine.scale);
-          DevConsole._core.font.Draw(dcLine.SectionString() + dcLine.line, 16f, num1 - 20f - num2, dcLine.color * 0.8f, (Depth) 0.9f);
+          DevConsole._core.font.Draw(dcLine.SectionString() + dcLine.line, 16f, num1 - 20f - num2, dcLine.color * 0.8f, new Depth(0.9f));
           num2 += (float) (18.0 * ((double) dcLine.scale * 0.5));
           DevConsole._core.font.scale = new Vec2(2f);
         }
@@ -115,16 +115,16 @@ namespace DuckGame
         return;
       DevConsole._tray.alpha = DevConsole._core.alpha;
       DevConsole._tray.scale = new Vec2(4f, 4f);
-      DevConsole._tray.depth = (Depth) 0.75f;
+      DevConsole._tray.depth = new Depth(0.75f);
       Graphics.Draw(DevConsole._tray, 0.0f, 0.0f);
       DevConsole._scan.alpha = DevConsole._core.alpha;
       DevConsole._scan.scale = new Vec2(2f, 2f);
-      DevConsole._scan.depth = (Depth) 0.95f;
+      DevConsole._scan.depth = new Depth(0.95f);
       Graphics.Draw(DevConsole._scan, 0.0f, 0.0f);
-      DevConsole._core.fancyFont.depth = (Depth) 0.98f;
+      DevConsole._core.fancyFont.depth = new Depth(0.98f);
       DevConsole._core.fancyFont.alpha = DevConsole._core.alpha;
       string version = DG.version;
-      DevConsole._core.fancyFont.Draw(version, new Vec2(1116f, 284f), Colors.SuperDarkBlueGray, (Depth) 0.98f);
+      DevConsole._core.fancyFont.Draw(version, new Vec2(1116f, 284f), Colors.SuperDarkBlueGray, new Depth(0.98f));
     }
 
     public static Profile ProfileByName(string findName)

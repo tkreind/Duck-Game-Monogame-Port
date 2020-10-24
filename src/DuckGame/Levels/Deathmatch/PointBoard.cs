@@ -24,7 +24,7 @@ namespace DuckGame
       this.collisionSize = new Vec2(16f, 13f);
       this.center = new Vec2((float) (this._scoreCard.w / 2), (float) (this._scoreCard.h / 2));
       this._stick = rock;
-      this.depth = (Depth) -0.1f;
+      this.depth = new Depth(-0.1f);
     }
 
     public override void Update()

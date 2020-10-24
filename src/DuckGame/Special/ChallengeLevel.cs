@@ -715,11 +715,11 @@ namespace DuckGame
           text = "";
         float width = this._font.GetWidth(text);
         float num = 1f;
-        this._font.Draw(text, (float) ((double) Layer.HUD.camera.width / 2.0 - (double) width / 2.0) - num, (float) ((double) Layer.HUD.camera.height / 2.0 - (double) this._font.height / 2.0) - num, Color.Black, (Depth) 0.9f);
-        this._font.Draw(text, (float) ((double) Layer.HUD.camera.width / 2.0 - (double) width / 2.0) - num, (float) ((double) Layer.HUD.camera.height / 2.0 - (double) this._font.height / 2.0) + num, Color.Black, (Depth) 0.9f);
-        this._font.Draw(text, (float) ((double) Layer.HUD.camera.width / 2.0 - (double) width / 2.0) + num, (float) ((double) Layer.HUD.camera.height / 2.0 - (double) this._font.height / 2.0) - num, Color.Black, (Depth) 0.9f);
-        this._font.Draw(text, (float) ((double) Layer.HUD.camera.width / 2.0 - (double) width / 2.0) + num, (float) ((double) Layer.HUD.camera.height / 2.0 - (double) this._font.height / 2.0) + num, Color.Black, (Depth) 0.9f);
-        this._font.Draw(text, (float) ((double) Layer.HUD.camera.width / 2.0 - (double) width / 2.0), (float) ((double) Layer.HUD.camera.height / 2.0 - (double) this._font.height / 2.0), Color.White, (Depth) 1f);
+        this._font.Draw(text, (float) ((double) Layer.HUD.camera.width / 2.0 - (double) width / 2.0) - num, (float) ((double) Layer.HUD.camera.height / 2.0 - (double) this._font.height / 2.0) - num, Color.Black, new Depth(0.9f));
+        this._font.Draw(text, (float) ((double) Layer.HUD.camera.width / 2.0 - (double) width / 2.0) - num, (float) ((double) Layer.HUD.camera.height / 2.0 - (double) this._font.height / 2.0) + num, Color.Black, new Depth(0.9f));
+        this._font.Draw(text, (float) ((double) Layer.HUD.camera.width / 2.0 - (double) width / 2.0) + num, (float) ((double) Layer.HUD.camera.height / 2.0 - (double) this._font.height / 2.0) - num, Color.Black, new Depth(0.9f));
+        this._font.Draw(text, (float) ((double) Layer.HUD.camera.width / 2.0 - (double) width / 2.0) + num, (float) ((double) Layer.HUD.camera.height / 2.0 - (double) this._font.height / 2.0) + num, Color.Black, new Depth(0.9f));
+        this._font.Draw(text, (float) ((double) Layer.HUD.camera.width / 2.0 - (double) width / 2.0), (float) ((double) Layer.HUD.camera.height / 2.0 - (double) this._font.height / 2.0), Color.White, new Depth(1f));
       }
       base.PostDrawLayer(layer);
     }

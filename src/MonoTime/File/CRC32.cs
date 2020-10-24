@@ -276,7 +276,7 @@ namespace DuckGame
     public unsafe void ProcessBlock(byte* block, int blockLen)
     {
       for (int index = 0; index < blockLen; ++index)
-        this._crc = this._crc >> 8 ^ CRC32.table[(IntPtr) (uint) (((int) this._crc ^ (int) block[index]) & (int) byte.MaxValue)];
+        this._crc = this._crc >> 8 ^ CRC32.table[(uint) (((int) this._crc ^ (int) block[index]) & (int) byte.MaxValue)];
     }
 
     public void Initialize() => this._crc = uint.MaxValue;

@@ -143,7 +143,8 @@ namespace DuckGame
               }
             }
             Vec2 normalized2 = (p1_1 - holdable1.position).normalized;
-            if (duck != null && holdable1 is Equipment)
+            // TODO if (duck != null && holdable1 is Equipment)
+            if (false)
             {
               if (duck.ragdoll != null)
               {
@@ -232,11 +233,11 @@ namespace DuckGame
               grabbed.ReturnToWorld();
               this.ReturnItemToWorld((Thing) grabbed);
             }
-            if (this._grabbed is Duck grabbed)
+            if (this._grabbed is Duck grabbed2)
             {
-              grabbed.immobilized = false;
-              grabbed.gripped = false;
-              grabbed.crippleTimer = 1f;
+              grabbed2.immobilized = false;
+              grabbed2.gripped = false;
+              grabbed2.crippleTimer = 1f;
             }
             this._grabbed.visible = true;
             this._grabbed.enablePhysics = true;
@@ -264,11 +265,11 @@ namespace DuckGame
             this._grabbed = (Thing) (this._grabbed as TrappedDuck)._duckOwner;
             if (this._grabbed != null)
             {
-              Duck grabbed = this._grabbed as Duck;
-              grabbed.immobilized = true;
-              grabbed.gripped = true;
-              grabbed.ThrowItem();
-              grabbed._trapped = (TrappedDuck) null;
+              Duck grabbed2 = this._grabbed as Duck;
+              grabbed2.immobilized = true;
+              grabbed2.gripped = true;
+              grabbed2.ThrowItem();
+              grabbed2._trapped = (TrappedDuck) null;
             }
           }
           if (this._grabbed is Duck grabbed)

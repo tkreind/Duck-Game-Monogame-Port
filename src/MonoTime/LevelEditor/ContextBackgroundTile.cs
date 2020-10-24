@@ -32,7 +32,7 @@ namespace DuckGame
       this._text = thing.editorName;
       this.itemSize.x = (float) (this._text.Length * 8 + 16);
       this._canExpand = true;
-      this.depth = (Depth) 0.8f;
+      this.depth = new Depth(0.8f);
       if (this._thing is CustomBackground)
         this._file = new ContextFile("BURG", (IContextListener) this, new FieldBinding((object) this._thing, "customBackground0" + (object) ((thing as CustomBackground).customIndex + 1)), ContextFileType.Background);
       IReadOnlyPropertyBag bag = ContentProperties.GetBag(thing.GetType());
@@ -61,10 +61,10 @@ namespace DuckGame
         if (this.greyOut)
           num = 0.3f;
         if (this._hover && !this.greyOut)
-          DuckGame.Graphics.DrawRect(this.position, this.position + this.itemSize, new Color(70, 70, 70), (Depth) 0.82f);
-        DuckGame.Graphics.DrawFancyString(this._text, this.position + new Vec2(2f, 4f), Color.White * num, (Depth) 0.85f);
+          DuckGame.Graphics.DrawRect(this.position, this.position + this.itemSize, new Color(70, 70, 70), new Depth(0.82f));
+        DuckGame.Graphics.DrawFancyString(this._text, this.position + new Vec2(2f, 4f), Color.White * num, new Depth(0.85f));
         this._contextArrow.color = Color.White * num;
-        DuckGame.Graphics.Draw(this._contextArrow, (float) ((double) this.x + (double) this.itemSize.x - 11.0), this.y + 3f, (Depth) 0.85f);
+        DuckGame.Graphics.Draw(this._contextArrow, (float) ((double) this.x + (double) this.itemSize.x - 11.0), this.y + 3f, new Depth(0.85f));
       }
       if (this.opened)
       {
@@ -81,10 +81,10 @@ namespace DuckGame
         Vec2 vec2_1 = new Vec2(graphic.position);
         this._thing.x = (float) ((double) p1.x + 1.0 + (double) graphic.w / 2.0);
         this._thing.y = (float) ((double) p1.y + 1.0 + (double) graphic.h / 2.0);
-        this._thing.depth = (Depth) 0.7f;
-        DuckGame.Graphics.DrawRect(p1, p1 + new Vec2(x, y), new Color(70, 70, 70), (Depth) 0.5f);
-        DuckGame.Graphics.DrawRect(p1 + new Vec2(1f, 1f), p1 + new Vec2(x - 1f, y - 1f), new Color(30, 30, 30), (Depth) 0.6f);
-        DuckGame.Graphics.Draw(graphic.texture, new Vec2(this._thing.x, this._thing.y), new Rectangle?(), Color.White, 0.0f, this._thing.center, this._thing.scale, SpriteEffects.None, (Depth) 0.7f);
+        this._thing.depth = new Depth(0.7f);
+        DuckGame.Graphics.DrawRect(p1, p1 + new Vec2(x, y), new Color(70, 70, 70), new Depth(0.5f));
+        DuckGame.Graphics.DrawRect(p1 + new Vec2(1f, 1f), p1 + new Vec2(x - 1f, y - 1f), new Color(30, 30, 30), new Depth(0.6f));
+        DuckGame.Graphics.Draw(graphic.texture, new Vec2(this._thing.x, this._thing.y), new Rectangle?(), Color.White, 0.0f, this._thing.center, this._thing.scale, SpriteEffects.None, new Depth(0.7f));
         if (this._root && this._file != null)
         {
           Vec2 vec2_2 = new Vec2(p1 + new Vec2(x + 4f, 0.0f));
@@ -128,7 +128,7 @@ namespace DuckGame
         this._hoverPos.y = (float) Math.Round((double) this._hoverPos.y / (double) graphic.h) * (float) graphic.h;
         if ((this._file == null || !this._file.hover) && ((double) this._hoverPos.x >= 0.0 && (double) this._hoverPos.x < (double) graphic.texture.width) && ((double) this._hoverPos.y >= 0.0 && (double) this._hoverPos.y < (double) graphic.texture.height))
         {
-          DuckGame.Graphics.DrawRect(this._hoverPos + p1, this._hoverPos + p1 + new Vec2((float) (graphic.w + 2), (float) (graphic.h + 2)), Color.Lime * 0.8f, (Depth) 0.8f, false);
+          DuckGame.Graphics.DrawRect(this._hoverPos + p1, this._hoverPos + p1 + new Vec2((float) (graphic.w + 2), (float) (graphic.h + 2)), Color.Lime * 0.8f, new Depth(0.8f), false);
           if (Mouse.left == InputState.Pressed || Input.Pressed("SELECT"))
           {
             graphic.frame = (int) ((double) this._hoverPos.x / (double) graphic.w + (double) this._hoverPos.y / (double) graphic.h * (double) (graphic.texture.width / graphic.w));

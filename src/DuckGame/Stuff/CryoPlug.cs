@@ -23,7 +23,7 @@ namespace DuckGame
       this._collisionSize = new Vec2(12f, 12f);
       this._collisionOffset = new Vec2(-6f, -6f);
       this._sprite.frame = 0;
-      this.depth = (Depth) 0.9f;
+      this.depth = new Depth(0.9f);
     }
 
     public void AttachTo(Thing t)
@@ -46,7 +46,7 @@ namespace DuckGame
             this._sprite.frame = 1;
             this._enablePhysics = false;
             this.position = powerSocket.position;
-            this.depth = (Depth) -0.8f;
+            this.depth = new Depth(-0.8f);
             return;
           }
         }

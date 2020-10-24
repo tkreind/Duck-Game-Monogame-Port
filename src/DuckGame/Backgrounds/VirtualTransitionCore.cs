@@ -307,11 +307,11 @@ namespace DuckGame
         Graphics.Draw(this._scanner, vec2_1.x, vec2_1.y);
         float num2 = Math.Abs(this._stick - 0.5f);
         float num3 = 0.5f - num2;
-        Graphics.DrawLine(vec2_1 + new Vec2(18f, 20f), new Vec2(x, (float) ((double) vec2_1.y - 100.0 + (double) num2 * 250.0)), Color.Red * num3, 2f, (Depth) 0.9f);
-        Graphics.DrawLine(vec2_1 + new Vec2(18f, 34f), new Vec2(x, (float) ((double) vec2_1.y - 10.0 + 80.0 * (double) num2)), Color.Red * num3, 2f, (Depth) 0.9f);
+        Graphics.DrawLine(vec2_1 + new Vec2(18f, 20f), new Vec2(x, (float) ((double) vec2_1.y - 100.0 + (double) num2 * 250.0)), Color.Red * num3, 2f, new Depth(0.9f));
+        Graphics.DrawLine(vec2_1 + new Vec2(18f, 34f), new Vec2(x, (float) ((double) vec2_1.y - 10.0 + 80.0 * (double) num2)), Color.Red * num3, 2f, new Depth(0.9f));
         Vec2 vec2_2 = vec2_1 + new Vec2(0.0f, (float) this._scanner.height);
-        Graphics.DrawLine(vec2_2 + new Vec2(18f, -20f), new Vec2(x, (float) ((double) vec2_2.y + 100.0 - (double) num2 * 250.0)), Color.Red * num3, 2f, (Depth) 0.9f);
-        Graphics.DrawLine(vec2_2 + new Vec2(18f, -34f), new Vec2(x, (float) ((double) vec2_2.y + 10.0 - 80.0 * (double) num2)), Color.Red * num3, 2f, (Depth) 0.9f);
+        Graphics.DrawLine(vec2_2 + new Vec2(18f, -20f), new Vec2(x, (float) ((double) vec2_2.y + 100.0 - (double) num2 * 250.0)), Color.Red * num3, 2f, new Depth(0.9f));
+        Graphics.DrawLine(vec2_2 + new Vec2(18f, -34f), new Vec2(x, (float) ((double) vec2_2.y + 10.0 - 80.0 * (double) num2)), Color.Red * num3, 2f, new Depth(0.9f));
         this._parallax.Update();
         this._parallax.Draw();
       }

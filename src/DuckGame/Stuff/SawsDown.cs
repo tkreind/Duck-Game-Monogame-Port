@@ -21,7 +21,7 @@ namespace DuckGame
       this.center = new Vec2(8f, 14f);
       this.collisionOffset = new Vec2(-6f, -4f);
       this.collisionSize = new Vec2(12f, 4f);
-      this.depth = (Depth) 0.3f;
+      this.depth = new Depth(0.3f);
       this._editorName = "Saws Down";
       this.thickness = 3f;
       this.physicsMaterial = PhysicsMaterial.Metal;

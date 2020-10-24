@@ -39,7 +39,7 @@ namespace DuckGame
     {
       this._sprite = new SpriteMap("arcade/prizeCounter", 69, 30);
       this.graphic = (Sprite) this._sprite;
-      this.depth = (Depth) -0.5f;
+      this.depth = new Depth(-0.5f);
       this._outline = new Sprite("arcade/prizeCounterOutline");
       this._outline.depth = this.depth + 1;
       this._outline.CenterOrigin();
@@ -119,7 +119,7 @@ namespace DuckGame
           this._hoverSprite.alpha = Lerp.Float(this._hoverSprite.alpha, 0.0f, 0.05f);
         if ((double) this._hoverSprite.alpha > 0.00999999977648258)
         {
-          this._hoverSprite.depth = (Depth) 0.0f;
+          this._hoverSprite.depth = new Depth(0.0f);
           this._hoverSprite.flipH = Chancy.body.flipH;
           if (this._hoverSprite.flipH)
             Graphics.Draw(this._hoverSprite, (float) ((double) this.x + (double) vec2.x + 1.0), (float) ((double) this.y + (double) vec2.y - 1.0));

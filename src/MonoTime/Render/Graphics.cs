@@ -677,7 +677,7 @@ namespace DuckGame
       DuckGame.Graphics.Clear(new Color(0, 0, 0, 0));
       material.Apply();
       DuckGame.Graphics.screen.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.Default, RasterizerState.CullNone, material.effect, Matrix.Identity);
-      DuckGame.Graphics.Draw(sprite, new Vec2(), new Rectangle?(), Color.White, 0.0f, new Vec2(), new Vec2(1f, 1f), SpriteEffects.None, (Depth) 0.5f);
+      DuckGame.Graphics.Draw(sprite, new Vec2(), new Rectangle?(), Color.White, 0.0f, new Vec2(), new Vec2(1f, 1f), SpriteEffects.None, new Depth(0.5f));
       DuckGame.Graphics.screen.End();
       DuckGame.Graphics.device.SetRenderTarget((Microsoft.Xna.Framework.Graphics.RenderTarget2D) null);
       return (Tex2D) t;

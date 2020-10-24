@@ -115,7 +115,7 @@ namespace DuckGame
       if (this._drawGraph)
       {
         core.core.netGraph.DrawChart(new Vec2(this.x + 4f, (float) ((double) this.y + (double) vec2.y - 108.0)));
-        Graphics.DrawRect(new Vec2(this.x, (float) ((double) this.y + (double) vec2.y - 120.0)), new Vec2(this.x + (vec2.x - 20f), (float) ((double) this.y + (double) vec2.y - 20.0)), Color.Black * 0.8f, (Depth) 0.1f);
+        Graphics.DrawRect(new Vec2(this.x, (float) ((double) this.y + (double) vec2.y - 120.0)), new Vec2(this.x + (vec2.x - 20f), (float) ((double) this.y + (double) vec2.y - 20.0)), Color.Black * 0.8f, new Depth(0.1f));
       }
       else
       {
@@ -142,12 +142,12 @@ namespace DuckGame
             color.r = (byte) ((double) color.r * (double) num5);
             color.g = (byte) ((double) color.g * (double) num5);
             color.b = (byte) ((double) color.b * (double) num5);
-            Graphics.DrawString(dcLine.SectionString() + dcLine.line, new Vec2(this.x + 10f, (float) ((double) this.y + (double) num1 - (double) num2 - 10.0)), color * 0.8f * num4, (Depth) 0.9f);
+            Graphics.DrawString(dcLine.SectionString() + dcLine.line, new Vec2(this.x + 10f, (float) ((double) this.y + (double) num1 - (double) num2 - 10.0)), color * 0.8f * num4, new Depth(0.9f));
             num2 += 9f;
           }
           --index1;
         }
-        Graphics.DrawRect(new Vec2(this.x, this.y + vec2.y - (float) (num3 * 9 + 28)), new Vec2(this.x + (vec2.x - 20f), (float) ((double) this.y + (double) vec2.y - 20.0)), Color.Black * 0.8f, (Depth) 0.1f);
+        Graphics.DrawRect(new Vec2(this.x, this.y + vec2.y - (float) (num3 * 9 + 28)), new Vec2(this.x + (vec2.x - 20f), (float) ((double) this.y + (double) vec2.y - 20.0)), Color.Black * 0.8f, new Depth(0.1f));
       }
     }
 
@@ -286,20 +286,20 @@ namespace DuckGame
             if (this.hoverLevel == index)
               col = new Color(170, 170, 170);
             float x = 100f;
-            Graphics.DrawRect(position, position + new Vec2(x, 8f), col, (Depth) 0.8f);
+            Graphics.DrawRect(position, position + new Vec2(x, 8f), col, new Depth(0.8f));
             this.level = index;
             string valueString = this.GetValueString();
-            Graphics.DrawString(valueString, position + new Vec2(x / 2f, 0.0f) - new Vec2(Graphics.GetStringWidth(valueString) / 2f, 0.0f), Color.White, (Depth) 0.9f);
+            Graphics.DrawString(valueString, position + new Vec2(x / 2f, 0.0f) - new Vec2(Graphics.GetStringWidth(valueString) / 2f, 0.0f), Color.White, new Depth(0.9f));
             position.x += x + 2f;
           }
           this.level = -1;
           this.barBR = new Vec2(position.x, position.y + 8f);
           position.x += 2f;
-          Graphics.DrawRect(this.position, new Vec2(this.position.x + 480f, position.y + 9f), Color.Black * 0.8f, (Depth) 0.1f);
+          Graphics.DrawRect(this.position, new Vec2(this.position.x + 480f, position.y + 9f), Color.Black * 0.8f, new Depth(0.1f));
         }
         else
         {
-          Graphics.DrawString(this.name + ": ", this.position, Color.White, (Depth) 1f);
+          Graphics.DrawString(this.name + ": ", this.position, Color.White, new Depth(1f));
           int num = this.maxLevel / this.increment;
           Vec2 vec2 = this.position + new Vec2(80f, 0.0f);
           this.barTL = vec2;
@@ -325,7 +325,7 @@ namespace DuckGame
               col.g = (byte) ((double) col.g * (1.0 - (double) r));
               col.b = (byte) 0;
             }
-            Graphics.DrawRect(vec2, vec2 + new Vec2(4f, 8f), col, (Depth) 0.9f);
+            Graphics.DrawRect(vec2, vec2 + new Vec2(4f, 8f), col, new Depth(0.9f));
             vec2.x += 5f;
           }
           this.barBR = new Vec2(vec2.x, vec2.y + 8f);
@@ -337,9 +337,9 @@ namespace DuckGame
             text = text + " |GREEN|(" + ((int) ((double) n.core.averageJitter * 1000.0)).ToString() + "ms actual)" + " |YELLOW|(" + ((int) ((double) n.core.averageJitterPeak * 1000.0)).ToString() + "ms peak)";
           else if (this.name == "Loss" && n.core.connections.Count > 0)
             text = text + " |RED|(" + n.core.averagePacketLoss.ToString() + " lost)" + " |RED|(" + n.core.averagePacketLossPercent.ToString() + "% avg)";
-          Graphics.DrawString(text, vec2, Color.White, (Depth) 1f);
+          Graphics.DrawString(text, vec2, Color.White, new Depth(1f));
           vec2.x += Graphics.GetStringWidth(text);
-          Graphics.DrawRect(this.position, new Vec2(this.position.x + 480f, vec2.y + 9f), Color.Black * 0.8f, (Depth) 0.1f);
+          Graphics.DrawRect(this.position, new Vec2(this.position.x + 480f, vec2.y + 9f), Color.Black * 0.8f, new Depth(0.1f));
         }
       }
 

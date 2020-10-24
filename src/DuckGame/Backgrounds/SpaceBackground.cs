@@ -22,7 +22,7 @@ namespace DuckGame
       this.center = new Vec2(8f, 8f);
       this._collisionSize = new Vec2(16f, 16f);
       this._collisionOffset = new Vec2(-8f, -8f);
-      this.depth = (Depth) 0.9f;
+      this.depth = new Depth(0.9f);
       this.layer = Layer.Foreground;
       this._visibleInGame = false;
       this._speedMult = speedMult;
@@ -39,7 +39,7 @@ namespace DuckGame
       this._parallax = new ParallaxBackground("background/space", 0.0f, 0.0f, 3);
       float speed = 0.4f * this._speedMult;
       Sprite s = new Sprite("background/planet");
-      s.depth = (Depth) -0.9f;
+      s.depth = new Depth(-0.9f);
       s.position = new Vec2(200f, 50f);
       this._parallax.AddZoneSprite(s, 19, 0.99f, speed);
       this._parallax.AddZone(20, 0.93f, speed, this._moving);

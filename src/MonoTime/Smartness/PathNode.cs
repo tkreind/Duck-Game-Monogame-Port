@@ -259,7 +259,7 @@ label_11:
           color = Color.Blue;
         if (link.oneWay && link.gap)
           color = Color.LightBlue;
-        Graphics.DrawLine(this.position, link.link.position, color * 0.2f, depth: ((Depth) 0.9f));
+        Graphics.DrawLine(this.position, link.link.position, color * 0.2f, depth: (new Depth(0.9f)));
         float length = (link.link.position - this.position).length;
         Vec2 normalized = (link.link.position - this.position).normalized;
         Vec2 vec2_1 = normalized;
@@ -267,8 +267,8 @@ label_11:
         Vec2 vec2_3 = -vec2_1.Rotate(1f, Vec2.Zero);
         Vec2 vec2_4 = -vec2_2.Rotate(-1f, Vec2.Zero);
         Vec2 p1 = this.position + normalized * (length / 1.5f);
-        Graphics.DrawLine(p1, p1 + vec2_3 * 4f, color * 0.2f, depth: ((Depth) 0.9f));
-        Graphics.DrawLine(p1, p1 + vec2_4 * 4f, color * 0.2f, depth: ((Depth) 0.9f));
+        Graphics.DrawLine(p1, p1 + vec2_3 * 4f, color * 0.2f, depth: (new Depth(0.9f)));
+        Graphics.DrawLine(p1, p1 + vec2_4 * 4f, color * 0.2f, depth: (new Depth(0.9f)));
       }
       base.Draw();
     }

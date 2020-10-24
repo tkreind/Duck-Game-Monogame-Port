@@ -95,10 +95,10 @@ namespace DuckGame
     {
       if (!this.open)
         return;
-      DuckGame.Graphics.DrawRect(new Vec2(this._capturePosition.x - 1f, this._capturePosition.y - 1f), new Vec2((float) ((double) this._capturePosition.x + (double) (int) this._captureSize.x + 1.0), (float) ((double) this._capturePosition.y + (double) (int) this._captureSize.y + 1.0)), Color.White, (Depth) 1f, false);
+      DuckGame.Graphics.DrawRect(new Vec2(this._capturePosition.x - 1f, this._capturePosition.y - 1f), new Vec2((float) ((double) this._capturePosition.x + (double) (int) this._captureSize.x + 1.0), (float) ((double) this._capturePosition.y + (double) (int) this._captureSize.y + 1.0)), Color.White, new Depth(1f), false);
       if (this._captureTarget == null)
         return;
-      DuckGame.Graphics.Draw((Tex2D) this._captureTarget, this._capturePosition, new Rectangle?(new Rectangle(0.0f, 0.0f, (float) ((int) this._captureSize.x * 4), (float) ((int) this._captureSize.y * 4))), Color.White, 0.0f, Vec2.Zero, new Vec2(0.25f, 0.25f), SpriteEffects.None, (Depth) 1f);
+      DuckGame.Graphics.Draw((Tex2D) this._captureTarget, this._capturePosition, new Rectangle?(new Rectangle(0.0f, 0.0f, (float) ((int) this._captureSize.x * 4), (float) ((int) this._captureSize.y * 4))), Color.White, 0.0f, Vec2.Zero, new Vec2(0.25f, 0.25f), SpriteEffects.None, new Depth(1f));
     }
   }
 }

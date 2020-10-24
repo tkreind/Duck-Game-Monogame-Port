@@ -18,7 +18,7 @@ namespace DuckGame
       this._sprite.SetAnimation("splash");
       this.center = new Vec2(0.0f, 7f);
       this.graphic = (Sprite) this._sprite;
-      this.depth = (Depth) 0.7f;
+      this.depth = new Depth(0.7f);
       this.alpha = 0.6f;
       this.angle = Maths.DegToRad(-Maths.PointDirection(Vec2.Zero, dir));
       this.anchor = new Anchor(attach);

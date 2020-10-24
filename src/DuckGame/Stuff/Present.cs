@@ -24,7 +24,7 @@ namespace DuckGame
       this.center = new Vec2(8f, 8f);
       this.collisionOffset = new Vec2(-7f, -4f);
       this.collisionSize = new Vec2(14f, 11f);
-      this.depth = (Depth) -0.5f;
+      this.depth = new Depth(-0.5f);
       this.thickness = 0.0f;
       this.weight = 3f;
       this.collideSounds.Add("presentLand");

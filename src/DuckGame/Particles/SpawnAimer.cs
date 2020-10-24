@@ -82,8 +82,8 @@ namespace DuckGame
       {
         float deg = this.rot + (float) index * 90f;
         Vec2 vec2 = new Vec2((float) Math.Cos((double) Maths.DegToRad(deg)), (float) -Math.Sin((double) Maths.DegToRad(deg)));
-        Graphics.DrawLine(this.position + vec2 * distOut, this.position + vec2 * (distOut + this.distLen), this._color * this.alpha, this._thickness, (Depth) 0.9f);
-        Graphics.DrawLine(this.position + vec2 * (distOut - 1f), this.position + vec2 * (distOut + 1f + this.distLen), Color.Black, this._thickness + 2f, (Depth) 0.8f);
+        Graphics.DrawLine(this.position + vec2 * distOut, this.position + vec2 * (distOut + this.distLen), this._color * this.alpha, this._thickness, new Depth(0.9f));
+        Graphics.DrawLine(this.position + vec2 * (distOut - 1f), this.position + vec2 * (distOut + 1f + this.distLen), Color.Black, this._thickness + 2f, new Depth(0.8f));
       }
       if ((double) this.streamAlpha <= 0.00999999977648258)
         return;
@@ -95,7 +95,7 @@ namespace DuckGame
         if (flag)
         {
           Vec2 normalized = (vec2_1 - prevPo).normalized;
-          Graphics.DrawLine(vec2_1 - normalized, prevPo + normalized, this._color * this.streamAlpha, (float) (4.0 + (double) num2 * 2.0), (Depth) 0.9f);
+          Graphics.DrawLine(vec2_1 - normalized, prevPo + normalized, this._color * this.streamAlpha, (float) (4.0 + (double) num2 * 2.0), new Depth(0.9f));
         }
         vec2_1 = prevPo;
         flag = true;

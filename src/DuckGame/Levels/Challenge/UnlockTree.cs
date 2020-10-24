@@ -49,7 +49,7 @@ namespace DuckGame
     {
       if ((double) this.alpha < 0.00999999977648258)
         return;
-      Duck duck = Level.First<Duck>();
+      Duck duck = (Duck)Level.First<Duck>();
       InputProfile inputProfile = InputProfile.DefaultPlayer1;
       if (duck != null)
         inputProfile = duck.inputProfile;
@@ -217,18 +217,18 @@ namespace DuckGame
         color1 = new Color((byte) ((double) color1.r * (double) num5), (byte) ((double) color1.g * (double) num5), (byte) ((double) color1.b * (double) num5));
         float num6 = treeLayer.Count != 1 ? (treeLayer.Count != 2 ? (float) index1 * (vec2_2.x / (float) (treeLayer.Count - 1)) : (float) ((double) vec2_2.x / 2.0 - (double) vec2_2.x / 4.0 + (double) index1 * ((double) vec2_2.x / 2.0))) : vec2_2.x / 2f;
         Vec2 p1 = new Vec2(vec2_1.x + num6, vec2_1.y + (float) (num4 * 60));
-        this._box.depth = (Depth) 0.1f;
+        this._box.depth = new Depth(0.1f);
         this._box.frame = 2;
         this._box.alpha = this.alpha;
         this._box.color = color1;
         Graphics.Draw((Sprite) this._box, p1.x, p1.y);
-        this._box.depth = (Depth) 0.2f;
+        this._box.depth = new Depth(0.2f);
         this._box.frame = 1;
         this._box.color = new Color(num5, num5, num5);
         Graphics.Draw((Sprite) this._box, p1.x, p1.y);
         if (unlockData1.icon != -1)
         {
-          this._icons.depth = (Depth) 0.2f;
+          this._icons.depth = new Depth(0.2f);
           this._icons.frame = flag ? unlockData1.icon : 25;
           this._icons.color = new Color(num5, num5, num5);
           this._icons.alpha = this.alpha;
@@ -262,11 +262,11 @@ namespace DuckGame
               color1 = new Color((byte) ((double) color1.r * (double) num7), (byte) ((double) color1.g * (double) num7), (byte) ((double) color1.b * (double) num7));
               float num8 = treeLayer.Count != 1 ? (treeLayer.Count != 2 ? (float) index2 * (vec2_2.x / (float) (treeLayer.Count - 1)) : (float) ((double) vec2_2.x / 2.0 - (double) vec2_2.x / 4.0 + (double) index2 * ((double) vec2_2.x / 2.0))) : vec2_2.x / 2f;
               p1 = new Vec2(vec2_1.x + num8, vec2_1.y + (float) (num4 * 60));
-              Graphics.DrawLine(p1, p1 + new Vec2(0.0f, 30f), color1 * this.alpha, 6f, (Depth) -0.2f);
+              Graphics.DrawLine(p1, p1 + new Vec2(0.0f, 30f), color1 * this.alpha, 6f, new Depth(-0.2f));
               Color color2 = new Color(50, 50, 50);
               if (!unlockData2.ProfileUnlocked(Profiles.active[0]))
               {
-                this._lock.depth = (Depth) 0.5f;
+                this._lock.depth = new Depth(0.5f);
                 this._lock.alpha = this.alpha;
                 Graphics.Draw(this._lock, p1.x, p1.y + 30f);
               }

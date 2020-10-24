@@ -14,7 +14,7 @@ namespace DuckGame
       : base(xpos, ypos)
     {
       this.graphic = new Sprite(this._rebound);
-      this.depth = (Depth) 0.9f;
+      this.depth = new Depth(0.9f);
       this.center = new Vec2(4f, 4f);
     }
 

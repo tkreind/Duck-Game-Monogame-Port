@@ -25,7 +25,7 @@ namespace DuckGame
       this.center = new Vec2(8f, 8f);
       this.collisionSize = new Vec2(12f, 12f);
       this.collisionOffset = new Vec2(-6f, -6f);
-      this.depth = (Depth) -0.6f;
+      this.depth = new Depth(-0.6f);
       this.contains = c;
       this.hugWalls = WallHug.None;
       this._hasContainedItem = false;
@@ -109,7 +109,7 @@ namespace DuckGame
       return (ContextMenu) contextMenu;
     }
 
-    public override void DrawHoverInfo() => Graphics.DrawLine(this.position, this.position + Maths.AngleToVec(Maths.DegToRad(this.direction)) * (this.firePower * 5f), Color.Red, 2f, (Depth) 1f);
+    public override void DrawHoverInfo() => Graphics.DrawLine(this.position, this.position + Maths.AngleToVec(Maths.DegToRad(this.direction)) * (this.firePower * 5f), Color.Red, 2f, new Depth(1f));
 
     public override void Draw()
     {

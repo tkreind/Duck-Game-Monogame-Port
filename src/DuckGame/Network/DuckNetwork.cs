@@ -2153,13 +2153,13 @@ label_11:
         if (flag)
           text += "_";
         Vec2 p1 = new Vec2(14f, num1 + (vec2.y - 32f));
-        Graphics.DrawRect(p1 + new Vec2(-1f, -1f), p1 + new Vec2(DuckNetwork._chatFont.GetWidth(text) + 4f, 20f) + new Vec2(1f, 1f), Color.Black * 0.6f, (Depth) 0.7f, false);
+        Graphics.DrawRect(p1 + new Vec2(-1f, -1f), p1 + new Vec2(DuckNetwork._chatFont.GetWidth(text) + 4f, 20f) + new Vec2(1f, 1f), Color.Black * 0.6f, new Depth(0.7f), false);
         Color color = Color.White;
         Color black = Color.Black;
         if (profile.persona != null)
           color = profile.persona.colorUsable;
-        Graphics.DrawRect(p1, p1 + new Vec2(DuckNetwork._chatFont.GetWidth(text) + 4f, 20f), color * 0.6f, (Depth) 0.8f);
-        DuckNetwork._chatFont.Draw(text, p1 + new Vec2(2f, 2f), black, (Depth) 1f);
+        Graphics.DrawRect(p1, p1 + new Vec2(DuckNetwork._chatFont.GetWidth(text) + 4f, 20f), color * 0.6f, new Depth(0.8f));
+        DuckNetwork._chatFont.Draw(text, p1 + new Vec2(2f, 2f), black, new Depth(1f));
         num1 -= 22f;
       }
       float num3 = 1f;
@@ -2170,7 +2170,7 @@ label_11:
         DuckNetwork._chatFont.scale = new Vec2(2f * chatMessage.scale);
         float num5 = DuckNetwork._chatFont.GetWidth(text) + num4;
         Vec2 p1 = new Vec2((float) (-((15.0 + (double) num5) * (1.0 - (double) chatMessage.slide)) + 14.0), num1 + (vec2.y - 32f));
-        Graphics.DrawRect(p1 + new Vec2(-1f, -1f), p1 + new Vec2(num5 + 4f, 20f) + new Vec2(1f, 1f), Color.Black * 0.6f * chatMessage.alpha, (Depth) 0.7f, false);
+        Graphics.DrawRect(p1 + new Vec2(-1f, -1f), p1 + new Vec2(num5 + 4f, 20f) + new Vec2(1f, 1f), Color.Black * 0.6f * chatMessage.alpha, new Depth(0.7f), false);
         float num6 = (float) (0.300000011920929 + (double) chatMessage.text.Length * 0.00700000021606684);
         if ((double) num6 > 0.5)
           num6 = 0.5f;
@@ -2201,8 +2201,8 @@ label_11:
           color *= 0.85f;
           color.a = byte.MaxValue;
         }
-        Graphics.DrawRect(p1, p1 + new Vec2(num5 + 4f, 20f), color * 0.75f * chatMessage.alpha, (Depth) 0.6f);
-        DuckNetwork._chatFont.Draw(text, p1 + new Vec2(2f + num4, 2f), black * chatMessage.alpha, (Depth) 0.9f);
+        Graphics.DrawRect(p1, p1 + new Vec2(num5 + 4f, 20f), color * 0.75f * chatMessage.alpha, new Depth(0.6f));
+        DuckNetwork._chatFont.Draw(text, p1 + new Vec2(2f + num4, 2f), black * chatMessage.alpha, new Depth(0.9f));
         num1 -= 26f;
         num3 -= 0.01f;
         if (num2 == 0)

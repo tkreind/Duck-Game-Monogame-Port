@@ -475,7 +475,7 @@ namespace DuckGame
             character = BitmapFont._characters[Rando.Int(16, 26)];
           else if (Rando.Int(50) == 1)
             character = BitmapFont._characters[Rando.Int(BitmapFont._characters.Length - 1)];
-          DuckGame.Graphics.DrawString(string.Concat((object) character), new Vec2(4f, 6f), new Color(60, 60, 60, 200), (Depth) 0.9f);
+          DuckGame.Graphics.DrawString(string.Concat((object) character), new Vec2(4f, 6f), new Color(60, 60, 60, 200), new Depth(0.9f));
         }
         else
           Profile._batch.Draw(Profile._eggSymbols.texture, new Vec2(0.0f, 0.0f), new Rectangle?(new Rectangle((float) (num2 * 16), 0.0f, 16f, 16f)), new Color(60, 60, 60, 200), 0.0f, new Vec2(0.0f, 0.0f), 1f, SpriteEffects.None, 0.9f);

@@ -125,13 +125,13 @@ namespace DuckGame
     {
       if ((double) this.alpha < 0.00999999977648258)
         return;
-      Graphics.DrawRect(new Vec2(26f, 22f), new Vec2(Layer.HUD.width - 105f, Layer.HUD.height - 51f), new Color(20, 20, 20) * this.alpha * 0.7f, (Depth) -0.9f);
+      Graphics.DrawRect(new Vec2(26f, 22f), new Vec2(Layer.HUD.width - 105f, Layer.HUD.height - 51f), new Color(20, 20, 20) * this.alpha * 0.7f, new Depth(-0.9f));
       Vec2 p1 = new Vec2(20f, 8f);
       Vec2 vec2 = new Vec2(226f, 11f);
-      Graphics.DrawRect(p1, p1 + vec2, Color.Black, (Depth) 0.96f);
+      Graphics.DrawRect(p1, p1 + vec2, Color.Black, new Depth(0.96f));
       string text = "what a name";
-      Graphics.DrawString(text, p1 + new Vec2((float) (((double) vec2.x - 27.0) / 2.0 - (double) Graphics.GetStringWidth(text) / 2.0), 2f), new Color(163, 206, 39) * this.alpha, (Depth) 0.97f);
-      this._tail.depth = (Depth) 0.5f;
+      Graphics.DrawString(text, p1 + new Vec2((float) (((double) vec2.x - 27.0) / 2.0 - (double) Graphics.GetStringWidth(text) / 2.0), 2f), new Color(163, 206, 39) * this.alpha, new Depth(0.97f));
+      this._tail.depth = new Depth(0.5f);
       this._tail.alpha = this.alpha;
       this._tail.flipH = false;
       this._tail.flipV = false;

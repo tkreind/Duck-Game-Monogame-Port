@@ -20,7 +20,7 @@ namespace DuckGame
       this.hSpeed = 0.0f;
       this.vSpeed = 0.0f;
       this._bounceEfficiency = 0.0f;
-      this.depth = (Depth) 0.9f;
+      this.depth = new Depth(0.9f);
       this._life = 5f;
     }
 

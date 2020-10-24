@@ -376,7 +376,7 @@ namespace DuckGame
     public void DrawThings(bool drawBack = false)
     {
       if (drawBack)
-        Graphics.DrawRect(new Vec2(0.0f, 0.0f), new Vec2(Layer.HUD.camera.width, Layer.HUD.camera.height), Color.Black, (Depth) -0.8f);
+        Graphics.DrawRect(new Vec2(0.0f, 0.0f), new Vec2(Layer.HUD.camera.width, Layer.HUD.camera.height), Color.Black, new Depth(-0.8f));
       foreach (LSItem lsItem in this._items)
       {
         if (lsItem.visible)
@@ -386,7 +386,7 @@ namespace DuckGame
       if (this._previewSprite != null)
       {
         this._previewSprite.scale = new Vec2(0.125f, 0.125f);
-        this._previewSprite.depth = (Depth) 0.9f;
+        this._previewSprite.depth = new Depth(0.9f);
         Graphics.Draw(this._previewSprite, 150f, 45f);
       }
       this._font.depth = depth;

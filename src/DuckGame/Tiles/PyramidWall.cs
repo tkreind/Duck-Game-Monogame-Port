@@ -20,25 +20,25 @@ namespace DuckGame
       this._corner = new Sprite("pyWallCorner");
       this._corner2 = new Sprite("pyWallCorner2");
       this.physicsMaterial = PhysicsMaterial.Metal;
-      this.depth = (Depth) -0.9f;
+      this.depth = new Depth(-0.9f);
     }
 
     public override void Initialize() => base.Initialize();
 
     public override void Draw()
     {
-      this.graphic.depth = (Depth) -0.8f;
+      this.graphic.depth = new Depth(-0.8f);
       Graphics.Draw(this.graphic, this.x - 8f, this.y - 8f, new Rectangle(0.0f, 0.0f, 208f, 8f));
-      this.graphic.depth = (Depth) -0.85f;
+      this.graphic.depth = new Depth(-0.85f);
       Graphics.Draw(this.graphic, this.x, this.y + 144f, new Rectangle(8f, 152f, 192f, 8f));
-      this.graphic.depth = (Depth) -0.86f;
+      this.graphic.depth = new Depth(-0.86f);
       Graphics.Draw(this.graphic, this.x + 192f, this.y, new Rectangle(200f, 8f, 8f, 144f));
       Graphics.Draw(this.graphic, this.x - 8f, this.y - 8f, new Rectangle(0.0f, 0.0f, 8f, 152f));
-      this._corner.depth = (Depth) -0.9f;
+      this._corner.depth = new Depth(-0.9f);
       Graphics.Draw(this._corner, this.x - 8f, this.y + 144f);
-      this._corner2.depth = (Depth) -0.9f;
+      this._corner2.depth = new Depth(-0.9f);
       Graphics.Draw(this._corner2, this.x + 192f, this.y + 144f);
-      this.graphic.depth = (Depth) -0.7f;
+      this.graphic.depth = new Depth(-0.7f);
       Graphics.Draw(this.graphic, this.x, this.y, new Rectangle(8f, 8f, 192f, 144f));
     }
   }

@@ -48,7 +48,7 @@ namespace DuckGame
     {
       double num = (double) this.z / 200.0;
       float size = this._size;
-      Graphics.DrawRect(this.position + new Vec2(-size, -size), this.position + new Vec2(size, size), Color.White * this.alpha, (Depth) 0.1f);
+      Graphics.DrawRect(this.position + new Vec2(-size, -size), this.position + new Vec2(size, size), Color.White * this.alpha, new Depth(0.1f));
     }
   }
 }

@@ -38,7 +38,13 @@ namespace DuckGame
 
     private static void DoMain(string[] args)
     {
-      Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
+            // TODO: figure out steam
+            MonoMain.disableSteam = true;
+
+
+
+
+            Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
       for (int index = 0; index < args.Length; ++index)
       {
         Program.commandLine += args[index];

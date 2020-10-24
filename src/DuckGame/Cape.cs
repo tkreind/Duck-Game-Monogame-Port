@@ -37,7 +37,7 @@ namespace DuckGame
       this.visible = attach.visible;
       this.killTimer = this.killTime;
       this._attach = attach;
-      this.depth = (Depth) -0.5f;
+      this.depth = (Depth) (-0.5f);
       this._trail = trail;
     }
 

@@ -1,10 +1,13 @@
 ﻿<Properties StartupConfiguration="{727383E8-6A45-4C49-9303-26E00D0B10FB}|Default">
   <MonoDevelop.Ide.ItemProperties.DuckGameDecompiled PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DuckGameDecompiled.csproj.old">
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/MonoTime/Console/GraphicsDeviceControl.cs">
     <Files>
       <File FileName="AssemblyInfo.cs" Line="11" Column="36" />
-      <File FileName="../../../../Library/Frameworks/Mono.framework/Versions/6.12.0/lib/mono/msbuild/Current/bin/Microsoft.Common.CurrentVersion.targets" />
-      <File FileName="DuckGameDecompiled.csproj.old" Line="1" Column="1" />
+      <File FileName="../../../../Library/Frameworks/Mono.framework/Versions/6.12.0/lib/mono/msbuild/Current/bin/Microsoft.Common.CurrentVersion.targets" Line="2101" Column="5" />
+      <File FileName="DuckGameDecompiled.csproj.old" Line="16" Column="2" />
+      <File FileName="src/DuckGame/Cape.cs" Line="40" Column="35" />
+      <File FileName="src/MonoTime/Console/GraphicsDeviceControl.cs" Line="10" Column="21" />
+      <File FileName="src/MonoTime/Console/GraphicsDeviceService.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,10 +17,17 @@
               <Node name="Dependencies" expanded="True">
                 <Node name="AssemblyDependencies" expanded="True" />
                 <Node name="FrameworkReferences" expanded="True" />
+                <Node name="PackageDependencies" expanded="True" />
               </Node>
               <Node name="Properties" expanded="True" />
-              <Node name="src" expanded="True" />
-              <Node name="DuckGameDecompiled.csproj.old" selected="True" />
+              <Node name="src" expanded="True">
+                <Node name="DuckGame" expanded="True" />
+                <Node name="MonoTime" expanded="True">
+                  <Node name="Console" expanded="True">
+                    <Node name="GraphicsDeviceControl.cs" selected="True" />
+                  </Node>
+                </Node>
+              </Node>
             </Node>
           </Node>
         </State>

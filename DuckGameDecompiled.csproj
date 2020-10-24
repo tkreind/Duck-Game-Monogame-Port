@@ -6,13 +6,13 @@
     <ApplicationVersion>1.0.7567.18440</ApplicationVersion>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DInput">
       <HintPath>lib\DInput.dll</HintPath>
     </Reference>
     <PackageReference Include="System.Resources.Extensions" Version="4.6.0" />
-    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
     <Reference Include="Microsoft.Xna.Framework" />
     <Reference Include="Microsoft.Xna.Framework.Game" />
     <Reference Include="Microsoft.Xna.Framework.GamerServices" />
